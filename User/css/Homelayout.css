@@ -1,0 +1,348 @@
+@charset 'UTF-8';
+
+
+body{
+	background-color: #ffffff;
+	text-align:center; 
+}
+
+.header{
+	background-color: #5cb5be;
+}
+
+.navbar{
+	font-size: 15px;
+	font-family: "Open Sans",san-serif;
+	text-decoration: none;
+	text-transform: uppercase;
+	position: relative;
+	line-height: 30px;
+	font-weight: 800;
+	padding:  10px 15px ;
+	margin:0;
+	border:0;
+	letter-spacing: 2px;
+
+}
+/*---------horizontal line--------------*/
+.hr1{
+	width: 80%;
+	margin-left: 10%;
+	margin-right: 10%;
+	
+}
+.hr2{
+	margin-left: 20%;
+	margin-right: 20%;
+}
+
+
+/*-----------------button---------------*/
+.list1 {
+	position: relative;
+	list-style: none;
+	overflow: hidden;
+	padding: 0;
+	margin: 0;
+}
+
+
+.list1 a{
+	
+    width: 6em;
+    text-decoration: none;
+    color: white;
+    padding: 10px 15px
+    right: 10px solid white;
+}
+.list1 li {
+	position: relative;
+	list-style: none;
+	overflow: hidden;
+	margin-bottom: 15px;
+	margin-right: 50px;
+	margin-left: 10px;
+	display: inline;
+}
+.list1 li .btn2 {
+	position: relative;
+	display: inline-block;
+	border: none;
+	border-radius: 0;
+	box-sizing: border-box;
+	padding: 0;
+	z-index: 10;
+	line-height: 0;
+	padding-left: 55px;
+	overflow: hidden;
+	background: #318e98;
+	-webkit-transition: all 0.25s ease;
+	transition: all 0.25s ease;
+	width: 20%;
+}
+.list1 li .btn2 span {
+	text-transform: uppercase;
+	position: relative;
+	display: block;
+	float: left;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 12px;
+	line-height: 18px;
+	font-weight: 800;
+	letter-spacing: 2px;
+	padding: 18px 0 19px 18px;
+	-webkit-transition: all 0.25s ease;
+	transition: all 0.25s ease;
+}
+.list1 li .btn2 strong {
+	top: 0;
+	left: 0;
+	padding: 0;
+	position: absolute;
+	background: #18808b;
+	-webkit-transition: all 0.25s ease;
+	transition: all 0.25s ease;
+}
+.list1 li .btn2 strong img {
+	position: relative;
+	width: 55px;
+	height: 55px;
+	top: 0;
+	left: 0;
+}
+.list1 li .btn2:hover {
+	background: #FFF;
+	-webkit-transition: all 0.25s ease;
+	transition: all 0.25s ease;
+}
+.list1 li .btn2:hover span {
+	color: #318e98;
+	-webkit-transition: all 0.25s ease;
+	transition: all 0.25s ease;
+}
+
+.title1 strong{
+	text-transform: uppercase;
+	position: relative;
+	display: block;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 30px;
+	line-height: 34px;
+	font-weight: 400;
+	letter-spacing: 6px;
+	color: #ffffff;
+	margin-bottom: 6px;
+}
+.title1 span {
+	text-transform: uppercase;
+	position: relative;
+	display: block;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 18px;
+	line-height: 24px;
+	font-weight: 400;
+	letter-spacing: 3px;
+	word-spacing: 3px;
+	color: #ffffff;
+}
+
+/*------------------------Carousel---------------------*/
+.owldiv {
+	width: auto;
+	
+
+}
+.owlbox {
+	position: relative;
+	margin-top: -59px;
+	margin-left:- 30px;
+	
+}
+#owl-demo .item {
+	margin-left: 30px;
+	padding:0px;
+	color: #FFF;
+	
+}
+.owl-wrapper-outer{
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+}
+.owl-carousel.owl-theme{
+	width:1200px;
+	height: 374px;
+}
+
+
+
+
+/*---------item------------*/
+.item a {
+	position: relative;
+	overflow: hidden;
+	display: inline-block;
+	padding: 10px 15px
+    right: 10px solid white;
+
+}
+
+.box1 figure {
+	width: 100%;
+
+}
+.box1 figure img {
+	width: 100%;
+
+	
+}
+.info2 {
+	position: relative;
+	overflow: hidden;
+	display: inline-block;
+	padding: 11px 0 0 0;
+}
+.box1 .title2 {
+	text-transform: uppercase;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 18px;
+	line-height: 24px;
+	font-weight: 800;
+	display: block;
+	color: #ffffff;
+	background: #318e98;
+	text-decoration: none;
+	text-align: center;
+	padding: 16px 0 19px;
+	width: 100%;
+	-webkit-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+}
+.box1 .title2 em {
+	top: -100px;
+	position: absolute;
+	width: 100%;
+	text-transform: uppercase;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 18px;
+	line-height: 24px;
+	font-weight: 800;
+	font-style: normal;
+	display: block;
+	color: #ffffff;
+	background: #c11030;
+	text-decoration: none;
+	text-align: center;
+	padding: 16px 0 19px;
+	-webkit-transition: all 0.32s ease;
+	transition: all 0.32s ease;
+}
+.box1 .title3 strong {
+	font-family: 'Trebuchet MS', sans-serif;
+	font-size: 13px;
+	line-height: 22px;
+	font-weight: bold;
+	display: block;
+	color: #c11030;
+	text-decoration: none;
+	-webkit-transition: all 0.32s ease;
+	transition: all 0.32s ease;
+}
+.box1 .title3 span {
+	text-transform: uppercase;
+	font-family: 'Trebuchet MS', sans-serif;
+	font-size: 13px;
+	line-height: 22px;
+	font-weight: 400;
+	display: block;
+	color: #4caeb8;
+	text-decoration: none;
+	-webkit-transition: all 0.32s ease;
+	transition: all 0.32s ease;
+}
+.box1 .title4 strong {
+	letter-spacing: 1px;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 18px;
+	line-height: 22px;
+	font-weight: 800;
+	color: #c11030;
+	text-decoration: none;
+	-webkit-transition: all 0.32s ease;
+	transition: all 0.32s ease;
+}
+.box1 .title4 span {
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 12px;
+	line-height: 22px;
+	font-weight: 800;
+	color: #c11030;
+	text-decoration: none;
+	-webkit-transition: all 0.32s ease;
+	transition: all 0.32s ease;
+}
+.box1 .title5 {
+	position: relative;
+	text-transform: uppercase;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 12px;
+	line-height: 24px;
+	font-weight: 800;
+	display: block;
+	color: #ffffff;
+	letter-spacing: 2px;
+	background: #318e98;
+	text-decoration: none;
+	text-align: center;
+	margin-top: 15px;
+	padding: 11px 0 10px;
+	width: 100%;
+	-webkit-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+}
+.box1 .title5 em {
+	bottom: -100px;
+	position: absolute;
+	text-transform: uppercase;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 12px;
+	line-height: 24px;
+	font-weight: 800;
+	font-style: normal;
+	display: block;
+	color: #ffffff;
+	letter-spacing: 2px;
+	background: #c11030;
+	text-decoration: none;
+	text-align: center;
+	padding: 11px 0 10px;
+	width: 100%;
+	-webkit-transition: all 0.32s ease;
+	transition: all 0.32s ease;
+}
+/*-----------hover item------------*/
+.item a:hover {
+	text-decoration: none;
+}
+.item a:hover .title2 {
+	color: #318e98;
+	-webkit-transition: all 0.18s ease;
+	transition: all 0.18s ease;
+}
+.item a:hover .title2 em {
+	top: 0;
+	-webkit-transition: all 0.32s ease;
+	transition: all 0.32s ease;
+}
+.item a:hover .title5 {
+	color: #318e98;
+	-webkit-transition: all 0.18s ease;
+	transition: all 0.18s ease;
+}
+.item a:hover .title5 em {
+	bottom: 0;
+	-webkit-transition: all 0.32s ease;
+	transition: all 0.32s ease;
+}
