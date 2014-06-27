@@ -3,9 +3,20 @@
 	<head>
 		<meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>SITE NAME</title>
+        <link rel="stylesheet" type="text/css" href="bs/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/layout.css">
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.css" /> 
+      	<script type="text/javascript" src="http://code.jquery.com/jquery-1.5.2.min.js"></script> 
+      	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.js"></script>
+		<title>Dashboard</title>
 	</head>
 	<body>
-		
+		<div class="header">
+			<script>
+				window.onload = function() {
+					$('.header').load('layout/header.html')
+				}
+			</script>
+		</div> 
 	</body>
 </html>
