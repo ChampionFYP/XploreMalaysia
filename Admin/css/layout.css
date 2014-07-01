@@ -1,3 +1,57 @@
-.header{
-	
+.box {
+	margin-bottom: 15px;
+	background: #fff;
+}
+
+.box > .heading {
+	height: 43px;
+	padding-left: 7px;
+	padding-right: 7px;
+	border: 0px solid #eee;
+	background:#4c66a4 repeat-x; 
+	border-radius: 5px 5px 5px 5px;
+	margin: 10px 8px 2px;
+}
+
+.box > .heading h1 {
+	margin: 0px;
+	padding: 11px 0px 0px 0px;
+	color: #222;
+	color:#fff;
+	float: left;
+	font-size:15px;
+	font-weight:normal;
+}
+
+.dash-heading {	
+	background: #137fde;
+	color: #fff;
+	border-bottom: 0px solid #8EAEC3;
+	padding: 10px;
+	padding-left:15px;
+	font-size: 14px;
+	font-weight: normal;
+	border-radius: 5px 5px 0px 0px;
+	margin: 0px 8px;
+}
+.dash-content {
+	background: #FCFCFC;
+	border: 1px solid #137fde;
+	padding: 10px;
+	min-height: 180px;
+	margin: 0px 8px;
+}
+
+#dash_notification>.dash-content>div{
+	text-align: left!important;
+	padding: 7px 0px 8px 60px!important;
+	background-color: #ffffcc!important;
+	border: 1px solid #F2DD8C!important;
+	margin-bottom:5px!important;
+	color:#555!important;
+	-webkit-border-radius: 5px 5px 5px 5px!important;
+	-moz-border-radius: 5px 5px 5px 5px!important;
+	-khtml-border-radius: 5px 5px 5px 5px!important;
+	border-radius: 5px 5px 5px 5px!important;
+	cursor:pointer!important;
 }

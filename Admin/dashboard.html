@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--CSS-->
+        <link rel="stylesheet" type="text/css" href="bs/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="fa/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="css/layout.css">
+        <link rel="stylesheet" type="text/css" href="css/navbar.css">
+        <link rel="stylesheet" type="text/css" href="css/sidebar.css"> 
+        <!--JS-->
+      	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script> 
+		
+		<script type="text/javascript">
+				$(document).ready(function(){
+					$('#navbar').load('layout/navbar.html');
+					$('#sidebar').load('layout/sidebar.html');
+				});
+		</script>
+
+		<title>Dashboard</title>
+	</head>
+	<body>
+	<div class="fluid-container">
+		<div class="row">
+		<div class="col-sm-12 col-md-12">
+			<div id="navbar"></div>
+		</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12 col-md-2">
+			<div id="sidebar"></div>
+			</div>
+			<div class="col-sm-12 col-md-10">
+					<div class="box">
+						<div class="heading">
+							<h1>Dashboard</h1>
+						</div>
+						<div style="padding-top:15px;">
+							<div id="dash-notification" style="margin-bottom:20px;">
+								<div class="dash-heading">Notification</div>
+								<div class="dash-content">
+									Testing
+								</div>
+							</div>
+						</div>
+					</div><!--box-->
+				</div>
+			</div>
+		</div><!--container-->
+	</body>
+</html>
