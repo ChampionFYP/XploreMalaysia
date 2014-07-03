@@ -7,7 +7,6 @@
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
         <link rel="stylesheet" type="text/css" href="css/layout.css">
-        <link rel="stylesheet" type="text/css" href="css/dashboard.css">
         <!--JS-->
       	<script type="text/javascript" src="js/jquery.js"></script>
       	<script type="text/javascript" src="js/bootstrap.js"></script>
@@ -18,8 +17,7 @@
 					$('#sidebar').load('layout/sidebar.html');
 				});
 		</script>
-
-		<title>Dashboard</title>
+		<title>Accommodation</title>
 	</head>
 	<body>
 	<div class="fluid-container">
@@ -30,17 +28,37 @@
 			</div>
 			<div class="box col-sm-12 col-md-10 pull-right">
 				<div class="heading">
-					<h1>Dashboard</h1>
+					<h1>Accommodation</h1>
+					<div class="btn btn-default">Add</div>
+					<div class="btn btn-default">Update</div>
+					<div class="btn btn-default">Delete</div>
 				</div>
-				<div style="padding-top:15px;">
-					<div id="dash-notification" style="margin-bottom:20px;">
-						<div class="dash-heading">Notification</div>
-						<div class="dash-content">
-							Testing
-						</div>
-					</div>
+				<div>
+      				<form>
+						<table class="list" id="list">
+      				    <thead>
+      				      <tr>
+      				      <td width="1" style="text-align: center;"><input type="checkbox"/></td>
+							<td class="center" style="width:10%">Image</td>
+							<td class="left" width=250 >Accommodation ID </td>
+      				      <td class="left">Category</td>
+							<td class="center">Address</td>
+							<td class="center">Phone</td>
+							<td class="center">Status</td>
+      				      </tr>
+      				    </thead>	    
+						<tbody>
+      				 <tr>
+      				        <td class="center" colspan="6">No results!</td>
+      				  </tr>
+      				  </tbody>
+      				  </table>
+      				</form>
+      					<div class="pagination" style="float:right;">
+      						<div class="results">Showing 0 to 0 of 0 (0 Pages)</div>
+      					</div>
+      				</div>
 				</div>
-			</div> <!--box-->
 		</div> <!--row-->
 		</div> <!--fluid-container-->
 	</body>

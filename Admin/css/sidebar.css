@@ -11,9 +11,9 @@
 
 /*Vertical Navigation*/
 .cl-sidebar {
-  background: #438eb9;
+  background: #f8f8f8;
   position: absolute;
-  width: 216px;
+  width: 232px;
   z-index: 2;
 }
 .cl-sidebar .cl-toggle {
@@ -24,28 +24,79 @@
 }
 .cl-sidebar .cl-toggle i {
   font-size: 24px;
-  color: #C9D4F6;
+  color: #2b7dbc;
 }
 .cl-vnavigation {
   margin: 0 0 0 0;
   padding: 0;
-  border-top: 1px solid #1a1c20;
-  border-bottom: 1px solid #2f323a;
+  border-top: 1px solid #c8d8e2;
+  border-bottom: 1px solid #c8d8e2;
 }
 .cl-vnavigation .parent a {
   background: url("../images/arrow.png") no-repeat scroll right 14px top 18px transparent;
 }
 .cl-vnavigation li a {
-  border-top: 1px solid #32353e;
-  border-bottom: 1px solid #1a1c20;
+  border-top: 1px solid #c8d8e2;
+  border-bottom: 1px solid #c8d8e2;
   display: block;
   padding: 14px 18px 13px 15px;
-  color: #fff;
-  font-size: 12px;
-  font-weight: 300;
-  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3);
-  white-space: nowrap;
+  color: #585858;
+  font-size: 13px;
+  list-style-image: none;
+  text-decoration:none;
+  font-family:"Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif
 }
 .cl-vnavigation li a:hover {
-  background-color: #579ec8;
+  background-color: #fff;
+}
+
+/*Nano-Scroller*/
+/** initial setup **/
+.nano {
+  position : relative;
+  width    : 100%;
+  height   : 100%;
+  overflow : hidden;
+}
+.nano .content {
+  position      : absolute;
+  overflow      : scroll;
+  overflow-x    : hidden;
+  top           : 0;
+  right         : 0;
+  bottom        : 0;
+  left          : 0;
+}
+.nano .content:focus {
+  outline: thin dotted;
+}
+.nano .content::-webkit-scrollbar {
+  visibility: hidden;
+}
+.has-scrollbar .content::-webkit-scrollbar {
+  visibility: visible;
+}
+.nano > .pane {
+  background : rgba(0,0,0,.10);
+  position   : absolute;
+  width      : 7px;
+  right      : 0;
+  top        : 0;
+  bottom     : 0;
+  visibility : hidden\9; /* Target only IE7 and IE8 with this hack */
+  opacity    : .01; 
+  -webkit-transition    : .2s;
+  -moz-transition       : .2s;
+  -o-transition         : .2s;
+  transition            : .2s;
+}
+.nano > .pane > .slider {
+  background: #444;
+  background: rgba(0,0,0,.25);
+  position              : relative;
+  margin                : 0 1px;
+}
+.nano:hover > .pane, .pane.active, .pane.flashed {
+  visibility : visible\9; /* Target only IE7 and IE8 with this hack */
+  opacity    : 0.99;
 }

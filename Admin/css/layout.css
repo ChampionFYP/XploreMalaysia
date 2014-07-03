@@ -1,19 +1,17 @@
 .box {
 	margin-bottom: 15px;
-	background: #fff;
+	background:#fff;
 }
 
-.box > .heading {
+.heading {
 	height: 43px;
 	padding-left: 7px;
 	padding-right: 7px;
 	border: 0px solid #eee;
-	background:#4c66a4 repeat-x; 
-	border-radius: 5px 5px 5px 5px;
-	margin: 10px 8px 2px;
+	background:#34478C repeat-x;
 }
 
-.box > .heading h1 {
+.heading h1 {
 	margin: 0px;
 	padding: 11px 0px 0px 0px;
 	color: #222;
@@ -23,35 +21,143 @@
 	font-weight:normal;
 }
 
-.dash-heading {	
-	background: #137fde;
-	color: #fff;
-	border-bottom: 0px solid #8EAEC3;
-	padding: 10px;
-	padding-left:15px;
-	font-size: 14px;
-	font-weight: normal;
-	border-radius: 5px 5px 0px 0px;
-	margin: 0px 8px;
-}
-.dash-content {
-	background: #FCFCFC;
-	border: 1px solid #137fde;
-	padding: 10px;
-	min-height: 180px;
-	margin: 0px 8px;
+.heading .btn {
+	float: right;
+	padding-top: 10px;
+	margin-right: 5px;
 }
 
-#dash_notification>.dash-content>div{
-	text-align: left!important;
-	padding: 7px 0px 8px 60px!important;
-	background-color: #ffffcc!important;
-	border: 1px solid #F2DD8C!important;
-	margin-bottom:5px!important;
-	color:#555!important;
-	-webkit-border-radius: 5px 5px 5px 5px!important;
-	-moz-border-radius: 5px 5px 5px 5px!important;
-	-khtml-border-radius: 5px 5px 5px 5px!important;
-	border-radius: 5px 5px 5px 5px!important;
-	cursor:pointer!important;
+.heading h1 img {
+	float: left;
+	margin-top: -1px;
+	margin-left: 3px;
+	margin-right: 8px;
 }
+.heading .buttons {
+	float: right;
+	padding-top: 7px;
+	margin-right: 5px;
+}
+.heading .buttons .button {
+	margin-left: 5px;
+	text-decoration: none;
+	display: inline-block;
+	padding: 5px 15px 5px 15px;
+	-webkit-border-radius: 5px 5px 5px 5px;
+	-moz-border-radius: 5px 5px 5px 5px;
+	-khtml-border-radius: 5px 5px 5px 5px;
+	border-radius: 5px 5px 5px 5px;
+	box-shadow: 0px 1px 0px #fff inset;
+	color: #333;
+	text-shadow: 0px 1px 0px rgb(255, 255, 255);
+	background-color: rgb(239, 239, 239);
+	background-image: linear-gradient(to bottom, rgb(244, 244, 244), rgb(204, 204, 204));
+	background-repeat: repeat-x;
+	border: 1px solid #555;
+	
+}
+
+.content {
+	padding:20px 0px 20px 0px;
+	border:0px;
+	min-height: 300px;
+	overflow: auto;
+}
+
+.content h2 { 
+	text-transform: uppercase;
+	color: #FF802B;
+	font-size: 15px;
+	font-weight: bold;
+	padding-bottom: 3px;
+	border-bottom: 1px dotted #000000;	
+}
+
+
+
+.list {
+	border-collapse: collapse;
+	width: 100%;
+	border-top: 0px solid #DDDDDD;
+	border-left: 0px solid #DDDDDD;
+	border-right: 0px solid #DDDDDD;
+	border-bottom: 0px solid #DDDDDD!important;
+	margin-bottom: 30px;
+}
+
+.list td {
+	border-right: 0px solid #eee;
+	border-bottom: 1px solid #eee;
+	/*border:none;*/
+}
+
+.list thead tr{
+	-webkit-border-radius: 5px 5px 5px 5px;
+	-moz-border-radius: 5px 5px 5px 5px;
+	-khtml-border-radius: 5px 5px 5px 5px;
+	border-radius: 5px 5px 5px 5px;
+	background-color: #EFEFEF;
+}
+
+.list thead td {
+	padding: 10px 5px;
+}
+
+.list thead td a, .list thead td {
+	text-decoration: none;
+	color: #222222;
+	font-weight: 700;
+	font-size:13px;
+}
+
+.list tbody td a {
+	text-decoration: underline;
+}
+
+.list tbody td {
+	vertical-align: middle;
+	padding: 0px 5px;
+	background: #FFFFFF;
+}
+
+/*.list tbody tr:nth-child(2n+2) td{ background:#f7f7f7;} make each column list color changed.*/
+
+.list tbody  tr:hover td {
+	background:#fdfad9;
+}
+
+.list tbody:hover tr{
+	border-bottom:#eeeeee;
+}
+
+.list .left {
+	text-align: left;
+	padding: 7px;
+}
+.list .right {
+	text-align: right;
+	padding: 7px;
+}
+.list .center {
+	text-align: center;
+	padding: 7px;
+}
+.list .asc {
+	padding-right: 15px;
+	background: url('../image/asc.png') right center no-repeat;
+}
+.list .desc {
+	padding-right: 15px;
+	background: url('../image/desc.png') right center no-repeat;
+}
+.list tr.filter td, .list tr:hover.filter td {
+	padding: 5px;
+	background: #cef1ef!important;
+}
+
+.results {
+	float: right;
+	padding-top: 6px;
+	font-size: 12px;
+}
+
