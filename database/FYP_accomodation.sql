@@ -1,5 +1,5 @@
-CREATE DATABASE  IF NOT EXISTS `FYP` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `FYP`;
+CREATE DATABASE  IF NOT EXISTS `xplorema_FYP` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `xplorema_FYP`;
 -- MySQL dump 10.13  Distrib 5.6.16, for Linux (x86_64)
 --
 -- Host: 127.0.0.1    Database: FYP
