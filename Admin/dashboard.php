@@ -1,4 +1,16 @@
+<?php
+
+/*** begin the session ***/
+session_start();
+
+if(empty($_SESSION['admin_id']))
+{
+    header('Location: '. dirname(__folder__) .'/index.php');
+}
+?>
+
 <!DOCTYPE HTML>
+
 <html>
 	<head>
 		<meta charset="UTF-8">
@@ -36,7 +48,7 @@
 					<div id="dash-notification" style="margin-bottom:20px;">
 						<div class="dash-heading">Notification</div>
 						<div class="dash-content">
-							Testing
+							<?php echo $_SESSION['admin_id'] ?>
 						</div>
 					</div>
 				</div>

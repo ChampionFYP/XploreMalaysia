@@ -92,6 +92,9 @@ else
 
                 /*** tell the user we are logged in ***/
                 $message = 'You are now logged in';
+
+                header('Location: '. dirname(__folder__) .'/dashboard.php');
+
         }
 
 
@@ -103,7 +106,6 @@ else
     }
 }
 ?>
-
 
 
 
