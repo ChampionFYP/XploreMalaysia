@@ -4,14 +4,16 @@
 session_start();
 
 /*** check if the users is already logged in ***/
-if(isset( $_SESSION['admin_id'] ))
+if(isset($_SESSION['admin_id'] ))
 {
-    $message = 'Users is already logged in';
+    // header('Location: '. dirname(__folder__) .'/dashboard.php');
+    session_destroy();
+
 }
-/*** check that both the username, password have been submitted ***/
+
 if(!isset( $_POST['username'], $_POST['password']))
 {
-    $message = 'Please enter a valid username and password';
+    $message = '';
 }
 /*** check the username is the correct length ***/
 elseif (strlen( $_POST['username']) > 20 || strlen($_POST['username']) < 3)
@@ -108,19 +110,19 @@ else
 ?>
 
 
-
+<!DOCTYPE HTML>
 <html>
-	<head>
-		<meta charset="UTF-8">
+    <head>
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" type="text/css" href="bs/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="bs/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="fa/css/font-awesome.min.css">
-		<link rel="stylesheet" type="text/css" href="css/login.css">
+        <link rel="stylesheet" type="text/css" href="css/login.css">
 
         <title>Login</title>
-	</head>
+    </head>
 
-	<body style="background-color:#1D2024;">
+    <body style="background-color:#1D2024;">
         <div id="cl-wrapper" class="login-container">
             <div class="middle-login">
                 <div class="block-flat">
