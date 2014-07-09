@@ -1,3 +1,29 @@
+<?php
+$dbhost = 'localhost';
+$dbuser = 'root';
+$dbpass = '';
+$conn = mysql_connect($dbhost, $dbuser, $dbpass);
+if(! $conn )
+{
+  die('Could not connect: ' . mysql_error());
+}
+
+
+mysql_select_db('FYP');
+
+$sql = 'SELECT * FROM accomodation';
+
+
+$data = mysql_query( $sql, $conn );
+if(! $data )
+{
+  die('Could not get data: ' . mysql_error());
+}
+
+mysql_close($conn);
+?>
+
+
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -48,9 +74,22 @@
       				      </tr>
       				    </thead>	    
 						<tbody>
-      				 <tr>
-      				        <td class="center" colspan="6">No results!</td>
-      				  </tr>
+      				 	<?php 
+							while($row = mysql_fetch_array($data, MYSQL_ASSOC))
+							{ ?>
+							    <tr>
+							    	<td width="1" style="text-align: center;"><input type="checkbox">  <?php  echo $row['accomodation_id']; ?></td>
+							    	<td class="center" style="width:10%">  <?php  echo $row['image_id']; ?></td>
+							    	<td class="left" width=250 >  <?php  echo $row['category']; ?></td>
+							    	<td class="left">  <?php  echo $row['accomodation_address']; ?></td>
+							    	<td class="center">  <?php  echo $row['accomodation_phone']; ?></td>
+							    	<td class="center">  <?php  echo $row['status']; ?></td>
+							    	<td class="center">  <?php  echo $row['accomodation_id']; ?></td>
+							  
+
+
+							    <tr>
+						<?php } ?>
       				  </tbody>
       				  </table>
       				</form>
