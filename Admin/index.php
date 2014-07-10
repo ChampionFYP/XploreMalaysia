@@ -51,13 +51,13 @@ else
     $mysql_hostname = 'localhost';
 
     /*** mysql username ***/
-    $mysql_username = 'root';
+    $mysql_username = 'xplorema';
 
     /*** mysql password ***/
-    $mysql_password = '';
+    $mysql_password = 'FYPchamp1!';
 
     /*** database name ***/
-    $mysql_dbname = 'FYP';
+    $mysql_dbname = 'xplorema_FYP';
 
     try
     {
@@ -104,7 +104,7 @@ else
     catch(Exception $e)
     {
         /*** if we are here, something has gone wrong with the database ***/
-        $message = 'We are unable to process your request. Please try again later"';
+        $message = 'We are unable to process your request. </br><b>Please try again later!</b>';
     }
 }
 ?>
