@@ -52,6 +52,59 @@ if(empty($_SESSION['admin_id']))
 						</div>
 					</div>
 				</div>
+
+	<div class="panel panel-default"  style="margin-left:10px;">
+        <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> <span data-i18n="Table">Table</span></strong></div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>User</th>
+                    <th>Packages</th>
+                    <th>Status</th>
+                    <th>Progress</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td><span class="color-success"></span> Amery Lee</td>
+                    <td>Sabah 4 days 3 nights trips</td>
+                    <td><span class="label label-info">Pending</span></td>
+                    <td><div class="progressbar-xs no-margin progress ng-isolate-scope" value="55"><div class="progress-bar" ng-class="type &amp;&amp; 'progress-bar-' + type" ng-transclude="" style="width: 55%;"></div></div>
+                </td></tr>
+                <tr>
+                    <td>2</td>
+                    <td><span class="color-success"></span> Romayne Carlyn</td>
+                    <td>Sabah 4 days 3 nights trips</td>
+                    <td><span class="label label-primary">Due</span></td>
+                    <td><div class="progressbar-xs no-margin progress ng-isolate-scope" value="34" type="success"><div class="progress-bar progress-bar-success" ng-class="type &amp;&amp; 'progress-bar-' + type" ng-transclude="" style="width: 34%;"></div></div></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td><span class="color-warning"></span> Marybeth Joanna</td>
+                    <td>Sabah 4 days 3 nights trips</td>
+                    <td><span class="label label-success">Due</span></td>
+                    <td><div class="progressbar-xs no-margin progress ng-isolate-scope" value="68" type="info"><div class="progress-bar progress-bar-info" ng-class="type &amp;&amp; 'progress-bar-' + type" ng-transclude="" style="width: 68%;"></div></div></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td><span class="color-info"></span> Jonah Benny</td>
+                    <td>Sabah 4 days 3 nights trips</td>
+                    <td><span class="label label-danger">Paid</span></td>
+                    <td><div class="progressbar-xs no-margin progress ng-isolate-scope" value="77" type="success"><div class="progress-bar progress-bar-warning" ng-class="type &amp;&amp; 'progress-bar-' + type" ng-transclude="" style="width: 100%;"></div></div></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td><span class="color-danger"></span> Daly Royle</td>
+                    <td>Sabah 4 days 3 nights trips</td>
+                    <td><span class="label label-warning">Suspended</span></td>
+                    <td><div class="progressbar-xs no-margin progress ng-isolate-scope" value="77" type="danger"><div class="progress-bar progress-bar-danger" ng-class="type &amp;&amp; 'progress-bar-' + type" ng-transclude="" style="width: 77%;"></div></div></td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
 			</div> <!--box-->
 		</div> <!--row-->
 		</div> <!--fluid-container-->

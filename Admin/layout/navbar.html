@@ -4,6 +4,8 @@
 		<meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         	<link rel="stylesheet" type="text/css" href="css/navbar.css">
+             <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+            <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 	</head>
 	<body>
 		<div class="navbar navbar-default">
@@ -50,12 +52,36 @@
                             </a>
                         </li>
 
+                    
+               
                         <li class="light-blue">
-                            <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+                            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
                                 <span class="user-info">
                                     <small>Logout</small>
                                 </span>
-                        </li
+                                 </a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu3">
+                                <li>
+                                    <a href="#/pages/profile">
+                                        <i class="fa fa-user"></i>
+                                        <span data-i18n="My Profile">My Profile</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#/tasks">
+                                        <i class="fa fa-check"></i>
+                                        <span data-i18n="My Tasks">My Tasks</span>
+                                    </a>
+                                </li>
+                               
+                                <li>
+                                    <a href="#/pages/signin">
+                                        <i class="fa fa-sign-out"></i>
+                                        <span data-i18n="Log Out">Log Out</span>
+                                    </a>
+                                </li>
+                                </ul>
+                        </li>
                     </ul>
                 </div>
             </div> <!--Navbar Container-->
