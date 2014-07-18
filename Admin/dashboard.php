@@ -26,7 +26,7 @@ if(empty($_SESSION['admin_id']))
 		
 		<script type="text/javascript">
 				$(document).ready(function(){
-					$('#navbar').load('layout/navbar.html');
+					$('#navbar').load('layout/navbar.php');
 					$('#sidebar').load('layout/sidebar.html');
 				});
 		</script>

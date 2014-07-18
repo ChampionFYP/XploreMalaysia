@@ -11,28 +11,28 @@
         <div class="menu-space nano nscroller has-scrollbar" style="height: 500px;">
 			<div class="content" style="right:-17px;">
         	    <ul class="cl-vnavigation">
-        	      <li><a href="dashboard.html"><i class="fa fa-home"></i><span>Dashboard</span></a>
+        	      <li><a href="dashboard.php"><i class="fa fa-home"></i><span>Dashboard</span></a>
         	      </li>
         	      <li><a href="#"><i class="fa fa-smile-o"></i><span>Services</span></a>
         	        <ul class="sub-menu">
         	          <li><a href="accommodation.php">Accommodation</a></li>
-        	          <li><a href="transport.html">Transportation</a></li>
-                      <li><a href="Country.html">Country</a></li>
-                      <li><a href="Packages.html">Packages</a></li>
+        	          <li><a href="transport.php">Transportation</a></li>
+                      <li><a href="Country.php">Country</a></li>
+                      <li><a href="Packages.php">Packages</a></li>
         	        </ul>
         	      </li>
         	      <li><a href="#"><i class="fa fa-list-alt"></i><span>Order</span></a>
         	        <ul class="sub-menu">
-        	          <li><a href="Booking.html">Booking</a></li>
-                      <li><a href="Customer.html">Customers</a></li>
-                      <li><a href="Payment.html">Payment</a></li>
+        	          <li><a href="Booking.php">Booking</a></li>
+                      <li><a href="Customer.php">Customers</a></li>
+                      <li><a href="Payment.php">Payment</a></li>
         	        </ul>
         	      </li>
         	      <li><a href="#"><i class="fa fa-table"></i><span>Reports</span></a>
         	        <ul class="sub-menu">
-        	          <li><a href="Order.html">Order</a></li>
-                      <li><a href="ReportPackage.html">Packages</a></li>
-                      <li><a href="ReportCustomer.html">Customer</a></li>
+        	          <li><a href="Order.php">Order</a></li>
+                      <li><a href="ReportPackage.php">Packages</a></li>
+                      <li><a href="ReportCustomer.php">Customer</a></li>
         	        </ul>
         	      </li>              
         	      <li><a href="#"><i class="fa fa-map-marker nav-icon"></i><span>System</span></a>

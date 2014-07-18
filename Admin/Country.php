@@ -1,3 +1,39 @@
+<?php
+$dbhost = 'localhost';
+$dbuser = 'xplorema';
+$dbpass = 'FYPchamp1!';
+
+// $dbhost = 'localhost';
+// $dbuser = 'root';
+// $dbpass = '';
+
+
+$conn = mysql_connect($dbhost, $dbuser, $dbpass);
+if(! $conn )
+{
+  die('Could not connect: ' . mysql_error());
+}
+
+
+mysql_select_db('xplorema_FYP');
+// mysql_select_db('FYP');
+
+$sql = 'SELECT * FROM country';
+
+
+$data = mysql_query( $sql, $conn );
+if(! $data )
+{
+  die('Could not get data: ' . mysql_error());
+}
+
+mysql_close($conn);
+?>
+
+
+
+
+
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -13,8 +49,8 @@
 		
 		<script type="text/javascript">
 				$(document).ready(function(){
-					$('#navbar').load('layout/navbar.html');
-					$('#sidebar').load('layout/sidebar.html');
+					$('#navbar').load('layout/navbar.php');
+					$('#sidebar').load('layout/sidebar.php');
 				});
 		</script>
 		<title>Country</title>
@@ -47,9 +83,18 @@
       				      </tr>
       				    </thead>	    
 						<tbody>
-      				 <tr>
-      				        <td class="center" colspan="6">No results!</td>
-      				  </tr>
+      				 <?php 
+							while($row = mysql_fetch_array($data, MYSQL_ASSOC))
+							{ ?>
+							    <tr>
+							    	<td width="1" style="text-align: center;"><input type="checkbox"></td>
+							    	<td class="center" style="width:10%">  <?php  echo $row['']; ?></td>
+							    	<td class="left" width=250 >  <?php  echo $row['country_id']; ?></td>
+							    	<td class="left">  <?php  echo $row['country_name']; ?></td>
+							    	<td class="left">  <?php  echo $row['country_region']; ?></td>
+							    	<td class="left">  <?php  echo $row['accomodation_id']; ?></td>
+							    <tr>
+						<?php } ?>
       				  </tbody>
       				  </table>
       				</form>

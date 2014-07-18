@@ -75,7 +75,7 @@
                                 </li>
                                
                                 <li>
-                                    <a href="#/pages/signin">
+                                    <a href="logout.php">
                                         <i class="fa fa-sign-out"></i>
                                         <span data-i18n="Log Out">Log Out</span>
                                     </a>

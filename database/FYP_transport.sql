@@ -1,8 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `xplorema_FYP` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `xplorema_FYP`;
+CREATE DATABASE  IF NOT EXISTS `FYP` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `FYP`;
 -- MySQL dump 10.13  Distrib 5.6.16, for Linux (x86_64)
 --
--- Host: 127.0.0.1    Database: xplorema_FYP
+-- Host: 127.0.0.1    Database: FYP
 -- ------------------------------------------------------
 -- Server version	5.6.16
 
@@ -29,8 +29,9 @@ CREATE TABLE `transport` (
   `description` varchar(200) NOT NULL,
   `type` varchar(45) NOT NULL,
   `created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `status` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`transport_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,6 +40,7 @@ CREATE TABLE `transport` (
 
 LOCK TABLES `transport` WRITE;
 /*!40000 ALTER TABLE `transport` DISABLE KEYS */;
+INSERT INTO `transport` VALUES (1,'k','k','2014-07-15 18:21:04',1);
 /*!40000 ALTER TABLE `transport` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-07-02  0:55:29
+-- Dump completed on 2014-07-18  9:35:10

@@ -1,11 +1,11 @@
 <?php
-// $dbhost = 'localhost';
-// $dbuser = 'xplorema';
-// $dbpass = 'FYPchamp1!';
-
 $dbhost = 'localhost';
-$dbuser = 'root';
-$dbpass = '';
+$dbuser = 'xplorema';
+$dbpass = 'FYPchamp1!';
+
+// $dbhost = 'localhost';
+// $dbuser = 'root';
+// $dbpass = '';
 
 
 $conn = mysql_connect($dbhost, $dbuser, $dbpass);
@@ -16,9 +16,9 @@ if(! $conn )
 
 
 mysql_select_db('xplorema_FYP');
-mysql_select_db('FYP');
+// mysql_select_db('FYP');
 
-$sql = 'SELECT * FROM accomodation';
+$sql = 'SELECT * FROM package';
 
 
 $data = mysql_query( $sql, $conn );
@@ -29,6 +29,10 @@ if(! $data )
 
 mysql_close($conn);
 ?>
+
+
+
+
 
 
 <!DOCTYPE HTML>
@@ -50,7 +54,7 @@ mysql_close($conn);
 					$('#sidebar').load('layout/sidebar.php');
 				});
 		</script>
-		<title>Accommodation</title>
+		<title>Package</title>
 	</head>
 	<body>
 	<div class="fluid-container">
@@ -61,7 +65,7 @@ mysql_close($conn);
 			</div>
 			<div class="box col-sm-12 col-md-10 pull-right">
 				<div class="heading">
-					<h1>Accommodation</h1>
+					<h1>Package</h1>
 					<div class="btn btn-default">Add</div>
 					<div class="btn btn-default">Update</div>
 					<div class="btn btn-default">Delete</div>
@@ -72,11 +76,14 @@ mysql_close($conn);
       				    <thead>
       				      <tr>
       				      <td width="1" style="text-align: center;"><input type="checkbox"/></td>
-							<td class="center" style="width:10%">Image</td>
-							<td class="left" width=250 >Accommodation ID </td>
-      				      <td class="left">Category</td>
-							<td class="center">Address</td>
-							<td class="center">Phone</td>
+							<td class="left" width=250 >Package ID </td>
+      				      <td class="left">Package Name</td>
+							<td class="center">Country</td>
+							<td class="center">Transport</td>
+							<td class="center">Accomodation</td>
+							<td class="center">Admin</td>
+							<td class="center">Price</td>
+							<td class="center">Description</td>
 							<td class="center">Status</td>
       				      </tr>
       				    </thead>	    
@@ -86,12 +93,15 @@ mysql_close($conn);
 							{ ?>
 							    <tr>
 							    	<td width="1" style="text-align: center;"><input type="checkbox"></td>
-							    	<td class="center" style="width:10%">  <?php  echo $row['image_id']; ?></td>
-							    	<td class="left" width=250 >  <?php  echo $row['category']; ?></td>
-							    	<td class="left">  <?php  echo $row['accomodation_address']; ?></td>
-							    	<td class="center">  <?php  echo $row['accomodation_phone']; ?></td>
+							    	<td class="center" style="width:10%">  <?php  echo $row['package_id']; ?></td>
+							    	<td class="left" width=250 >  <?php  echo $row['package_name']; ?></td>
+							    	<td class="left">  <?php  echo $row['country_id']; ?></td>
+							    	<td class="left">  <?php  echo $row['transport_id']; ?></td>
+							    	<td class="left">  <?php  echo $row['accomodation_id']; ?></td>
+							    	<td class="left">  <?php  echo $row['admin_id']; ?></td>
+							    	<td class="center">  <?php  echo $row['package_price']; ?></td>
+							    	<td class="center">  <?php  echo $row['description']; ?></td>
 							    	<td class="center">  <?php  echo $row['status']; ?></td>
-							    	<td class="center">  <?php  echo $row['accomodation_id']; ?></td>
 							    <tr>
 						<?php } ?>
       				  </tbody>

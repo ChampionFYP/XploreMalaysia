@@ -1,8 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `xplorema_FYP` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `xplorema_FYP`;
+CREATE DATABASE  IF NOT EXISTS `FYP` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `FYP`;
 -- MySQL dump 10.13  Distrib 5.6.16, for Linux (x86_64)
 --
--- Host: 127.0.0.1    Database: xplorema_FYP
+-- Host: 127.0.0.1    Database: FYP
 -- ------------------------------------------------------
 -- Server version	5.6.16
 
@@ -61,4 +61,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-07-02  0:55:29
+-- Dump completed on 2014-07-18  9:35:10

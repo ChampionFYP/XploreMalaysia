@@ -13,8 +13,8 @@
 		
 		<script type="text/javascript">
 				$(document).ready(function(){
-					$('#navbar').load('layout/navbar.html');
-					$('#sidebar').load('layout/sidebar.html');
+					$('#navbar').load('layout/navbar.php');
+          $('#sidebar').load('layout/sidebar.php');
 				});
 		</script>
 		<title>Booking</title>
