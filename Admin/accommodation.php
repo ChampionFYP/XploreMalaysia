@@ -15,7 +15,7 @@ if(! $conn )
 }
 
 
-mysql_select_db('xplorema_FYP');
+// mysql_select_db('xplorema_FYP');
 mysql_select_db('FYP');
 
 $sql = 'SELECT * FROM accomodation';

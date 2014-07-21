@@ -1,3 +1,58 @@
+<?php
+$connection = mysql_connect('localhost', 'root', '');
+// $connection = mysql_connect('localhost', 'xplorema', 'FYPchamp1!');
+
+if (!$connection){
+
+    die("Database Connection Failed" . mysql_error());
+
+}
+$select_db = mysql_select_db('FYP');
+// $select_db = mysql_select_db('xplorema_FYP');
+
+if (!$select_db){
+
+    die("Database Selection Failed" . mysql_error());
+
+}
+
+// If the values are posted, insert them into the database.
+    if (isset($_POST['username']) && isset($_POST['password'])){
+        $username = $_POST['username'];
+        $email = $_POST['email'];
+        $ic=$_POST['ic'];
+        $password = $_POST['password'];
+        $phone= $_POST['phone'];
+        $address = $_POST['address'];
+        $city = $_POST['city'];
+        $state = $_POST['state'];
+        $code = $_POST['code'];
+        $gender = "man";
+  
+        $query = "INSERT INTO `customer` (customer_username, customer_password, gender, csutomer_name, customer_ic, customer_email, customer_phone, customer_address) VALUES ('$username', '$password', '1', '$username', '$ic', '$phone', '$email', '$address, $city, $state, $code')";
+
+        $result = mysql_query($query);
+
+        if($result){
+
+            $msg = "User Created Successfully.";
+
+        }
+
+    }
+
+
+?>
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -238,43 +293,32 @@
 <hr class="hr4">
 
 <div  class="formstyle">
-<form  name = "registerfrm" >
+<form style="margin-bottom: 0px !important;" class="form-horizontal" method="post" action="registeration.php">
    
     <fieldset>
      
-        <label>First Name* : </label> <input class="inputbox" type="text" name="cust_Name" id="cust_Name" size="30"  placeholder="First" required="" tabindex="1">
-        
-        
-        <label>Last Name *: </label> <input class="inputbox" type="text" name="cust_Name" id="cust_Name" size="30" placeholder="Last" required="" tabindex="1">
-        
+        <label>Username* : </label> <input class="inputbox" id="username" type="text" name="username" size="30"  placeholder="First" required="" tabindex="1">
+
+        <label>Username* : </label> <input class="inputbox" id="ic" type="text" name="ic" size="30">
+         
         <label>Gender :  </label> <p class="inputbox"><input type="radio" name="gender" value="Male">Male
                          <input type="radio" name="gender" value="Female">Female </p>
 
+        <label>Password : </label> <input class="inputbox" type="password" name="password" id="password" size="30" required="">
+            
+         <label>E-mail* :   </label>     <input class="inputbox" type="email" name="email" id="email" size="40" align="right" required="">
         
-
-        <label>Create Password : </label> <input class="inputbox" type="password" name="Cust_Pword" size="30" required="">
-        
-        
-
-         <label>Confirm Password : </label> <input class="inputbox" type="password" name="Cust_Pword" size="30" required="">
+        <label>Mobile* :   </label>    <input class="inputbox" type="text" name="phone" id="phone" align="right"  required="">
           
         
 
-
-          
-         <label>E-mail* :   </label>     <input class="inputbox" type="email" name="Cust_email" size="40" align="right" required="">
-        
-        <label>Mobile* :   </label>    <input class="inputbox" type="text" name="Cust_Mobile" align="right"  required="">
-          
-        
-
-        <label>Address: </label> <input  class="inputbox" type="text" size="62" name="Cust_adds" required="">
-        <label>City:   </label> <input class="inputbox" type="text" size="30" name="Cust_city" required="">
-        <label>State: </label><input  class="inputbox" type="text" size="30" name="Cust_state" required="">
-        <label>Zipcode:</label> <input class="inputbox" ype="text" size="30" name="Cust_code" required="">
+        <label>Address: </label> <input  class="inputbox" type="text" size="62" name="address" id="address" required="">
+        <label>City:   </label> <input class="inputbox" type="text" size="30" name="city" id="city" required="">
+        <label>State: </label><input  class="inputbox" type="text" size="30" name="state" id="state" required="">
+        <label>Zipcode:</label> <input class="inputbox" ype="text" size="30" name="code" id="code" required="">
     </fieldset>
       
-        <input class="button" type="button" value="Register" name="registerbtn" onclick = "validate();">
+        <button class="button" data-dismiss="modal" type="submit">Signup</button>
  <input class="buttoncancel" type="button" value="Cancel" name="cancelbtn">
       
 </form>
