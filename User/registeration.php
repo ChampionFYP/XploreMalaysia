@@ -17,7 +17,14 @@ if (!$select_db){
 }
 
 // If the values are posted, insert them into the database.
-    if (isset($_POST['username']) && isset($_POST['password'])){
+
+$username = "SELECT customer_username FROM customer WHERE customer_username = :customer_username ";
+$ic= "SELECT customer_ic FROM customer WHERE customer_ic = :customer_ic";
+$email= "SELECT customer_email  FROM customer WHERE customer_email = :customer_email";
+
+if(empty($username) && empty($ic) && empty($email))
+{
+    
         $username = $_POST['username'];
         $email = $_POST['email'];
         $ic=$_POST['ic'];
@@ -27,19 +34,22 @@ if (!$select_db){
         $city = $_POST['city'];
         $state = $_POST['state'];
         $code = $_POST['code'];
-        $gender = "man";
+        $gender = $_POST['gender'];
   
-        $query = "INSERT INTO `customer` (customer_username, customer_password, gender, csutomer_name, customer_ic, customer_email, customer_phone, customer_address) VALUES ('$username', '$password', '1', '$username', '$ic', '$phone', '$email', '$address, $city, $state, $code')";
-
-        $result = mysql_query($query);
-
-        if($result){
-
-            $msg = "User Created Successfully.";
-
-        }
-
-    }
+        $query = "INSERT INTO `customer` (customer_username, customer_password, gender, csutomer_name, customer_ic, customer_email, customer_phone, customer_address) VALUES ('$username', '$password', '$gender', '$username', '$ic', '$phone', '$email', '$address, $city, $state, $code')";
+}
+if(!empty($username))
+{
+  $msg1="Username Exits";
+}
+if(!empty($ic))
+{
+  $msg2="IC Exits";
+}
+if(!empty($email))
+{
+  $msg3="Email Exits";
+}
 
 
 ?>
@@ -293,16 +303,29 @@ if (!$select_db){
 <hr class="hr4">
 
 <div  class="formstyle">
+<div>
+
+</div>
 <form style="margin-bottom: 0px !important;" class="form-horizontal" method="post" action="registeration.php">
    
     <fieldset>
+
+        <?php if(!empty($msg1)) {?>
+        <label style="color:red;">Error: <?php echo $msg1; ?></label>
+        <?php } ?>
+        <?php if(!empty($msg2)) {?>
+        <label style="color:red;">Error: <?php echo $msg2; ?></label>
+        <?php } ?>
+        <?php if(!empty($msg3)) {?>
+        <label style="color:red;">Error: <?php echo $msg3; ?></label>
+        <?php } ?>
      
         <label>Username* : </label> <input class="inputbox" id="username" type="text" name="username" size="30"  placeholder="First" required="" tabindex="1">
 
         <label>Username* : </label> <input class="inputbox" id="ic" type="text" name="ic" size="30">
          
-        <label>Gender :  </label> <p class="inputbox"><input type="radio" name="gender" value="Male">Male
-                         <input type="radio" name="gender" value="Female">Female </p>
+        <label>Gender :  </label> <p class="inputbox"><input type="radio" name="gender" value="1">Male
+                         <input type="radio" name="gender" value="2">Female </p>
 
         <label>Password : </label> <input class="inputbox" type="password" name="password" id="password" size="30" required="">
             

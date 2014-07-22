@@ -1,3 +1,79 @@
+<?php
+/* Set e-mail recipient */
+$myemail  = "kfc1346@hotmail.com";
+
+/* Check all form inputs using check_input function */
+$name = $_POST['name'];
+$type  = $_POST['type'];
+$email    = $_POST['email'];
+$mobile = $_POST['mobile'];
+$comment = $_POST['comment'];
+
+/* If e-mail is not valid show error message */
+if (!preg_match("/([\w\-]+\@[\w\-]+\.[\w\-]+)/", $email))
+{
+    show_error("E-mail address not valid");
+}
+
+/* If URL is not valid set $website to empty */
+
+/* Let's prepare the message for the e-mail */
+$message = "Hello!
+
+Your contact form has been submitted by:
+
+Name: $name
+E-mail: $email
+Type: $type
+Phone: $mobile
+
+Comments:
+$comment
+
+End of message
+";
+
+/* Send the message using mail() function */
+mail($myemail, $subject, $message);
+
+/* Redirect visitor to the thank you page */
+// header('Location: thanks.htm');
+// exit();
+
+/* Functions we used */
+function check_input($data, $problem='')
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    if ($problem && strlen($data) == 0)
+    {
+        show_error($problem);
+    }
+    return $data;
+}
+
+function show_error($myError)
+{
+?>
+    <html>
+    <body>
+
+    <b>Please correct the following error:</b><br />
+    <?php echo $myError; ?>
+
+    </body>
+    </html>
+<?php
+exit();
+}
+?>
+
+
+
+
+
+
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -227,18 +303,18 @@
 <hr class="hr4">
 
 <div  class="formstyle">
-<form  name = "registerfrm" >
+<form name = "registerfrm" method="post" action="ContactUs.php">
     <fieldset>
    
      
-        <label> Name* : </label> <input class="inputbox" type="text" name="cust_Name" id="cust_Name" size="30" required="" tabindex="1">
+        <label> Name* : </label> <input class="inputbox" type="text" name="name" id="name" size="30" required="" tabindex="1">
         
-         <label>E-mail* :   </label>     <input class="inputbox" type="email" name="Cust_email" size="40" align="right" required="">
+         <label>E-mail* :   </label>     <input class="inputbox" type="email" name="email" id="email" size="40" align="right" required="">
         
-        <label>Mobile* :   </label>    <input class="inputbox" type="text" name="Cust_Mobile" align="right"  required="">
+        <label>Mobile* :   </label>    <input class="inputbox" type="text" name="mobile" id="mobile" align="right"  required="">
           
         <label>Subject : </label>
-        <select class="inputbox">
+        <select class="inputbox" name="type" id="type">
         <option value = "blank">
         <option value = "Complain">Complain
         <option value = "Feedback">Feedback
@@ -247,7 +323,7 @@
         <option value = "Others">Others
         </select>
         <label>Message : </label>
-        <textarea  class="inputbox" placeholder = "Please limit your character to 200 characters"/></textarea>
+        <textarea  class="inputbox" name="comment" id="comment" placeholder = "Please limit your character to 200 characters"/></textarea>
 
         
     </fieldset>
