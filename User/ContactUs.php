@@ -1,15 +1,21 @@
 <?php
 /* Set e-mail recipient */
-$myemail  = "kfc1346@hotmail.com";
+$myemail  = 'kfc1346@gmail.com';
 
-/* Check all form inputs using check_input function */
+
+
+if (isset($_POST['name']))    
+{    
 $name = $_POST['name'];
 $type  = $_POST['type'];
 $email    = $_POST['email'];
 $mobile = $_POST['mobile'];
-$comment = $_POST['comment'];
+$comment = $_POST['comment'];   
+
+
 
 /* If e-mail is not valid show error message */
+if(!empty($email))
 if (!preg_match("/([\w\-]+\@[\w\-]+\.[\w\-]+)/", $email))
 {
     show_error("E-mail address not valid");
@@ -34,8 +40,8 @@ End of message
 ";
 
 /* Send the message using mail() function */
-mail($myemail, $subject, $message);
-
+mail($myemail, $type, $message);
+}
 /* Redirect visitor to the thank you page */
 // header('Location: thanks.htm');
 // exit();
@@ -327,8 +333,8 @@ exit();
 
         
     </fieldset>
-      
-        <input class="button" type="button" value="Send" name="Sendbtn" onclick = "href='location.ContactUS1.html;">
+
+        <button class="button" data-dismiss="modal" type="submit">Sent</button>
  
       
 </form>
