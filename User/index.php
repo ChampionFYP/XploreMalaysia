@@ -124,7 +124,7 @@ else
 		<title>Xplore Malaysia</title>
 	</head>
 
-  <body>
+  <body> 
   <div class="header">
   <div class="container">
 
@@ -219,7 +219,7 @@ else
 
   <div id="main_nav">         
  <ul>
-   <li class='active'><a href='index.html'><span>Home</span></a></li>
+   <li class='active'><a href='index.php'><span>Home</span></a></li>
    <li class='has-sub'><a href=#><span>Vacation</span></a>
       <ul>
         <li class='has-sub'><a href='#'><span>West Malaysia</span></a></li>
@@ -227,8 +227,8 @@ else
          
       </ul>
    </li>
-   <li><a href='AboutUs.html'><span>About Us</span></a></li>
-   <li class='last'><a href='ContactUs.html'><span>Contact Us</span></a></li>
+   <li><a href='AboutUs.php'><span>About Us</span></a></li>
+   <li class='last'><a href='ContactUs.php'><span>Contact Us</span></a></li>
    
 </ul>
 </div>
@@ -420,7 +420,7 @@ else
   <div id="footerstripe"><div id="footercap"></div></div>
   <div id="footercontent">
     <div align="center"><p>No 5-1, Block D,Jalan GC7,Glomac Cyberjaya,Jalan Teknokrat 3,63200,Cyberjaya</p><p>Tel:03-4568921 / Fax:03-7569821</p></div>
-    <div id="footernav" align="center" class="footer_Nav"><a href="index.html">Home</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Vacation</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="AboutUs.html">About Us</a>&nbsp;&nbsp;|<a href="ContactUs.html"> Contact Us</a>&nbsp;&nbsp;|&nbsp;&nbsp;<br>Xplore Malaysia &nbsp;&nbsp;</div>
+    <div id="footernav" align="center" class="footer_Nav"><a href="index.php">Home</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Vacation</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="AboutUs.php">About Us</a>&nbsp;&nbsp;|<a href="ContactUs.php"> Contact Us</a>&nbsp;&nbsp;|&nbsp;&nbsp;<br>Xplore Malaysia &nbsp;&nbsp;</div>
   </div>
 </div>
 </div>

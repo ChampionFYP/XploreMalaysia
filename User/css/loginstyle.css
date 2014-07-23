@@ -68,7 +68,7 @@ a.btn_red {color: #FFF;}
 .action_btns a {display: block;}
 
 /* User Login Form */
-.user_login {display: none;}
+.user_login {}
 .user_login label {display: block; margin-bottom:5px; text-align: left;}
 .user_login input[type="text"], .user_login input[type="email"], .user_login input[type="password"] {display: block; width:90%; padding: 10px; border:1px solid #DDD; color:#666;}
 .user_login input[type="checkbox"] {float:left; margin-right:5px;}
