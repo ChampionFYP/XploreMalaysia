@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
     	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-			<link href="../bs/css/bootstrap.min.css" rel="stylesheet">
+			<link href="../css/style.css" rel="stylesheet">
     		<link href="../css/Homelayout.css" rel="stylesheet">
     		<link type="text/css" rel="stylesheet" href="../css/loginstyle.css" />
     	<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>

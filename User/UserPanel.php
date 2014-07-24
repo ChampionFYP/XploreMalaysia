@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link href="bs/css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
     <link href="css/UserPanel.css" rel="stylesheet">
     <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
@@ -29,7 +29,7 @@
                   </div>
                   <div class="bd">
                       <ul class="uc-list">
-                          <li class="current"><a href="#">My Account</a></li>
+                          <li class="current"><a href="UserPanel.php">My Account</a></li>
                       </ul>
                   </div>
             </div>  
@@ -39,7 +39,7 @@
                   </div>
                   <div class="bd">
                       <ul class="uc-list">
-                      <li><a href="#">Successful Bookings</a></li>
+                      <li><a href="SuccessfulBooking.html">Successful Bookings</a></li>
                       <li><a href="#">Canceled Bookings</a></li>
                       </ul>
                   </div>
@@ -66,8 +66,13 @@
                 </tr>
                 <tr>
                   <td class="td_l"></td>
-                  <td class="rel_t"><span class="en-userinfo-field">NickName:</span>&nbsp;（Not set）
+                  <td class="rel_t"><span class="en-userinfo-field">Username:</span>&nbsp;（Not set）
                     <a href="#">Set</a></td>
+                </tr>
+                <tr>
+                  <td class="td_l"></td>
+                  <td><span class="en-userinfo-field">Password: </span>&nbsp;
+                    <a href="#">Edit</a></td>
                 </tr>
                 <tr>
                   <td class="td_l"></td>
@@ -78,11 +83,6 @@
                   <td class="td_l"></td>
                   <td><span class="en-userinfo-field">Phone: </span>&nbsp;（None）
                     <a href="#">Bind </a></td>
-                    </tr>
-                <tr>
-                  <td class="td_l"></td>
-                  <td><span class="en-userinfo-field">Password: </span>&nbsp;
-                    <a href="#">Edit</a></td>
                 </tr>
                </tbody></table>
           </div>

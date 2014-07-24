@@ -1,12 +1,7 @@
 <?php
-// $dbhost = 'localhost';
-// $dbuser = 'xplorema';
-// $dbpass = 'FYPchamp1!';
-
 $dbhost = 'localhost';
-$dbuser = 'root';
-$dbpass = '';
-
+$dbuser = 'xplorema';
+$dbpass = 'FYPchamp1!';
 
 $conn = mysql_connect($dbhost, $dbuser, $dbpass);
 if(! $conn )
