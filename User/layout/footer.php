@@ -3,13 +3,9 @@
 	<head>
 		<meta charset="UTF-8">
     	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-			<link href="../css/style.css" rel="stylesheet">
-    		<link href="../css/Homelayout.css" rel="stylesheet">
-    		<link type="text/css" rel="stylesheet" href="../css/loginstyle.css" />
-    	<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
-    	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-    	<script type="text/javascript" src="../js/jquery-1.11.0.min.js"></script>
-    	<script type="text/javascript" src="../js/jquery.leanModal.min.js"></script>
+			<link href="css/style.css" rel="stylesheet">
+    		<link href="css/Homelayout.css" rel="stylesheet">
+    		<link type="text/css" rel="stylesheet" href="css/loginstyle.css" />
 	</head>
 
   	<footer> 

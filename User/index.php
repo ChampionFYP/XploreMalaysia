@@ -24,7 +24,7 @@
   <body> 
   <div id="header"></div>
   <div style="background-color: #5cb5be; display: block;">
-    <img style="position:absolute; left:0; right:0; margin-top:3px;"src="bghead2.png" >
+    <img style="position:absolute; left:0; right:0; margin-top:3px;"src="img/bghead2.png" >
   </div>
   </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
   
@@ -199,9 +199,9 @@
 </div>
 
 <div class="social">
-  <img href="#" src="img/instagram.png" alt="instagram" >
-  <img href="fb.com/xploremalaysia" src="img/facebook.png" alt="facebook" >
-  <img href="#" src="img/twitter.png" alt="twitter" >
+  <a href="#"><img src="img/instagram.png" alt="instagram"></a>
+  <a href="http://www.fb.com/xploremalaysia" target="_blank"><img src="img/facebook.png" alt="facebook"></a>
+  <a href="#"><img src="img/twitter.png" alt="twitter"></a>
 </div>
 
 <div id ="footer"></div>
