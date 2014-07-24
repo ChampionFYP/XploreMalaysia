@@ -16,21 +16,12 @@ if(!isset( $_POST['email'], $_POST['password']))
     $message = '';
 }
 /*** check the username is the correct length ***/
-elseif (strlen( $_POST['email']) > 20 || strlen($_POST['email']) < 3)
-{
-    $message = 'Incorrect Length for email';
-}
 /*** check the password is the correct length ***/
 elseif (strlen( $_POST['password']) > 20 || strlen($_POST['password']) < 3)
 {
     $message = 'Incorrect Length for Password';
 }
 /*** check the username has only alpha numeric characters ***/
-elseif (ctype_alnum($_POST['email']) != true)
-{
-//     ** if there is no match **
-    $message = "Username must be alpha numeric";
-}
 // ** check the password has only alpha numeric characters **
 elseif (ctype_alnum($_POST['password']) != true)
 {
@@ -95,7 +86,7 @@ else
                 /*** tell the user we are logged in ***/
                 $message = 'You are now logged in';
 
-                // header('Location: '. dirname(__folder__) .'/dashboard.php');
+                header('Location: '. dirname(__folder__) .'/UserPanel.php');
 
         }
 
@@ -156,7 +147,7 @@ else
       <div class="user_login">
         
           <label>Email</label>
-          <input type="text" placeholder="Email" id="email" name="username"/>
+          <input type="text" placeholder="Email" id="email" name="email"/>
           <br />
 
           <label>Password</label>

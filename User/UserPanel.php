@@ -11,8 +11,8 @@
 
     <script type="text/javascript">
         $(document).ready(function(){
-          $('#header').load('layout/header.html');
-          $('#footer').load('layout/footer.html');
+          $('#header').load('layout/header.php');
+          $('#footer').load('layout/footer.php');
         });
     </script>
 	</head>

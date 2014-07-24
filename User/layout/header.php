@@ -1,3 +1,7 @@
+<?php 
+session_start();
+?>
+
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -17,14 +21,20 @@
   <div class="container">
 
     <div class="container">
-    
-        <div id="header_nav" class="header_Nav" align="right">
+    <div id="header_nav" class="header_Nav" align="right">
+    <?php 
+      if(empty($_SESSION['customer_id'] )){
+    ?>
             <a id="modal_trigger" href="#modal" class="btn">Log In</a>
             <a id="modal_trigger" href="registeration.php" class="btn">Sign Up</a>
-        	<!--
+       <?php 
+      }
+       else 
+      {
+      ?> 	
 			<a id="modal_trigger" href="UserPanel.html" class="btn">My Account</a>
-			<a id="modal_trigger" href="" class="btn">Log Out</a>
-        	-->
+			<a id="modal_trigger" href="logout.php" class="btn">Log Out</a>
+       <?php }?> 	
         </div>
 
           <!--Popup Login Box-->
@@ -34,29 +44,30 @@
               <span class="modal_close"><i class="fa fa-times"></i></span>
             </header>
             <section class="popupBody">
+            <form style="margin-bottom: 0px !important;" class="form-horizontal" method="post" action="header.html">
       			<div class="user_login">
-      			  <form>
-      			    <label>Email / Username</label>
-      			    <input type="text" />
-      			    <br />
-			
-      			    <label>Password</label>
-      			    <input type="password" />
-      			    <br />
-			
-      			    <div class="checkbox">
-      			      <input id="remember" type="checkbox" />
-      			      <label for="remember">Remember me on this computer</label>
-      			    </div>
-			
-      			    <div class="action_btns">
-      			      
-      			      <div class="one_half last"><a href="#" class="btn btn_red">Login</a></div>
-      			    </div>
-      			  </form>
-			
-      			  <a href="#" class="forgot_password">Forgot password?</a>
+      		  <label>Email</label>
+            <input type="text" placeholder="Email" id="email" name="username"/>
+            <br />
+
+            <label>Password</label>
+            <input type="password" placeholder="Password" id="password" name="password"/>
+            <br />
+
+            <div class="checkbox">
+            <input id="remember" type="checkbox" />
+            <label for="remember">Remember me on this computer</label>
+            </div>
+
+            <p style="color:red;"><?php echo $message; ?></p>
+            <div class="action_btns">            
+            <div class="one_half last"><button class="btn btn_red" data-dismiss="modal" type="submit">Login</button></div>
+            </div>
+       
+
+            <a href="#" class="forgot_password">Forgot password?</a>
       			</div>
+          </form>
 		    </section>
 		  </div>
 		  <!--End of popup Login Box-->

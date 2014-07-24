@@ -158,7 +158,9 @@ else
 						<input id="remember" type="checkbox" />
 						<label for="remember">Remember me on this computer</label>
 					</div>
+					<div>
 					<p style="color:red;"><?php echo $message; ?></p>
+					</div>
 					<div class="action_btns">
 						<div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
 						<div class="one_half last"><a href="#" class="btn btn_red">Login</a></div>
