@@ -1,12 +1,14 @@
 <?php
-$connection = mysql_connect('localhost', 'xplorema', 'FYPchamp1!');
+// $connection = mysql_connect('localhost', 'xplorema', 'FYPchamp1!');
+$connection = mysql_connect('localhost', 'root', '');
 
 if (!$connection){
 
     die("Database Connection Failed" . mysql_error());
 
 }
-$select_db = mysql_select_db('xplorema_FYP');
+// $select_db = mysql_select_db('xplorema_FYP');
+$select_db = mysql_select_db('FYP');
 
 if (!$select_db){
 
