@@ -11,7 +11,7 @@ if(isset($_SESSION['customer_id'] ))
 
 }
 
-if(!isset( $_POST['email'], $_POST['password']))
+if(!isset( $_POST['username'], $_POST['password']))
 {
     $message = '';
 }
@@ -31,7 +31,7 @@ elseif (ctype_alnum($_POST['password']) != true)
 else
 {
     /*** if we are here the data is valid and we can insert it into database ***/
-    $phpro_username = filter_var($_POST['email'], FILTER_SANITIZE_STRING);
+    $phpro_username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
     $phpro_password = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
 
     /*** now we can encrypt the password ***/
@@ -39,12 +39,12 @@ else
     
     /*** connect to database ***/
     /*** mysql hostname ***/
-   
+
     // $mysql_hostname = 'localhost';
     // $mysql_username = 'xplorema';
     // $mysql_password = 'FYPchamp1!';
     // $mysql_dbname = 'xplorema_FYP';
-
+   
     $mysql_hostname = 'localhost';
     $mysql_username = 'root';
     $mysql_password = '';
@@ -59,11 +59,11 @@ else
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         /*** prepare the select statement ***/
-        $stmt = $dbh->prepare("SELECT customer_id, customer_email, customer_password FROM customer 
-                    WHERE customer_email = :customer_email AND customer_password = :customer_password");
+        $stmt = $dbh->prepare("SELECT customer_id, customer_username, customer_password FROM customer 
+                    WHERE customer_username = :customer_username AND customer_password = :customer_password");
 
         /*** bind the parameters ***/
-        $stmt->bindParam(':customer_email', $phpro_username, PDO::PARAM_STR);
+        $stmt->bindParam(':customer_username', $phpro_username, PDO::PARAM_STR);
         $stmt->bindParam(':customer_password', $phpro_password, PDO::PARAM_STR, 40);
 
         /*** execute the prepared statement ***/

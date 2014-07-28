@@ -80,7 +80,7 @@
                       
                    <div class = "modal-footer">
 
-                        <img style="position:absolute;left:0px; right:100px; margin-bottom:20px;width:100%;" src="footer.JPG">
+                        <img style="position:absolute;left:0px; right:100px; margin-bottom:20px;width:100%;" src="img/footer.jpg">
                         
                   </div>
                 </form>
@@ -140,7 +140,7 @@
                       
                    <div class = "modal-footer">
 
-                        <img style="position:absolute;left:0px; right:100px; margin-bottom:20px;width:100%;" src="footer.JPG">
+                        <img style="position:absolute;left:0px; right:100px; margin-bottom:20px;width:100%;" src="img/footer.jpg">
                         
                   </div>
                 </form>
@@ -199,7 +199,7 @@
                       
                    <div class = "modal-footer">
 
-                        <img style="position:absolute;left:0px; right:100px; margin-bottom:20px;width:100%;" src="footer.JPG">
+                        <img style="position:absolute;left:0px; right:100px; margin-bottom:20px;width:100%;" src="img/footer.jpg">
                         
                   </div>
                 </form>

@@ -52,8 +52,8 @@ include $dir.'/XploreMalaysia/User/login_function.php';
             <section class="popupBody">
             <form style="margin-bottom: 0px !important;" class="form-horizontal" method="post" action="login_function.php">
       			<div class="user_login">
-      		  <label>Email</label>
-            <input type="text" placeholder="Email" id="email" name="email"/>
+      		  <label>Username</label>
+            <input type="text" placeholder="Username" id="username" name="username"/>
             <br />
 
             <label>Password</label>
