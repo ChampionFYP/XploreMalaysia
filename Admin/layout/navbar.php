@@ -4,8 +4,6 @@
 		<meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         	<link rel="stylesheet" type="text/css" href="css/navbar.css">
-             <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
-            <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 	</head>
 	<body>
 		<div class="navbar navbar-default">
@@ -57,25 +55,12 @@
                         <li class="light-blue">
                             <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
                                 <span class="user-info">
-                                    <small>Logout</small>
+                                    <small>Welcome, User</small>
                                 </span>
                                  </a>
-                                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu3">
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu3" style="min-width:90px;">
                                 <li>
-                                    <a href="#/pages/profile">
-                                        <i class="fa fa-user"></i>
-                                        <span data-i18n="My Profile">My Profile</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#/tasks">
-                                        <i class="fa fa-check"></i>
-                                        <span data-i18n="My Tasks">My Tasks</span>
-                                    </a>
-                                </li>
-                               
-                                <li>
-                                    <a href="logout.php">
+                                    <a href="logout.php" style="padding-left:5px;">
                                         <i class="fa fa-sign-out"></i>
                                         <span data-i18n="Log Out">Log Out</span>
                                     </a>

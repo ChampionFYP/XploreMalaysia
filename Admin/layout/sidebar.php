@@ -3,12 +3,12 @@
 	<head>
 		<meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        	<link rel="stylesheet" type="text/css" href="css/sidebar.css">
+        	<link rel="stylesheet" type="text/css" href="../css/sidebar.css">
 	</head>
 	<body>
 		<div class="cl-sidebar">
 		<div class="cl-navblock">
-        <div class="menu-space nano nscroller has-scrollbar" style="height: 500px;">
+        <div class="menu-space nano nscroller has-scrollbar" style="height: 800px;">
 			<div class="content" style="right:-17px;">
         	    <ul class="cl-vnavigation">
         	      <li><a href="dashboard.php"><i class="fa fa-home"></i><span>Dashboard</span></a>
@@ -43,11 +43,9 @@
         	    </ul>
         	</div>
         </div>
-    </div>
-    <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/bootstrap.js"></script>
-    <script type="text/javascript" src="js/sidebar.js"></script>
-    <script type="text/javascript" src="js/jquery.nanoscroller.js"></script>
+    </div></div>
+    <script type="text/javascript" src="../js/sidebar.js"></script>
+    <script type="text/javascript" src="../js/jquery.nanoscroller.js"></script>
 
     <script type="text/javascript">
       $(document).ready(function(){
