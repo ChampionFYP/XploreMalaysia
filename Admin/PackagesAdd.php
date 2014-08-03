@@ -1,3 +1,93 @@
+<?php
+session_start();
+$connection = mysql_connect('localhost', 'xplorema', 'FYPchamp1!');
+// $connection = mysql_connect('localhost', 'root', '');
+
+if (!$connection){
+
+    die("Database Connection Failed" . mysql_error());
+
+}
+$select_db = mysql_select_db('xplorema_FYP');
+// $select_db = mysql_select_db('FYP');
+
+if (!$select_db){
+
+    die("Database Selection Failed" . mysql_error());
+
+}
+
+    $country1=" SELECT * FROM country";
+    $data_country = mysql_query($country1);
+    $transport1=" SELECT * FROM transport";
+    $data_transport = mysql_query($transport1);
+    $accomodation1=" SELECT * FROM accomodation";
+    $data_accomodation = mysql_query($accomodation1);
+
+// If the values are posted, insert them into the database.
+    if (isset($_POST['name'])){
+        $name = $_POST['name'];
+        $price = $_POST['price'];
+        $desc=$_POST['desc'];
+        $country= $_POST['country'];
+        $transport = $_POST['transport'];
+        $accomodation = $_POST['accomodation'];
+        $admin=$_SESSION['admin_id'];
+  
+        $query = "INSERT INTO `package` (package_name, package_price, description, status, country_id, transport_id, accomodation_id,admin_id) VALUES ('$name', '$price', '$desc', '1', '$country', '$transport', '$accomodation','$admin')";
+        mysql_query($query);
+
+        // $data_username= "SELECT * FROM customer WHERE customer_username='$username'";
+        // $data_u = mysql_query($data_username);
+        // $values = mysql_fetch_array($data_u);
+        // $data_email= "SELECT * FROM customer WHERE customer_email='$email'";
+        // $data_e = mysql_query($data_email);
+        // $values2 = mysql_fetch_array($data_e);
+        // $data_ic= "SELECT * FROM customer WHERE customer_ic='$ic'";
+        // $data_i = mysql_query($data_ic);
+        // $values3 = mysql_fetch_array($data_i);
+
+        
+
+        // var_dump($values);
+        // var_dump($values2);
+        // var_dump($values3);
+
+        // if(empty($values) && empty($values2) && empty($values3)){
+
+        //     $query = "INSERT INTO `customer` (customer_username, customer_password, gender, csutomer_name, customer_ic, customer_email, customer_phone, customer_address) VALUES ('$username', '$password', '$gender', '$username', '$ic', '$email', '$phone', '$address, $city, $state, $code')";
+        //     mysql_query($query);
+        // }
+        // if(!empty($values))
+        // {
+        //     $msg1=" Username Used";
+        // }
+        // if(!empty($values2))
+        // {
+        //     $msg2=" Email Used";
+        // }
+        // if(!empty($values3))
+        // {
+        //     $msg3=" IC Used";
+        // }
+
+    }
+    
+    // var_dump($query);
+
+
+?>
+
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -31,13 +121,14 @@
 			<div id="content" style="margin-left:16%;">
       <div class="box">
     <div class="heading">
+    <form method="post" action="PackagesAdd.php">
       <h1>Packages</h1>
       <div class="buttons">																
-	  <a class="button">Save & Close</a><a href="Packages.html" class="button">Cancel</a></div>
+	  <button class="button" type="submit">Save & Close</button><a href="Packages.html" class="button">Cancel</a></div>
     </div>
     <div class="content" style="margin-left:20%; margin-top:5%;">
 
-      <form id="form">
+      
         <div id="tab-general">
           <div id="languages" class="htabs">
                         <a href="#language1"><img src="./Files/flags/gb.png" title="English" /> English</a>
@@ -50,7 +141,7 @@
 						
               <tr>
                 <td><span class="required">*</span> Package Name:</td>
-                <td><input type="text" name="product_description[1][name]" size="100" value="" />
+                <td><input type="text" id="name" name="name" size="100"/>
                   </td>
               </tr>
               
@@ -61,45 +152,52 @@
           <table class="form">
             <tr>
               <td>Country:</td>
-              <td><select style="width: 90px;">
-					<option></option>  
-						<option>Perlis</option>
-						<option>Kedah</option>
-						<option>Pulau Pinang </option>
-						<option>Ipoh</option>
-						<option>Terengganu</option>
-						<option>Pahang</option>
-						<option>Melaka</option>
-						<option>Kuala Lumpur</option>
-						<option>Johor</option>
+              <td><select style="width: 90px;" id="country" name="country">
 
-													                
-                </select> </td>
+              <?php while($row = mysql_fetch_array($data_country, MYSQL_ASSOC))
+              { ?> 
+  						<option value="<?php  echo $row['country_id']; ?>"><?php echo $row['country_name']; ?></option>
+              <?php } ?>									
+              </select></td>
             </tr>
+
+            <tr>
+              <td>Transport:</td>
+              <td><select style="width: 90px;" id="transport" name="transport">
+
+              <?php while($row = mysql_fetch_array($data_transport, MYSQL_ASSOC))
+              { ?> 
+              <option value="<?php  echo $row['transport_id']; ?>"><?php echo $row['transport_name']; ?></option>
+              <?php } ?>                  
+              </select></td>
+            </tr>
+
+            <tr>
+              <td>Accomodation:</td>
+              <td><select style="width: 90px;" id="accomodation" name="accomodation">
+
+              <?php while($row = mysql_fetch_array($data_accomodation, MYSQL_ASSOC))
+              { ?> 
+              <option value="<?php  echo $row['accomodation_id']; ?>"><?php echo $row['accomodation_name']; ?></option>
+              <?php } ?>                  
+              </select></td>
+            </tr>
+
+              
+
             <tr>
               <td>Price:</td>
-              <td><input type="text" name="price" value="" /></td>
+              <td><input type="text" name="price" id ="price"/></td>
             </tr>
-			<tr>
+			        <tr>
                 <td>Description:</td>
-                <td><textarea name="product_description[1][description]" id="description1"></textarea></td>
+                <td><textarea name="desc" id="desc"></textarea></td>
               </tr>
             <tr>
               <td>Image:</td>
               <td><div class="image"><img src=".\Files\placeholder.jpg" width=250 height=200 id="thumb" /><br />
                   <input type="hidden" name="image" value="" id="image" />
                   <a onclick="image_upload('image', 'thumb');">Browse</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a onclick="$('#thumb').attr('src', 'http://www.store.aeonline.com.my/image/cache/no_image-100x100.jpg'); $('#image').attr('value', '');">Clear</a></div></td>
-            </tr>
-            <tr>
-              <td>Date Available:</td>
-              <td><input type="text" name="date_available" value="2014-01-19" size="12" class="date" /></td>
-            </tr>
-            <tr>
-              <td>Status:</td>
-              <td><select name="status">
-                                    <option value="1" selected="selected">Enabled</option>
-                  <option value="0">Disabled</option>
-                                  </select></td>
             </tr>
           </table>
         </div>

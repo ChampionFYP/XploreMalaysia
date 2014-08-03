@@ -1,7 +1,11 @@
 <?php
+// $dbhost = 'localhost';
+// $dbuser = 'xplorema';
+// $dbpass = 'FYPchamp1!';
+
 $dbhost = 'localhost';
-$dbuser = 'xplorema';
-$dbpass = 'FYPchamp1!';
+$dbuser = 'root';
+$dbpass = '';
 
 $conn = mysql_connect($dbhost, $dbuser, $dbpass);
 if(! $conn )
@@ -80,7 +84,7 @@ mysql_close($conn);
 							while($row = mysql_fetch_array($data, MYSQL_ASSOC))
 							{ ?>
 							    <tr>
-							    	<td width="1" style="text-align: center;"><input type="checkbox"></td>
+							    	<td width="1" style="text-align: center;"><input type="checkbox" name="acco_id" id="acco_id" value="<?php  echo $row['accomodation_id']; ?>"></td>
 							    	<td class="center" style="width:10%">  <?php  echo $row['image_id']; ?></td>
 							    	<td class="left" width=250 >  <?php  echo $row['category']; ?></td>
 							    	<td class="left">  <?php  echo $row['accomodation_address']; ?></td>

@@ -66,7 +66,7 @@ mysql_close($conn);
 			<div class="box col-sm-12 col-md-10 pull-right">
 				<div class="heading">
 					<h1>Package</h1>
-					<div class="btn btn-default">Add</div>
+					<div class="btn btn-default"><a href="PackagesAdd.php">Add</a></div>
 					<div class="btn btn-default">Update</div>
 					<div class="btn btn-default">Delete</div>
 				</div>
@@ -92,7 +92,7 @@ mysql_close($conn);
 							while($row = mysql_fetch_array($data, MYSQL_ASSOC))
 							{ ?>
 							    <tr>
-							    	<td width="1" style="text-align: center;"><input type="checkbox"></td>
+							    	<td width="1" style="text-align: center;"><input type="checkbox" name="acco_id" id="acco_id" value="<?php  echo $row['package_id']; ?>"></td>
 							    	<td class="center" style="width:10%">  <?php  echo $row['package_id']; ?></td>
 							    	<td class="left" width=250 >  <?php  echo $row['package_name']; ?></td>
 							    	<td class="left">  <?php  echo $row['country_id']; ?></td>
