@@ -26,6 +26,7 @@ DROP TABLE IF EXISTS `accomodation`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `accomodation` (
   `accomodation_id` int(11) NOT NULL AUTO_INCREMENT,
+  `accomodation_name` varchar(45) NOT NULL,
   `image_id` varchar(45) DEFAULT NULL,
   `category` varchar(45) NOT NULL,
   `accomodation_address` varchar(200) NOT NULL,
@@ -42,7 +43,7 @@ CREATE TABLE `accomodation` (
 
 LOCK TABLES `accomodation` WRITE;
 /*!40000 ALTER TABLE `accomodation` DISABLE KEYS */;
-INSERT INTO `accomodation` VALUES (1,NULL,'1','123','333',1,'2014-07-08 13:48:12'),(2,NULL,'2','321','444',1,'2014-07-08 13:48:12');
+INSERT INTO `accomodation` VALUES (1,'hotel',NULL,'1','123','333',1,'2014-07-08 13:48:12'),(2,'motel',NULL,'2','321','444',1,'2014-07-08 13:48:12');
 /*!40000 ALTER TABLE `accomodation` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-07-18  9:35:10
+-- Dump completed on 2014-08-03 14:23:31

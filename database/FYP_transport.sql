@@ -26,6 +26,7 @@ DROP TABLE IF EXISTS `transport`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `transport` (
   `transport_id` int(11) NOT NULL AUTO_INCREMENT,
+  `transport_name` varchar(45) NOT NULL,
   `description` varchar(200) NOT NULL,
   `type` varchar(45) NOT NULL,
   `created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
@@ -40,7 +41,7 @@ CREATE TABLE `transport` (
 
 LOCK TABLES `transport` WRITE;
 /*!40000 ALTER TABLE `transport` DISABLE KEYS */;
-INSERT INTO `transport` VALUES (1,'k','k','2014-07-15 18:21:04',1);
+INSERT INTO `transport` VALUES (1,'bus','k','k','2014-07-15 18:21:04',1);
 /*!40000 ALTER TABLE `transport` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-07-18  9:35:10
+-- Dump completed on 2014-08-03 14:23:32
