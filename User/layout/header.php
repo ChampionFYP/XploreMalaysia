@@ -98,7 +98,7 @@ include $dir.'/XploreMalaysia/User/login_function.php';
 			   <li class='has-sub'><a href=#><span>Vacation</span></a>
 			      <ul>
 			        <li class='has-sub'><a href='westmalaysia.html'><span>West Malaysia</span></a></li>
-			        <li class='has-sub'><a href='#'><span>East Malaysia</span></a></li>
+			        <li class='has-sub'><a href='eastmalaysia.html'><span>East Malaysia</span></a></li>
 			         
 			      </ul>
 			   </li>
