@@ -82,20 +82,8 @@
               </tr>
               <tr>
                 <td><span class="required">*</span>Password:</td>
-                <td><input type="password" value=""  />
+                <td><input type="password"/>
                   </td>
-              </tr>
-              <tr>
-                <td>Confirm Password:</td>
-                <td><input type="password" value="" />
-                  </td>
-              </tr>
-              <tr>
-                <td>Newsletter:</td>
-                <td><select name="newsletter">
-                                        <option value="1">Enabled</option>
-                    <option value="0" selected="selected">Disabled</option>
-                                      </select></td>
               </tr>
               <tr>
                 <td>Status:</td>
