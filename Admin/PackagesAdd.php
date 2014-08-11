@@ -1,7 +1,6 @@
 <?php
 session_start();
 $connection = mysql_connect('localhost', 'xplorema', 'FYPchamp1!');
-// $connection = mysql_connect('localhost', 'root', '');
 
 if (!$connection){
 
@@ -9,7 +8,6 @@ if (!$connection){
 
 }
 $select_db = mysql_select_db('xplorema_FYP');
-// $select_db = mysql_select_db('FYP');
 
 if (!$select_db){
 
@@ -23,9 +21,10 @@ if (!$select_db){
     $data_transport = mysql_query($transport1);
     $accomodation1=" SELECT * FROM accomodation";
     $data_accomodation = mysql_query($accomodation1);
+    $random = rand ( 0 , 9999 );
 
 // If the values are posted, insert them into the database.
-    if (isset($_POST['name'])){
+    if (isset($_POST['name'])||isset($_POST['file'])){
         $name = $_POST['name'];
         $price = $_POST['price'];
         $desc=$_POST['desc'];
@@ -33,8 +32,53 @@ if (!$select_db){
         $transport = $_POST['transport'];
         $accomodation = $_POST['accomodation'];
         $admin=$_SESSION['admin_id'];
+        $picture=$random;
+
+        $allowedExts = array("gif", "jpeg", "jpg", "png");
+        $temp = explode(".", $_FILES["file"]["name"]);
+        $extension = end($temp);
+
+        if ((($_FILES["file"]["type"] == "image/gif") || ($_FILES["file"]["type"] == "image/jpeg") || ($_FILES["file"]["type"] == "image/jpg") || ($_FILES["file"]["type"] == "image/pjpeg") || ($_FILES["file"]["type"] == "image/x-png") || ($_FILES["file"]["type"] == "image/png")) && in_array($extension, $allowedExts)) {
+          if ($_FILES["file"]["error"] > 0) 
+          {
+            echo "Return Code: " . $_FILES["file"]["error"] . "<br>";
+          } 
+          else 
+          {
+            echo "Upload: " . $_FILES["file"]["name"] . "<br>";
+            echo "Type: " . $_FILES["file"]["type"] . "<br>";
+            echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
+            echo "Temp file: " . $_SERVER['DOCUMENT_ROOT'] . "<br>";
+            if (file_exists("upload/" . $_FILES["file"]["name"])) 
+            {
+              echo $_FILES["file"]["name"] . " already exists. ";
+            } 
+            else 
+            {
+              move_uploaded_file($_FILES["file"]["tmp_name"],
+              $_SERVER['DOCUMENT_ROOT'] . "/XploreMalaysia/testing/" . $random);
+              echo "Stored in: " . $_FILES["file"]["tmp_name"];
+            }
+          }
+        } 
+        else 
+        {
+          echo "Invalid file";
+        }
+
+
+
+
+
+
+
+
+
+
+
+
   
-        $query = "INSERT INTO `package` (package_name, package_price, description, status, country_id, transport_id, accomodation_id,admin_id) VALUES ('$name', '$price', '$desc', '1', '$country', '$transport', '$accomodation','$admin')";
+        $query = "INSERT INTO `package` (package_name, package_price, description, status, country_id, transport_id, accomodation_id,admin_id,image_id) VALUES ('$name', '$price', '$desc', '1', '$country', '$transport', '$accomodation','$admin','$picture')";
         mysql_query($query);
 
         // $data_username= "SELECT * FROM customer WHERE customer_username='$username'";
@@ -121,7 +165,7 @@ if (!$select_db){
 			<div id="content" style="margin-left:16%;">
       <div class="box">
     <div class="heading">
-    <form method="post" action="PackagesAdd.php">
+    <form method="post" action="PackagesAdd.php" enctype="multipart/form-data">
       <h1>Packages</h1>
       <div class="buttons">																
 	  <button class="button" type="submit">Save & Close</button><a href="Packages.html" class="button">Cancel</a></div>
@@ -195,9 +239,9 @@ if (!$select_db){
               </tr>
             <tr>
               <td>Image:</td>
-              <td><div class="image"><img src=".\Files\placeholder.jpg" width=250 height=200 id="thumb" /><br />
-                  <input type="hidden" name="image" value="" id="image" />
-                  <a onclick="image_upload('image', 'thumb');">Browse</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a onclick="$('#thumb').attr('src', 'http://www.store.aeonline.com.my/image/cache/no_image-100x100.jpg'); $('#image').attr('value', '');">Clear</a></div></td>
+              <td>
+              <input type="file" name="file" id="file"><br>
+              </td>
             </tr>
           </table>
         </div>

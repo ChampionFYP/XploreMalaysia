@@ -1,5 +1,4 @@
-CREATE DATABASE  IF NOT EXISTS `FYP` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `FYP`;
+USE `xplorema_FYP`;
 -- MySQL dump 10.13  Distrib 5.6.16, for Linux (x86_64)
 --
 -- Host: 127.0.0.1    Database: FYP
@@ -18,30 +17,29 @@ USE `FYP`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `admin`
+-- Table structure for table `country`
 --
 
-DROP TABLE IF EXISTS `admin`;
+DROP TABLE IF EXISTS `country`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `admin` (
-  `admin_id` int(11) NOT NULL AUTO_INCREMENT,
-  `admin_username` varchar(45) NOT NULL,
-  `admin_password` varchar(45) NOT NULL,
-  `status` tinyint(2) DEFAULT NULL,
+CREATE TABLE `country` (
+  `country_id` int(11) NOT NULL AUTO_INCREMENT,
+  `country_name` varchar(45) NOT NULL,
+  `country_region` tinyint(2) NOT NULL,
   `created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`admin_id`)
+  PRIMARY KEY (`country_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `admin`
+-- Dumping data for table `country`
 --
 
-LOCK TABLES `admin` WRITE;
-/*!40000 ALTER TABLE `admin` DISABLE KEYS */;
-INSERT INTO `admin` VALUES (1,'kirill','kok',1,'2014-07-02 18:01:05');
-/*!40000 ALTER TABLE `admin` ENABLE KEYS */;
+LOCK TABLES `country` WRITE;
+/*!40000 ALTER TABLE `country` DISABLE KEYS */;
+INSERT INTO `country` VALUES (1,'malaysia',0,'2014-07-21 13:12:50');
+/*!40000 ALTER TABLE `country` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -53,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-08-03 14:23:31
+-- Dump completed on 2014-08-11 16:22:37

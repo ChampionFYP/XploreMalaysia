@@ -1,5 +1,4 @@
-CREATE DATABASE  IF NOT EXISTS `FYP` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `FYP`;
+USE `xplorema_FYP`;
 -- MySQL dump 10.13  Distrib 5.6.16, for Linux (x86_64)
 --
 -- Host: 127.0.0.1    Database: FYP
@@ -28,6 +27,7 @@ CREATE TABLE `package` (
   `package_id` int(11) NOT NULL AUTO_INCREMENT,
   `package_name` varchar(45) NOT NULL,
   `package_price` varchar(45) NOT NULL,
+  `image_id` varchar(45) DEFAULT NULL,
   `description` varchar(200) NOT NULL,
   `status` tinyint(2) DEFAULT NULL,
   `created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
@@ -44,7 +44,7 @@ CREATE TABLE `package` (
   CONSTRAINT `fk_package_admin1` FOREIGN KEY (`admin_id`) REFERENCES `admin` (`admin_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_package_country1` FOREIGN KEY (`country_id`) REFERENCES `country` (`country_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_package_transport1` FOREIGN KEY (`transport_id`) REFERENCES `transport` (`transport_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -53,7 +53,7 @@ CREATE TABLE `package` (
 
 LOCK TABLES `package` WRITE;
 /*!40000 ALTER TABLE `package` DISABLE KEYS */;
-INSERT INTO `package` VALUES (1,'first','23','no',1,'0000-00-00 00:00:00',1,1,1,1),(2,'ki','','',1,'2014-08-03 04:24:50',1,1,1,1),(3,'ki','','',1,'2014-08-03 04:25:23',1,1,1,1),(4,'4123','41231','4123124',1,'2014-08-03 04:42:22',1,1,1,1),(12,'kirill','4234','4234',1,'2014-08-03 06:18:09',1,1,2,1);
+INSERT INTO `package` VALUES (1,'first','23',NULL,'no',1,'0000-00-00 00:00:00',1,1,1,1),(2,'ki','',NULL,'',1,'2014-08-03 04:24:50',1,1,1,1),(3,'ki','',NULL,'',1,'2014-08-03 04:25:23',1,1,1,1),(4,'4123','41231',NULL,'4123124',1,'2014-08-03 04:42:22',1,1,1,1),(12,'kirill','4234',NULL,'4234',1,'2014-08-03 06:18:09',1,1,2,1),(13,'asd','50','','fun',1,'2014-08-11 06:38:02',1,1,1,1),(14,'asd','50','','fun',1,'2014-08-11 06:38:55',1,1,1,1),(15,'asd','50','','fun',1,'2014-08-11 06:40:01',1,1,1,1),(16,'fsdf','4234','','4234',1,'2014-08-11 06:40:15',1,1,1,1),(17,'fsdf','4234','','4234',1,'2014-08-11 06:43:00',1,1,1,1),(18,'fsdf','4234','','4234',1,'2014-08-11 06:48:26',1,1,1,1),(19,'fsdf','4234','','4234',1,'2014-08-11 06:50:00',1,1,1,1),(20,'fsdf','4234','','4234',1,'2014-08-11 06:50:53',1,1,1,1),(21,'4123','4123','Screenshot from 2014-07-15 12:27:09.png','4123',1,'2014-08-11 07:03:42',1,1,1,1),(22,'gsdf','fsdf','1876','fsdf',1,'2014-08-11 07:19:48',1,1,1,1),(23,'gsdf','fsdf','5510','fsdf',1,'2014-08-11 07:24:46',1,1,1,1),(24,'gsdf','fsdf','7698','fsdf',1,'2014-08-11 07:25:19',1,1,1,1),(25,'gsdf','fsdf','6409','fsdf',1,'2014-08-11 07:25:43',1,1,1,1),(26,'gsdf','fsdf','4686','fsdf',1,'2014-08-11 07:27:06',1,1,1,1),(27,'gsdf','fsdf','1802','fsdf',1,'2014-08-11 07:27:14',1,1,1,1),(28,'gsdf','fsdf','2247','fsdf',1,'2014-08-11 07:29:07',1,1,1,1),(29,'gsdf','fsdf','4515','fsdf',1,'2014-08-11 07:30:02',1,1,1,1),(30,'gsdf','fsdf','1313','fsdf',1,'2014-08-11 07:31:36',1,1,1,1),(31,'gsdf','fsdf','6736','fsdf',1,'2014-08-11 07:33:52',1,1,1,1),(32,'gsdf','fsdf','9503','fsdf',1,'2014-08-11 07:34:28',1,1,1,1);
 /*!40000 ALTER TABLE `package` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -66,4 +66,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-08-03 14:23:31
+-- Dump completed on 2014-08-11 16:22:37

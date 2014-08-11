@@ -1,5 +1,4 @@
-CREATE DATABASE  IF NOT EXISTS `FYP` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `FYP`;
+USE `xplorema_FYP`;
 -- MySQL dump 10.13  Distrib 5.6.16, for Linux (x86_64)
 --
 -- Host: 127.0.0.1    Database: FYP
@@ -18,31 +17,36 @@ USE `FYP`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `transport`
+-- Table structure for table `customer`
 --
 
-DROP TABLE IF EXISTS `transport`;
+DROP TABLE IF EXISTS `customer`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `transport` (
-  `transport_id` int(11) NOT NULL AUTO_INCREMENT,
-  `transport_name` varchar(45) NOT NULL,
-  `description` varchar(200) NOT NULL,
-  `type` varchar(45) NOT NULL,
+CREATE TABLE `customer` (
+  `customer_id` int(11) NOT NULL AUTO_INCREMENT,
+  `customer_username` varchar(45) NOT NULL,
+  `customer_password` varchar(45) NOT NULL,
+  `csutomer_name` varchar(45) NOT NULL,
+  `gender` tinyint(2) NOT NULL,
+  `customer_ic` varchar(45) NOT NULL,
+  `customer_email` varchar(45) NOT NULL,
+  `customer_phone` varchar(45) DEFAULT NULL,
+  `customer_address` varchar(200) DEFAULT NULL,
+  `status` tinyint(2) DEFAULT NULL,
   `created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `status` tinyint(4) DEFAULT NULL,
-  PRIMARY KEY (`transport_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`customer_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `transport`
+-- Dumping data for table `customer`
 --
 
-LOCK TABLES `transport` WRITE;
-/*!40000 ALTER TABLE `transport` DISABLE KEYS */;
-INSERT INTO `transport` VALUES (1,'bus','k','k','2014-07-15 18:21:04',1);
-/*!40000 ALTER TABLE `transport` ENABLE KEYS */;
+LOCK TABLES `customer` WRITE;
+/*!40000 ALTER TABLE `customer` DISABLE KEYS */;
+INSERT INTO `customer` VALUES (26,'4444','3123','4444',2,'44444','3123@3336','3123','3123, 31231, 3123, 123123',NULL,'2014-07-23 16:37:16'),(37,'321321','kok','kirill',1,'123123','kfc1346@gmail.com','123','123, 123, 123, 123',NULL,'2014-07-24 10:26:10');
+/*!40000 ALTER TABLE `customer` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -54,4 +58,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-08-03 14:23:32
+-- Dump completed on 2014-08-11 16:22:37
