@@ -49,15 +49,10 @@ else
     /*** connect to database ***/
     /*** mysql hostname ***/
    
-    // $mysql_hostname = 'localhost';
-    // $mysql_username = 'xplorema';
-    // $mysql_password = 'FYPchamp1!';
-    // $mysql_dbname = 'xplorema_FYP';
-
     $mysql_hostname = 'localhost';
-    $mysql_username = 'root';
-    $mysql_password = '';
-    $mysql_dbname = 'FYP';
+    $mysql_username = 'xplorema';
+    $mysql_password = 'FYPchamp1!';
+    $mysql_dbname = 'xplorema_FYP';
 
     try
     {

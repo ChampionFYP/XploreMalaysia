@@ -1,12 +1,7 @@
 <?php
-// $dbhost = 'localhost';
-// $dbuser = 'xplorema';
-// $dbpass = 'FYPchamp1!';
-
 $dbhost = 'localhost';
-$dbuser = 'root';
-$dbpass = '';
-
+$dbuser = 'xplorema';
+$dbpass = 'FYPchamp1!';
 
 $conn = mysql_connect($dbhost, $dbuser, $dbpass);
 if(! $conn )
@@ -15,8 +10,7 @@ if(! $conn )
 }
 
 
-// mysql_select_db('xplorema_FYP');
-mysql_select_db('FYP');
+mysql_select_db('xplorema_FYP');
 
 $sql = 'SELECT * FROM package';
 
