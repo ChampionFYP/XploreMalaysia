@@ -89,6 +89,9 @@ mysql_close($conn);
 							    	<td width="1" style="text-align: center;"><input type="checkbox" name="acco_id" id="acco_id" value="<?php  echo $row['package_id']; ?>"></td>
 							    	<td class="center" style="width:10%">  <?php  echo $row['package_id']; ?></td>
 							    	<td class="left" width=250 >  <?php  echo $row['package_name']; ?></td>
+							    	<td>
+							    	<img src="logo" alt="" height="42" width="42">	
+							    	</td>
 							    	<td class="left">  <?php  echo $row['country_id']; ?></td>
 							    	<td class="left">  <?php  echo $row['transport_id']; ?></td>
 							    	<td class="left">  <?php  echo $row['accomodation_id']; ?></td>

@@ -162,7 +162,7 @@ if (!$select_db){
     <form method="post" action="PackagesAdd.php" enctype="multipart/form-data">
       <h1>Packages</h1>
       <div class="buttons">																
-	  <button class="button" type="submit">Save & Close</button><a href="Packages.html" class="button">Cancel</a></div>
+	  <button class="button" type="submit">Save & Close</button><a href="Packages.php" class="button">Cancel</a></div>
     </div>
     <div class="content" style="margin-left:20%; margin-top:5%;">
 

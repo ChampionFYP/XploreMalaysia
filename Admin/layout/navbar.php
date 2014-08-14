@@ -1,3 +1,45 @@
+<?php
+session_start();
+$connection = mysql_connect('localhost', 'xplorema', 'FYPchamp1!');
+
+if (!$connection){
+
+    die("Database Connection Failed" . mysql_error());
+
+}
+$select_db = mysql_select_db('xplorema_FYP');
+
+if (!$select_db){
+
+    die("Database Selection Failed" . mysql_error());
+
+}
+    $admin_id=$_SESSION['admin_id'];
+    $admin =" SELECT * FROM admin WHERE admin_id='$admin_id'";
+    $data_admin = mysql_query($admin);
+
+
+
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -55,7 +97,10 @@
                         <li class="light-blue">
                             <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
                                 <span class="user-info">
-                                    <small>Welcome, User</small>
+                                <?php while($row = mysql_fetch_assoc($data_admin))
+                                    { ?>
+                                    <small>Welcome, <?php  echo $row['admin_username']; ?></small>
+                                <?php } ?>
                                 </span>
                                  </a>
                                 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu3" style="min-width:90px;">
