@@ -1,6 +1,5 @@
 <?php
-// $connection = mysql_connect('localhost', 'xplorema', 'FYPchamp1!');
-$connection = mysql_connect('localhost', 'root', '');
+$connection = mysql_connect('localhost', 'xplorema', 'FYPchamp1!');
 
 if (!$connection){
 
@@ -8,7 +7,7 @@ if (!$connection){
 
 }
 // $select_db = mysql_select_db('xplorema_FYP');
-$select_db = mysql_select_db('FYP');
+$select_db = mysql_select_db('xplorema_FYP');
 
 if (!$select_db){
 
@@ -47,7 +46,7 @@ if (!$select_db){
 
         if(empty($values) && empty($values2) && empty($values3)){
 
-            $query = "INSERT INTO `customer` (customer_username, customer_password, gender, csutomer_name, customer_ic, customer_email, customer_phone, customer_address) VALUES ('$username', '$password', '$gender', '$username', '$ic', '$email', '$phone', '$address, $city, $state, $code')";
+            $query = "INSERT INTO `customer` (customer_username, customer_password, gender, csutomer_name, customer_ic, customer_email, customer_phone, customer_address, status) VALUES ('$username', '$password', '$gender', '$username', '$ic', '$email', '$phone', '$address, $city, $state, $code','1')";
             mysql_query($query);
         }
         if(!empty($values))
