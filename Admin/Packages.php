@@ -60,8 +60,8 @@ mysql_close($conn);
 			<div class="box col-sm-12 col-md-10 pull-right">
 				<div class="heading">
 					<h1>Package</h1>
-					<div class="btn btn-default"><a href="PackagesAdd.php">Add</a></div>
-					<div class="btn btn-default">Update</div>
+					<a href="PackagesAdd.php" class="btn btn-default">Add</a>
+					<a href="PackagesUpdate.php" class="btn btn-default">Update</a>
 					<div class="btn btn-default">Delete</div>
 				</div>
 				<div>
