@@ -222,8 +222,8 @@
 </br></br></br></br>
   <hr class="hr2">
 
-<div class="title1">
-  <strong> This Year's Hot Tours</strong>
+<div class="title1" style="text-shadow: 2px 2px 2px #081246;">
+  <strong>This Year's Hot Tours</strong>
   <span>Great Ideas For Family Rest</span>
 </div>
 
