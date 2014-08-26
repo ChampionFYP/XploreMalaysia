@@ -51,7 +51,7 @@ if (!$select_db){
             } 
             else 
             {
-              move_uploaded_file($_FILES["file"]["tmp_name"], $_SERVER['DOCUMENT_ROOT'] . "/img/" . $random);
+              move_uploaded_file($_FILES["file"]["tmp_name"], $_SERVER['DOCUMENT_ROOT'] . "/XploreMalaysia/img/" . $random);
             }
           }
         } 

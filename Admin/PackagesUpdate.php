@@ -21,6 +21,7 @@ mysql_select_db('xplorema_FYP');
     $accomodation1=" SELECT * FROM accomodation";
     $data_accomodation = mysql_query($accomodation1);
     $random = rand ( 0 , 9999 );
+    $package_id=$_SESSION['package_id'];
 
 if(isset($_POST['name'])||isset($_POST['file']))
 {
@@ -61,7 +62,7 @@ $picture=$random;
         }
 
 
-$sql = "UPDATE package SET package_name='$name', package_price='$price', description='$desc', status='$price', country_id='$country', transport_id='$transport', accomodation_id='$accomodation', admin_id='$admin', image_id='$picture' WHERE package_id='37'" ;
+$sql = "UPDATE package SET package_name='$name', package_price='$price', description='$desc', status='$price', country_id='$country', transport_id='$transport', accomodation_id='$accomodation', admin_id='$admin', image_id='$picture' WHERE package_id='$package_id'" ;
 $retval = mysql_query( $sql, $conn );
 if(! $retval )
 {
@@ -70,7 +71,7 @@ if(! $retval )
 echo "Updated data successfully\n";
 }
 
-$sql2 = "SELECT * FROM package WHERE package_id= '37' ";
+$sql2 = "SELECT * FROM package WHERE package_id= '$package_id' ";
 
 
 $data = mysql_query( $sql2, $conn );

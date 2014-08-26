@@ -1,4 +1,5 @@
 <?php
+session_start();
 $dbhost = 'localhost';
 $dbuser = 'xplorema';
 $dbpass = 'FYPchamp1!';
@@ -22,6 +23,30 @@ if(! $data )
 }
 
 mysql_close($conn);
+
+if (isset($_POST['update_btn'])||isset($_POST['pack_id'])) 
+{ 
+   $package_id=$_POST['pack_id'];
+   $_SESSION['package_id']=$package_id;
+   var_dump($_SESSION['package_id']);
+   header('Location: '. dirname(__folder__) .'/PackagesUpdate.php');
+
+
+
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
 ?>
 
 
@@ -51,6 +76,7 @@ mysql_close($conn);
 		<title>Package</title>
 	</head>
 	<body>
+	<form method="POST">
 	<div class="fluid-container">
 		<div id="navbar"></div>
 		<div class="row">
@@ -61,11 +87,11 @@ mysql_close($conn);
 				<div class="heading">
 					<h1>Package</h1>
 					<a href="PackagesAdd.php" class="btn btn-default">Add</a>
-					<a href="PackagesUpdate.php" class="btn btn-default">Update</a>
+					<input type="submit" name="update_btn"  value="Update" class="btn btn-default"></input>
 					<div class="btn btn-default">Delete</div>
 				</div>
 				<div>
-      				<form>
+      				
 						<table class="list" id="list">
       				    <thead>
       				      <tr>
@@ -86,11 +112,11 @@ mysql_close($conn);
 							while($row = mysql_fetch_array($data, MYSQL_ASSOC))
 							{ ?>
 							    <tr>
-							    	<td width="1" style="text-align: center;"><input type="checkbox" name="acco_id" id="acco_id" value="<?php  echo $row['package_id']; ?>"></td>
+							    	<td width="1" style="text-align: center;"><input type="checkbox" name="pack_id" id="pack_id" value="<?php  echo $row['package_id']; ?>"></td>
 							    	<td class="center" style="width:10%">  <?php  echo $row['package_id']; ?></td>
 							    	<td class="left" width=250 >  <?php  echo $row['package_name']; ?></td>
 							    	<td>
-							    	<img src="logo" alt="" height="42" width="42">	
+							    	<img src="http://<?php echo $_SERVER['SERVER_NAME'] . "/img/". $row['image_id'];?>" alt="" height="42" width="42">	
 							    	</td>
 							    	<td class="left">  <?php  echo $row['country_id']; ?></td>
 							    	<td class="left">  <?php  echo $row['transport_id']; ?></td>
