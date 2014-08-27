@@ -72,13 +72,28 @@ echo "Updated data successfully\n";
 }
 
 $sql2 = "SELECT * FROM package WHERE package_id= '$package_id' ";
-
-
 $data = mysql_query( $sql2, $conn );
+$sql3 = "SELECT * FROM package WHERE package_id= '$package_id' ";
+$data_old = mysql_query( $sql3, $conn );
+
+
+// $data = mysql_query( $sql2, $conn );
 if(! $data )
 {
   die('Could not get data: ' . mysql_error());
 }
+
+$testing3=mysql_fetch_array($data_old, MYSQL_ASSOC);
+$old_country="SELECT package.country_id, country.country_name FROM package INNER JOIN country ON package.country_id=country.country_id WHERE package_id= '$package_id'";
+$testing=mysql_query($old_country);
+// $testing1=mysql_fetch_array($testing, MYSQL_ASSOC);
+
+
+
+
+
+
+
 mysql_close($conn);
 ?>
 
@@ -126,6 +141,10 @@ mysql_close($conn);
               <td>Country:</td>
               <td><select style="width: 90px;" id="country" name="country" value="<?php  echo $row['country_id']; ?>">
 
+              <?php while($row_old1 = mysql_fetch_array($testing, MYSQL_ASSOC))
+              { ?> 
+  						<option value="<?php  echo $row_old1['country_id']; ?>"><?php echo $row_old1['country_name']; ?></option>
+              <?php } ?>
               <?php while($row1 = mysql_fetch_array($data_country, MYSQL_ASSOC))
               { ?> 
   						<option value="<?php  echo $row1['country_id']; ?>"><?php echo $row1['country_name']; ?></option>

@@ -45,13 +45,13 @@ if (!$select_db){
           } 
           else 
           {
-            if (file_exists($_SERVER['DOCUMENT_ROOT'] . "/img/" . $random)) 
+            if (file_exists($_SERVER['DOCUMENT_ROOT'] . "/photo/" . $random)) 
             {
               echo $random . " already exists. ";
             } 
             else 
             {
-              move_uploaded_file($_FILES["file"]["tmp_name"], $_SERVER['DOCUMENT_ROOT'] . "/XploreMalaysia/img/" . $random);
+              move_uploaded_file($_FILES["file"]["tmp_name"], $_SERVER['DOCUMENT_ROOT'] . "/photo/" . $random);
             }
           }
         } 
