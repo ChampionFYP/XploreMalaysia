@@ -18,8 +18,8 @@
 	</head>
 
   <body>
+    <div id="header"></div>
     <div class="container">
-      <div id="header"></div>
       <div class="row">
         <div class="col-sm-12 col-md-4">
           <div class="xm-side">
@@ -61,30 +61,34 @@
                 </tr>
                 <tr>
                   <td class="td_l"></td>
-                  <td class="rel_t"><span class="en-userinfo-field">Name: </span>&nbsp;（Not set）
-                    <a href="#">Edit</a></td>
+                  <td class="rel_t"><span class="en-userinfo-field">Name: </span>&nbsp;</td>
+                  <td>(Not set)</td>
                 </tr>
                 <tr>
                   <td class="td_l"></td>
-                  <td class="rel_t"><span class="en-userinfo-field">Username:</span>&nbsp;（Not set）
-                    <a href="#">Set</a></td>
+                  <td class="rel_t"><span class="en-userinfo-field">Username:</span>&nbsp;</td>
+                  <td>(Not set)</td>
                 </tr>
                 <tr>
                   <td class="td_l"></td>
-                  <td><span class="en-userinfo-field">Password: </span>&nbsp;
-                    <a href="#">Edit</a></td>
+                  <td><span class="en-userinfo-field">Password: </span>&nbsp;</td>
+                  <td>(Not set)</td>
                 </tr>
                 <tr>
                   <td class="td_l"></td>
-                  <td><span class="en-userinfo-field">Mail: </span>&nbsp;（Not set）
-                    <a href="#">Set</a></td>
+                  <td><span class="en-userinfo-field">Mail: </span>&nbsp;</td>
+                  <td>(Not set)</td>
                 </tr>
                 <tr>
                   <td class="td_l"></td>
-                  <td><span class="en-userinfo-field">Phone: </span>&nbsp;（None）
-                    <a href="#">Bind </a></td>
+                  <td><span class="en-userinfo-field">Phone: </span>&nbsp;</td>
+                  <td>(Not set)</td>
                 </tr>
-               </tbody></table>
+               </tbody>
+            </table>
+              <a class="btn btn-warning" href="UserEdit.php">Edit</a>
+              </br>
+              <a class="btn btn-danger" href="">Deactivate</a>
           </div>
           </div>
         </div>

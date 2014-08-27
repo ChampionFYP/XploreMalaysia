@@ -240,100 +240,15 @@
       <div class="owl-wrapper-outer">
         <div class="owl-wrapper" style="width: 100%; margin-left: 0px; display:block;">
                           
-                          <div class="owl-item">
-                            <div style=""class="item">
-                               <a href="#" class="box1">
-                                    <div class="title2">Selangor<em>Selangor</em></div>
-                                    <figure><img src="img/a.jpg" alt=""></figure>
-                                    <div class="">
-                                        <div class="info2">
-                                            <div class="title3"><strong>#</strong>
-                                              <span>#</span>
-                                            </div>
-                                            <div class="title4"><span>#</span> 
-                                              <strong>#</strong>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="title5">book now!<em>book now!</em></div>
-                               </a>
-                           </div>
-                         </div>
-
-                           <div class="owl-item">
-                           <div class="item">
-                               <a href="#" class="box1">
-                                    <div class="title2">
-                                      Penang<em>Penang</em>
-                                    </div>
-                                    <figure><img src="img/b.jpg" alt=""></figure>
-                                    <div class="">
-                                        <div class="info2">
-                                            <div class="title3"><strong>#</strong>
-                                              <span>#</span>
-                                            </div>
-                                            <div class="title4"><span>#</span> <strong>$#</strong>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="title5">
-                                      book now!<em>book now!</em>
-                                    </div>
-                               </a>
-                           </div>
-                         </div>
-
-                         <div class="owl-item">
-                           <div class="item">
-                               <a href="#" class="box1">
-                                    <div class="title2">
-                                      Sabah<em>Sabah</em>
-                                    </div>
-                                    <figure><img src="img/c.jpg" alt=""></figure>
-                                    <div class="">
-                                        <div class="info2">
-                                            <div class="title3"><strong>#</strong>
-                                              <span>#</span></div>
-                                            <div class="title4"><span>#</span>
-                                             <strong>#</strong>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="title5">
-                                      book now!<em>book now!</em>
-                                    </div>
-                               </a>
-                           </div>
-                         </div>
-
-                         <div class="owl-item">
-                          <div class="item">
-                               <a href="#" class="box1">
-                                    <div class="title2">
-                                      Kedah<em>kedah</em>
-                                    </div>
-                                    <figure><img src="img/b.jpg" alt=""></figure>
-                                    <div class="">
-                                        <div class="info2">
-                                            <div class="title3">
-                                              <strong>#</strong>
-                                              <span>#</span>
-                                            </div>
-                                            <div class="title4">
-                                              <span>#</span> 
-                                              <strong>#</strong>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="title5">
-                                      book now!<em>book now!</em>
-                                    </div>
-                               </a>
-                           </div>
-                         </div>
-
-
-                         
+            <div class="owl-item">
+              <div style=""class="item">
+                  <a href="#" class="box1">
+                       <div class="title2">State<em>State</em></div>
+                       <figure><img src="img/a.jpg" alt=""></figure>
+                       <div class="title5">View now!<em>View now!</em></div>
+                  </a>
+              </div>
+            </div>  
           </div>
         </div>
         </div>
