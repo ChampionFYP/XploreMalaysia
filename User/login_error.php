@@ -40,15 +40,15 @@ else
     /*** connect to database ***/
     /*** mysql hostname ***/
    
-    // $mysql_hostname = 'localhost';
-    // $mysql_username = 'xplorema';
-    // $mysql_password = 'FYPchamp1!';
-    // $mysql_dbname = 'xplorema_FYP';
-
     $mysql_hostname = 'localhost';
-    $mysql_username = 'root';
-    $mysql_password = '';
-    $mysql_dbname = 'FYP';
+    $mysql_username = 'xplorema';
+    $mysql_password = 'FYPchamp1!';
+    $mysql_dbname = 'xplorema_FYP';
+
+    // $mysql_hostname = 'localhost';
+    // $mysql_username = 'root';
+    // $mysql_password = '';
+    // $mysql_dbname = 'FYP';
 
     try
     {
@@ -76,7 +76,7 @@ else
         if($customer_id == false)
         {
                 $message = 'Login Failed';
-                // header('Location: '. dirname(__folder__) .'/error_login.php');
+                // header('Location: '. dirname(__folder__) .'/login_error.php');
         }
         /*** if we do have a result, all is well ***/
         else
@@ -120,40 +120,51 @@ else
           $('#footer').load('layout/footer.php');
         });
     </script> 
-		<body>
-        <div id="modal" class="popupContainer">
-            <header class="popupHeader">
-              <span class="header_title">Login</span>
-              <span class="modal_close"><i class="fa fa-times"></i></span>
-            </header>
-            <section class="popupBody">
-            <form style="margin-bottom: 0px !important;" class="form-horizontal" method="post" action="error_login.php">
-            <div class="user_login">
-            <label>Email</label>
-            <input type="text" placeholder="Email" id="email" name="email"/>
-            <br />
-
-            <label>Password</label>
-            <input type="password" placeholder="Password" id="password" name="password"/>
-            <br />
-
-            <div class="checkbox">
-            <input id="remember" type="checkbox" />
-            <label for="remember">Remember me on this computer</label>
+    </head>
+	<body>
+        <div id="header"></div>
+            <div>
+                <!--Popup Login Box-->
+                    <div id="modal" style="width:330px; height: auto; margin:20px auto -50px; outline: #5cb5be solid;">
+                      <header class="popupHeader">
+                        <span class="header_title">Login</span>
+                        <span class="modal_close"><i class="fa fa-times"></i></span>
+                      </header>
+                      <section class="popupBody">
+                      <form style="margin-bottom: 0px !important;" class="form-horizontal" method="post" action="login_function.php">
+                          <div class="user_login">
+                        <label>Username</label>
+                      <input type="text" placeholder="Username" id="username" name="username"/>
+                      <br />
+            
+                      <label>Password</label>
+                      <input type="password" placeholder="Password" id="password" name="password"/>
+                      <br />
+            
+                      <div class="checkbox">
+                        <input id="remember" type="checkbox">
+                        <label for="remember">Remember me on this computer</label>
+                      </div>
+            
+                      <p style="color:red;"><?php echo $message; ?></p>
+                      <div class="action_btns">            
+                      <div style="float:right;"><button class="btn btn-info" data-dismiss="modal" type="submit">Login</button></div>
+                      </div>
+                      
+                      <?php if(!empty($message)) {?>
+                        <span class="login_error"><?php echo $message; ?><br>Please try again.</span>
+                        <?php }
+                        else { ?>
+                        <span class="login_error">Login Failed!<br>Please try again.</span>
+                      <?php } ?>
+            
+                      <a href="#" class="forgot_password">Forgot password?</a>
+                          </div>
+                    </form>
+                      </section>
+                    </div>
+                    <!--End of popup Login Box-->
             </div>
-
-            <?php if(!empty($message)) {?>
-             <label style="color:red;">Error: <?php echo $message; ?></label>
-             <?php }
-             else { ?>
-             <label style="color:red;">Error: Login Failed</label>
-             <?php } ?>
-
-            <div class="action_btns">            
-            <div class="one_half last"><button class="btn btn_red" data-dismiss="modal" type="submit">Login</button></div>
-            </div>
+        <div id="footer"></div>
     </body>
-<div id ="footer"></div>
-</div>
-</body>
 </html>

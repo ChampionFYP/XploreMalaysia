@@ -25,216 +25,54 @@
 
   <body> 
   <div id="header"></div>
-  <div style="background-color: #5cb5be; display: block;">
-    <img style="position:absolute; left:0; right:0; margin-top:3px;"src="img/bghead2.png" >
+  <div style="background: #5cb5be url(img/index_background.jpg) top center repeat-x; display: block;" class="col-md-12">
+    <img src="img/bghead2.png" >
   </div>
-  </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
-  
-  <div class="container">
-     
+   </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+  <div class="container" style="position:absolute; margin-left:7%;">
     <div class="row">
+      <ul class="list1">      
+        <li>
+          <a href="#HotelsBooking" role="button" data-toggle="modal" class="btn btn-primary btn2">
+              <strong>
+                <img src="img/hotel.png">
+              </strong>
+                <span>hotels</span>
+          </a>
+        </li>
     
-    <ul class="list1">
-
-      <div class = "modal fade" id = "HotelsBooking" >
-        <div class = "modal-dialog">
-         <div class = "modal-content">
-                  <div style="background-color: #5cb5be;font-size:30px;font-weight:bold;" class = "modal-header">
-                      <p style="color: #ffffff;">Hotels</p>
-                  </div>
-                  <div class="modal-body">
-                    <form ="hotelfrm">
-                      <label>Destination : </label>
-                      <select id="dropdown" class="inputbox">
-                         <option value="Destination">Destination</option>
-                          <option value="Penang">Penang</option>
-                          <option value="Pahang">Pahang</option>
-                          <option value="Ipoh">Ipoh</option>
-                          <option value="Kuala Lumpur">Kuala Lumpur</option>
-                           <option value="Terengganu">Terengganu</option>
-                           <option value="Melaka">Melaka</option>
-                           <option value="Johor">Johor</option>
-                            <option value="Sabah">Sabah</option>
-                             <option value="Sarawak">Sarawak</option>
-                      </select>
-                      
-                      <br />
-
-                      <label>Check-in Date : </label>
-                      <input type="text" class="inputbox" id="In" />
-                      <br />
-
-                      <label>Check-Out Date : </label>
-                      <input type="text" class="inputbox" id="Out" />
-                      <br/>
-
-                      <label>Guests: </label>
-                      <input type="number" class="inputbox" size="10" min="1" max="12" id="guests"/>
-                      <br /><br/> <br /><br/> <br /><br/>
-
-
-                      
-                      <a input type="button" style="position: absolute; left: 260px; top: 150px;" id="hotelsearch" class = "btn btn-default"  onclick = "validate();">Search</a>
-                      
-                  </div>
-                      
-                   <div class = "modal-footer">
-
-                        <img style="position:absolute;left:0px; right:100px; margin-bottom:20px;width:100%;" src="img/footer.jpg">
-                        
-                  </div>
-                </form>
-              </div> 
-          </div>
-      </div>         
-
-      <li>
-        <a href="#HotelsBooking" role="button" data-toggle="modal" class="btn btn-primary btn2">
+        <li>
+          <a href="#CarsBooking" role="button" data-toggle="modal" class="btn btn-primary btn2">
             <strong>
-              <img src="img/hotel.png">
+              <img src="img/cars.png">
             </strong>
-              <span>hotels</span>
-        </a>
-      </li>
-
-
-      <div class = "modal fade" id = "CarsBooking" >
-        <div class = "modal-dialog">
-         <div class = "modal-content">
-                  <div style="background-color: #5cb5be;font-size:30px;font-weight:bold;" class = "modal-header">
-                      <p style="color: #ffffff;">Cars</p>
-                  </div>
-                  <div class="modal-body">
-                    <form ="CarsFrm">
-                      <label>Types of Car : </label>
-                      <select id="dropdown" class="inputbox">
-                         <option value="Cars">--------Cars-------</option>
-                          <option value="Saga">Proton Saga</option>
-                          <option value="Myvi">Perodua Myvi</option>
-                          <option value="Vios">Toyota Vios</option>
-                          <option value="Camry">Toyota Camry</option>
-                           <option value="Exora">Proton Exora</option>
-                           <option value="Estima">Toyota Estima</option>
-                          
-                      </select>
-                      
-                      <br />
-
-                      <label>Pick-Up Date : </label>
-                      <input type="text" class="inputbox" id="In" />
-                      <br />
-
-                      <label>Return Date : </label>
-                      <input type="text" class="inputbox" id="Out" />
-                      <br/>
-
-                      <label>Amount: </label>
-                      <input type="number" class="inputbox" size="10" min="1" max="5" id="amounts"/>
-                      <br /><br/> <br /><br/> <br /><br/>
-
-
-                      
-                      <a input type="button" style="position: absolute; left: 260px; top: 150px;" id="CarsBooking" class = "btn btn-default">Book</a>
-                      
-                  </div>
-                      
-                   <div class = "modal-footer">
-
-                        <img style="position:absolute;left:0px; right:100px; margin-bottom:20px;width:100%;" src="img/footer.jpg">
-                        
-                  </div>
-                </form>
-              </div> 
-          </div>
-      </div>         
-
-     <li>
-      <a href="#CarsBooking" role="button" data-toggle="modal" class="btn btn-primary btn2">
-        <strong>
-          <img src="img/cars.png">
-        </strong>
-          <span>cars</span>
-      </a>
-    </li>
-
-
-<div class = "modal fade" id = "PackagesBooking" >
-        <div class = "modal-dialog">
-         <div class = "modal-content">
-          
-                  <div style="background-color: #5cb5be;font-size:30px;font-weight:bold;" class = "modal-header">
-                      <p style="color: #ffffff;">Packages</p>
-                  </div>
-                  <div class="modal-body">
-                    <form ="CarsFrm">
-                      <label>Types of Packages : </label>
-                      <select id="dropdown" class="inputbox">
-                         <option value="Packages">--------Packages-------</option>
-                          <option value="Sabah">Sabah 4 days 3 nights Trip</option>
-                          <option value="Penang">Penang 3 days 2 nights Trip</option>
-                          <option value="Pahang">Genting 2 days 1 night Trip</option>
-                          
-                          
-                      </select>
-                      
-                      <br />
-
-                      <label>Depart Date : </label>
-                      <input type="text" class="inputbox" id="In" />
-                      <br />
-
-                      <label>Return Date : </label>
-                      <input type="text" class="inputbox" id="Out" />
-                      <br/>
-
-                      <label>Person: </label>
-                      <input type="number" class="inputbox" size="10" min="1" max="12" id="person"/>
-                      <br /><br/> <br /><br/> <br /><br/>
-
-
-                      
-                      <a input type="button" style="position: absolute; left: 260px; top: 150px;" id="PackagesBooking" class = "btn btn-default">Search</a>
-                      
-                  </div>
-                      
-                   <div class = "modal-footer">
-
-                        <img style="position:absolute;left:0px; right:100px; margin-bottom:20px;width:100%;" src="img/footer.jpg">
-                        
-                  </div>
-                </form>
-              </div> 
-          </div>
-      </div>         
-
-     <li>
-      <a href="#PackagesBooking" role="button" data-toggle="modal" class="btn btn-primary btn2">
-        <strong>
-          <img src="img/package.png">
-        </strong>
-          <span>packages</span>
-      </a>
-    </li>
-   </ul>
+              <span>cars</span>
+          </a>
+        </li>
+    
+        <li>
+          <a href="#PackagesBooking" role="button" data-toggle="modal" class="btn btn-primary btn2">
+            <strong>
+              <img src="img/package.png">
+            </strong>
+              <span>packages</span>
+          </a>
+        </li>
+      </ul>
+      <div class="title1" style="text-shadow: 2px 2px 2px #081246;">
+        <strong>This Year's Hot Tours</strong>
+        <span>Great Ideas For Family Rest</span>
+      </div>
     </div>
   </div>
 
 </br></br></br></br>
   <hr class="hr2">
-
-<div class="title1" style="text-shadow: 2px 2px 2px #081246;">
-  <strong>This Year's Hot Tours</strong>
-  <span>Great Ideas For Family Rest</span>
-</div>
-
-</br></br></br></br>
- </div><!--header-->
-
-
+</br></br></br></br></br></br></br></br></br>
+ </div>
 
   <div class="container">
-  <div class="row">
-    
+  <div class="row">   
   <div class="owlbox">
     <div id="owl-demo" class="owl-carousel owl-theme" style="opacity:1; display:block;"> 
       <div class="owl-wrapper-outer">
@@ -248,7 +86,8 @@
                        <div class="title5">View now!<em>View now!</em></div>
                   </a>
               </div>
-            </div>  
+            </div>
+
           </div>
         </div>
         </div>

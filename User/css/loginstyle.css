@@ -41,15 +41,6 @@ body {font-family: 'Source Sans Pro', sans-serif; font-size: 14px; color: #666;}
 
 #modal_trigger { width:100px; display:block; font-size: 16px; display: inline-block;}
 
-.btn { background: #5cb5be;padding:5px 10px; float: center;}
-.btn_red {background: #ED6347; color: #FFF;}
-
-.btn:hover {background: #509FA6;}
-.btn_red:hover {background: #C12B05;}
-
-a.btn {color:#fff; text-align: center; text-decoration: none; float: center;}
-a.btn_red {color: #FFF;}
-
 .one_half {width:50%; display: block; float:left;}
 .one_half.last {width:45%; margin-left:5%;}
 
@@ -74,6 +65,24 @@ a.btn_red {color: #FFF;}
 .user_login input[type="checkbox"] {float:left; margin-right:5px;}
 .user_login input[type="checkbox"]+label {float:left;}
 
-.user_login .checkbox {margin-bottom: 10px; clear: both; overflow: hidden;}
-.forgot_password {display:block; margin: 20px 0 10px; clear: both; overflow: hidden; text-decoration: none; color:#ED6347;}
+.user_login .checkbox {
+    margin-bottom: 10px; 
+    clear: both; 
+    overflow: hidden;
+}
 
+.forgot_password {
+    display:block; 
+    margin: 20px 0 10px; 
+    clear: both; 
+    overflow: hidden; 
+    text-decoration: none; 
+    color:#ED6347;
+}
+
+.login_error {
+    color:#920909;
+    font-weight: bold; 
+    text-align: center;
+    font-size: larger;
+}

@@ -12,6 +12,7 @@ include $dir.'/XploreMalaysia/User/login_function.php';
 	<head>
 		<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xplore Malaysia</title>
 	<link href="css/style.css" rel="stylesheet">
     <link href="css/Homelayout.css" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="../css/loginstyle.css" />
@@ -67,7 +68,7 @@ include $dir.'/XploreMalaysia/User/login_function.php';
 
             <p style="color:red;"><?php echo $message; ?></p>
             <div class="action_btns">            
-            <div class="one_half last"><button class="btn btn_red" data-dismiss="modal" type="submit">Login</button></div>
+            <div class="one_half last"><button class="btn btn-info" data-dismiss="modal" type="submit">Login</button></div>
             </div>
        
 
@@ -93,13 +94,12 @@ include $dir.'/XploreMalaysia/User/login_function.php';
 		</script>
 
 	  	<div id="main_nav">         
-			<ul>
-			   <li class='active'><a href='index.php'><span>Home</span></a></li>
+			<ul class="col-md-12">
+			   <li><a href='index.php'><span>Home</span></a></li>
 			   <li class='has-sub'><a href=#><span>Vacation</span></a>
 			      <ul>
 			        <li class='has-sub'><a href='westmalaysia.html'><span>West Malaysia</span></a></li>
 			        <li class='has-sub'><a href='eastmalaysia.html'><span>East Malaysia</span></a></li>
-			         
 			      </ul>
 			   </li>
 			   <li><a href='AboutUs.php'><span>About Us</span></a></li>

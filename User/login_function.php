@@ -40,15 +40,15 @@ else
     /*** connect to database ***/
     /*** mysql hostname ***/
 
-    // $mysql_hostname = 'localhost';
-    // $mysql_username = 'xplorema';
-    // $mysql_password = 'FYPchamp1!';
-    // $mysql_dbname = 'xplorema_FYP';
-   
     $mysql_hostname = 'localhost';
-    $mysql_username = 'root';
-    $mysql_password = '';
-    $mysql_dbname = 'FYP';
+    $mysql_username = 'xplorema';
+    $mysql_password = 'FYPchamp1!';
+    $mysql_dbname = 'xplorema_FYP';
+   
+    // $mysql_hostname = 'localhost';
+    // $mysql_username = 'root';
+    // $mysql_password = '';
+    // $mysql_dbname = 'FYP';
 
     try
     {
@@ -76,7 +76,7 @@ else
         if($customer_id == false)
         {
                 $message = 'Login Failed';
-                header('Location: '. dirname(__folder__) .'/error_login.php');
+                header('Location: '. dirname(__folder__) .'/login_error.php');
         }
         /*** if we do have a result, all is well ***/
         else

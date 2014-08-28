@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
+    <title>Edit Profile</title>
 		<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link href="css/style.css" rel="stylesheet">
@@ -49,7 +50,7 @@
 
         <div class="col-sm-12 col-md-8">
           <p class="info">
-            <span class="left">My Account </span>
+            <span class="left">Edit Profile </span>
           </p>
           <div class="detail">
           <div class="user_info clearfix">
@@ -62,42 +63,38 @@
                 <tr>
                   <td class="td_l"></td>
                   <td class="rel_t"><span class="en-userinfo-field">Name: </span>&nbsp;</td>
-                  <td>(Not set)</td>
+                  <td><input type="text" class="form-control" id="user_Name"></td>
                 </tr>
                 <tr>
                   <td class="td_l"></td>
                   <td class="rel_t"><span class="en-userinfo-field">Username:</span>&nbsp;</td>
-                  <td>(Not set)</td>
+                  <td><input type="text" class="form-control" id="user_Username"></td>
                 </tr>
                 <tr>
                   <td class="td_l"></td>
                   <td><span class="en-userinfo-field">Password: </span>&nbsp;</td>
-                  <td>(Not set)</td>
-                  
+                  <td><input type="text" class="form-control" id="user_Password"></td>
                 </tr>
                 <tr>
                   <td class="td_l"></td>
                   <td><span class="en-userinfo-field">E-Mail: </span>&nbsp;</td>
-                  <td>(Not set)</td>
+                  <td><input type="text" class="form-control" id="user_Email"></td>
                 </tr>
                 <tr>
                   <td class="td_l"></td>
                   <td><span class="en-userinfo-field">Phone: </span>&nbsp;</td>
-                  <td>(Not set)</td>
+                  <td><input type="text" class="form-control" id="user_Phone"></td>
                 </tr>
                 <tr>
                   <td></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td><a class="btn btn-warning" href="UserEdit.php">Edit</a></td>
-                  <td><a class="btn btn-danger" href="">Deactivate</a></td>
+                  <td><a class="btn btn-primary" href="">Save</a></td>
+                  <td><a class="btn btn-danger" href="">Cancel</a></td>
                 </tr>
                </tbody>
             </table>
-              
-              </br>
-              
           </div>
           </div>
         </div>
