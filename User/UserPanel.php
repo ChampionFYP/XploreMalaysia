@@ -1,3 +1,47 @@
+<?php
+
+/*** begin the session ***/
+session_start();
+
+if(empty($_SESSION['customer_id']))
+{
+    header('Location: '. dirname(__folder__) .'/index.php');
+}
+
+$dbhost = 'localhost';
+$dbuser = 'xplorema';
+$dbpass = 'FYPchamp1!';
+$message="";
+$customer_id=$_SESSION['customer_id'];
+
+$conn = mysql_connect($dbhost, $dbuser, $dbpass);
+if(! $conn )
+{
+  die('Could not connect: ' . mysql_error());
+}
+
+
+mysql_select_db('xplorema_FYP');
+// mysql_select_db('FYP');
+
+$sql = "SELECT * FROM customer WHERE customer_id= '$customer_id' ";
+
+
+$data = mysql_query( $sql, $conn );
+if(! $data )
+{
+  die('Could not get data: ' . mysql_error());
+}
+mysql_close($conn);
+
+
+
+
+
+
+?>
+
+
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -55,35 +99,33 @@
           <div class="user_info clearfix">
             <table class="mess">
               <tbody>
+              <?php 
+              while($row = mysql_fetch_array($data, MYSQL_ASSOC))
+              { ?>
                 <tr>
                   <td class="td_l"></td>
-                  <td><span class="en-userinfo-field">User ID: </span>&nbsp; </td>
+                  <td><span class="en-userinfo-field">User ID:</span>&nbsp; </td>
+                  <td><?php echo $row['customer_id']; ?></td>
                 </tr>
                 <tr>
                   <td class="td_l"></td>
-                  <td class="rel_t"><span class="en-userinfo-field">Name: </span>&nbsp;</td>
-                  <td>(Not set)</td>
+                  <td class="rel_t"><span class="en-userinfo-field">Name:</span>&nbsp;</td>
+                  <td><?php  echo $row['csutomer_name']; ?></td>
                 </tr>
                 <tr>
                   <td class="td_l"></td>
                   <td class="rel_t"><span class="en-userinfo-field">Username:</span>&nbsp;</td>
-                  <td>(Not set)</td>
+                  <td><?php  echo $row['customer_username']; ?></td>
                 </tr>
                 <tr>
                   <td class="td_l"></td>
-                  <td><span class="en-userinfo-field">Password: </span>&nbsp;</td>
-                  <td>(Not set)</td>
-                  
+                  <td><span class="en-userinfo-field">E-Mail:</span>&nbsp;</td>
+                  <td><?php  echo $row['customer_email']; ?></td>
                 </tr>
                 <tr>
                   <td class="td_l"></td>
-                  <td><span class="en-userinfo-field">E-Mail: </span>&nbsp;</td>
-                  <td>(Not set)</td>
-                </tr>
-                <tr>
-                  <td class="td_l"></td>
-                  <td><span class="en-userinfo-field">Phone: </span>&nbsp;</td>
-                  <td>(Not set)</td>
+                  <td><span class="en-userinfo-field">Phone:</span>&nbsp;</td>
+                  <td><?php  echo $row['customer_phone']; ?></td>
                 </tr>
                 <tr>
                   <td></td>
@@ -93,6 +135,7 @@
                   <td><a class="btn btn-warning" href="UserEdit.php">Edit</a></td>
                   <td><a class="btn btn-danger" href="">Deactivate</a></td>
                 </tr>
+                 <?php } ?>
                </tbody>
             </table>
               

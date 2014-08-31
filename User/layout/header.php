@@ -1,9 +1,28 @@
 <?php
 
-$dir = $_SERVER['DOCUMENT_ROOT'];
+/*** begin our session ***/
+session_start();
+$connection = mysql_connect('localhost', 'xplorema', 'FYPchamp1!');
+
+if (!$connection){
+
+    die("Database Connection Failed" . mysql_error());
+
+}
+$select_db = mysql_select_db('xplorema_FYP');
+
+if (!$select_db){
+
+    die("Database Selection Failed" . mysql_error());
+
+}
+    $customer_id=$_SESSION['customer_id'];
+    $customer =" SELECT * FROM customer WHERE customer_id='$customer_id'";
+    $data_customer = mysql_query($customer);
 
 
-include $dir.'/XploreMalaysia/User/login_function.php'; 
+
+/*** check if the users is already logged in ***/
 
 ?>
 
@@ -38,10 +57,12 @@ include $dir.'/XploreMalaysia/User/login_function.php';
       }
        else 
       {
-      ?> 	
-			<a id="modal_trigger" href="UserPanel.html" class="btn">My Account</a>
+      while($row = mysql_fetch_assoc($data_customer))
+          { ?> 	
+			<a id="modal_trigger" href="UserPanel.php" class="btn"><?php  echo $row['customer_username']; ?></a>
 			<a id="modal_trigger" href="logout.php" class="btn">Log Out</a>
-       <?php }?> 	
+      <?php } 
+        }?> 	
         </div>
 
           <!--Popup Login Box-->
@@ -66,7 +87,6 @@ include $dir.'/XploreMalaysia/User/login_function.php';
             <label for="remember">Remember me on this computer</label>
             </div>
 
-            <p style="color:red;"><?php echo $message; ?></p>
             <div class="action_btns">            
             <div class="one_half last"><button class="btn btn-info" data-dismiss="modal" type="submit">Login</button></div>
             </div>

@@ -1,32 +1,28 @@
+
+
 <?php
 
 /*** begin our session ***/
 session_start();
 
 /*** check if the users is already logged in ***/
-if(isset($_SESSION['customer_id'] ))
-{
-    // header('Location: '. dirname(__folder__) .'/dashboard.php');
-    session_destroy();
-
-}
 
 if(!isset( $_POST['username'], $_POST['password']))
 {
-    $message = '';
+    header('Location: '. dirname(__folder__) .'/login_error.php');
 }
 /*** check the username is the correct length ***/
 /*** check the password is the correct length ***/
 elseif (strlen( $_POST['password']) > 20 || strlen($_POST['password']) < 3)
 {
-    $message = 'Incorrect Length for Password';
+    header('Location: '. dirname(__folder__) .'/login_error.php');
 }
 /*** check the username has only alpha numeric characters ***/
 // ** check the password has only alpha numeric characters **
 elseif (ctype_alnum($_POST['password']) != true)
 {
 //         ** if there is no match **
-        $message = "Password must be alpha numeric";
+        header('Location: '. dirname(__folder__) .'/login_error.php');
 }
 else
 {
@@ -99,6 +95,7 @@ else
         $message = 'We are unable to process your request. </br><b>Please try again later!</b>';
     }
 }
+
 ?>
 
 

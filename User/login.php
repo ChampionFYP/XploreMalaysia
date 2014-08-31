@@ -6,8 +6,9 @@ session_start();
 /*** check if the users is already logged in ***/
 if(isset($_SESSION['customer_id'] ))
 {
-    // header('Location: '. dirname(__folder__) .'/dashboard.php');
+    
     session_destroy();
+    header('Location: '. dirname(__folder__) .'/login.php');
 
 }
 
@@ -95,7 +96,7 @@ else
                 /*** tell the user we are logged in ***/
                 $message = 'You are now logged in';
 
-                header('Location: '. dirname(__folder__) .'/dashboard.php');
+                header('Location: '. dirname(__folder__) .'/UserPanel.php');
 
         }
 
