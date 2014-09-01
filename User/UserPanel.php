@@ -110,7 +110,7 @@ mysql_close($conn);
                 <tr>
                   <td class="td_l"></td>
                   <td class="rel_t"><span class="en-userinfo-field">Name:</span>&nbsp;</td>
-                  <td><?php  echo $row['csutomer_name']; ?></td>
+                  <td><?php  echo $row['customer_name']; ?></td>
                 </tr>
                 <tr>
                   <td class="td_l"></td>

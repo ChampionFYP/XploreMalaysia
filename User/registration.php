@@ -28,7 +28,7 @@ if (!$select_db){
         $code = $_POST['code'];
         $gender = $_POST['gender'];
   
-        // $query = "INSERT INTO `customer` (customer_username, customer_password, gender, csutomer_name, customer_ic, customer_email, customer_phone, customer_address) VALUES ('$username', '$password', '$gender', '$username', '$ic', '$phone', '$email', '$address, $city, $state, $code')";
+        // $query = "INSERT INTO `customer` (customer_username, customer_password, gender, customer_name, customer_ic, customer_email, customer_phone, customer_address) VALUES ('$username', '$password', '$gender', '$username', '$ic', '$phone', '$email', '$address, $city, $state, $code')";
         
         $data_username= "SELECT * FROM customer WHERE customer_username='$username'";
         $data_u = mysql_query($data_username);
@@ -46,7 +46,7 @@ if (!$select_db){
 
         if(empty($values) && empty($values2) && empty($values3)){
 
-            $query = "INSERT INTO `customer` (customer_username, customer_password, gender, csutomer_name, customer_ic, customer_email, customer_phone, customer_address, status) VALUES ('$username', '$password', '$gender', '$username', '$ic', '$email', '$phone', '$address, $city, $state, $code','1')";
+            $query = "INSERT INTO `customer` (customer_username, customer_password, gender, customer_name, customer_ic, customer_email, customer_phone, customer_address, status) VALUES ('$username', '$password', '$gender', '$username', '$ic', '$email', '$phone', '$address, $city, $state, $code','1')";
             mysql_query($query);
         }
         if(!empty($values))

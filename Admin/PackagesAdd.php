@@ -21,6 +21,8 @@ if (!$select_db){
     $data_transport = mysql_query($transport1);
     $accomodation1=" SELECT * FROM accomodation";
     $data_accomodation = mysql_query($accomodation1);
+    $status1=" SELECT * FROM status";
+    $data_status = mysql_query($status1);
     $random = rand ( 0 , 9999 );
 
 // If the values are posted, insert them into the database.
@@ -32,6 +34,7 @@ if (!$select_db){
         $transport = $_POST['transport'];
         $accomodation = $_POST['accomodation'];
         $admin=$_SESSION['admin_id'];
+        $status=$_POST['status'];
         $picture=$random;
 
         $allowedExts = array("gif", "jpeg", "jpg", "png");
@@ -72,8 +75,9 @@ if (!$select_db){
 
 
   
-        $query = "INSERT INTO `package` (package_name, package_price, description, status, country_id, transport_id, accomodation_id,admin_id,image_id) VALUES ('$name', '$price', '$desc', '1', '$country', '$transport', '$accomodation','$admin','$picture')";
+        $query = "INSERT INTO `package` (package_name, package_price, description, status, country_id, transport_id, accomodation_id,admin_id,image_id) VALUES ('$name', '$price', '$desc', '$status', '$country', '$transport', '$accomodation','$admin','$picture')";
         mysql_query($query);
+
 
         // $data_username= "SELECT * FROM customer WHERE customer_username='$username'";
         // $data_u = mysql_query($data_username);
@@ -236,6 +240,17 @@ if (!$select_db){
               <td>
               <input type="file" name="file" id="file"><br>
               </td>
+            </tr>
+
+            <tr>
+              <td>status:</td>
+              <td><select style="width: 90px;" id="status" name="status">
+
+              <?php while($row = mysql_fetch_array($data_status, MYSQL_ASSOC))
+              { ?> 
+              <option value="<?php  echo $row['status_id']; ?>"><?php echo $row['status_name']; ?></option>
+              <?php } ?>                  
+              </select></td>
             </tr>
           </table>
         </div>

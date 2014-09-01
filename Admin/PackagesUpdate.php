@@ -22,6 +22,8 @@ mysql_select_db('xplorema_FYP');
     $data_accomodation = mysql_query($accomodation1);
     $random = rand ( 0 , 9999 );
     $package_id=$_SESSION['package_id'];
+    $status1=" SELECT * FROM status";
+    $data_status = mysql_query($status1);
 
 if(isset($_POST['name'])||isset($_POST['file']))
 {
@@ -33,6 +35,7 @@ $country= $_POST['country'];
 $transport = $_POST['transport'];
 $accomodation = $_POST['accomodation'];
 $admin=$_SESSION['admin_id'];
+$status=$_POST['status'];
 $picture=$random;
 
         $allowedExts = array("gif", "jpeg", "jpg", "png");
@@ -62,7 +65,7 @@ $picture=$random;
         }
 
 
-$sql = "UPDATE package SET package_name='$name', package_price='$price', description='$desc', status='$price', country_id='$country', transport_id='$transport', accomodation_id='$accomodation', admin_id='$admin', image_id='$picture' WHERE package_id='$package_id'" ;
+$sql = "UPDATE package SET package_name='$name', package_price='$price', description='$desc', status='$status', country_id='$country', transport_id='$transport', accomodation_id='$accomodation', admin_id='$admin', image_id='$picture' WHERE package_id='$package_id'" ;
 $retval = mysql_query( $sql, $conn );
 if(! $retval )
 {
@@ -170,6 +173,17 @@ mysql_close($conn);
               <?php while($row3 = mysql_fetch_array($data_accomodation, MYSQL_ASSOC))
               { ?> 
               <option value="<?php  echo $row3['accomodation_id']; ?>"><?php echo $row3['accomodation_name']; ?></option>
+              <?php } ?>                  
+              </select></td>
+            </tr>
+
+            <tr>
+              <td>status:</td>
+              <td><select style="width: 90px;" id="status" name="status">
+
+              <?php while($row = mysql_fetch_array($data_status, MYSQL_ASSOC))
+              { ?> 
+              <option value="<?php  echo $row['status_id']; ?>"><?php echo $row['status_name']; ?></option>
               <?php } ?>                  
               </select></td>
             </tr>

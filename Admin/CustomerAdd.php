@@ -43,7 +43,7 @@ if (!$select_db){
 
         if(empty($values) && empty($values2) && empty($values3)){
 
-            $query = "INSERT INTO `customer` (customer_username, customer_password, gender, csutomer_name, customer_ic, customer_email, customer_phone, status) VALUES ('$username', '$password', '$gender', '$username', '$ic', '$email', '$phone','$status')";
+            $query = "INSERT INTO `customer` (customer_username, customer_password, gender, customer_name, customer_ic, customer_email, customer_phone, status) VALUES ('$username', '$password', '$gender', '$username', '$ic', '$email', '$phone','$status')";
             mysql_query($query);
         }
         if(!empty($values))
@@ -60,6 +60,9 @@ if (!$select_db){
         }
 
     }
+
+    $status1=" SELECT * FROM status";
+    $data_status = mysql_query($status1);
 
 
 ?>
@@ -172,8 +175,10 @@ if (!$select_db){
                 <td>Status:</td>
                 <td>
                     <select id="status" name="status">
-                    <option value="1">Active</option>
-                    <option value="2">Deactive</option>
+                    <?php while($row = mysql_fetch_array($data_status, MYSQL_ASSOC))
+                    { ?> 
+                    <option value="<?php  echo $row['status_id']; ?>"><?php echo $row['status_name']; ?></option>
+                    <?php } ?>
                     </select>
                 </td>
               </tr>
