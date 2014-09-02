@@ -71,7 +71,11 @@ if(! $retval )
 {
   die('Could not update data: ' . mysql_error());
 }
-echo "Updated data successfully\n";
+if(isset($_SESSION['package_id']))
+{
+  unset($_SESSION['package_id']);
+  header('Location: '. dirname(__folder__) .'/Packages.php');
+}
 }
 
 $sql2 = "SELECT * FROM package WHERE package_id= '$package_id' ";
@@ -90,6 +94,7 @@ $testing3=mysql_fetch_array($data_old, MYSQL_ASSOC);
 $old_country="SELECT package.country_id, country.country_name FROM package INNER JOIN country ON package.country_id=country.country_id WHERE package_id= '$package_id'";
 $testing=mysql_query($old_country);
 // $testing1=mysql_fetch_array($testing, MYSQL_ASSOC);
+
 
 
 
