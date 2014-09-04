@@ -36,7 +36,7 @@ CREATE TABLE `accomodation` (
   PRIMARY KEY (`accomodation_id`),
   KEY `fk_accomodation_status1_idx` (`status`),
   CONSTRAINT `fk_accomodation_status1` FOREIGN KEY (`status`) REFERENCES `status` (`status_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,6 +45,7 @@ CREATE TABLE `accomodation` (
 
 LOCK TABLES `accomodation` WRITE;
 /*!40000 ALTER TABLE `accomodation` DISABLE KEYS */;
+INSERT INTO `accomodation` VALUES (7,'hotel',NULL,'hotel','no ','123','0000-00-00 00:00:00',1),(8,'homestyle','','homestyle','no','321','0000-00-00 00:00:00',1);
 /*!40000 ALTER TABLE `accomodation` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -64,7 +65,7 @@ CREATE TABLE `admin` (
   PRIMARY KEY (`admin_id`),
   KEY `fk_admin_status1_idx` (`status`),
   CONSTRAINT `fk_admin_status1` FOREIGN KEY (`status`) REFERENCES `status` (`status_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -73,6 +74,7 @@ CREATE TABLE `admin` (
 
 LOCK TABLES `admin` WRITE;
 /*!40000 ALTER TABLE `admin` DISABLE KEYS */;
+INSERT INTO `admin` VALUES (2,'kirill','kok','2014-09-02 05:15:35',1);
 /*!40000 ALTER TABLE `admin` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -98,7 +100,7 @@ CREATE TABLE `booking` (
   CONSTRAINT `fk_booking_customer1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_booking_package1` FOREIGN KEY (`package_id`) REFERENCES `package` (`package_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_booking_status1` FOREIGN KEY (`status`) REFERENCES `status` (`status_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -107,6 +109,7 @@ CREATE TABLE `booking` (
 
 LOCK TABLES `booking` WRITE;
 /*!40000 ALTER TABLE `booking` DISABLE KEYS */;
+INSERT INTO `booking` VALUES (1,'0000-00-00',0,'2014-09-04 13:49:21',1,3,1),(2,'0000-00-00',0,'2014-09-04 13:50:05',1,3,1),(3,'0000-00-00',0,'2014-09-04 13:50:26',1,3,1),(4,'0000-00-00',0,'2014-09-04 13:54:50',1,3,1),(5,'0000-00-00',0,'2014-09-04 13:56:13',1,3,1),(6,'2014-09-09',0,'2014-09-04 13:56:20',1,3,1),(7,'2014-09-16',5,'2014-09-04 13:59:04',1,3,1);
 /*!40000 ALTER TABLE `booking` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -120,10 +123,9 @@ DROP TABLE IF EXISTS `country`;
 CREATE TABLE `country` (
   `country_id` int(11) NOT NULL AUTO_INCREMENT,
   `country_name` varchar(45) NOT NULL,
-  `country_region` tinyint(2) NOT NULL,
   `created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`country_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -132,6 +134,7 @@ CREATE TABLE `country` (
 
 LOCK TABLES `country` WRITE;
 /*!40000 ALTER TABLE `country` DISABLE KEYS */;
+INSERT INTO `country` VALUES (1,'pahang','2014-09-02 05:17:04'),(2,'selangor','2014-09-02 05:19:07'),(3,'penang','2014-09-04 16:08:00'),(4,'kuala lumpur','2014-09-04 16:08:00'),(5,'melaka','2014-09-04 16:08:00'),(6,'johor','2014-09-04 16:08:00');
 /*!40000 ALTER TABLE `country` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -157,7 +160,7 @@ CREATE TABLE `customer` (
   PRIMARY KEY (`customer_id`),
   KEY `fk_customer_status1_idx` (`status`),
   CONSTRAINT `fk_customer_status1` FOREIGN KEY (`status`) REFERENCES `status` (`status_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -166,6 +169,7 @@ CREATE TABLE `customer` (
 
 LOCK TABLES `customer` WRITE;
 /*!40000 ALTER TABLE `customer` DISABLE KEYS */;
+INSERT INTO `customer` VALUES (3,'kirill','kok','ki',0,'234','kfc@kfc','0123456','123123','2014-09-04 13:33:19',1);
 /*!40000 ALTER TABLE `customer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -180,6 +184,7 @@ CREATE TABLE `package` (
   `package_id` int(11) NOT NULL AUTO_INCREMENT,
   `package_name` varchar(45) NOT NULL,
   `package_price` varchar(45) NOT NULL,
+  `number_person` varchar(45) DEFAULT NULL,
   `image_id` varchar(45) DEFAULT NULL,
   `description` varchar(200) NOT NULL,
   `created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
@@ -197,9 +202,9 @@ CREATE TABLE `package` (
   CONSTRAINT `fk_package_accomodation1` FOREIGN KEY (`accomodation_id`) REFERENCES `accomodation` (`accomodation_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_package_admin1` FOREIGN KEY (`admin_id`) REFERENCES `admin` (`admin_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_package_country1` FOREIGN KEY (`country_id`) REFERENCES `country` (`country_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_package_transport1` FOREIGN KEY (`transport_id`) REFERENCES `transport` (`transport_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_package_status1` FOREIGN KEY (`status`) REFERENCES `status` (`status_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;
+  CONSTRAINT `fk_package_status1` FOREIGN KEY (`status`) REFERENCES `status` (`status_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_package_transport1` FOREIGN KEY (`transport_id`) REFERENCES `transport` (`transport_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -208,6 +213,7 @@ CREATE TABLE `package` (
 
 LOCK TABLES `package` WRITE;
 /*!40000 ALTER TABLE `package` DISABLE KEYS */;
+INSERT INTO `package` VALUES (1,'3123','3123','5','7218','3123','2014-09-02 05:44:52',1,5,7,2,1);
 /*!40000 ALTER TABLE `package` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -221,8 +227,7 @@ DROP TABLE IF EXISTS `payment`;
 CREATE TABLE `payment` (
   `payment_id` int(11) NOT NULL AUTO_INCREMENT,
   `price` varchar(45) NOT NULL,
-  `date` datetime NOT NULL,
-  `payment_type` tinyint(3) NOT NULL,
+  `payment_type` varchar(45) NOT NULL,
   `created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `booking_id` int(11) NOT NULL,
   `status` int(11) NOT NULL,
@@ -314,7 +319,7 @@ CREATE TABLE `transport` (
   PRIMARY KEY (`transport_id`),
   KEY `fk_transport_status1_idx` (`status`),
   CONSTRAINT `fk_transport_status1` FOREIGN KEY (`status`) REFERENCES `status` (`status_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -323,6 +328,7 @@ CREATE TABLE `transport` (
 
 LOCK TABLES `transport` WRITE;
 /*!40000 ALTER TABLE `transport` DISABLE KEYS */;
+INSERT INTO `transport` VALUES (5,'car','car','car','2014-09-02 05:21:25',1),(6,'bus','bus','bus','0000-00-00 00:00:00',1),(7,'van','van','van','0000-00-00 00:00:00',1);
 /*!40000 ALTER TABLE `transport` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -335,4 +341,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-09-01 23:27:02
+-- Dump completed on 2014-09-05  1:12:35
