@@ -35,6 +35,7 @@ $country= $_POST['country'];
 $transport = $_POST['transport'];
 $accomodation = $_POST['accomodation'];
 $admin=$_SESSION['admin_id'];
+$no_people=$_POST['no_people'];
 $status=$_POST['status'];
 $picture=$random;
 
@@ -65,7 +66,7 @@ $picture=$random;
         }
 
 
-$sql = "UPDATE package SET package_name='$name', package_price='$price', description='$desc', status='$status', country_id='$country', transport_id='$transport', accomodation_id='$accomodation', admin_id='$admin', image_id='$picture' WHERE package_id='$package_id'" ;
+$sql = "UPDATE package SET package_name='$name', package_price='$price', description='$desc', status='$status', country_id='$country', transport_id='$transport', accomodation_id='$accomodation', admin_id='$admin', image_id='$picture',number_people='$no_people' WHERE package_id='$package_id'" ;
 $retval = mysql_query( $sql, $conn );
 if(! $retval )
 {
@@ -132,6 +133,10 @@ mysql_close($conn);
               <tr>
               <td>Price:</td>
               <td><input type="text" name="price" id ="price" value="<?php  echo $row['package_price']; ?>"/></td>
+            </tr>
+            <tr>
+              <td>Number of People:</td>
+              <td><input type="text" name="no_people" id ="no_people"/></td>
             </tr>
 			<tr>
                 <td>Description:</td>

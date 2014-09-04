@@ -34,6 +34,7 @@ if (!$select_db){
         $transport = $_POST['transport'];
         $accomodation = $_POST['accomodation'];
         $admin=$_SESSION['admin_id'];
+        $no_people=$_POST['no_people'];
         $status=$_POST['status'];
         $picture=$random;
 
@@ -75,7 +76,7 @@ if (!$select_db){
 
 
   
-        $query = "INSERT INTO `package` (package_name, package_price, description, status, country_id, transport_id, accomodation_id,admin_id,image_id) VALUES ('$name', '$price', '$desc', '$status', '$country', '$transport', '$accomodation','$admin','$picture')";
+        $query = "INSERT INTO `package` (package_name, package_price, description, status, country_id, transport_id, accomodation_id,admin_id,image_id,number_people) VALUES ('$name', '$price', '$desc', '$status', '$country', '$transport', '$accomodation','$admin','$picture','$no_people')";
         mysql_query($query);
 
 
@@ -231,6 +232,12 @@ if (!$select_db){
               <td>Price:</td>
               <td><input type="text" name="price" id ="price"/></td>
             </tr>
+
+            <tr>
+              <td>Number of People:</td>
+              <td><input type="text" name="no_people" id ="no_people"/></td>
+            </tr>
+
 			        <tr>
                 <td>Description:</td>
                 <td><textarea name="desc" id="desc"></textarea></td>

@@ -1,3 +1,45 @@
+<?php
+session_start();
+$dbhost = 'localhost';
+$dbuser = 'xplorema';
+$dbpass = 'FYPchamp1!';
+
+$conn = mysql_connect($dbhost, $dbuser, $dbpass);
+if(! $conn )
+{
+  die('Could not connect: ' . mysql_error());
+}
+
+
+mysql_select_db('xplorema_FYP');
+
+
+$package_id = $_SESSION['user_package_id'];
+
+
+
+
+$sql = "SELECT * FROM package where package_id = '$package_id '";
+
+
+$data = mysql_query( $sql, $conn );
+if(! $data )
+{
+  die('Could not get data: ' . mysql_error());
+}
+
+mysql_close($conn);
+
+
+if (isset($_POST['booking_btn'])) 
+{ 
+   // $package_id=$_POST['booking_btn'];
+   // $_SESSION['user_package_id']=$package_id;
+   // var_dump($_SESSION['user_package_id']);
+   header('Location: '. dirname(__folder__) .'/PackageBooking.php');
+} 
+?>
+
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -82,51 +124,30 @@
     </head>
   <body>
   <div id="header"></div>
-  
-<h2 style="color:#66a9bd;text-align:left; margin-left:80px; font-size:40px;"><b>PACKAGE TITLE</b></h2>
-</br></br>
-<p style="font-size:14px;text-align:justify;margin-right:80px;font-family:verdana;">
-    <img src="img/" style="float:right; margin-left:10px;" height="300px" width="450px" >
-    DESCRIPTION
-</p> 
-<br/><br/>
+  <form method="POST">
+  <?php 
+    while($row = mysql_fetch_array($data, MYSQL_ASSOC))
+    { ?>
   <table id="travel" >
-    <caption>PACKAGE TITLE</caption>
+    <caption><?php  echo $row['package_name']; ?></caption>
     <thead>    
         <tr>
             <th scope="col" colspan="6">Schedule</th>
         </tr>
          <td><span>
-                <p>Schedule Details</p>
+                <p><?php echo $row['description']; ?></p>
+                <p><img src="img/" style="float:right; margin-left:10px;" height="300px" width="450px" ></p>
             </span>
         </td>
+        <tr>
+            <td colspan="2"> <button name="booking_btn"  value="<?php  echo $row['package_id']; ?>" style="color:#ffffff; background-color:#E3536C; border:0px; height:40px;">Book Now </button></td>
+         </tr>
+
+
     </thead>
   </table>
-<table id="travel" >
-    <caption>Rate</caption>
-    <thead>    
-        <tr>
-            <th scope="col" colspan="2"><span>DATE</span> <br/>
-                <div style="font-weight:bold;">
-                    Sub-Title
-                </div>
-                <span>Rates per person in Malaysia Ringgit</span>
-            </th>
-        </tr>
-         <tr>
-            <td>Adult Price</td>
-            <td>Child Price</td>
-         </tr>
-          <tr>
-            <td>RM 175</td>
-            <td>RM 105</td>
-         </tr>
-          <tr>
-            <td colspan="2"> <button style="color:#ffffff; background-color:#E3536C; border:0px; height:40px;">Book Now </button></td>
-         </tr>
-    </thead>
-</table>
-
+  </form>
 <div id="footer"></div>
+<?php } ?>
 </body>
 </html>

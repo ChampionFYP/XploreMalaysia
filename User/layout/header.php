@@ -118,8 +118,8 @@ if (!$select_db){
 			   <li><a href='index.php'><span>Home</span></a></li>
 			   <li class='has-sub'><a href=#><span>Vacation</span></a>
 			      <ul>
-			        <li class='has-sub'><a href='westmalaysia.html'><span>West Malaysia</span></a></li>
-			        <li class='has-sub'><a href='eastmalaysia.html'><span>East Malaysia</span></a></li>
+			        <li class='has-sub'><a href='westmalaysia.php'><span>West Malaysia</span></a></li>
+			        <li class='has-sub'><a href='eastmalaysia.php'><span>East Malaysia</span></a></li>
 			      </ul>
 			   </li>
 			   <li><a href='AboutUs.php'><span>About Us</span></a></li>

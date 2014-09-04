@@ -98,6 +98,7 @@ if (isset($_POST['update_btn'])||isset($_POST['pack_id']))
       				      <td width="1" style="text-align: center;"><input type="checkbox"/></td>
 							<td class="left" width=250 >Package ID </td>
       				      <td class="left">Package Name</td>
+      				      	<td class="center">Number of Person</td>
 							<td class="center">Country</td>
 							<td class="center">Transport</td>
 							<td class="center">Accomodation</td>
@@ -118,6 +119,7 @@ if (isset($_POST['update_btn'])||isset($_POST['pack_id']))
 							    	<td>
 							    	<img src="http://<?php echo $_SERVER['SERVER_NAME'] . "/photo/". $row['image_id'];?>" alt="" height="42" width="42">	
 							    	</td>
+							    	<td class="left">  <?php  echo $row['number_people']; ?></td>
 							    	<td class="left">  <?php  echo $row['country_id']; ?></td>
 							    	<td class="left">  <?php  echo $row['transport_id']; ?></td>
 							    	<td class="left">  <?php  echo $row['accomodation_id']; ?></td>
