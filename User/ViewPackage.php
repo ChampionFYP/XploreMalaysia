@@ -47,6 +47,7 @@ if (isset($_POST['booking_btn']))
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link href="css/style.css" rel="stylesheet">
     <link href="css/Homelayout.css" rel="stylesheet">
+    <link href="css/ViewPackage.css" rel="stylesheet">
     <script type="text/javascript" src="js/bootstrap.js"></script>
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
@@ -58,69 +59,6 @@ if (isset($_POST['booking_btn']))
           $('#footer').load('layout/footer.php');
         });
     </script>
-
-    <style>
-    body { 
-    margin:0; 
-    padding:0px; 
-    font:13px "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, sans-serif;
-   
-    }
-    /* ---- Some Resets ---- */
-
-        p,table, caption, td, tr, th{
-            margin-left:80px;
-            padding:0;
-            font-weight:normal;
-            }
-
-        /* ---- Paragraphs ---- */
-
-        p {
-            margin-bottom:15px;
-            }
-            
-        /* ---- Table ---- */
-
-        table {
-            border-collapse:collapse;
-            margin-bottom:15px;
-            width:90%;
-            border:1px solid #E3536C;
-            }
-            
-            caption {
-                text-align:center;
-                font-size:30px;
-                padding-bottom:10px;
-                font-weight:bold;
-                color:#66a9bd;
-                }
-            
-            table td,
-            table th {
-                padding:5px;
-                border:1px solid #E3536C;
-                border-width:0 1px 1px 0;
-                text-align:center;
-                }
-                
-            thead th {
-                background:#91c5d4;
-                color:#ffffff;
-                font-size:20px;
-                }
-                    
-                thead th[colspan],
-                thead th[rowspan] {
-                    background:#E3536C;
-                    }
-        /*-----------font------------*/
-        span{
-            font-size:15px;
-            text-align:left;
-        }
-    </style>
     </head>
   <body>
   <div id="header"></div>
@@ -142,11 +80,27 @@ if (isset($_POST['booking_btn']))
         <tr>
             <td colspan="2"> <button name="booking_btn"  value="<?php  echo $row['package_id']; ?>" style="color:#ffffff; background-color:#E3536C; border:0px; height:40px;">Book Now </button></td>
          </tr>
-
-
     </thead>
   </table>
   </form>
+  <div class="reviewSelector ">
+            <div class="first">
+                    <div class="col2of2">
+                        <div class="innerBubble">
+                            <div class="wrap">
+                            <div class="quote">
+                            “<span class="noQuotes">Review Title</span>”</a>
+                            </div>
+                            <div class="entry">
+                            <p class="partial_entry">
+                            Review Comments..............................
+                            </p>
+                            </div>
+                            </div> 
+                        </div> 
+                    </div> 
+                </div>
+            </div>
 <div id="footer"></div>
 <?php } ?>
 </body>

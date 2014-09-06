@@ -1,6 +1,6 @@
 <?php
 /* Set e-mail recipient */
-$myemail  = 'kfc1346@gmail.com';
+$myemail  = 'admin@xploremalaysia.asia';
 
 
 
@@ -212,23 +212,24 @@ exit();
 <div  class="formstyle">
 <form name = "registerfrm" method="post" action="ContactUs.php">
     <fieldset>
-   
-     
-        <label> Name* : </label> <input class="inputbox" type="text" name="name" id="name" size="30" required="" tabindex="1">
+        <label> Name* :</label>
+            <input class="inputbox" type="text" name="name" id="name" size="30" required="" tabindex="1">
         
-         <label>E-mail* :   </label>     <input class="inputbox" type="email" name="email" id="email" size="40" align="right" required="">
+        <label>E-mail* :</label>
+            <input class="inputbox" type="email" name="email" id="email" size="40" align="right" required="">
         
-        <label>Mobile* :   </label>    <input class="inputbox" type="text" name="mobile" id="mobile" align="right"  required="">
+        <label>Mobile* :</label>
+            <input class="inputbox" type="text" name="mobile" id="mobile" align="right"  required="">
           
-        <label>Subject : </label>
-        <select class="inputbox" name="type" id="type">
-        <option value = "blank">
-        <option value = "Complain">Complain
-        <option value = "Feedback">Feedback
-        <option value = "Suggestion">Suggestion
-        <option value = "Customer Service">Customer Service
-        <option value = "Others">Others
-        </select>
+        <label>Subject :</label>
+            <select class="inputbox" name="type" id="type">
+                <option value = "blank">
+                <option value = "Complain">Complain
+                <option value = "Feedback">Feedback
+                <option value = "Suggestion">Suggestion
+                <option value = "Customer Service">Customer Service
+                <option value = "Others">Others
+            </select>
         <label>Message : </label>
         <textarea  class="inputbox" name="comment" id="comment" placeholder = "Please limit your character to 200 characters"/></textarea>
 
@@ -236,8 +237,7 @@ exit();
     </fieldset>
 
         <button class="button" data-dismiss="modal" type="submit">Sent</button>
- 
-      
+    
 </form>
 </div>
 

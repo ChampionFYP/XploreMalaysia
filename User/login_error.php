@@ -141,11 +141,6 @@ else
                       <input type="password" placeholder="Password" id="password" name="password"/>
                       <br />
             
-                      <div class="checkbox">
-                        <input id="remember" type="checkbox">
-                        <label for="remember">Remember me on this computer</label>
-                      </div>
-            
                       <p style="color:red;"><?php echo $message; ?></p>
                       <div class="action_btns">            
                       <div style="float:right;"><button class="btn btn-info" data-dismiss="modal" type="submit">Login</button></div>

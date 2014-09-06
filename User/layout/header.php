@@ -59,8 +59,8 @@ if (!$select_db){
       {
       while($row = mysql_fetch_assoc($data_customer))
           { ?> 	
-			<a id="modal_trigger" href="UserPanel.php" class="btn"><?php  echo $row['customer_username']; ?></a>
-			<a id="modal_trigger" href="logout.php" class="btn">Log Out</a>
+			<a href="UserPanel.php" class="btn"><?php  echo $row['customer_username']; ?></a>
+			<a href="logout.php" class="btn">Log Out</a>
       <?php } 
         }?> 	
         </div>
@@ -82,13 +82,8 @@ if (!$select_db){
             <input type="password" placeholder="Password" id="password" name="password"/>
             <br />
 
-            <div class="checkbox">
-            <input id="remember" type="checkbox" />
-            <label for="remember">Remember me on this computer</label>
-            </div>
-
             <div class="action_btns">            
-            <div class="one_half last"><button class="btn btn-info" data-dismiss="modal" type="submit">Login</button></div>
+            <div style="float:right;"><button class="btn btn-info" data-dismiss="modal" type="submit">Login</button></div>
             </div>
        
 
@@ -111,6 +106,12 @@ if (!$select_db){
 		      return false;
 		    }); 
 		  })
+
+      $(document).ready(function() {  
+        $(".has-sub").click(function() {  
+          $(".has-sub").css('display', 'block');     
+        });  
+      });
 		</script>
 
 	  	<div id="main_nav">         

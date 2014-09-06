@@ -109,9 +109,9 @@
 </div>
 
 <div class="social">
-  <a href="#"><img src="img/instagram.png" alt="instagram"></a>
+  <a href="http://twitter.com/XploreMalaysia"><img src="img/instagram.png" alt="instagram"></a>
   <a href="http://www.fb.com/xploremalaysia" target="_blank"><img src="img/facebook.png" alt="facebook"></a>
-  <a href="#"><img src="img/twitter.png" alt="twitter"></a>
+  <a href="http://instagram.com/xploremalaysia"><img src="img/twitter.png" alt="twitter"></a>
 </div>
 
 <div id ="footer"></div>

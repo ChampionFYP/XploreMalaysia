@@ -112,24 +112,21 @@ if (isset($_POST['view_btn']))
        <!-- Carousel items -->
         <div class="carousel-inner">
             <div class="active item">
-                <img src="img/penang.jpg">
+                <img src="img/banner_KL.jpg">
                 <div class="carousel-caption">
-                  <h3>PENANG</h3>
-                  
+                  <h3 style="color:#FFFFFF; text-shadow:2px 2px 2px #64BDF1;">Kuala Lumpur Night Scene</h3>
                 </div>
             </div>
             <div class="item">
-                <img src="img/b.jpg">
+                <img src="img/banner_PenangBridge.jpg">
                 <div class="carousel-caption">
-                  <h3>Beach</h3>
-                 
+                  <h3 style="color:#FFFFFF; text-shadow:2px 2px 2px #64BDF1;">Penang Bridge</h3>
                 </div>
             </div>
             <div class="item">
-               <img src="img/c.jpg">
+               <img src="img/banner_Melaka.jpg">
                 <div class="carousel-caption">
-                  <h3>Night at Mount Kinabalu</h3>
-                 
+                  <h3 style="color:#FFFFFF; text-shadow:2px 2px 2px #64BDF1;">Melaka River Walk</h3>
                 </div>
             </div>
         </div>
@@ -143,11 +140,9 @@ if (isset($_POST['view_btn']))
     </div>
 </div>
 
-
-
-
 <form method="POST">
 <div>
+  
     <h2>Penang</h2>
     <hr class="hr2">
 </br></br></br>

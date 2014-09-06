@@ -1,0 +1,116 @@
+.reviewHeader{
+	display:inline-block;height:100%;
+}
+.reviewHeader.Left{
+	width:70%;float:left;
+}
+.reviewHeader.Right{
+	width:30%;float:right;position:relative;
+}
+.locationInfo{
+	margin-bottom:8px;position:relative;
+}
+.thumbnail {
+	float: left;
+	height: 60px;
+	margin-right: 14px;
+	width: 60px;
+}
+
+.sizedThumb {
+	overflow: hidden;
+}
+
+.nameAndAddress {
+margin: 8px 0 0 14px;
+}
+
+.questionBlock {
+border-top: 1px solid #E6E6E6;
+clear: both;
+height: 100%;
+overflow: hidden;
+padding-top: 20px;
+}
+
+.questionBlock h2 {
+font-size: 1.5em;
+font-weight: bold;
+margin-bottom: 15px;
+}
+
+.question {
+clear: both;
+height: 100%;
+margin-bottom: 17px;
+overflow: hidden;
+}
+
+.labelAndInput label {
+color: #4A4A4A;
+display: block;
+font-size: 1.25em;
+font-weight: bold;
+margin-bottom: 7px;
+}
+
+#ReviewTitle {
+color: #2C2C2C;
+font-size: 1.6665em;
+height: 24px;
+width: 618px;
+}
+
+#ReviewText {
+font-family: Arial,Tahoma,"Bitstream Vera Sans",sans-serif;
+height: 140px;
+resize: none;
+width: 618px;
+}
+
+#CHAR_MIN {
+color: #656565;
+float: right;
+font-size: .8em;
+font-weight: normal;
+margin-right: 2px;
+}
+
+input.text {
+margin-right: 2px;
+padding: 2px;
+border: 1px solid #c8c8c8;
+background-color: #fff;
+}
+
+textarea {
+color: #2C2C2C;
+font-size: 1.167em;
+border: 1px solid #C8C8C8;
+padding: 2px;
+}
+
+.checkbox {
+float: left;
+margin-top: 1px;
+}
+
+.button {
+display: inline;
+height: 100%;
+overflow: hidden;
+margin-right: 10px;
+border: 1px solid #589442;
+float: left;
+}
+
+.button.ylw {
+margin-right: 0;
+border: 1px solid #e4962d;
+}
+
+.button.lrg span, .button.lrg .submit {
+font-size: 1.50em;
+line-height: 19px;
+padding: 6px 13px;
+}
