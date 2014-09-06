@@ -51,7 +51,7 @@ Thank you
 ";
 
 /* Send the message using mail() function */
-mail($myemail, "testing", $message);
+mail($myemail, "Order Number", $message);
 
 /* Redirect visitor to the thank you page */
 // header('Location: thanks.htm');
