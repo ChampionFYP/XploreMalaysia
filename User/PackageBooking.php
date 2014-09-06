@@ -18,21 +18,19 @@ if (!$select_db){
 
     $package=" SELECT * FROM package where package_id='$package_id'";
     $data_package = mysql_query($package);
-    $price='';
+         $price='';
         $name ='';
         $customer_id=$_SESSION['customer_id'];
         $no_people='';
         $status=1;
+        $status=3;
    
 
 // If the values are posted, insert them into the database.
     if (isset($_POST['payment_btn'])){
     
         $date=$_POST['date'];
-        var_dump($date);
-
-
-
+        $payment_type=$_POST['payment_type'];
 
         while($row1 = mysql_fetch_array($data_package, MYSQL_ASSOC))
     {
@@ -47,10 +45,15 @@ if (!$select_db){
          
         $booking = "INSERT INTO `booking` (booking_date, no_person, package_id,customer_id, status) VALUES ('$date', '$no_people', '$package_id', '$customer_id', '$status')";
         $booking_data=mysql_query($booking);
-        var_dump($booking_data);
+        $booking_id=mysql_insert_id();
+            if($booking_data = true)
+            {
 
-    //     $payment = "INSERT INTO `payment` (package_name, package_price, description, status, country_id, transport_id, accomodation_id,admin_id,image_id) VALUES ('$name', '$price', '$desc', '$status', '$country', '$transport', '$accomodation','$admin','$picture')";
-    //     mysql_query($payment);
+            $payment = "INSERT INTO `payment` (price, payment_type, booking_id, status) VALUES ('$price', '$payment_type', '$booking_id', '$status_pending')";
+            mysql_query($payment);
+            $_SESSION['user_booking_id']=$booking_id;
+            header('Location: '. dirname(__folder__) .'/SuccessBookingPage.php');
+            }
     }
 ?>
 
@@ -187,7 +190,7 @@ if (!$select_db){
                                                                             <tbody>
                                                                                 <tr>
                                                                                     <td>
-                                                                                        <input type="date" class="txt_ctl" style="width:178px;" name = "date">
+                                                                                        <input type="date" class="txt_ctl" style="width:178px;" name = "date" required="">
                                                                                     </td>
                                                                                     <td>
                                                                                         &nbsp;
