@@ -39,9 +39,9 @@ if (!preg_match("/([\w\-]+\@[\w\-]+\.[\w\-]+)/", $email))
 /* Let's prepare the message for the e-mail */
 $message = "Hello!
 
-Here is your order number:".$_SESSION['user_booking_id'].
+Here is your order number:".$_SESSION['user_booking_id']."
 
-"Please Email to kfc1346@gmail.com with screenshot/photo when you using online banking/ATM
+Please Email to kfc1346@gmail.com with screenshot/photo when you using online banking/ATM
 
 
 We will sent you a receipt once we confirm your payment.

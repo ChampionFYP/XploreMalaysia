@@ -1,4 +1,5 @@
 <?php
+session_start();
 $dbhost = 'localhost';
 $dbuser = 'xplorema';
 $dbpass = 'FYPchamp1!';
@@ -13,7 +14,7 @@ if(! $conn )
 mysql_select_db('xplorema_FYP');
 // mysql_select_db('FYP');
 
-$sql = 'SELECT * FROM accomodation';
+$sql = "SELECT * FROM accomodation INNER JOIN status ON accomodation.status=status.status_id";
 
 
 $data = mysql_query( $sql, $conn );
@@ -23,6 +24,14 @@ if(! $data )
 }
 
 mysql_close($conn);
+
+if (isset($_POST['update_btn'])||isset($_POST['acco_id'])) 
+{ 
+   $acco_id=$_POST['acco_id'];
+   $_SESSION['accomodation_id']=$acco_id;
+   // var_dump($_SESSION['package_id']);
+   header('Location: '. dirname(__folder__) .'/accomodation_update.php');
+} 
 ?>
 
 
@@ -48,6 +57,7 @@ mysql_close($conn);
 		<title>Accommodation</title>
 	</head>
 	<body>
+	<form method="POST">
 	<div class="fluid-container">
 		<div id="navbar"></div>
 		<div class="row">
@@ -57,9 +67,8 @@ mysql_close($conn);
 			<div class="box col-sm-12 col-md-10 pull-right">
 				<div class="heading">
 					<h1>Accommodation</h1>
-					<div class="btn btn-default">Add</div>
-					<div class="btn btn-default">Update</div>
-					<div class="btn btn-default">Delete</div>
+					<a href="accomodation_add.php" class="btn btn-default">Add</a>
+					<input type="submit" name="update_btn"  value="Update" class="btn btn-default"></input>
 				</div>
 				<div>
       				<form>
@@ -67,8 +76,8 @@ mysql_close($conn);
       				    <thead>
       				      <tr>
       				      <td width="1" style="text-align: center;"><input type="checkbox"/></td>
-							<td class="center" style="width:10%">Image</td>
 							<td class="left" width=250 >Accommodation ID </td>
+							<td class="center" style="width:10%">Image</td>
       				      <td class="left">Category</td>
 							<td class="center">Address</td>
 							<td class="center">Phone</td>
@@ -81,12 +90,14 @@ mysql_close($conn);
 							{ ?>
 							    <tr>
 							    	<td width="1" style="text-align: center;"><input type="checkbox" name="acco_id" id="acco_id" value="<?php  echo $row['accomodation_id']; ?>"></td>
-							    	<td class="center" style="width:10%">  <?php  echo $row['image_id']; ?></td>
+							    	<td class="center">  <?php  echo $row['accomodation_id']; ?></td>
+							    	<td>
+							    	<img src="http://<?php echo $_SERVER['SERVER_NAME'] . "/photo/accomodation/". $row['image_id'];?>" alt="" height="42" width="42">	
+							    	</td>
 							    	<td class="left" width=250 >  <?php  echo $row['category']; ?></td>
 							    	<td class="left">  <?php  echo $row['accomodation_address']; ?></td>
 							    	<td class="center">  <?php  echo $row['accomodation_phone']; ?></td>
-							    	<td class="center">  <?php  echo $row['status']; ?></td>
-							    	<td class="center">  <?php  echo $row['accomodation_id']; ?></td>
+							    	<td class="center">  <?php  echo $row['status_name']; ?></td>
 							    <tr>
 						<?php } ?>
       				  </tbody>
@@ -99,5 +110,6 @@ mysql_close($conn);
 				</div>
 		</div> <!--row-->
 		</div> <!--fluid-container-->
+		</form>
 	</body>
 </html>

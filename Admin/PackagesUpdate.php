@@ -24,6 +24,22 @@ mysql_select_db('xplorema_FYP');
     $package_id=$_SESSION['package_id'];
     $status1=" SELECT * FROM status";
     $data_status = mysql_query($status1);
+    $image_id='';
+
+    $find_image_id = "SELECT * FROM package WHERE package_id= '$package_id' ";
+    $find_data = mysql_query( $find_image_id, $conn );
+        while($row_data = mysql_fetch_array($find_data, MYSQL_ASSOC))
+    {
+        if(empty($row_data['image_id']))
+        {
+          $image_id=$random;
+        }
+        else
+        {
+          $image_id=$row_data['image_id'];
+        }
+    }
+
 
 if(isset($_POST['name'])||isset($_POST['file']))
 {
@@ -37,7 +53,7 @@ $accomodation = $_POST['accomodation'];
 $admin=$_SESSION['admin_id'];
 $no_people=$_POST['no_people'];
 $status=$_POST['status'];
-$picture=$random;
+$picture=$image_id;
 
         $allowedExts = array("gif", "jpeg", "jpg", "png");
         $temp = explode(".", $_FILES["file"]["name"]);
@@ -50,23 +66,10 @@ $picture=$random;
           } 
           else 
           {
-            if (file_exists($_SERVER['DOCUMENT_ROOT'] . "/img/" . $random)) 
-            {
-              echo $random . " already exists. ";
-            } 
-            else 
-            {
-              move_uploaded_file($_FILES["file"]["tmp_name"], $_SERVER['DOCUMENT_ROOT'] . "/img/" . $random);
-            }
+              move_uploaded_file($_FILES["file"]["tmp_name"], $_SERVER['DOCUMENT_ROOT'] . "/photo/package/" . $random);
           }
         } 
-        else 
-        {
-          echo "Invalid file";
-        }
-
-
-$sql = "UPDATE package SET package_name='$name', package_price='$price', description='$desc', status='$status', country_id='$country', transport_id='$transport', accomodation_id='$accomodation', admin_id='$admin', image_id='$picture',number_people='$no_people' WHERE package_id='$package_id'" ;
+$sql = "UPDATE package SET package_name='$name', package_price='$price', description='$desc', status='$status', country_id='$country', transport_id='$transport', accomodation_id='$accomodation', admin_id='$admin', image_id='$picture',number_person='$no_people' WHERE package_id='$package_id'" ;
 $retval = mysql_query( $sql, $conn );
 if(! $retval )
 {
@@ -92,8 +95,12 @@ if(! $data )
 }
 
 $testing3=mysql_fetch_array($data_old, MYSQL_ASSOC);
-$old_country="SELECT package.country_id, country.country_name FROM package INNER JOIN country ON package.country_id=country.country_id WHERE package_id= '$package_id'";
-$testing=mysql_query($old_country);
+$old_data="SELECT * FROM package INNER JOIN country ON package.country_id=country.country_id INNER JOIN accomodation ON package.accomodation_id=accomodation.accomodation_id INNER JOIN transport ON package.transport_id=transport.transport_id INNER JOIN status ON package.status=status.status_id WHERE package_id= '$package_id'";
+$testing=mysql_query($old_data);
+$testing2=mysql_query($old_data);
+$testing3=mysql_query($old_data);
+$testing4=mysql_query($old_data);
+
 // $testing1=mysql_fetch_array($testing, MYSQL_ASSOC);
 
 
@@ -136,7 +143,7 @@ mysql_close($conn);
             </tr>
             <tr>
               <td>Number of People:</td>
-              <td><input type="text" name="no_people" id ="no_people"/></td>
+              <td><input type="text" name="no_people" id ="no_people" value="<?php  echo $row['number_person']; ?>"/></td>
             </tr>
 			<tr>
                 <td>Description:</td>
@@ -145,7 +152,7 @@ mysql_close($conn);
             <tr>
               <td>Image:</td>
               <td>
-              <input type="file" name="file" id="file"><br>
+              <input type="file" name="file" id="file" value="<?php  echo $row['image_id']; ?>"><br>
               </td>
             </tr>
           
@@ -169,6 +176,10 @@ mysql_close($conn);
               <td>Transport:</td>
               <td><select style="width: 90px;" id="transport" name="transport" value="<?php  echo $row['transport_id']; ?>">
 
+               <?php while($row_old2 = mysql_fetch_array($testing2, MYSQL_ASSOC))
+              { ?> 
+              <option value="<?php  echo $row_old2['transport_id']; ?>"><?php echo $row_old2['transport_name']; ?></option>
+              <?php } ?>
               <?php while($row2 = mysql_fetch_array($data_transport, MYSQL_ASSOC))
               { ?> 
               <option value="<?php  echo $row2['transport_id']; ?>"><?php echo $row2['transport_name']; ?></option>
@@ -179,7 +190,10 @@ mysql_close($conn);
             <tr>
               <td>Accomodation:</td>
               <td><select style="width: 90px;" id="accomodation" name="accomodation" value="<?php  echo $row['accomodation_id']; ?>">
-
+              <?php while($row_old3 = mysql_fetch_array($testing3, MYSQL_ASSOC))
+              { ?> 
+              <option value="<?php  echo $row_old3['accomodation_id']; ?>"><?php echo $row_old3['accomodation_name']; ?></option>
+              <?php } ?>
               <?php while($row3 = mysql_fetch_array($data_accomodation, MYSQL_ASSOC))
               { ?> 
               <option value="<?php  echo $row3['accomodation_id']; ?>"><?php echo $row3['accomodation_name']; ?></option>
@@ -190,6 +204,11 @@ mysql_close($conn);
             <tr>
               <td>status:</td>
               <td><select style="width: 90px;" id="status" name="status">
+
+              <?php while($row_old4 = mysql_fetch_array($testing4, MYSQL_ASSOC))
+              { ?> 
+              <option value="<?php  echo $row_old4['status_id']; ?>"><?php echo $row_old4['status_name']; ?></option>
+              <?php } ?>
 
               <?php while($row = mysql_fetch_array($data_status, MYSQL_ASSOC))
               { ?> 

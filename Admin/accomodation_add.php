@@ -14,13 +14,6 @@ if (!$select_db){
     die("Database Selection Failed" . mysql_error());
 
 }
-
-    $country1=" SELECT * FROM country";
-    $data_country = mysql_query($country1);
-    $transport1=" SELECT * FROM transport";
-    $data_transport = mysql_query($transport1);
-    $accomodation1=" SELECT * FROM accomodation";
-    $data_accomodation = mysql_query($accomodation1);
     $status1=" SELECT * FROM status";
     $data_status = mysql_query($status1);
     $random = rand ( 0 , 9999 );
@@ -28,14 +21,12 @@ if (!$select_db){
 // If the values are posted, insert them into the database.
     if (isset($_POST['name'])||isset($_POST['file'])){
         $name = $_POST['name'];
-        $price = $_POST['price'];
         $desc=$_POST['desc'];
-        $country= $_POST['country'];
-        $transport = $_POST['transport'];
-        $accomodation = $_POST['accomodation'];
         $admin=$_SESSION['admin_id'];
-        $no_people=$_POST['no_people'];
         $status=$_POST['status'];
+        $category=$_POST['category'];
+        $address=$_POST['address'];
+        $phone=$_POST['phone'];
         $picture=$random;
 
         $allowedExts = array("gif", "jpeg", "jpg", "png");
@@ -49,41 +40,22 @@ if (!$select_db){
           } 
           else 
           {
-            if (file_exists($_SERVER['DOCUMENT_ROOT'] . "/photo/package/" . $random)) 
+            if (file_exists($_SERVER['DOCUMENT_ROOT'] . "/photo/accomodation" . $random)) 
             {
               echo $random . " already exists. ";
             } 
             else 
             {
-              move_uploaded_file($_FILES["file"]["tmp_name"], $_SERVER['DOCUMENT_ROOT'] . "/photo/package/" . $random);
+              move_uploaded_file($_FILES["file"]["tmp_name"], $_SERVER['DOCUMENT_ROOT'] . "/photo/accomodation/" . $random);
             }
           }
         } 
-        
-
-
-
-
-
-
-
-
-
-
-
-
-  
-        $query = "INSERT INTO `package` (package_name, package_price, description, status, country_id, transport_id, accomodation_id,admin_id,image_id,number_person) VALUES ('$name', '$price', '$desc', '$status', '$country', '$transport', '$accomodation','$admin','$picture','$no_people')";
+       
+        $query = "INSERT INTO accomodation SET accomodation_name='$name', description='$desc', status='$status', admin_id='$admin', image_id='$picture', category='$category', accomodation_address='$address', accomodation_phone='$phone'";
         mysql_query($query);
-
-
-        header('Location: '. dirname(__folder__) .'/Packages.php');
+        header('Location: '. dirname(__folder__) .'/accommodation.php');
 
     }
-    
-    // var_dump($query);
-
-
 ?>
 
 
@@ -129,10 +101,10 @@ if (!$select_db){
 			<div id="content" style="margin-left:16%;">
       <div class="box">
     <div class="heading">
-    <form method="post" action="PackagesAdd.php" enctype="multipart/form-data">
+    <form method="post" action="accomodation_add.php" enctype="multipart/form-data">
       <h1>Packages</h1>
       <div class="buttons">																
-	  <button class="button" type="submit">Save & Close</button><a href="Packages.php" class="button">Cancel</a></div>
+	  <button class="button" type="submit">Save & Close</button><a href="accommodation.php" class="button">Cancel</a></div>
     </div>
     <div class="content" style="margin-left:20%; margin-top:5%;">
 
@@ -148,61 +120,28 @@ if (!$select_db){
 
 						
               <tr>
-                <td><span class="required">*</span> Package Name:</td>
+                <td><span class="required">*</span> Accomodation Name:</td>
                 <td><input type="text" id="name" name="name" size="100"/>
                   </td>
               </tr>
               
             </table>
           </div>
-                  </div>
+          </div>
         <div id="tab-data">
           <table class="form">
-            <tr>
-              <td>Country:</td>
-              <td><select style="width: 90px;" id="country" name="country">
-
-              <?php while($row = mysql_fetch_array($data_country, MYSQL_ASSOC))
-              { ?> 
-  						<option value="<?php  echo $row['country_id']; ?>"><?php echo $row['country_name']; ?></option>
-              <?php } ?>									
-              </select></td>
+           <tr>
+              <td>Category:</td>
+              <td><input type="text" name="category" id ="category"/></td>
             </tr>
-
             <tr>
-              <td>Transport:</td>
-              <td><select style="width: 90px;" id="transport" name="transport">
-
-              <?php while($row = mysql_fetch_array($data_transport, MYSQL_ASSOC))
-              { ?> 
-              <option value="<?php  echo $row['transport_id']; ?>"><?php echo $row['transport_name']; ?></option>
-              <?php } ?>                  
-              </select></td>
+              <td>Address</td>
+              <td><input type="text" name="address" id ="address"/></td>
             </tr>
-
             <tr>
-              <td>Accomodation:</td>
-              <td><select style="width: 90px;" id="accomodation" name="accomodation">
-
-              <?php while($row = mysql_fetch_array($data_accomodation, MYSQL_ASSOC))
-              { ?> 
-              <option value="<?php  echo $row['accomodation_id']; ?>"><?php echo $row['accomodation_name']; ?></option>
-              <?php } ?>                  
-              </select></td>
-            </tr>
-
-              
-
-            <tr>
-              <td>Price:</td>
-              <td><input type="text" name="price" id ="price"/></td>
-            </tr>
-
-            <tr>
-              <td>Number of People:</td>
-              <td><input type="text" name="no_people" id ="no_people"/></td>
-            </tr>
-
+              <td>Phone</td>
+              <td><input type="text" name="phone" id ="phone"/></td>
+            </tr>            
 			        <tr>
                 <td>Description:</td>
                 <td><textarea name="desc" id="desc"></textarea></td>

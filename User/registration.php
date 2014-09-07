@@ -224,8 +224,8 @@ if (!$select_db){
 
         <label>IC* : </label> <input class="inputbox" id="ic" type="text" name="ic" size="30">
          
-        <label>Gender :  </label> <p class="inputbox"><input type="radio" name="gender" value="1">Male
-                          <input type="radio" name="gender" value="2">Female </p>
+        <label>Gender :  </label> <p class="inputbox"><input type="radio" name="gender" value="Male">Male
+                          <input type="radio" name="gender" value="Female">Female </p>
 
         <label>Password : </label> <input class="inputbox" type="password" name="password" id="password" size="30" required="">
             

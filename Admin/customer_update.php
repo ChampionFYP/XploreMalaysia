@@ -1,4 +1,5 @@
 <?php
+session_start();
 $connection = mysql_connect('localhost', 'xplorema', 'FYPchamp1!');
 
 if (!$connection){
@@ -14,6 +15,7 @@ if (!$select_db){
     die("Database Selection Failed" . mysql_error());
 
 }
+$customer_id=$_SESSION['customer_id'];
 
 // If the values are posted, insert them into the database.
     if (isset($_POST['username']) && isset($_POST['password'])){
@@ -31,9 +33,6 @@ if (!$select_db){
         $data_username= "SELECT * FROM customer WHERE customer_username='$username'";
         $data_u = mysql_query($data_username);
         $values = mysql_fetch_array($data_u);
-        $data_email= "SELECT * FROM customer WHERE customer_email='$email'";
-        $data_e = mysql_query($data_email);
-        $values2 = mysql_fetch_array($data_e);
         $data_ic= "SELECT * FROM customer WHERE customer_ic='$ic'";
         $data_i = mysql_query($data_ic);
         $values3 = mysql_fetch_array($data_i);
@@ -42,18 +41,13 @@ if (!$select_db){
         // var_dump($values2);
         // var_dump($values3);
 
-        if(empty($values) && empty($values2) && empty($values3)){
-
-            $query = "INSERT INTO `customer` (customer_username, customer_password, gender, customer_name, customer_ic, customer_email, customer_phone, status) VALUES ('$username', '$password', '$gender', '$name', '$ic', '$email', '$phone','$status')";
+        if(empty($values)&& empty($values3)){
+            $query = "UPDATE customer SET customer_username='$username', customer_password='$password', gender='$gender', customer_name='$name', customer_ic='$ic', customer_email='$email', customer_phone='$phone', status='$status' WHERE customer_id='$customer_id'" ;
             mysql_query($query);
         }
         if(!empty($values))
         {
             $msg1=" Username Used";
-        }
-        if(!empty($values2))
-        {
-            $msg2=" Email Used";
         }
         if(!empty($values3))
         {
@@ -61,9 +55,10 @@ if (!$select_db){
         }
 
     }
-
     $status1=" SELECT * FROM status";
     $data_status = mysql_query($status1);
+    $sql = "SELECT * FROM customer INNER JOIN status ON customer.status=status.status_id WHERE customer_id='$customer_id'";
+    $data = mysql_query($sql);
 
 
 ?>
@@ -111,8 +106,11 @@ if (!$select_db){
 			<div class="box col-sm-12 col-md-10 pull-right">
 				<div class="heading">
 					<h1>Customer</h1>
-				<form method="post" action="CustomerAdd.php">	
-					<div><a href="Customer.html" class="btn btn-default">Cancel</a></div>
+				<form method="post" action="customer_update.php">	
+          <?php 
+          while($row = mysql_fetch_array($data, MYSQL_ASSOC))
+          { ?>
+					<div><a href="Customer.php" class="btn btn-default">Cancel</a></div>
 					<div>                                
     <button class="btn btn-default" type="submit">submit</button>
     </div>
@@ -128,9 +126,6 @@ if (!$select_db){
             <?php if(!empty($msg1)) {?>
              <div><label style="color:red;">Error: <?php echo $msg1; ?></label></div>
              <?php } ?>
-             <?php if(!empty($msg2)) {?>
-             <div><label style="color:red;">Error: <?php echo $msg2; ?></label></div>
-             <?php } ?>
              <?php if(!empty($msg3)) {?>
              <div><label style="color:red;">Error: <?php echo $msg3; ?></label></div>
              <?php } ?>
@@ -140,45 +135,46 @@ if (!$select_db){
             <table class="form">
               <tr>
                 <td><span class="required">*</span>Name:</td>
-                <td><input class="inputbox" id="name" type="text" name="name" placeholder="First">
+                <td><input value="<?php  echo $row['customer_name']; ?>" class="inputbox" id="name" type="text" name="name" placeholder="First">
                   </td>
               </tr>
           <tr>
             <td><span class="required">*</span> IC:</td>
-            <td><input class="inputbox" id="ic" type="text" name="ic">
+            <td><input value="<?php  echo $row['customer_ic']; ?>" class="inputbox" id="ic" type="text" name="ic">
               </td>
           </tr>
           <tr>
             <td><span class="required">*</span> Gender:</td>
-            <td><p class="inputbox"><input type="radio" name="gender" value="Male">Male
-                          <input type="radio" name="gender" value="Female">Female </p></td>
+            <td><p class="inputbox"><input type="radio" name="gender" value="Male" required="">Male
+                <input type="radio" name="gender" value="Female" required="">Female </p></td>
           </tr>
               <tr>
                 <td><span class="required">*</span> E-Mail:</td>
-                <td><input class="inputbox" type="email" name="email" id="email" size="40" align="right" required="">
+                <td><input value="<?php  echo $row['customer_email']; ?>" class="inputbox" type="email" name="email" id="email" size="40" align="right" required="">
                   </td>
               </tr>
               <tr>
                 <td><span class="required">*</span> Telephone:</td>
-                <td><input class="inputbox" type="text" name="phone" id="phone" align="right"  required="">
+                <td><input value="<?php  echo $row['customer_phone']; ?>"class="inputbox" type="text" name="phone" id="phone" align="right"  required="">
                   </td>
               </tr>
               <tr>
                 <td><span class="required">*</span>Username:</td>
-                <td><input class="inputbox" id="username" type="text" name="username" placeholder="First"></td>
+                <td><input value="<?php  echo $row['customer_username']; ?>" class="inputbox" id="username" type="text" name="username" placeholder="First"></td>
               </tr>
               <tr>
                 <td><span class="required">*</span>Password:</td>
-                <td> <input class="inputbox" type="password" name="password" id="password" size="30" required="">
+                <td> <input value="<?php  echo $row['customer_password']; ?>" class="inputbox" type="customer_password" name="password" id="password" size="30" required="">
                   </td>
               </tr>
               <tr>
                 <td>Status:</td>
                 <td>
-                    <select id="status" name="status">
-                    <?php while($row = mysql_fetch_array($data_status, MYSQL_ASSOC))
-                    { ?> 
+                    <select id="status" name="status">              
                     <option value="<?php  echo $row['status_id']; ?>"><?php echo $row['status_name']; ?></option>
+                    <?php while($row2 = mysql_fetch_array($data_status, MYSQL_ASSOC))
+                    { ?> 
+                    <option value="<?php  echo $row['status_id']; ?>"><?php echo $row2['status_name']; ?></option>
                     <?php } ?>
                     </select>
                 </td>
@@ -189,6 +185,7 @@ if (!$select_db){
       					</div>
       				</div>
 				</div>
+        <?php } ?>
 		</div> <!--row-->
 		</div> <!--fluid-container-->
 	</body>

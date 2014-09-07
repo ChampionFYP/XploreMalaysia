@@ -1,5 +1,12 @@
 <?php
 session_start();
+
+if(empty($_SESSION['customer_id']))
+{
+
+    header('Location: '. dirname(__folder__) .'/login.php');
+}
+
 $connection = mysql_connect('localhost', 'xplorema', 'FYPchamp1!');
 
 if (!$connection){
@@ -18,12 +25,18 @@ if (!$select_db){
 
     $package=" SELECT * FROM package where package_id='$package_id'";
     $data_package = mysql_query($package);
-         $price='';
+    $package2="SELECT * FROM package INNER JOIN country ON package.country_id=country.country_id INNER JOIN accomodation ON package.accomodation_id=accomodation.accomodation_id INNER JOIN transport ON package.transport_id=transport.transport_id WHERE package_id= '$package_id'";
+
+    $data_package2 = mysql_query($package2);
+
+    // var_dump(mysql_fetch_array($data_package2, MYSQL_ASSOC));
+        $price='';
         $name ='';
         $customer_id=$_SESSION['customer_id'];
         $no_people='';
         $status=1;
-        $status=3;
+        $status_pending=3;
+        $admin_id=1;
    
 
 // If the values are posted, insert them into the database.
@@ -43,13 +56,13 @@ if (!$select_db){
         
 
          
-        $booking = "INSERT INTO `booking` (booking_date, no_person, package_id,customer_id, status) VALUES ('$date', '$no_people', '$package_id', '$customer_id', '$status')";
+        $booking = "INSERT INTO `booking` (booking_date, no_person, package_id,customer_id, status,admin_id) VALUES ('$date', '$no_people', '$package_id', '$customer_id', '$status','$admin_id')";
         $booking_data=mysql_query($booking);
         $booking_id=mysql_insert_id();
             if($booking_data = true)
             {
 
-            $payment = "INSERT INTO `payment` (price, payment_type, booking_id, status) VALUES ('$price', '$payment_type', '$booking_id', '$status_pending')";
+            $payment = "INSERT INTO `payment` (price, payment_type, booking_id, status, customer_id,admin_id) VALUES ('$price', '$payment_type', '$booking_id', '$status_pending', '$customer_id','$admin_id')";
             mysql_query($payment);
             $_SESSION['user_booking_id']=$booking_id;
             header('Location: '. dirname(__folder__) .'/SuccessBookingPage.php');
@@ -97,6 +110,9 @@ if (!$select_db){
         <div id="header"></div>
         <div class="container">
             <row><div class="col-md-12">
+            <?php 
+                while($row2 = mysql_fetch_array($data_package2, MYSQL_ASSOC))
+                { ?>
             <table>
                 <tbody><tr>
                     <td colspan="3">
@@ -118,13 +134,13 @@ if (!$select_db){
                                     <div class="box2_line" style="width: 99%">
                                     </div>
                                     <span class="hotel_bold2">
-                                       Package Name</span><br>                                   
+                                       Package Name : <?php  echo $row2['package_name']; ?></span><br>                                   
                                     <span class="bold">Destination Cities:&nbsp;</span>
                                     <br>                                   
-                                    <span class="bold">Transport By:&nbsp;</span>
+                                    <span class="bold">Transport By: <?php  echo $row2['transport_name']; ?>&nbsp;</span>
                                     <br>
                                     <div>
-                                       <span><b>Grand Total:</b> MYR </span>    
+                                       <span><b>Grand Total:</b> MYR <?php  echo $row2['package_price']; ?></span>    
                                     </div>                            
                                 </div>
                                 <div style="10px; margin-bottom: 5px;">
@@ -167,21 +183,29 @@ if (!$select_db){
                                     <tr>
                                         <td>
                                             <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                                <tbody><tr>
+                                                <tbody>
+                                                <tr>
                                                     <td colspan="6">
                                                         <table class="blacktxt12" border="0" cellpadding="2" cellspacing="2" width="100%">
                                                             <tbody>
                                                                 <tr>
                                                                     <td>
-                                                                        Package name :<span class="red">*</span>
+                                                                        Package name :<span class="red"></span>
+                                                                    </td>
+                                                                    <td>
+                                                                        <?php  echo $row2['package_name']; ?>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td>
-                                                                        Maximum person :<span class="red">*</span>
+                                                                        Maximum person :<span class="red"></span>
+                                                                    </td>
+                                                                    <td>
+                                                                        <?php  echo $row2['number_person']; ?>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
+
                                                                     <td>
                                                                         Departure date :<span class="red">*</span>
                                                                     </td>
@@ -233,10 +257,13 @@ if (!$select_db){
                                                                     <td>
                                                                         Total Price :<span class="red">*</span>
                                                                     </td>
+                                                                    <td>
+                                                                        RM: <?php  echo $row2['package_price']; ?>
+                                                                    </td>
                                                                 </tr>
                                                             </tbody>
                                                         </table>
-                                                    </td>
+                                                    </td> 
                                                 </tr>
                                                 <tr>
                                                     <td colspan="2">
@@ -350,6 +377,7 @@ if (!$select_db){
                     </td>
                 </tr>
             </tbody></table>
+             <?php } ?>
             </form>
             </div></row>
         </div>

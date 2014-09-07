@@ -1,3 +1,78 @@
+<?php
+session_start();
+$dbhost = 'localhost';
+$dbuser = 'xplorema';
+$dbpass = 'FYPchamp1!';
+$data='';
+
+$conn = mysql_connect($dbhost, $dbuser, $dbpass);
+if(! $conn )
+{
+  die('Could not connect: ' . mysql_error());
+}
+
+
+mysql_select_db('xplorema_FYP');
+
+$sql = 'SELECT * FROM payment INNER JOIN admin ON payment.admin_id=admin.admin_id INNER JOIN customer ON payment.customer_id=customer.customer_id INNER JOIN status ON payment.status=status.status_id';
+$status = 'SELECT * FROM status';
+$admin_id=$_SESSION['admin_id'];
+
+
+$data = mysql_query( $sql, $conn );
+$status_data = mysql_query( $status, $conn );
+if(! $data )
+{
+  die('Could not get data: ' . mysql_error());
+}
+
+
+
+if (isset($_POST['approve_btn'])||isset($_POST['pay_id'])) 
+{ 
+   $payment_id=$_POST['pay_id'];
+   $update_payment = "UPDATE payment SET status='1',admin_id='$admin_id' WHERE payment_id='$payment_id'" ;
+   $payment_sql = mysql_query( $update_payment, $conn );
+   header('Location: '. dirname(__folder__) .'/Payment.php');
+} 
+
+if (isset($_POST['delete_btn'])||isset($_POST['pay_id'])) 
+{ 
+   $payment_id=$_POST['pay_id'];
+   $update_payment = "UPDATE payment SET status='2',admin_id='$admin_id' WHERE payment_id='$payment_id'" ;
+   $payment_sql = mysql_query( $update_payment, $conn );
+   header('Location: '. dirname(__folder__) .'/Payment.php');
+} 
+
+if (isset($_POST['search_btn'])) 
+{ 
+   $search_id=$_POST['search_id'];
+   $search_status_id=$_POST['status_search'];
+   $search_data = "SELECT * FROM payment INNER JOIN admin ON payment.admin_id=admin.admin_id INNER JOIN customer ON payment.customer_id=customer.customer_id INNER JOIN status ON payment.status=status.status_id WHERE payment_id='$search_id' OR payment.status='$search_status_id'";
+   if(empty($search_id) && empty($search_status_id))
+   {
+   	$search_data = "SELECT * FROM payment INNER JOIN admin ON payment.admin_id=admin.admin_id INNER JOIN customer ON payment.customer_id=customer.customer_id INNER JOIN status ON payment.status=status.status_id";
+   }
+   $data = mysql_query($search_data, $conn );
+   // header('Location: '. dirname(__folder__) .'/Payment.php');
+} 
+
+
+
+mysql_close($conn);
+
+
+?>
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -26,57 +101,68 @@
 			<div class="col-sm-12 col-md-2"> 
 				<div id="sidebar"></div>
 			</div>
+			<form method="post">
 			<div class="box col-sm-12 col-md-10 pull-right">
 				<div class="heading">
 					<h1>Payment</h1>
-					
-					<div class="btn btn-default">Delete</div>
+					<input type="submit" name="approve_btn"  value="Approve" class="btn btn-default"></input>
+					<input type="submit" name="delete_btn"  value="Deactive" class="btn btn-default"></input>
 				</div>
 				<div>
-      				<form id="form">
+      				
 				        <table class="list">
 				          <thead>
-				            <tr>
-				              <td width="1" style="text-align: center;"><input type="checkbox"></td>
-				              <td class="right">                <a href="" class="desc">Payment ID</a>
-				                </td>
-				              <td class="left">                <a href="">Customer</a>
-				                </td>
-								<td class="left">                <a href="">Price</a>
-				                </td>
-				              <td class="left">                <a href="">Status</a>
-				                </td>
-				              <td class="left">                <a href="">Total</a>
-				                </td>
-				              <td class="left">                <a href="">Date Added</a>
-				                </td>
-				              <td class="left">                <a href="">Date Modified</a>
-				                </td>
-				              <td class="right">Action</td>
-				            </tr>
-				          </thead>
+      				      <tr>
+      				      <td width="1" style="text-align: center;"><input type="checkbox"/></td>
+							<td class="left" width=250 >Payment ID </td>
+      				      <td class="left">Pay</td>
+      				      <td class="center">Type</td>
+      				      	<td class="center">Admin Name</td>
+      				      	<td class="center">Admin ID</td>
+      				      	<td class="center">Booking ID</td>
+      				      	<td class="center">Customer Name</td>
+      				      	<td class="center">Customer ID</td>
+							<td class="center">Status</td>
+							
+      				      </tr>
+      				    </thead>
 				          <tbody>
 				            <tr class="filter">
 				              <td></td>
-				              <td align="right"><input type="text" value="" size="4" style="text-align: right;"></td>
-				              <td><input type="text" value="" class="ui-autocomplete-input"></td>
-							  <td><input type="text" size=5 value=""</td>
-				              
-								<td><select>
-							
-				                  <option value="*"></option>
-				                                                                        <option value="7">Deposit Paid</option>
-				                                                                        <option value="5">Complete Paid</option>
-				                                                                        <option value="1">Pending</option>
-				                                                    </select></td>
-				              <td align="left"><input type="text" value="" size="12" style="text-align: left;"></td>
-				              <td><input type="text" value="" size="12" class="date hasDatepicker" id="dp1390107916615"></td>
-				              <td><input type="text" value="" size="12" class="date hasDatepicker" id="dp1390107916616"></td>
-				              <td align="right"><a class="button">Search</a></td>
+				              <td><input type="text" name="search_id"></td>
+				              <td><select name="status_search">							
+				                  	<option value=""></option>
+				                  	<?php 
+									while($row_status = mysql_fetch_array($status_data, MYSQL_ASSOC))
+									{ ?>
+				                  	<option value="<?php  echo $row_status['status_id']; ?>"><?php  echo $row_status['status_name']; ?></option>
+				                  	<?php } ?>
+
+				                </select></td>
+				              <td></td>
+				              <td></td>
+				              <td></td>
+				              <td></td>
+				              <td></td>
+				                <td></td>
+				              <td align="right"><input type="submit" name="search_btn"  value="Search" class="btn btn-default"></input></td>
 				            </tr>
-				                        <tr>
-				              <td class="center" colspan="8">No results!</td>
-				            </tr>
+				            <?php 
+							while($row = mysql_fetch_array($data, MYSQL_ASSOC))
+							{ ?>
+							    <tr>
+							    	<td width="1" style="text-align: center;"><input type="checkbox" name="pay_id" value="<?php  echo $row['payment_id']; ?>"></td>
+							    	<td class="center" style="width:10%">  <?php  echo $row['payment_id']; ?></td>
+							    	<td class="left" width=250 >  <?php  echo $row['price']; ?></td>
+							    	<td class="left">  <?php  echo $row['payment_type']; ?></td>
+							    	<td class="left">  <?php  echo $row['admin_username']; ?></td>
+							    	<td class="left">  <?php  echo $row['admin_id']; ?></td>
+							    	<td class="left">  <?php  echo $row['booking_id']; ?></td>
+							    	<td class="left">  <?php  echo $row['customer_name']; ?></td>
+							    	<td class="left">  <?php  echo $row['customer_id']; ?></td>
+							    	<td class="center">  <?php  echo $row['status_name']; ?></td>
+							    <tr>
+						<?php } ?>
 				                      </tbody>
 				        </table>
 				      </form>

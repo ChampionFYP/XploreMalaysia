@@ -70,10 +70,9 @@ mysql_close($conn);
       				    <thead>
       				      <tr>
       				      <td width="1" style="text-align: center;"><input type="checkbox"/></td>
-							<td class="left" width=250 >Country ID </td>
-      				      <td class="left">Country</td>
-							<td class="center">Region</td>
-							
+      				      <td></td>
+							<td class="left" width=250 >State ID </td>
+      				      <td class="left">State</td>						
       				      </tr>
       				    </thead>	    
 						<tbody>
@@ -81,11 +80,10 @@ mysql_close($conn);
 							while($row = mysql_fetch_array($data, MYSQL_ASSOC))
 							{ ?>
 							    <tr>
-							    	<td width="1" style="text-align: center;"><input type="checkbox"></td>
+							    	<td width="1" style="text-align: center;"><input type="checkbox" name="country_id" value ="<?php  echo $row['country_id']; ?>"></td>
 							    	<td class="center" style="width:10%"></td>
 							    	<td class="left" width=250 >  <?php  echo $row['country_id']; ?></td>
 							    	<td class="left">  <?php  echo $row['country_name']; ?></td>
-							    	<td class="left">  <?php  echo $row['country_region']; ?></td>
 							    <tr>
 						<?php } ?>
       				  </tbody>

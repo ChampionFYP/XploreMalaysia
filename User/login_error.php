@@ -6,9 +6,7 @@ session_start();
 /*** check if the users is already logged in ***/
 if(isset($_SESSION['customer_id'] ))
 {
-    // header('Location: '. dirname(__folder__) .'/dashboard.php');
-    session_destroy();
-
+    header('Location: '. dirname(__folder__) .'/Userpanel.php');
 }
 
 if(!isset( $_POST['email'], $_POST['password']))

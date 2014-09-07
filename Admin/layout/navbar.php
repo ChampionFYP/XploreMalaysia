@@ -61,7 +61,7 @@ if (!$select_db){
                 </button>
 
                 <div class="navbar-header pull-left">
-                    <a href="#" class="navbar-logo">
+                    <a href="Packages.php" class="navbar-logo">
                     	<img src = "images/logo.png" width="40px" height="40px" alt="Xplore Malaysia">
                         <small>
                             Xplore Malaysia
@@ -71,29 +71,6 @@ if (!$select_db){
 
                 <div class="navbar-buttons navbar-header pull-right" role="navigation">
                     <ul class="nav ace-nav">
-                        <li class="grey">
-                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                                <i class="ace-icon fa fa-tasks"></i>
-                                <span class="badge badge-grey">1</span>
-                            </a>
-                        </li>
-
-                        <li class="purple">
-                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                                <i class="ace-icon fa fa-bell icon-animated-bell"></i>
-                                <span class="badge badge-important">1</span>
-                            </a>
-                        </li>
-
-                        <li class="green">
-                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                                <i class="ace-icon fa fa-envelope icon-animated-vertical"></i>
-                                <span class="badge badge-success">1</span>
-                            </a>
-                        </li>
-
-                    
-               
                         <li class="light-blue">
                             <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
                                 <span class="user-info">

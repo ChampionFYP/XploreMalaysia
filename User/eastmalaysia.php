@@ -1,3 +1,45 @@
+<?php
+session_start();
+$dbhost = 'localhost';
+$dbuser = 'xplorema';
+$dbpass = 'FYPchamp1!';
+
+$conn = mysql_connect($dbhost, $dbuser, $dbpass);
+if(! $conn )
+{
+  die('Could not connect: ' . mysql_error());
+}
+
+
+mysql_select_db('xplorema_FYP');
+
+$package1 = "SELECT * FROM package where country_id = '7' AND status='1'";
+$data_package1 = mysql_query( $package1, $conn );
+$package2 = "SELECT * FROM package where country_id = '8' AND status='1'";
+$data_package2 = mysql_query( $package2, $conn );
+
+
+
+
+mysql_close($conn);
+
+
+if (isset($_POST['view_btn'])) 
+{ 
+   $package_id=$_POST['view_btn'];
+   $_SESSION['user_package_id']=$package_id;
+   // var_dump($_SESSION['user_package_id']);
+   header('Location: '. dirname(__folder__) .'/ViewPackage.php');
+} 
+?>
+
+
+
+
+
+
+
+
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -97,27 +139,20 @@
   <div class="owlbox">
     <div id="owl-demo" class="owl-carousel owl-theme" style="opacity:1; display:block; "> 
       <div class="owl-wrapper-outer">
-        <div class="owl-wrapper" style="width: 100%; margin-left: 0px; display:block; ">
-                          
-            <div class="owl-item">
-              <div class="item">
-                 <a href="ViewPackage.php" class="box1">
-                      <div class="title2">PACKAGE NAME<em>PACKAGE NAME</em></div>
-                      <figure><img src="img/img.jpg" alt=""></figure>
-                      <div class="">
-                          <div class="info2">
-                              <div class="title3">
-                                <span>DATE</span>
-                              </div>
-                              <div class="title4"><span>RM</span> 
-                                <strong>PRICE</strong>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="title5">book now!<em>book now!</em></div>
-                 </a>
-              </div>
-           </div>         
+         <div class="owl-wrapper" style="width: 100%; margin-left: 0px; display:block; ">
+             <?php 
+              while($row1 = mysql_fetch_array($data_package1, MYSQL_ASSOC))
+              { ?>             
+                          <div class="owl-item">
+                            <div style=""class="item">
+                               <div class="box1">
+                                    <div class="title2"><?php  echo $row1['package_name']; ?> <em><?php  echo $row1['package_name']; ?></em></div>
+                                    <figure><img src="http://<?php echo $_SERVER['SERVER_NAME'] . "admin/photo/". $row1['image_id'];?>" alt=""></figure>
+                                    <button name="view_btn"  value="<?php  echo $row1['package_id']; ?>" class="title5">View now!</button>
+                               </div>
+                           </div>
+                         </div>
+            <?php } ?>
           </div>
         </div>
         </div>
@@ -125,7 +160,37 @@
     </div>
 </div>
     <br/><br/><br/>
+
+
+    <div class="container">
+  <div class="row">
+    
+  <div class="owlbox">
+    <div id="owl-demo" class="owl-carousel owl-theme" style="opacity:1; display:block; "> 
+      <div class="owl-wrapper-outer">
+        <div class="owl-wrapper" style="width: 100%; margin-left: 0px; display:block; ">
+                       <?php 
+                        while($row2 = mysql_fetch_array($data_package2, MYSQL_ASSOC))
+                        { ?>   
+                          <div class="owl-item">
+                            <div style=""class="item">
+                               <div class="box1">
+                                    <div class="title2"><?php  echo $row2['package_name']; ?><em><?php  echo $row2['package_name']; ?></em></div>
+                                    <figure><img src="http://<?php echo $_SERVER['SERVER_NAME'] . "admin/photo/". $row2['image_id'];?>" height="167px" width="250px" alt=""></figure>
+                                    
+                                    <button name="view_btn"  value="<?php  echo $row2['package_id']; ?>" class="title5">View now!</button>
+                               </div>
+                           </div>
+                         </div>
+
+                 <?php } ?>       
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
 </div>
+
 
 <div id="footer"></div>
 </body>

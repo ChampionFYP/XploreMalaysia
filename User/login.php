@@ -1,37 +1,24 @@
 <?php
-
 /*** begin our session ***/
 session_start();
 
 /*** check if the users is already logged in ***/
 if(isset($_SESSION['customer_id'] ))
 {
-    
-    session_destroy();
-    header('Location: '. dirname(__folder__) .'/login.php');
-
+    header('Location: '. dirname(__folder__) .'/Userpanel.php');
 }
 
-if(!isset( $_POST['username'], $_POST['password']))
+if(!isset( $_POST['email'], $_POST['password']))
 {
     $message = '';
 }
 /*** check the username is the correct length ***/
-elseif (strlen( $_POST['username']) > 20 || strlen($_POST['username']) < 3)
-{
-    $message = 'Incorrect Length for Username';
-}
 /*** check the password is the correct length ***/
 elseif (strlen( $_POST['password']) > 20 || strlen($_POST['password']) < 3)
 {
     $message = 'Incorrect Length for Password';
 }
 /*** check the username has only alpha numeric characters ***/
-elseif (ctype_alnum($_POST['username']) != true)
-{
-//     ** if there is no match **
-    $message = "Username must be alpha numeric";
-}
 // ** check the password has only alpha numeric characters **
 elseif (ctype_alnum($_POST['password']) != true)
 {
@@ -41,7 +28,7 @@ elseif (ctype_alnum($_POST['password']) != true)
 else
 {
     /*** if we are here the data is valid and we can insert it into database ***/
-    $phpro_username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
+    $phpro_username = filter_var($_POST['email'], FILTER_SANITIZE_STRING);
     $phpro_password = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
 
     /*** now we can encrypt the password ***/
@@ -50,15 +37,15 @@ else
     /*** connect to database ***/
     /*** mysql hostname ***/
    
-    // $mysql_hostname = 'localhost';
-    // $mysql_username = 'xplorema';
-    // $mysql_password = 'FYPchamp1!';
-    // $mysql_dbname = 'xplorema_FYP';
-
     $mysql_hostname = 'localhost';
-    $mysql_username = 'root';
-    $mysql_password = '';
-    $mysql_dbname = 'FYP';
+    $mysql_username = 'xplorema';
+    $mysql_password = 'FYPchamp1!';
+    $mysql_dbname = 'xplorema_FYP';
+
+    // $mysql_hostname = 'localhost';
+    // $mysql_username = 'root';
+    // $mysql_password = '';
+    // $mysql_dbname = 'FYP';
 
     try
     {
@@ -69,23 +56,24 @@ else
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         /*** prepare the select statement ***/
-        $stmt = $dbh->prepare("SELECT admin_id, admin_username, admin_password FROM admin 
-                    WHERE admin_username = :admin_username AND admin_password = :admin_password");
+        $stmt = $dbh->prepare("SELECT customer_id, customer_email, customer_password FROM customer 
+                    WHERE customer_email = :customer_email AND customer_password = :customer_password");
 
         /*** bind the parameters ***/
-        $stmt->bindParam(':admin_username', $phpro_username, PDO::PARAM_STR);
-        $stmt->bindParam(':admin_password', $phpro_password, PDO::PARAM_STR, 40);
+        $stmt->bindParam(':customer_email', $phpro_username, PDO::PARAM_STR);
+        $stmt->bindParam(':customer_password', $phpro_password, PDO::PARAM_STR, 40);
 
         /*** execute the prepared statement ***/
         $stmt->execute();
 
         /*** check for a result ***/
-        $admin_id = $stmt->fetchColumn();
+        $customer_id = $stmt->fetchColumn();
 
         /*** if we have no result then fail boat ***/
-        if($admin_id == false)
+        if($customer_id == false)
         {
                 $message = 'Login Failed';
+                // header('Location: '. dirname(__folder__) .'/login_error.php');
         }
         /*** if we do have a result, all is well ***/
         else
@@ -110,127 +98,57 @@ else
 }
 ?>
 
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="css/style.css" rel="stylesheet">
+    <link href="css/Homelayout.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/loginstyle.css" />
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
-<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
-<link type="text/css" rel="stylesheet" href="css/loginstyle.css" />
-
-<body>
-<div class="container">
-	<a id="modal_trigger" href="#modal" class="btn">Sign In</a>
-
-	<div id="modal" class="popupContainer" style="display:none;">
-		<header class="popupHeader">
-			<span class="header_title">Login</span>
-			<span class="modal_close"><i class="fa fa-times"></i></span>
-		</header>
-		
-		<section class="popupBody">
-			<!-- Social Login -->
-			<div class="social_login">
-				
-
-				<div class="centeredText">
-					<span>Or use your Email address</span>
-				</div>
-
-				<div class="action_btns">
-					<div class="one_half"><a href="#" id="login_form" class="btn">Login</a></div>
-					<div class="one_half last"><a href="#" id="register_form" class="btn">Sign up</a></div>
-				</div>
-			</div>
-
-			<!-- Username & Password Login form -->
-			<div class="user_login">
-				<form>
-					<label>Email</label>
-					<input type="text" placeholder="Username" id="username" name="username"/>
-					<br />
-
-					<label>Password</label>
-					<input type="password" placeholder="Password" id="password" name="password"/>
-					<br />
-
-					<div class="checkbox">
-						<input id="remember" type="checkbox" />
-						<label for="remember">Remember me on this computer</label>
-					</div>
-					<div>
-					<p style="color:red;"><?php echo $message; ?></p>
-					</div>
-					<div class="action_btns">
-						<div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
-						<div class="one_half last"><a href="#" class="btn btn_red">Login</a></div>
-					</div>
-				</form>
-
-				<a href="#" class="forgot_password">Forgot password?</a>
-			</div>
-
-			<!-- Register Form -->
-			<div class="user_register">
-				<form>
-					<label>Full Name</label>
-					<input type="text" />
-					<br />
-
-					<label>Email Address</label>
-					<input type="email" />
-					<br />
-
-					<label>Password</label>
-					<input type="password" />
-					<br />
-
-					<div class="checkbox">
-						<input id="send_updates" type="checkbox" />
-						<label for="send_updates">Send me occasional email updates</label>
-					</div>
-
-					<div class="action_btns">
-						<div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
-						<div class="one_half last"><a href="#" class="btn btn_red">Register</a></div>
-					</div>
-				</form>
-			</div>
-		</section>
-	</div>
-</div>
-
-<script type="text/javascript">
-	$("#modal_trigger").leanModal({top : 200, overlay : 0.6, closeButton: ".modal_close" });
-
-	$(function(){
-		// Calling Login Form
-		$("#login_form").click(function(){
-			$(".social_login").hide();
-			$(".user_login").show();
-			return false;
-		});
-
-		// Calling Register Form
-		$("#register_form").click(function(){
-			$(".social_login").hide();
-			$(".user_register").show();
-			$(".header_title").text('Register');
-			return false;
-		});
-
-		// Going back to Social Forms
-		$(".back_btn").click(function(){
-			$(".user_login").hide();
-			$(".user_register").hide();
-			$(".social_login").show();
-			$(".header_title").text('Login');
-			return false; 
-		});
-
-	})
-</script>
-
-</body>
+    <script type="text/javascript">
+        $(document).ready(function(){
+          $('#header').load('layout/header.php');
+          $('#footer').load('layout/footer.php');
+        });
+    </script> 
+    </head>
+	<body>
+        <div id="header"></div>
+            <div>
+                <!--Popup Login Box-->
+                    <div id="modal" style="width:330px; height: auto; margin:20px auto -50px; outline: #5cb5be solid;">
+                      <header class="popupHeader">
+                        <span class="header_title">Login</span>
+                        <span class="modal_close"><i class="fa fa-times"></i></span>
+                      </header>
+                      <section class="popupBody">
+                      <form style="margin-bottom: 0px !important;" class="form-horizontal" method="post" action="login_function.php">
+                          <div class="user_login">
+                        <label>Username</label>
+                      <input type="text" placeholder="Username" id="username" name="username"/>
+                      <br />
+            
+                      <label>Password</label>
+                      <input type="password" placeholder="Password" id="password" name="password"/>
+                      <br />
+            
+                      <p style="color:red;"><?php echo $message; ?></p>
+                      <div class="action_btns">            
+                      <div style="float:right;"><button class="btn btn-info" data-dismiss="modal" type="submit">Login</button></div>
+                      </div>    
+                      <a href="#" class="forgot_password">Forgot password?</a>
+                          </div>
+                    </form>
+                      </section>
+                    </div>
+                    <!--End of popup Login Box-->
+            </div>
+        <div id="footer"></div>
+    </body>
 </html>

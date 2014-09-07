@@ -13,15 +13,15 @@ if(! $conn )
 
 mysql_select_db('xplorema_FYP');
 
-$package1 = "SELECT * FROM package where country_id = '1'";
+$package1 = "SELECT * FROM package where country_id = '1' AND status='1'";
 $data_package1 = mysql_query( $package1, $conn );
-$package2 = "SELECT * FROM package where country_id = '6'";
+$package2 = "SELECT * FROM package where country_id = '6'AND status='1'";
 $data_package2 = mysql_query( $package2, $conn );
-$package3 = "SELECT * FROM package where country_id = '3'";
+$package3 = "SELECT * FROM package where country_id = '3'AND status='1'";
 $data_package3 = mysql_query( $package3, $conn );
-$package4 = "SELECT * FROM package where country_id = '4'";
+$package4 = "SELECT * FROM package where country_id = '4'AND status='1'";
 $data_package4 = mysql_query( $package4, $conn );
-$package5 = "SELECT * FROM package where country_id = '5'";
+$package5 = "SELECT * FROM package where country_id = '5'AND status='1'";
 $data_package5 = mysql_query( $package5, $conn );
 
 

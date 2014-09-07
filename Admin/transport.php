@@ -1,4 +1,5 @@
 <?php
+session_start();
 $dbhost = 'localhost';
 $dbuser = 'xplorema';
 $dbpass = 'FYPchamp1!';
@@ -14,7 +15,7 @@ if(! $conn )
 mysql_select_db('xplorema_FYP');
 // mysql_select_db('FYP');
 
-$sql = 'SELECT * FROM transport';
+$sql = "SELECT * FROM transport INNER JOIN status ON transport.status=status.status_id";
 
 
 $data = mysql_query( $sql, $conn );
@@ -24,6 +25,15 @@ if(! $data )
 }
 
 mysql_close($conn);
+
+if (isset($_POST['update_btn'])||isset($_POST['trans_id'])) 
+{ 
+   $transport_id=$_POST['trans_id'];
+   $_SESSION['transport_id']=$transport_id;
+   // var_dump($_SESSION['package_id']);
+   header('Location: '. dirname(__folder__) .'/transport_update.php');
+} 
+
 ?>
 
 
@@ -52,6 +62,7 @@ mysql_close($conn);
 		<title>Transportation</title>
 	</head>
 	<body>
+	<form method="post">
 	<div class="fluid-container">
 		<div id="navbar"></div>
 		<div class="row">
@@ -61,19 +72,20 @@ mysql_close($conn);
 			<div class="box col-sm-12 col-md-10 pull-right">
 				<div class="heading">
 					<h1>Transportation</h1>
-					<div class="btn btn-default">Add</div>
-					<div class="btn btn-default">Update</div>
-					<div class="btn btn-default">Delete</div>
+					<a href="transport_add.php" class="btn btn-default">Add</a>
+					<input type="submit" name="update_btn"  value="Update" class="btn btn-default"></input>
 				</div>
 				<div>
-      				<form>
+      				
 						<table class="list" id="list">
       				    <thead>
       				      <tr>
       				      <td width="1" style="text-align: center;"><input type="checkbox"/></td>
 							
-							<td class="left" width=250 >Transportation ID </td>
-      				      <td class="left">Type</td>
+							<td class="center" width=250 >Transportation ID </td>
+							<td class="center" style="width:10%">Image</td>
+      				      <td class="center">Type</td>
+      				      <td class="center">Phone</td>
 							<td class="center">Description</td>
 							<td class="center">Status</td>
       				      </tr>
@@ -83,16 +95,19 @@ mysql_close($conn);
 							while($row = mysql_fetch_array($data, MYSQL_ASSOC))
 							{ ?>
 							    <tr>
-							    	<td width="1" style="text-align: center;"><input type="checkbox"></td>
+							    	<td width="1" style="text-align: center;"><input type="checkbox" name="trans_id" value="<?php  echo $row['transport_id']; ?>"></td>
 							    	<td class="center" style="width:10%">  <?php  echo $row['transport_id']; ?></td>
-							    	<td class="left" width=250 >  <?php  echo $row['type']; ?></td>
-							    	<td class="left">  <?php  echo $row['description']; ?></td>
-							    	<td class="left">  <?php  echo $row['status']; ?></td>
+							    	<td>
+							    	<img src="http://<?php echo $_SERVER['SERVER_NAME'] . "/photo/transport". $row['image_id'];?>" alt="" height="42" width="42">	
+							    	</td>
+							    	<td class="center" width=250 >  <?php  echo $row['type']; ?></td>
+							    	<td class="center" width=250 >  <?php  echo $row['phone']; ?></td>
+							    	<td class="center">  <?php  echo $row['description']; ?></td>
+							    	<td class="center">  <?php  echo $row['status_name']; ?></td>
 							    <tr>
 						<?php } ?>
       				  </tbody>
       				  </table>
-      				</form>
       					<div class="pagination" style="float:right;">
       						<div class="results">Showing 0 to 0 of 0 (0 Pages)</div>
       					</div>
@@ -100,5 +115,6 @@ mysql_close($conn);
 				</div>
 		</div> <!--row-->
 		</div> <!--fluid-container-->
+		</form>
 	</body>
 </html>

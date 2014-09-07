@@ -13,7 +13,7 @@ if(! $conn )
 
 mysql_select_db('xplorema_FYP');
 
-$sql = 'SELECT * FROM package';
+$sql = "SELECT * FROM package INNER JOIN country ON package.country_id=country.country_id INNER JOIN accomodation ON package.accomodation_id=accomodation.accomodation_id INNER JOIN transport ON package.transport_id=transport.transport_id INNER JOIN status ON package.status=status.status_id ";
 
 
 $data = mysql_query( $sql, $conn );
@@ -28,31 +28,10 @@ if (isset($_POST['update_btn'])||isset($_POST['pack_id']))
 { 
    $package_id=$_POST['pack_id'];
    $_SESSION['package_id']=$package_id;
-   var_dump($_SESSION['package_id']);
+   // var_dump($_SESSION['package_id']);
    header('Location: '. dirname(__folder__) .'/PackagesUpdate.php');
-
-
-
 } 
-
-
-
-
-
-
-
-
-
-
-
-
-
 ?>
-
-
-
-
-
 
 <!DOCTYPE HTML>
 <html>
@@ -88,7 +67,6 @@ if (isset($_POST['update_btn'])||isset($_POST['pack_id']))
 					<h1>Package</h1>
 					<a href="PackagesAdd.php" class="btn btn-default">Add</a>
 					<input type="submit" name="update_btn"  value="Update" class="btn btn-default"></input>
-					<div class="btn btn-default">Delete</div>
 				</div>
 				<div>
       				
@@ -98,6 +76,7 @@ if (isset($_POST['update_btn'])||isset($_POST['pack_id']))
       				      <td width="1" style="text-align: center;"><input type="checkbox"/></td>
 							<td class="left" width=250 >Package ID </td>
       				      <td class="left">Package Name</td>
+      				      <td class="center">Image</td>
       				      	<td class="center">Number of Person</td>
 							<td class="center">Country</td>
 							<td class="center">Transport</td>
@@ -119,14 +98,14 @@ if (isset($_POST['update_btn'])||isset($_POST['pack_id']))
 							    	<td>
 							    	<img src="http://<?php echo $_SERVER['SERVER_NAME'] . "/photo/". $row['image_id'];?>" alt="" height="42" width="42">	
 							    	</td>
-							    	<td class="left">  <?php  echo $row['number_people']; ?></td>
-							    	<td class="left">  <?php  echo $row['country_id']; ?></td>
-							    	<td class="left">  <?php  echo $row['transport_id']; ?></td>
-							    	<td class="left">  <?php  echo $row['accomodation_id']; ?></td>
+							    	<td class="left">  <?php  echo $row['number_person']; ?></td>
+							    	<td class="left">  <?php  echo $row['country_name']; ?></td>
+							    	<td class="left">  <?php  echo $row['transport_name']; ?></td>
+							    	<td class="left">  <?php  echo $row['accomodation_name']; ?></td>
 							    	<td class="left">  <?php  echo $row['admin_id']; ?></td>
 							    	<td class="center">  <?php  echo $row['package_price']; ?></td>
 							    	<td class="center">  <?php  echo $row['description']; ?></td>
-							    	<td class="center">  <?php  echo $row['status']; ?></td>
+							    	<td class="center">  <?php  echo $row['status_name']; ?></td>
 							    <tr>
 						<?php } ?>
       				  </tbody>
