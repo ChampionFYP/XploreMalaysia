@@ -31,8 +31,9 @@ if (!$select_db){
 	<head>
 		<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="shortcut icon" type="image/x-icon" href="img/logo.ico" />
     <title>Xplore Malaysia</title>
-	<link href="css/style.css" rel="stylesheet">
+	  <link href="css/style.css" rel="stylesheet">
     <link href="css/Homelayout.css" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="../css/loginstyle.css" />
     <script type="text/javascript" src="js/bootstrap.js"></script>
@@ -59,7 +60,7 @@ if (!$select_db){
       {
       while($row = mysql_fetch_assoc($data_customer))
           { ?> 	
-			<a href="UserPanel.php" class="btn"><?php  echo $row['customer_username']; ?></a>
+			<a href="UserPanel.php" class="btn"><?php  echo $row['customer_name']; ?></a>
 			<a href="logout.php" class="btn">Log Out</a>
       <?php } 
         }?> 	
@@ -106,12 +107,6 @@ if (!$select_db){
 		      return false;
 		    }); 
 		  })
-
-      $(document).ready(function() {  
-        $(".has-sub").click(function() {  
-          $(".has-sub").css('display', 'block');     
-        });  
-      });
 		</script>
 
 	  	<div id="main_nav">         

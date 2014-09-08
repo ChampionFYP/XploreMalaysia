@@ -158,12 +158,12 @@ if (isset($_POST['view_btn']))
               while($row1 = mysql_fetch_array($data_package3, MYSQL_ASSOC))
               { ?>             
                           <div class="owl-item">
-                            <div style=""class="item">
-                               <div class="box1">
+                            <div class="item">
+                               <a href="#" class="box1">
                                     <div class="title2"><?php  echo $row1['package_name']; ?> <em><?php  echo $row1['package_name']; ?></em></div>
                                     <figure><img src="http://admin.xploremalaysia.asia/photo/package/<?php echo $row1['package_image_id'];?>" height="167px" width="250px" alt=""></figure>
-                                    <button name="view_btn"  value="<?php  echo $row1['package_id']; ?>" class="title5">View now!</button>
-                               </div>
+                                    <button name="view_btn"  value="<?php  echo $row1['package_id']; ?>" class="title5">View now!<em>View now!</em></button>
+                               </a>
                            </div>
                          </div>
             <?php } ?>
@@ -194,16 +194,14 @@ if (isset($_POST['view_btn']))
                         while($row2 = mysql_fetch_array($data_package1, MYSQL_ASSOC))
                         { ?>   
                           <div class="owl-item">
-                            <div style=""class="item">
-                               <div class="box1">
+                            <div class="item">
+                               <a href="#" class="box1">
                                     <div class="title2"><?php  echo $row2['package_name']; ?><em><?php  echo $row2['package_name']; ?></em></div>
                                     <figure><img src="http://admin.xploremalaysia.asia/photo/package/<?php echo $row2['package_image_id'];?>" height="167px" width="250px" alt=""></figure>
-                                    
-                                    <button name="view_btn"  value="<?php  echo $row2['package_id']; ?>" class="title5">View now!</button>
-                               </div>
+                                    <button name="view_btn" value="<?php  echo $row2['package_id']; ?>" class="title5">View now!<em>View now!</em></button>
+                               </a>
                            </div>
                          </div>
-
                  <?php } ?>       
           </div>
         </div>
@@ -232,16 +230,14 @@ if (isset($_POST['view_btn']))
                           while($row3 = mysql_fetch_array($data_package4, MYSQL_ASSOC))
                           { ?> 
                           <div class="owl-item">
-                            <div style=""class="item">
-                               <div class="box1">
+                            <div class="item">
+                               <a href="#" class="box1">
                                     <div class="title2"><?php  echo $row3['package_name']; ?><em><?php  echo $row3['package_name']; ?></em></div>
                                     <figure><img src="http://admin.xploremalaysia.asia/photo/package/<?php echo $row3['package_image_id'];?>" height="167px" width="250px" alt=""></figure>
-                                    
-                                    <button name="view_btn"  value="<?php  echo $row3['package_id']; ?>" class="title5">View now!</button>
-                               </div>
+                                    <button name="view_btn"  value="<?php  echo $row3['package_id']; ?>" class="title5">View now!<em>View now!</em></button>
+                               </a>
                            </div>
                          </div>
-
               <?php } ?>            
           </div>
         </div>
@@ -275,13 +271,13 @@ if (isset($_POST['view_btn']))
                   while($row4 = mysql_fetch_array($data_package5, MYSQL_ASSOC))
                   { ?>         
                           <div class="owl-item">
-                            <div style=""class="item">
-                               <div class="box1">
+                            <div class="item">
+                               <a href="#" class="box1">
                                     <div class="title2"><?php  echo $row4['package_name']; ?><em><?php  echo $row4['package_name']; ?></em></div>
                                     <figure><img src="http://admin.xploremalaysia.asia/photo/package/<?php echo $row4['package_image_id'];?>" height="167px" width="250px" alt=""></figure>
                                     
-                                    <button name="view_btn"  value="<?php  echo $row4['package_id']; ?>" class="title5">View now!</button>
-                               </div>
+                                    <button name="view_btn"  value="<?php  echo $row4['package_id']; ?>" class="title5">View now!<em>View now!</em></button>
+                               </a>
                            </div>
                          </div>
             <?php } ?>
@@ -312,13 +308,12 @@ if (isset($_POST['view_btn']))
                             while($row5 = mysql_fetch_array($data_package2, MYSQL_ASSOC))
                             { ?>
                           <div class="owl-item">
-                            <div style=""class="item">
-                               <div class="box1">
+                            <div class="item">
+                               <a href="#" class="box1">
                                     <div class="title2"><?php  echo $row5['package_name']; ?><em><?php  echo $row5['package_name']; ?></em></div>
                                     <figure><img src="http://admin.xploremalaysia.asia/photo/package/<?php echo $row5['package_image_id'];?>" height="167px" width="250px" alt=""></figure>
-                                    
-                                    <button name="view_btn"  value="<?php  echo $row5['package_id']; ?>" class="title5">View now!</button>
-                               </div>
+                                    <button name="view_btn"  value="<?php  echo $row5['package_id']; ?>" class="title5">View now!<em>View now!</em></button>
+                               </a>
                            </div>
                          </div>
                          <?php } ?>               

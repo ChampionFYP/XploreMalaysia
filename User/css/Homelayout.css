@@ -13,10 +13,9 @@ body{
 
 /*------------navbar---------------*/
 
-#main_nav ul,
-#main_nav li,
+#main_nav ul, 
+#main_nav li, 
 #main_nav span,
-
 #main_nav a {
   margin: 0;
   padding: 0;
@@ -73,7 +72,7 @@ body{
 	position: relative;
 	text-decoration: none;
 	font-family: 'Open Sans', sans-serif;
-	font-size: 18px;
+	font-size: 12px;
 	line-height: 22px;
 	font-weight: 800;
 	color: #FFF;
@@ -84,6 +83,8 @@ body{
 	border-radius: 0;
 	letter-spacing: 2px;
 	text-shadow: none;
+	-webkit-transition: all 0.2s ease;
+	transition: all 0.5s ease;
 }
 #main_nav > ul > li:hover:after {
   content: '';
@@ -98,10 +99,11 @@ body{
   margin-left: -10px;
 }
 #main_nav > ul > li:first-child > a {
-  position: relative;
-	zoom: 1;
-	background: none;
+ 	 border-radius: 0;
 	background: transparent;
+	padding: 0;
+	padding-left: 23px;
+	display: block;
 }
 
 #main_nav > ul > li.active > a {
@@ -119,9 +121,8 @@ color: #4BCBDA;
 }
 
 #main_nav .has-sub ul {
-  position: absolute;
+  	position: absolute;
 	display: none;
-	top: 25px;
 	left: 45px;
 	width: 179px;
 	padding: 21px 0 23px;
@@ -161,7 +162,7 @@ color: #4BCBDA;
 	border-radius: 0;
 	letter-spacing: 2px;
 	display: block;
-	transition: all 1s;
+	transition: all 0.5s ease;
 }
 #main_nav .has-sub ul li:hover a {
   background: #ea636c;
@@ -369,16 +370,21 @@ color: #4BCBDA;
 .box1 figure {
 	width: 100%;
 
+}.item a {
+	position: relative;
+	overflow: hidden;
+	display: block;
+}
+.box1 figure {
+	width: 100%;
 }
 .box1 figure img {
 	width: 100%;
-
-	
 }
 .info2 {
 	position: relative;
 	overflow: hidden;
-	display: inline-block;
+	display: block;
 	padding: 11px 0 0 0;
 }
 .box1 .title2 {
@@ -394,7 +400,8 @@ color: #4BCBDA;
 	text-align: center;
 	padding: 16px 0 19px;
 	width: 100%;
-	-
+	-webkit-transition: all 0.5s ease;
+	transition: all 0.5s ease;
 }
 .box1 .title2 em {
 	top: -100px;
@@ -412,7 +419,8 @@ color: #4BCBDA;
 	text-decoration: none;
 	text-align: center;
 	padding: 16px 0 19px;
-	
+	-webkit-transition: all 0.32s ease;
+	transition: all 0.32s ease;
 }
 .box1 .title3 strong {
 	font-family: 'Trebuchet MS', sans-serif;
@@ -422,7 +430,8 @@ color: #4BCBDA;
 	display: block;
 	color: #c11030;
 	text-decoration: none;
-	
+	-webkit-transition: all 0.32s ease;
+	transition: all 0.32s ease;
 }
 .box1 .title3 span {
 	text-transform: uppercase;
@@ -433,7 +442,8 @@ color: #4BCBDA;
 	display: block;
 	color: #4caeb8;
 	text-decoration: none;
-	
+	-webkit-transition: all 0.32s ease;
+	transition: all 0.32s ease;
 }
 .box1 .title4 strong {
 	letter-spacing: 1px;
@@ -443,7 +453,8 @@ color: #4BCBDA;
 	font-weight: 800;
 	color: #c11030;
 	text-decoration: none;
-	
+	-webkit-transition: all 0.32s ease;
+	transition: all 0.32s ease;
 }
 .box1 .title4 span {
 	letter-spacing: 1px;
@@ -454,7 +465,8 @@ color: #4BCBDA;
 	font-weight: 800;
 	color: #c11030;
 	text-decoration: none;
-	
+	-webkit-transition: all 0.32s ease;
+	transition: all 0.32s ease;
 }
 .box1 .title5 {
 	position: relative;
@@ -469,10 +481,11 @@ color: #4BCBDA;
 	background: #318e98;
 	text-decoration: none;
 	text-align: center;
-	margin-top: 15px;
+	margin-top: -1px;
 	padding: 11px 0 10px;
 	width: 100%;
-	
+	-webkit-transition: all 0.5s ease;
+	transition: all 0.5s ease;
 }
 .box1 .title5 em {
 	bottom: -100px;
@@ -491,6 +504,9 @@ color: #4BCBDA;
 	text-align: center;
 	padding: 11px 0 10px;
 	width: 100%;
+	-webkit-transition: all 0.32s ease;
+	transition: all 0.32s ease;
+}
 	
 }
 /*-----------hover item------------*/

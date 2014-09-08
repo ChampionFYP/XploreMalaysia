@@ -1,15 +1,27 @@
 .reviewHeader{
-	display:inline-block;height:100%;
+	display:inline-block;
+	height:100%;
 }
 .reviewHeader.Left{
-	width:70%;float:left;
+	width:70%;
+	float:left;
 }
 .reviewHeader.Right{
-	width:30%;float:right;position:relative;
+	width:30%;
+	float:right;
+	position:relative;
 }
-.locationInfo{
-	margin-bottom:8px;position:relative;
+
+.locationInfo {
+margin-bottom: 8px;
+position: relative;
 }
+
+.wrap {
+height: 100%;
+overflow: hidden;
+}
+
 .thumbnail {
 	float: left;
 	height: 60px;

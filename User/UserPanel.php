@@ -83,7 +83,7 @@ mysql_close($conn);
                   </div>
                   <div class="bd">
                       <ul class="uc-list">
-                      <li><a href="SuccessfulBooking.html">Successful Bookings</a></li>
+                      <li><a href="SuccessfulBooking.php">Successful Bookings</a></li>
                       <li><a href="#">Canceled Bookings</a></li>
                       </ul>
                   </div>

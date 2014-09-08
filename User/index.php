@@ -33,7 +33,7 @@
     <div class="row">
       <ul class="list1">      
         <li>
-          <a href="accomodation.php" role="button" data-toggle="modal" class="btn btn-primary btn2">
+          <a href="accomodation.php" role="button" class="btn btn-primary btn2">
               <strong>
                 <img src="img/hotel.png">
               </strong>
@@ -42,7 +42,7 @@
         </li>
     
         <li>
-          <a href="transport.php" role="button" data-toggle="modal" class="btn btn-primary btn2">
+          <a href="transport.php" role="button" class="btn btn-primary btn2">
             <strong>
               <img src="img/cars.png">
             </strong>
@@ -51,7 +51,7 @@
         </li>
     
         <li>
-          <a href="package.php" role="button" data-toggle="modal" class="btn btn-primary btn2">
+          <a href="package.php" role="button" class="btn btn-primary btn2">
             <strong>
               <img src="img/package.png">
             </strong>
@@ -65,12 +65,10 @@
       </div>
     </div>
   </div>
-
-</br></br></br></br>
   <hr class="hr2">
 </br></br></br></br></br></br></br></br></br>
  </div>
-
+<!--
   <div class="container">
   <div class="row">   
   <div class="owlbox">
@@ -78,7 +76,7 @@
       <div class="owl-wrapper-outer">
         <div class="owl-wrapper" style="width: 100%; margin-left: 0px; display:block;">
                           
-            <!-- <div class="owl-item">
+             <div class="owl-item">
               <div style=""class="item">
                   <a href="#" class="box1">
                        <div class="title2">State<em>State</em></div>
@@ -86,7 +84,7 @@
                        <div class="title5">View now!<em>View now!</em></div>
                   </a>
               </div>
-            </div> -->
+            </div> 
 
           </div>
         </div>
@@ -100,8 +98,9 @@
       <a class="next">
         <img src="img/arrownext.png" alt="">
       </a>
-</div>
+    </div>
   </div>
+-->
 
 <hr class="hr3">
 <div >
