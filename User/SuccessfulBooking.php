@@ -1,3 +1,56 @@
+<?php
+session_start();
+$dbhost = 'localhost';
+$dbuser = 'xplorema';
+$dbpass = 'FYPchamp1!';
+
+$conn = mysql_connect($dbhost, $dbuser, $dbpass);
+if(! $conn )
+{
+  die('Could not connect: ' . mysql_error());
+}
+
+$customer_id=$_SESSION['customer_id'];
+mysql_select_db('xplorema_FYP');
+
+$payment = "SELECT * FROM payment INNER JOIN booking ON payment.booking_id=booking.booking_id INNER JOIN package ON payment.package_id=package.package_id INNER JOIN status ON payment.status=status.status_id WHERE payment.customer_id='$customer_id' AND payment.status='5'";
+$payment_data = mysql_query( $payment, $conn );
+
+if (isset($_POST['cancel_btn']))
+{ 
+   $booking_id=$_POST['cancel_btn'];
+   // var_dump($booking_id);
+   $update_payment = "UPDATE payment SET status='4' WHERE booking_id='$booking_id'" ;
+   $update_booking = "UPDATE booking SET status='4' WHERE booking_id='$booking_id'" ;
+   $payment_sql = mysql_query( $update_payment, $conn );
+   $booking_sql = mysql_query( $update_booking, $conn );
+   header('Location: '. dirname(__folder__) .'/SuccessfulBooking.php');
+} 
+
+
+
+
+
+mysql_close($conn);
+
+
+// if (isset($_POST['view_btn'])) 
+// { 
+//    $package_id=$_POST['view_btn'];
+//    $_SESSION['user_package1_id']=$package_id;
+//    // var_dump($_SESSION['user_package_id']);
+//    header('Location: '. dirname(__folder__) .'/view_package.php');
+// } 
+?>
+
+
+
+
+
+
+
+
+
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -16,7 +69,7 @@
         });
     </script>
 	</head>
-
+<form method="post">
   <body>
     <div class="container">
       <div id="header"></div>
@@ -29,7 +82,7 @@
                   </div>
                   <div class="bd">
                       <ul class="uc-list">
-                          <li><a href="#">My Account</a></li>
+                          <li><a href="UserPanel.php">My Account</a></li>
                       </ul>
                   </div>
             </div>  
@@ -39,8 +92,8 @@
                   </div>
                   <div class="bd">
                       <ul class="uc-list">
-                      <li class="current"><a href="#">Successful Bookings</a></li>
-                      <li><a href="#">Canceled Bookings</a></li>
+                      <li class="current"><a href="SuccessfulBooking.php">Successful Bookings</a></li>
+                      <li><a href="CanceledBooking.php">Canceled Bookings</a></li>
                       </ul>
                   </div>
             </div>
@@ -54,12 +107,23 @@
           <!--Booking Details-->
           <table class="booking_bigtable">
             <thead>
+            <?php 
+              while($row1 = mysql_fetch_array($payment_data, MYSQL_ASSOC))
+              { ?> 
               <tr>
                 <th colspan="3">
-                  <span class="fl booking-num">Booking number :</span>
-                  <span class="fr datetime">Booking placed on：</span>
+                  <span class="fl booking-num">Booking number : <?php  echo $row1['booking_id']; ?></span>
+                <td><span class="fr datetime">Depature Date： <?php  echo $row1['booking_date']; ?></span>
+                </td>
+                <td><span class="fr datetime">Package_name： <?php  echo $row1['package_name']; ?></span>
+                </td>
+                <td><span class="fr datetime">Status： <?php  echo $row1['status_name']; ?></span>
+                </td>
+                <td><button class="btn btn-default" type="submit" name="cancel_btn" value="<?php  echo $row1['booking_id']; ?>">Cancel</button></span>
+                </td>
                 </th>
               </tr>
+              <?php } ?>
             </thead>
             <tbody>
              <tr>
@@ -87,7 +151,6 @@
                   <p></p>
                   </td>
               <td class="details">
-                <a href="#" class="agray">Booking details</a>
               </td>
              </tr>
             </tbody>
@@ -98,4 +161,5 @@
 
     <div id="footer"></div>
   </body>
+  </form>
 </html>

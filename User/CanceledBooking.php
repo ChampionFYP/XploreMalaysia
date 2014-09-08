@@ -1,9 +1,47 @@
+<?php
+session_start();
+$dbhost = 'localhost';
+$dbuser = 'xplorema';
+$dbpass = 'FYPchamp1!';
+
+$conn = mysql_connect($dbhost, $dbuser, $dbpass);
+if(! $conn )
+{
+  die('Could not connect: ' . mysql_error());
+}
+
+$customer_id=$_SESSION['customer_id'];
+mysql_select_db('xplorema_FYP');
+
+$payment = "SELECT * FROM payment INNER JOIN booking ON payment.booking_id=booking.booking_id INNER JOIN package ON payment.package_id=package.package_id INNER JOIN status ON payment.status=status.status_id WHERE payment.customer_id='$customer_id' AND payment.status='4'";
+$payment_data = mysql_query( $payment, $conn );
+
+mysql_close($conn);
+
+
+// if (isset($_POST['view_btn'])) 
+// { 
+//    $package_id=$_POST['view_btn'];
+//    $_SESSION['user_package1_id']=$package_id;
+//    // var_dump($_SESSION['user_package_id']);
+//    header('Location: '. dirname(__folder__) .'/view_package.php');
+// } 
+?>
+
+
+
+
+
+
+
+
+
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link href="css/style.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
     <link href="css/UserPanel.css" rel="stylesheet">
     <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
@@ -15,7 +53,7 @@
           $('#footer').load('layout/footer.php');
         });
     </script>
-	</head>
+  </head>
 
   <body>
     <div class="container">
@@ -29,7 +67,7 @@
                   </div>
                   <div class="bd">
                       <ul class="uc-list">
-                          <li><a href="#">My Account</a></li>
+                          <li><a href="UserPanel.php">My Account</a></li>
                       </ul>
                   </div>
             </div>  
@@ -39,8 +77,8 @@
                   </div>
                   <div class="bd">
                       <ul class="uc-list">
-                      <li><a href="#">Successful Bookings</a></li>
-                      <li class="current"><a href="#">Canceled Bookings</a></li>
+                      <li class="current"><a href="SuccessfulBooking.php">Successful Bookings</a></li>
+                      <li><a href="CanceledBooking.php">Canceled Bookings</a></li>
                       </ul>
                   </div>
             </div>
@@ -49,17 +87,26 @@
 
         <div class="col-sm-12 col-md-8">
           <p class="info">
-            <span class="left">Canceled Booking</span>
+            <span class="left">Successful Booking</span>
           </p>
           <!--Booking Details-->
           <table class="booking_bigtable">
             <thead>
+            <?php 
+              while($row1 = mysql_fetch_array($payment_data, MYSQL_ASSOC))
+              { ?> 
               <tr>
                 <th colspan="3">
-                  <span class="fl booking-num">Canceled number :</span>
-                  <span class="fr datetime">Canceled on：</span>
+                  <span class="fl booking-num">Booking number : <?php  echo $row1['booking_id']; ?></span>
+                <td><span class="fr datetime">Depature Date： <?php  echo $row1['booking_date']; ?></span>
+                </td>
+                <td><span class="fr datetime">Package_name： <?php  echo $row1['package_name']; ?></span>
+                </td>
+                <td><span class="fr datetime">Status： <?php  echo $row1['status_name']; ?></span>
+                </td>
                 </th>
               </tr>
+              <?php } ?>
             </thead>
             <tbody>
              <tr>
@@ -75,7 +122,7 @@
                         </div>
                       </td>
                       <td class="booking_status">
-                          <span>Canceled</span>
+                          <span>Booked</span>
                       </td>
                       <td class="std3"></td>
                     </tr>
@@ -87,7 +134,6 @@
                   <p></p>
                   </td>
               <td class="details">
-                <a href="#" class="agray">Booking details</a>
               </td>
              </tr>
             </tbody>

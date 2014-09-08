@@ -21,6 +21,7 @@ $admin_id=$_SESSION['admin_id'];
 
 $data = mysql_query( $sql, $conn );
 $status_data = mysql_query( $status, $conn );
+$customer_payment_data = mysql_query( $sql, $conn );
 if(! $data )
 {
   die('Could not get data: ' . mysql_error());
@@ -31,15 +32,58 @@ if(! $data )
 if (isset($_POST['approve_btn'])||isset($_POST['pay_id'])) 
 { 
    $payment_id=$_POST['pay_id'];
-   $update_payment = "UPDATE payment SET status='1',admin_id='$admin_id' WHERE payment_id='$payment_id'" ;
+   $update_payment = "UPDATE payment SET status='5',admin_id='$admin_id' WHERE payment_id='$payment_id'" ;
    $payment_sql = mysql_query( $update_payment, $conn );
+	$customer_email='';
+
+	while($row_email = mysql_fetch_array($customer_payment_data, MYSQL_ASSOC))
+    {
+        $customer_email=$row_email['customer_email'];
+    }
+
+/* Set e-mail recipient */
+	$myemail  = $customer_email;
+	/* If e-mail is not valid show error message */
+	if(!empty($email))
+	if (!preg_match("/([\w\-]+\@[\w\-]+\.[\w\-]+)/", $email))
+	{
+	    show_error("E-mail address not valid");
+	}
+
+	/* If URL is not valid set $website to empty */
+
+	/* Let's prepare the message for the e-mail */
+	$message = "Hello!
+
+	Here is your payment number:".$payment_id."
+
+	We have received your payment . Thank you
+
+	Please Email to kfc1346@gmail.com with screenshot/photo when you using online banking/ATM
+
+
+	We will sent you a receipt once we confirm your payment.
+
+
+	Thank you
+	";
+
+	/* Send the message using mail() function */
+	mail($myemail, "Payment Status", $message);
+
+	/* Redirect visitor to the thank you page */
+	// header('Location: thanks.htm');
+	// exit();
+
+	/* Functions we used */
+
    header('Location: '. dirname(__folder__) .'/Payment.php');
 } 
 
 if (isset($_POST['delete_btn'])||isset($_POST['pay_id'])) 
 { 
    $payment_id=$_POST['pay_id'];
-   $update_payment = "UPDATE payment SET status='2',admin_id='$admin_id' WHERE payment_id='$payment_id'" ;
+   $update_payment = "UPDATE payment SET status='4',admin_id='$admin_id' WHERE payment_id='$payment_id'" ;
    $payment_sql = mysql_query( $update_payment, $conn );
    header('Location: '. dirname(__folder__) .'/Payment.php');
 } 
@@ -56,22 +100,8 @@ if (isset($_POST['search_btn']))
    $data = mysql_query($search_data, $conn );
    // header('Location: '. dirname(__folder__) .'/Payment.php');
 } 
-
-
-
 mysql_close($conn);
-
-
 ?>
-
-
-
-
-
-
-
-
-
 
 <!DOCTYPE HTML>
 <html>
@@ -106,7 +136,7 @@ mysql_close($conn);
 				<div class="heading">
 					<h1>Payment</h1>
 					<input type="submit" name="approve_btn"  value="Approve" class="btn btn-default"></input>
-					<input type="submit" name="delete_btn"  value="Deactive" class="btn btn-default"></input>
+					<input type="submit" name="delete_btn"  value="Cancel" class="btn btn-default"></input>
 				</div>
 				<div>
       				

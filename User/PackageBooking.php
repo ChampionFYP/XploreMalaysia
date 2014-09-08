@@ -62,7 +62,7 @@ if (!$select_db){
             if($booking_data = true)
             {
 
-            $payment = "INSERT INTO `payment` (price, payment_type, booking_id, status, customer_id,admin_id) VALUES ('$price', '$payment_type', '$booking_id', '$status_pending', '$customer_id','$admin_id')";
+            $payment = "INSERT INTO `payment` (price, payment_type, booking_id, status, customer_id,admin_id,package_id) VALUES ('$price', '$payment_type', '$booking_id', '$status_pending', '$customer_id','$admin_id','$package_id')";
             mysql_query($payment);
             $_SESSION['user_booking_id']=$booking_id;
             header('Location: '. dirname(__folder__) .'/SuccessBookingPage.php');
