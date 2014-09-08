@@ -59,50 +59,46 @@ $package_id = $_SESSION['user_package_id'];
         });
     </script> 
     </head>
-      <form method="POST">
 	<body>
-        <div id="header"></div>
+    <div id="header"></div>
+    <div class="container">
+    <form method="POST">
            <div class="reviewHeader Left">
-            <div class="locationInfo wrap">
+            <div class="pkg_info">
                 <div class="thumbnail">
-                    <div class="sizedThumb  " style="height: 60px; width: 60px">
-                        <img src="img.jpg" class="photo_image" style="height: 60px; width: 60px;" alt="The Lakehouse, Cameron Highlands" width="60" height="60">
+                    <div class="sizedThumb" style="height: 60px; width: 60px">
+                        <img src="http://admin.xploremalaysia.asia/photo/package/<?php echo $row['package_image_id'];?>"  class="photo_image" style="height: 60px; width: 60px;" width="60" height="60">
                     </div>
                 </div>
-                <div class="nameAndAddress">
-                    <h2 class="propertyname">PACKAGE NAME</h2>
-                </div>
+                <h2 style="color:#66a9bd;text-align:left; margin-left:80px; font-size:40px;">
+                  Package Name
+                </h2>
             </div>
            </div>
-
-           <div class="questionBlock requiredQuestions">
-            <h2>Your first-hand experiences really help other travellers. Thanks!</h2>
-           <div id="REVIEW_TEXT" class="question labelAndInput " data-error="REVIEW_TEXT_ERROR">
-                <label for="ReviewText">
-                <span>Your review</span> <span id="CHAR_MIN">(100 character minimum)</span> </label>
-                <textarea name="desc" id="ReviewText" class="text  defaultText" placeholder:"By sharing your experiences, you're helping travellers make better choices and plan their dream trips. Thank you!"></textarea>
+           <div class="questionBlock">
+            <h3 class="alert alert-info">Your first-hand experiences really help other travellers. <strong>Thanks!</strong></h3>
+           <div class="question labelAndInput">
+              <label for="ReviewText">
+                <span>Your review</span>
+                <br>
+                <span id="CHAR_MIN">(100 character minimum)</span> 
+              </label>
+                <textarea name="desc" id="ReviewText" class="text  defaultText" placeholder="By sharing your experiences, you're helping travellers make better choices and plan their dream trips. Thank you!"></textarea>
            </div>
            </div>
 
            <div class="questionBlock">
-            <h2 style="float:left;">Submit your review</h2>
-            <div id="FRAUD_CONT">
-              <div class="willing ">
-                <input type="checkbox" class="checkbox" value="1" required="">
-                <div id="FRAUD_LABEL_FLY" class="checkboxLabel">
-                  <label for="noFraud">
-                  I certify that this review is based on my own experience and is my genuine opinion of this hotel, and that I have no personal or business relationship with this establishment, and have not been offered any incentive or payment originating from the establishment to write this review. I understand that XploreMalaysia has a zero-tolerance policy on fake reviews.
-                  </label>
-                </div>
+            <h3 style="float:left;"><u><i>Submit your review</i></u></h3>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" value="1" required=""> I certify that this review is based on my own experience and is my genuine opinion of this hotel, and that I have no personal or business relationship with this establishment, and have not been offered any incentive or payment originating from the establishment to write this review. I understand that XploreMalaysia has a zero-tolerance policy on fake reviews.
+                </label>
               </div>
-            </div>
            </div>
-           <div id="SBMT_WRP">
-            <div id="SUBMIT" class="button ylw lrg">
-              <input type="submit" value="Submit your review"></input>
-            </div>
-           </div>
+           <hr style=" height: 12px; border: 0; box-shadow: inset 0 12px 12px -12px rgba(0,0,0,0.5);">
+            <input type="submit" class="btn btn-primary btn-lg" value="Submit your review"></input>
+           </form>
+         </div>
         <div id="footer"></div>
     </body>
-    </form>
 </html>

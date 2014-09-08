@@ -84,70 +84,33 @@ if (isset($_POST['view_btn']))
             height: 455px !important;
         }
     </style>
-
-        <title>Xplore Malaysia</title>
     </head>
 
   <body>
   <div id="header"></div>
-
- <!--Carousel-->
-    <div class="bs-example">
-    <div id="myCarousel" class="carousel slide" data-interval="3000" data-ride="carousel">
-      <!-- Carousel indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>   
-       <!-- Carousel items -->
-        <div class="carousel-inner">
-            <div class="active item">
-                <img src="img/banner_Sarawak.jpg">
-                <div class="carousel-caption">
-                  <h3 style="color:#FFFFFF; text-shadow:2px 2px 2px #64BDF1;">Sarawak Scenery</h3>
-                </div>
-            </div>
-            <div class="item">
-                <img src="img/banner_Sabah.jpg">
-                <div class="carousel-caption">
-                  <h3 style="color:#FFFFFF; text-shadow:2px 2px 2px #64BDF1;">Explore Sabah Seaside</h3>
-                </div>
-            </div>
-        </div>
-        <!-- Carousel nav -->
-        <a class="carousel-control left" href="#myCarousel" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left"></span>
-        </a>
-        <a class="carousel-control right" href="#myCarousel" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-        </a>
-    </div>
-</div>
 <form method="POST">
 
 <div>
     <h2>Accomodation</h2>
     <hr class="hr2">
 </br></br></br>
-
-    <div class="container">
+<div class="container">
   <div class="row">
     
   <div class="owlbox">
     <div id="owl-demo" class="owl-carousel owl-theme" style="opacity:1; display:block; "> 
       <div class="owl-wrapper-outer">
-         <div class="owl-wrapper" style="width: 100%; margin-left: 0px; display:block; ">
+        <div class="owl-wrapper" style="width: 100%; margin-left: 0px; display:block; ">
              <?php 
               while($row1 = mysql_fetch_array($data_package1, MYSQL_ASSOC))
               { ?>             
                           <div class="owl-item">
-                            <div style=""class="item">
-                               <div class="box1">
-                                    <div class="title2"><?php  echo $row1['accomodation_name']; ?> <em><?php  echo $row1['package_name']; ?></em></div>
-                                    <figure><img src="http://admin.xploremalaysia.asia/photo/accomodation/<?php echo $row1['accomodation_image_id'];?>" height="167px" width="250px" alt=""></figure>
-                                    <button name="view_btn"  value="<?php  echo $row1['accomodation_id']; ?>" class="title5">View now!</button>
-                               </div>
+                            <div class="item">
+                               <a href="#" class="box1">
+                                    <div class="title2"><?php  echo $row1['accomodation_name']; ?> <em><?php  echo $row1['accomodation_name']; ?></em></div>
+                                    <figure><img src="http://admin.xploremalaysia.asia/photo/package/<?php echo $row1['accomodation_image_id'];?>" height="167px" width="250px" alt=""></figure>
+                                    <button name="view_btn"  value="<?php  echo $row1['accomodation_id']; ?>" class="title5">View now!<em>Click Here To View!</em></button>
+                               </a>
                            </div>
                          </div>
             <?php } ?>
@@ -156,6 +119,7 @@ if (isset($_POST['view_btn']))
         </div>
       </div>
     </div>
+</div>
 </div>
 </form>
 <div id="footer"></div>

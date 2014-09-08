@@ -185,7 +185,7 @@ if (!$select_db){
         .inputbox {
         float: left;
         display: inline-block;
-        margin-top:10px;
+        margin-bottom:10px;
         margin-left: 10px;
         }
 
@@ -220,25 +220,38 @@ if (!$select_db){
          <label style="color:red;">Error: <?php echo $msg3; ?></label>
          <?php } ?>
 
-        <label>Username* : </label> <input class="inputbox" id="username" type="text" name="username" size="30"  placeholder="First" required="" tabindex="1">
+        <label>Username :</label> 
+            <input class="inputbox" id="username" type="text" name="username" size="30" required="">
 
-        <label>IC* : </label> <input class="inputbox" id="ic" type="text" name="ic" size="30">
+        <label>IC : </label> 
+            <input class="inputbox" id="ic" type="text" name="ic" size="30">
          
-        <label>Gender :  </label> <p class="inputbox"><input type="radio" name="gender" value="Male">Male
-                          <input type="radio" name="gender" value="Female">Female </p>
+        <label>Gender :</label> 
+            <p class="inputbox">
+              <input type="radio" name="gender" value="Male">Male
+              <input type="radio" name="gender" value="Female">Female
+            </p>
 
-        <label>Password : </label> <input class="inputbox" type="password" name="password" id="password" size="30" required="">
+        <label>Password :</label> 
+            <input class="inputbox" type="password" name="password" id="password" size="30" required="">
             
-         <label>E-mail* :   </label>     <input class="inputbox" type="email" name="email" id="email" size="40" align="right" required="">
+         <label>E-mail :</label>     
+            <input class="inputbox" type="email" name="email" id="email" size="40" align="right" required="">
         
-        <label>Mobile* :   </label>    <input class="inputbox" type="text" name="phone" id="phone" align="right"  required="">
-          
-        
+        <label>Mobile :</label>    
+            <input class="inputbox" type="text" name="phone" id="phone" align="right"  required="">
 
-        <label>Address: </label> <input  class="inputbox" type="text" size="62" name="address" id="address" required="">
-        <label>City:   </label> <input class="inputbox" type="text" size="30" name="city" id="city" required="">
-        <label>State: </label><input  class="inputbox" type="text" size="30" name="state" id="state" required="">
-        <label>Zipcode:</label> <input class="inputbox" ype="text" size="30" name="code" id="code" required="">
+        <label>Address:</label> 
+            <input  class="inputbox" type="text" size="62" name="address" id="address" required="">
+        
+        <label>City:</label> 
+            <input class="inputbox" type="text" size="30" name="city" id="city" required="">
+        
+        <label>State:</label>
+            <input  class="inputbox" type="text" size="30" name="state" id="state" required="">
+        
+        <label>Zipcode:</label> 
+            <input class="inputbox" ype="text" size="30" name="code" id="code" required="">
     </fieldset>
       
         <button class="button" data-dismiss="modal" type="submit">Signup</button>

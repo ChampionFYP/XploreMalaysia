@@ -162,7 +162,7 @@ if (isset($_POST['view_btn']))
                                <a href="#" class="box1">
                                     <div class="title2"><?php  echo $row1['package_name']; ?> <em><?php  echo $row1['package_name']; ?></em></div>
                                     <figure><img src="http://admin.xploremalaysia.asia/photo/package/<?php echo $row1['package_image_id'];?>" height="167px" width="250px" alt=""></figure>
-                                    <button name="view_btn"  value="<?php  echo $row1['package_id']; ?>" class="title5">View now!<em>View now!</em></button>
+                                    <button name="view_btn"  value="<?php  echo $row1['package_id']; ?>" class="title5">View now!<em>Click Here To View!</em></button>
                                </a>
                            </div>
                          </div>
@@ -198,7 +198,7 @@ if (isset($_POST['view_btn']))
                                <a href="#" class="box1">
                                     <div class="title2"><?php  echo $row2['package_name']; ?><em><?php  echo $row2['package_name']; ?></em></div>
                                     <figure><img src="http://admin.xploremalaysia.asia/photo/package/<?php echo $row2['package_image_id'];?>" height="167px" width="250px" alt=""></figure>
-                                    <button name="view_btn" value="<?php  echo $row2['package_id']; ?>" class="title5">View now!<em>View now!</em></button>
+                                    <button name="view_btn" value="<?php  echo $row2['package_id']; ?>" class="title5">View now!<em>Click Here To View!</em></button>
                                </a>
                            </div>
                          </div>
@@ -234,7 +234,7 @@ if (isset($_POST['view_btn']))
                                <a href="#" class="box1">
                                     <div class="title2"><?php  echo $row3['package_name']; ?><em><?php  echo $row3['package_name']; ?></em></div>
                                     <figure><img src="http://admin.xploremalaysia.asia/photo/package/<?php echo $row3['package_image_id'];?>" height="167px" width="250px" alt=""></figure>
-                                    <button name="view_btn"  value="<?php  echo $row3['package_id']; ?>" class="title5">View now!<em>View now!</em></button>
+                                    <button name="view_btn"  value="<?php  echo $row3['package_id']; ?>" class="title5">View now!<em>Click Here To View!</em></button>
                                </a>
                            </div>
                          </div>
@@ -276,7 +276,7 @@ if (isset($_POST['view_btn']))
                                     <div class="title2"><?php  echo $row4['package_name']; ?><em><?php  echo $row4['package_name']; ?></em></div>
                                     <figure><img src="http://admin.xploremalaysia.asia/photo/package/<?php echo $row4['package_image_id'];?>" height="167px" width="250px" alt=""></figure>
                                     
-                                    <button name="view_btn"  value="<?php  echo $row4['package_id']; ?>" class="title5">View now!<em>View now!</em></button>
+                                    <button name="view_btn"  value="<?php  echo $row4['package_id']; ?>" class="title5">View now!<em>Click Here To View!</em></button>
                                </a>
                            </div>
                          </div>
@@ -312,7 +312,7 @@ if (isset($_POST['view_btn']))
                                <a href="#" class="box1">
                                     <div class="title2"><?php  echo $row5['package_name']; ?><em><?php  echo $row5['package_name']; ?></em></div>
                                     <figure><img src="http://admin.xploremalaysia.asia/photo/package/<?php echo $row5['package_image_id'];?>" height="167px" width="250px" alt=""></figure>
-                                    <button name="view_btn"  value="<?php  echo $row5['package_id']; ?>" class="title5">View now!<em>View now!</em></button>
+                                    <button name="view_btn"  value="<?php  echo $row5['package_id']; ?>" class="title5">View now!<em>Click Here To View!</em></button>
                                </a>
                            </div>
                          </div>

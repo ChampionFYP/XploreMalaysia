@@ -129,7 +129,7 @@ if (isset($_POST['view_btn']))
 
 
 <div>
-    <h2>COUNTRY NAME</h2>
+    <h2>Sarawak</h2>
     <hr class="hr2">
 </br></br></br>
 
@@ -139,20 +139,20 @@ if (isset($_POST['view_btn']))
   <div class="owlbox">
     <div id="owl-demo" class="owl-carousel owl-theme" style="opacity:1; display:block; "> 
       <div class="owl-wrapper-outer">
-         <div class="owl-wrapper" style="width: 100%; margin-left: 0px; display:block; ">
-             <?php 
-              while($row1 = mysql_fetch_array($data_package1, MYSQL_ASSOC))
-              { ?>             
+        <div class="owl-wrapper" style="width: 100%; margin-left: 0px; display:block; ">
+                       <?php 
+                        while($row2 = mysql_fetch_array($data_package1, MYSQL_ASSOC))
+                        { ?>   
                           <div class="owl-item">
-                            <div style=""class="item">
-                               <div class="box1">
-                                    <div class="title2"><?php  echo $row1['package_name']; ?> <em><?php  echo $row1['package_name']; ?></em></div>
-                                    <figure><img src="http://admin.xploremalaysia.asia/photo/package/<?php echo $row1['package_image_id'];?>" height="167px" width="250px" alt=""></figure>
-                                    <button name="view_btn"  value="<?php  echo $row1['package_id']; ?>" class="title5">View now!</button>
-                               </div>
+                            <div class="item">
+                               <a href="#" class="box1">
+                                    <div class="title2"><?php  echo $row2['package_name']; ?><em><?php  echo $row2['package_name']; ?></em></div>
+                                    <figure><img src="http://admin.xploremalaysia.asia/photo/package/<?php echo $row2['package_image_id'];?>" height="167px" width="250px" alt=""></figure>
+                                    <button name="view_btn" value="<?php  echo $row2['package_id']; ?>" class="title5">View now!<em>Click Here To View!</em></button>
+                               </a>
                            </div>
                          </div>
-            <?php } ?>
+                 <?php } ?>       
           </div>
         </div>
         </div>
@@ -162,6 +162,11 @@ if (isset($_POST['view_btn']))
     <br/><br/><br/>
 
 
+<div>
+<h2>Sabah</h2>
+    <hr class="hr2">
+</br></br></br>
+
     <div class="container">
   <div class="row">
     
@@ -169,28 +174,27 @@ if (isset($_POST['view_btn']))
     <div id="owl-demo" class="owl-carousel owl-theme" style="opacity:1; display:block; "> 
       <div class="owl-wrapper-outer">
         <div class="owl-wrapper" style="width: 100%; margin-left: 0px; display:block; ">
-                       <?php 
-                        while($row2 = mysql_fetch_array($data_package2, MYSQL_ASSOC))
-                        { ?>   
+                          
+                          <?php 
+                            while($row2 = mysql_fetch_array($data_package2, MYSQL_ASSOC))
+                            { ?>
                           <div class="owl-item">
-                            <div style=""class="item">
-                               <div class="box1">
-                                    <div class="title2"><?php  echo $row2['package_name']; ?><em><?php  echo $row2['package_name']; ?></em></div>
-                                    <figure><img src="http://admin.xploremalaysia.asia/photo/package/<?php echo $row2['package_image_id'];?>" height="167px" width="250px" alt=""></figure>
-                                    
-                                    <button name="view_btn"  value="<?php  echo $row2['package_id']; ?>" class="title5">View now!</button>
-                               </div>
+                            <div class="item">
+                               <a href="#" class="box1">
+                                    <div class="title2"><?php  echo $row5['package_name']; ?><em><?php  echo $row5['package_name']; ?></em></div>
+                                    <figure><img src="http://admin.xploremalaysia.asia/photo/package/<?php echo $row5['package_image_id'];?>" height="167px" width="250px" alt=""></figure>
+                                    <button name="view_btn"  value="<?php  echo $row5['package_id']; ?>" class="title5">View now!<em>Click Here To View!</em></button>
+                               </a>
                            </div>
                          </div>
-
-                 <?php } ?>       
+                         <?php } ?>               
           </div>
         </div>
         </div>
       </div>
     </div>
 </div>
-
+</div>
 
 <div id="footer"></div>
 </body>

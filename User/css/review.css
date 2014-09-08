@@ -6,20 +6,9 @@
 	width:70%;
 	float:left;
 }
-.reviewHeader.Right{
-	width:30%;
-	float:right;
-	position:relative;
-}
 
-.locationInfo {
-margin-bottom: 8px;
-position: relative;
-}
-
-.wrap {
-height: 100%;
-overflow: hidden;
+.pkg_info {
+float: left;
 }
 
 .thumbnail {
@@ -33,7 +22,7 @@ overflow: hidden;
 	overflow: hidden;
 }
 
-.nameAndAddress {
+.pkg_name {
 margin: 8px 0 0 14px;
 }
 
@@ -45,17 +34,15 @@ overflow: hidden;
 padding-top: 20px;
 }
 
-.questionBlock h2 {
-font-size: 1.5em;
-font-weight: bold;
-margin-bottom: 15px;
-}
-
 .question {
 clear: both;
 height: 100%;
 margin-bottom: 17px;
 overflow: hidden;
+}
+
+.labelAndInput{
+	padding-left:10%;
 }
 
 .labelAndInput label {
@@ -64,13 +51,15 @@ display: block;
 font-size: 1.25em;
 font-weight: bold;
 margin-bottom: 7px;
+float: left;
 }
 
-#ReviewTitle {
-color: #2C2C2C;
-font-size: 1.6665em;
-height: 24px;
-width: 618px;
+.labelAndInput #CHAR_MIN {
+color: #656565;
+float: right;
+font-size: .8em;
+font-weight: normal;
+margin-right: 2px;
 }
 
 #ReviewText {
@@ -78,14 +67,6 @@ font-family: Arial,Tahoma,"Bitstream Vera Sans",sans-serif;
 height: 140px;
 resize: none;
 width: 618px;
-}
-
-#CHAR_MIN {
-color: #656565;
-float: right;
-font-size: .8em;
-font-weight: normal;
-margin-right: 2px;
 }
 
 input.text {
@@ -100,29 +81,4 @@ color: #2C2C2C;
 font-size: 1.167em;
 border: 1px solid #C8C8C8;
 padding: 2px;
-}
-
-.checkbox {
-float: left;
-margin-top: 1px;
-}
-
-.button {
-display: inline;
-height: 100%;
-overflow: hidden;
-margin-right: 10px;
-border: 1px solid #589442;
-float: left;
-}
-
-.button.ylw {
-margin-right: 0;
-border: 1px solid #e4962d;
-}
-
-.button.lrg span, .button.lrg .submit {
-font-size: 1.50em;
-line-height: 19px;
-padding: 6px 13px;
 }

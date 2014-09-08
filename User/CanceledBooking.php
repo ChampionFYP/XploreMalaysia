@@ -56,8 +56,8 @@ mysql_close($conn);
   </head>
 
   <body>
+    <div id="header"></div>
     <div class="container">
-      <div id="header"></div>
       <div class="row">
         <div class="col-sm-12 col-md-4">
           <div class="xm-side">
@@ -77,8 +77,8 @@ mysql_close($conn);
                   </div>
                   <div class="bd">
                       <ul class="uc-list">
-                      <li class="current"><a href="SuccessfulBooking.php">Successful Bookings</a></li>
-                      <li><a href="CanceledBooking.php">Canceled Bookings</a></li>
+                      <li><a href="SuccessfulBooking.php">Successful Bookings</a></li>
+                      <li class="current"><a href="CanceledBooking.php">Canceled Bookings</a></li>
                       </ul>
                   </div>
             </div>

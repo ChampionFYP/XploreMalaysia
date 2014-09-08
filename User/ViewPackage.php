@@ -111,17 +111,18 @@ if (isset($_POST['review_btn']))
                         
                             <div class="wrap">
                             <div class="quote">
-                            <?php 
-                          while($row_review = mysql_fetch_array($review_data, MYSQL_ASSOC))
-                          { ?>
-                            “<span class="noQuotes">Customer name: <?php echo $row_review['customer_name']; ?></span>”</a>
+                              <?php 
+                              while($row_review = mysql_fetch_array($review_data, MYSQL_ASSOC))
+                              { ?>
+                            “<span class="noQuotes"><?php echo $row_review['customer_name']; ?></span>”said: 
                             </div>
                             <div class="entry">
-                            <p class="partial_entry">
-                            <?php echo $row_review['review']; ?>
-                            </p>
+                              <p class="partial_entry">
+                                <?php echo $row_review['review']; ?>
+                                <hr>
+                                <?php } ?>
+                              </p>
                             </div>
-                            <?php } ?>
                             </div> 
                         </div> 
                     </div> 

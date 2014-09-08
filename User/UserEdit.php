@@ -101,8 +101,8 @@ mysql_close($conn);
                   </div>
                   <div class="bd">
                       <ul class="uc-list">
-                      <li><a href="SuccessfulBooking.html">Successful Bookings</a></li>
-                      <li><a href="#">Canceled Bookings</a></li>
+                      <li><a href="SuccessfulBooking.php">Successful Bookings</a></li>
+                      <li><a href="CanceledBooking.php">Canceled Bookings</a></li>
                       </ul>
                   </div>
             </div>
@@ -124,7 +124,8 @@ mysql_close($conn);
               { ?>
                 <tr>
                   <td class="td_l"></td>
-                  <td><span class="en-userinfo-field">User ID:<?php echo $row['customer_id']; ?></span>&nbsp; </td>
+                  <td><span class="en-userinfo-field">User ID:</span>&nbsp; </td>
+                  <td><?php echo $row['customer_id']; ?></td>
                 </tr>
                 <tr>
                   <td class="td_l"></td>

@@ -19,7 +19,7 @@ $transport_id = $_SESSION['user_transport_id'];
 
 
 
-$sql = "SELECT * FROM transport where transport_id = '$transport_id '";
+$sql = "SELECT * FROM transport where transport_id = '$transport_id'";
 
 
 $data = mysql_query( $sql, $conn );
@@ -57,17 +57,24 @@ mysql_close($conn);
   <?php 
     while($row = mysql_fetch_array($data, MYSQL_ASSOC))
     { ?>
-  <table id="travel" >
-    <caption><?php  echo $row['transport_name']; ?></caption>
+  <h2 style="color:#66a9bd;text-align:left; margin-left:80px; font-size:40px;"><b><?php  echo $row['transport_name']; ?></b></h2>
+  <table id="travel">
     <thead>    
         <tr>
-            <th scope="col" colspan="6">Schedule</th>
+            <th scope="col" colspan="6">Details</th>
         </tr>
-         <td><span>
-                <p><?php echo $row['description']; ?></p>
-                <p><img src="http://admin.xploremalaysia.asia/photo/transport/<?php echo $row['transport_image_id'];?>" height="167px" width="250px" alt=""></p>
-            </span>
+        <td style="border-right:0;">
+          <div>
+                <p style="font-size:14px;text-align:justify;margin:0px 80px;font-family:verdana;"><?php echo $row['description']; ?></p>
+          </div>
         </td>
+        <td style="border-left:0;">
+          <img src="http://admin.xploremalaysia.asia/photo/transport/<?php echo $row1['transport_image_id'];?>"  style="float:right; margin-left:10px;" height="300px" width="450px" >
+        </td>
+        <tr>
+          <td colspan="2">
+            <a class="btn btn-info pull-left" href="http://xploremalaysia.asia/transport.php">Back</a>
+          </td>
     </thead>
   </table>
   </form>
