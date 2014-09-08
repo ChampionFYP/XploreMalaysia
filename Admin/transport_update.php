@@ -19,18 +19,17 @@ if (!$select_db){
     $random = rand ( 0 , 9999 );
     $image_id='';
     $transport_id=$_SESSION['transport_id'];
-
     $find_image_id = "SELECT * FROM transport WHERE transport_id= '$transport_id' ";
     $find_data = mysql_query( $find_image_id);
         while($row_data = mysql_fetch_array($find_data, MYSQL_ASSOC))
     {
-        if(empty($row_data['image_id']))
+        if(empty($row_data['transport_image_id']))
         {
           $image_id=$random;
         }
         else
         {
-          $image_id=$row_data['image_id'];
+          $image_id=$row_data['transport_image_id'];
         }
     }
 
@@ -55,11 +54,11 @@ if (!$select_db){
           } 
           else 
           {
-              move_uploaded_file($_FILES["file"]["tmp_name"], $_SERVER['DOCUMENT_ROOT'] . "/photo/transport/" . $random);
+              move_uploaded_file($_FILES["file"]["tmp_name"], $_SERVER['DOCUMENT_ROOT'] . "/photo/transport/" . $picture);
           }
         } 
        
-        $query = "UPDATE transport SET transport_name='$name', description='$desc', status='$status', admin_id='$admin', image_id='$picture', type='$type', phone='$phone' WHERE transport_id='$transport_id'";
+        $query = "UPDATE transport SET transport_name='$name', description='$desc', status='$status', admin_id='$admin', transport_image_id='$picture', type='$type', phone='$phone' WHERE transport_id='$transport_id'";
         mysql_query($query);
         header('Location: '. dirname(__folder__) .'/transport.php');
     }

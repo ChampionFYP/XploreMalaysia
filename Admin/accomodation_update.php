@@ -24,13 +24,13 @@ mysql_select_db('xplorema_FYP');
     $find_data = mysql_query( $find_image_id, $conn );
         while($row_data = mysql_fetch_array($find_data, MYSQL_ASSOC))
     {
-        if(empty($row_data['image_id']))
+        if(empty($row_data['accomodation_image_id']))
         {
           $image_id=$random;
         }
         else
         {
-          $image_id=$row_data['image_id'];
+          $image_id=$row_data['accomodation_image_id'];
         }
     }
 
@@ -58,11 +58,11 @@ $allowedExts = array("gif", "jpeg", "jpg", "png");
           } 
           else 
           {
-              move_uploaded_file($_FILES["file"]["tmp_name"], $_SERVER['DOCUMENT_ROOT'] . "/photo/accomodation/" . $random);
+              move_uploaded_file($_FILES["file"]["tmp_name"], $_SERVER['DOCUMENT_ROOT'] . "/photo/accomodation/" . $picture);
           }
         } 
         
-$sql = "UPDATE accomodation SET accomodation_name='$name', description='$desc', status='$status', admin_id='$admin', image_id='$picture', category='$category', accomodation_address='$address', accomodation_phone='$phone' WHERE accomodation_id='$accomodation_id'" ;
+$sql = "UPDATE accomodation SET accomodation_name='$name', description='$desc', status='$status', admin_id='$admin', accomodation_image_id='$picture', category='$category', accomodation_address='$address', accomodation_phone='$phone' WHERE accomodation_id='$accomodation_id'" ;
 $retval = mysql_query( $sql, $conn );
 if(! $retval )
 {

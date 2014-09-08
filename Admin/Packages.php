@@ -17,6 +17,7 @@ $sql = "SELECT * FROM package INNER JOIN country ON package.country_id=country.c
 
 
 $data = mysql_query( $sql, $conn );
+
 if(! $data )
 {
   die('Could not get data: ' . mysql_error());
@@ -96,13 +97,13 @@ if (isset($_POST['update_btn'])||isset($_POST['pack_id']))
 							    	<td class="center" style="width:10%">  <?php  echo $row['package_id']; ?></td>
 							    	<td class="left" width=250 >  <?php  echo $row['package_name']; ?></td>
 							    	<td>
-							    	<img src="http://<?php echo $_SERVER['SERVER_NAME'] . "/photo/". $row['image_id'];?>" alt="" height="42" width="42">	
+							    	<img src="http://<?php echo $_SERVER['SERVER_NAME'] . "/photo/package/". $row['package_image_id'];?>" alt="" height="42" width="42">	
 							    	</td>
-							    	<td class="left">  <?php  echo $row['number_person']; ?></td>
-							    	<td class="left">  <?php  echo $row['country_name']; ?></td>
-							    	<td class="left">  <?php  echo $row['transport_name']; ?></td>
-							    	<td class="left">  <?php  echo $row['accomodation_name']; ?></td>
-							    	<td class="left">  <?php  echo $row['admin_id']; ?></td>
+							    	<td class="center">  <?php  echo $row['number_person']; ?></td>
+							    	<td class="center">  <?php  echo $row['country_name']; ?></td>
+							    	<td class="center">  <?php  echo $row['transport_name']; ?></td>
+							    	<td class="center">  <?php  echo $row['accomodation_name']; ?></td>
+							    	<td class="center">  <?php  echo $row['admin_id']; ?></td>
 							    	<td class="center">  <?php  echo $row['package_price']; ?></td>
 							    	<td class="center">  <?php  echo $row['description']; ?></td>
 							    	<td class="center">  <?php  echo $row['status_name']; ?></td>

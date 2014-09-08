@@ -112,7 +112,7 @@ if (!$select_db){
 				<div class="heading">
 					<h1>Customer</h1>
 				<form method="post" action="CustomerAdd.php">	
-					<div><a href="Customer.html" class="btn btn-default">Cancel</a></div>
+					<div><a href="Customer.php" class="btn btn-default">Cancel</a></div>
 					<div>                                
     <button class="btn btn-default" type="submit">submit</button>
     </div>

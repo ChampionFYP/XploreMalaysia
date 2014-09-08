@@ -51,7 +51,7 @@ if (!$select_db){
           }
         } 
        
-        $query = "INSERT INTO accomodation SET accomodation_name='$name', description='$desc', status='$status', admin_id='$admin', image_id='$picture', category='$category', accomodation_address='$address', accomodation_phone='$phone'";
+        $query = "INSERT INTO accomodation SET accomodation_name='$name', description='$desc', status='$status', accomodation_admin_id='$admin', image_id='$picture', category='$category', accomodation_address='$address', accomodation_phone='$phone'";
         mysql_query($query);
         header('Location: '. dirname(__folder__) .'/accommodation.php');
 

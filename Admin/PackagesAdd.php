@@ -73,7 +73,7 @@ if (!$select_db){
 
 
   
-        $query = "INSERT INTO `package` (package_name, package_price, description, status, country_id, transport_id, accomodation_id,admin_id,image_id,number_person) VALUES ('$name', '$price', '$desc', '$status', '$country', '$transport', '$accomodation','$admin','$picture','$no_people')";
+        $query = "INSERT INTO `package` (package_name, package_price, description, status, country_id, transport_id, accomodation_id,admin_id,package_image_id,number_person) VALUES ('$name', '$price', '$desc', '$status', '$country', '$transport', '$accomodation','$admin','$picture','$no_people')";
         mysql_query($query);
 
 
@@ -129,11 +129,15 @@ if (!$select_db){
 			<div id="content" style="margin-left:16%;">
       <div class="box">
     <div class="heading">
-    <form method="post" action="PackagesAdd.php" enctype="multipart/form-data">
-      <h1>Packages</h1>
-      <div class="buttons">																
-	  <button class="button" type="submit">Save & Close</button><a href="Packages.php" class="button">Cancel</a></div>
+          <h1>Customer</h1>
+        <form method="post" action="PackagesAdd.php"> 
+          <div><a href="Packages.php" class="btn btn-default">Cancel</a></div>
+          <div>                                
+    <button class="btn btn-default" type="submit">Add</button>
     </div>
+        </div>
+
+
     <div class="content" style="margin-left:20%; margin-top:5%;">
 
       

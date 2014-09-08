@@ -50,7 +50,7 @@ if (!$select_db){
           }
         } 
        
-        $query = "INSERT INTO transport SET transport_name='$name', description='$desc', status='$status', admin_id='$admin', image_id='$picture', type='$type', phone='$phone'";
+        $query = "INSERT INTO transport SET transport_name='$name', description='$desc', status='$status', admin_id='$admin', transport_image_id='$picture', type='$type', phone='$phone'";
         mysql_query($query);
         header('Location: '. dirname(__folder__) .'/transport.php');
 

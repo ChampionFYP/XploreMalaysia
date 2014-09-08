@@ -30,13 +30,13 @@ mysql_select_db('xplorema_FYP');
     $find_data = mysql_query( $find_image_id, $conn );
         while($row_data = mysql_fetch_array($find_data, MYSQL_ASSOC))
     {
-        if(empty($row_data['image_id']))
+        if(empty($row_data['package_image_id']))
         {
           $image_id=$random;
         }
         else
         {
-          $image_id=$row_data['image_id'];
+          $image_id=$row_data['package_image_id'];
         }
     }
 
@@ -66,10 +66,10 @@ $picture=$image_id;
           } 
           else 
           {
-              move_uploaded_file($_FILES["file"]["tmp_name"], $_SERVER['DOCUMENT_ROOT'] . "/photo/package/" . $random);
+              move_uploaded_file($_FILES["file"]["tmp_name"], $_SERVER['DOCUMENT_ROOT'] . "/photo/package/" . $picture);
           }
         } 
-$sql = "UPDATE package SET package_name='$name', package_price='$price', description='$desc', status='$status', country_id='$country', transport_id='$transport', accomodation_id='$accomodation', admin_id='$admin', image_id='$picture',number_person='$no_people' WHERE package_id='$package_id'" ;
+$sql = "UPDATE package SET package_name='$name', package_price='$price', description='$desc', status='$status', country_id='$country', transport_id='$transport', accomodation_id='$accomodation', admin_id='$admin', package_image_id='$picture',number_person='$no_people' WHERE package_id='$package_id'" ;
 $retval = mysql_query( $sql, $conn );
 if(! $retval )
 {

@@ -147,7 +147,7 @@ if (isset($_POST['view_btn']))
                             <div style=""class="item">
                                <div class="box1">
                                     <div class="title2"><?php  echo $row1['package_name']; ?> <em><?php  echo $row1['package_name']; ?></em></div>
-                                    <figure><img src="http://<?php echo $_SERVER['SERVER_NAME'] . "admin/photo/". $row1['image_id'];?>" alt=""></figure>
+                                    <figure><img src="http://admin.xploremalaysia.asia/photo/package/<?php echo $row1['package_image_id'];?>" height="167px" width="250px" alt=""></figure>
                                     <button name="view_btn"  value="<?php  echo $row1['package_id']; ?>" class="title5">View now!</button>
                                </div>
                            </div>
@@ -176,7 +176,7 @@ if (isset($_POST['view_btn']))
                             <div style=""class="item">
                                <div class="box1">
                                     <div class="title2"><?php  echo $row2['package_name']; ?><em><?php  echo $row2['package_name']; ?></em></div>
-                                    <figure><img src="http://<?php echo $_SERVER['SERVER_NAME'] . "admin/photo/". $row2['image_id'];?>" height="167px" width="250px" alt=""></figure>
+                                    <figure><img src="http://admin.xploremalaysia.asia/photo/package/<?php echo $row2['package_image_id'];?>" height="167px" width="250px" alt=""></figure>
                                     
                                     <button name="view_btn"  value="<?php  echo $row2['package_id']; ?>" class="title5">View now!</button>
                                </div>

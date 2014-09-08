@@ -27,12 +27,11 @@ if(isset($_POST['user_Name']))
 {
 
 $user_Name = $_POST['user_Name'];
-$user_Username = $_POST['user_Username'];
 $user_Password = $_POST['user_Password'];
 $user_Email = $_POST['user_Email'];
 $user_Phone = $_POST['user_Phone'];
 
-$sql = "UPDATE customer SET customer_username='$user_Username', customer_name='$user_Name', customer_password='$user_Password', customer_email='$user_Email', customer_phone='$user_Phone' WHERE customer_id='$customer_id'" ;
+$sql = "UPDATE customer SET customer_name='$user_Name', customer_password='$user_Password', customer_email='$user_Email', customer_phone='$user_Phone' WHERE customer_id='$customer_id'" ;
 $retval = mysql_query( $sql, $conn );
 if(! $retval )
 {
@@ -131,11 +130,6 @@ mysql_close($conn);
                   <td class="td_l"></td>
                   <td class="rel_t"><span class="en-userinfo-field">Name: </span>&nbsp;</td>
                   <td><input type="text" class="form-control" name="user_Name" value="<?php  echo $row['customer_name']; ?>"></td>
-                </tr>
-                <tr>
-                  <td class="td_l"></td>
-                  <td class="rel_t"><span class="en-userinfo-field">Username:</span>&nbsp;</td>
-                  <td><input type="text" class="form-control" name="user_Username" value="<?php  echo $row['customer_username']; ?>"></td>
                 </tr>
                 <tr>
                   <td class="td_l"></td>

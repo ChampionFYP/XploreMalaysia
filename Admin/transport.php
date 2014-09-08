@@ -15,7 +15,7 @@ if(! $conn )
 mysql_select_db('xplorema_FYP');
 // mysql_select_db('FYP');
 
-$sql = "SELECT * FROM transport INNER JOIN status ON transport.status=status.status_id";
+$sql = "SELECT * FROM transport INNER JOIN admin ON transport.admin_id=admin.admin_id INNER JOIN status ON transport.status=status.status_id";
 
 
 $data = mysql_query( $sql, $conn );
@@ -87,6 +87,8 @@ if (isset($_POST['update_btn'])||isset($_POST['trans_id']))
       				      <td class="center">Type</td>
       				      <td class="center">Phone</td>
 							<td class="center">Description</td>
+							<td class="center">Admin Name</td>
+							<td class="center">Admin id</td>
 							<td class="center">Status</td>
       				      </tr>
       				    </thead>	    
@@ -98,11 +100,13 @@ if (isset($_POST['update_btn'])||isset($_POST['trans_id']))
 							    	<td width="1" style="text-align: center;"><input type="checkbox" name="trans_id" value="<?php  echo $row['transport_id']; ?>"></td>
 							    	<td class="center" style="width:10%">  <?php  echo $row['transport_id']; ?></td>
 							    	<td>
-							    	<img src="http://<?php echo $_SERVER['SERVER_NAME'] . "/photo/transport". $row['image_id'];?>" alt="" height="42" width="42">	
+							    	<img src="http://<?php echo $_SERVER['SERVER_NAME'] . "/photo/transport/". $row['transport_image_id'];?>" alt="" height="42" width="42">	
 							    	</td>
 							    	<td class="center" width=250 >  <?php  echo $row['type']; ?></td>
 							    	<td class="center" width=250 >  <?php  echo $row['phone']; ?></td>
 							    	<td class="center">  <?php  echo $row['description']; ?></td>
+							    	<td class="center">  <?php  echo $row['admin_username']; ?></td>
+							    	<td class="center">  <?php  echo $row['admin_id']; ?></td>
 							    	<td class="center">  <?php  echo $row['status_name']; ?></td>
 							    <tr>
 						<?php } ?>

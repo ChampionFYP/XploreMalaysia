@@ -92,7 +92,7 @@ if (isset($_POST['update_btn'])||isset($_POST['acco_id']))
 							    	<td width="1" style="text-align: center;"><input type="checkbox" name="acco_id" id="acco_id" value="<?php  echo $row['accomodation_id']; ?>"></td>
 							    	<td class="center">  <?php  echo $row['accomodation_id']; ?></td>
 							    	<td>
-							    	<img src="http://<?php echo $_SERVER['SERVER_NAME'] . "/photo/accomodation/". $row['image_id'];?>" alt="" height="42" width="42">	
+							    	<img src="http://<?php echo $_SERVER['SERVER_NAME'] . "/photo/accomodation/". $row['accomodation_image_id'];?>" alt="" height="42" width="42">	
 							    	</td>
 							    	<td class="left" width=250 >  <?php  echo $row['category']; ?></td>
 							    	<td class="left">  <?php  echo $row['accomodation_address']; ?></td>
