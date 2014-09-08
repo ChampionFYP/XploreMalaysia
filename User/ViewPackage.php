@@ -28,16 +28,33 @@ if(! $data )
   die('Could not get data: ' . mysql_error());
 }
 
+$review = "SELECT * FROM review INNER JOIN customer ON review.customer_id=customer.customer_id INNER JOIN package ON review.package_id=package.package_id WHERE review.package_id='$package_id'";
+$review_data = mysql_query( $review, $conn );
+
+
+
+
+
+
+
 mysql_close($conn);
 
 
 if (isset($_POST['booking_btn'])) 
 { 
-   // $package_id=$_POST['booking_btn'];
-   // $_SESSION['user_package_id']=$package_id;
+   $package_id=$_POST['booking_btn'];
+   $_SESSION['user_package_id']=$package_id;
    // var_dump($_SESSION['user_package_id']);
    header('Location: '. dirname(__folder__) .'/PackageBooking.php');
 } 
+
+if (isset($_POST['review_btn'])) 
+{ 
+   $package_id=$_POST['review_btn'];
+   $_SESSION['user_package_id']=$package_id;
+   // var_dump($_SESSION['user_package_id']);
+   header('Location: '. dirname(__folder__) .'/addReview.php');
+}
 ?>
 
 <!DOCTYPE HTML>
@@ -78,22 +95,28 @@ if (isset($_POST['booking_btn']))
             </span>
         </td>
         <tr>
-            <td colspan="2"> <button name="booking_btn"  value="<?php  echo $row['package_id']; ?>" style="color:#ffffff; background-color:#E3536C; border:0px; height:40px;">Book Now </button></td>
+           
+            <td colspan="2"> <button name="review_btn"  value="<?php  echo $row['package_id']; ?>" style="color:#ffffff; background-color:#E3536C; border:0px; height:40px;">Review </button>  <button name="booking_btn"  value="<?php  echo $row['package_id']; ?>" style="color:#ffffff; background-color:#E3536C; border:0px; height:40px;">Book Now </button></td>
          </tr>
     </thead>
   </table>
   </form>
+  <?php } ?>
+
+    <?php 
+    while($row_review = mysql_fetch_array($review_data, MYSQL_ASSOC))
+    { ?>
   <div class="reviewSelector ">
             <div class="first">
                     <div class="col2of2">
                         <div class="innerBubble">
                             <div class="wrap">
                             <div class="quote">
-                            “<span class="noQuotes">Review Title</span>”</a>
+                            “<span class="noQuotes">Customer name: <?php echo $row_review['customer_name']; ?></span>”</a>
                             </div>
                             <div class="entry">
                             <p class="partial_entry">
-                            Review Comments..............................
+                            <?php echo $row_review['description']; ?>
                             </p>
                             </div>
                             </div> 
