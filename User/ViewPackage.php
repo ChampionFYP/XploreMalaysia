@@ -91,7 +91,7 @@ if (isset($_POST['review_btn']))
         </tr>
          <td><span>
                 <p><?php echo $row['description']; ?></p>
-                <p><img src="img/" style="float:right; margin-left:10px;" height="300px" width="450px" ></p>
+                <p><img src="http://admin.xploremalaysia.asia/photo/package/<?php echo $row['package_image_id'];?>" style="float:right; margin-left:10px;" height="300px" width="450px" ></p>
             </span>
         </td>
         <tr>
@@ -116,7 +116,7 @@ if (isset($_POST['review_btn']))
                             </div>
                             <div class="entry">
                             <p class="partial_entry">
-                            <?php echo $row_review['description']; ?>
+                            <?php echo $row_review['review']; ?>
                             </p>
                             </div>
                             </div> 

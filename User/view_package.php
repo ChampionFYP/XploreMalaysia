@@ -65,7 +65,7 @@ mysql_close($conn);
         </tr>
          <td><span>
                 <p><?php echo $row['description']; ?></p>
-                <p><img src="img/" style="float:right; margin-left:10px;" height="300px" width="450px" ></p>
+                <p><img src="http://admin.xploremalaysia.asia/photo/package/<?php echo $row['package_image_id'];?>" style="float:right; margin-left:10px;" height="300px" width="450px" ></p>
             </span>
         </td>
     </thead>
