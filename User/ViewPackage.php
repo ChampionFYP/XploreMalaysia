@@ -28,7 +28,7 @@ if(! $data )
   die('Could not get data: ' . mysql_error());
 }
 
-$review = "SELECT * FROM review INNER JOIN customer ON review.customer_id=customer.customer_id INNER JOIN package ON review.package_id=package.package_id WHERE review.package_id='$package_id'";
+$review = "SELECT * FROM review INNER JOIN customer ON review.customer_id=customer.customer_id WHERE package_id='$package_id'";
 $review_data = mysql_query( $review, $conn );
 
 mysql_close($conn);
@@ -103,16 +103,17 @@ if (isset($_POST['review_btn']))
   </form>
   <?php } ?>
 
-    <?php 
-    while($row_review = mysql_fetch_array($review_data, MYSQL_ASSOC))
-    { ?>
   <h2 style="color:#66a9bd;text-align:left; margin-left:80px; font-size:40px;"><i>Reviews</i></h2>
   <div class="review">
             <div class="first">
                     <div class="col">
                         <div class="innerBubble">
+                        
                             <div class="wrap">
                             <div class="quote">
+                            <?php 
+                          while($row_review = mysql_fetch_array($review_data, MYSQL_ASSOC))
+                          { ?>
                             “<span class="noQuotes">Customer name: <?php echo $row_review['customer_name']; ?></span>”</a>
                             </div>
                             <div class="entry">
@@ -120,12 +121,12 @@ if (isset($_POST['review_btn']))
                             <?php echo $row_review['review']; ?>
                             </p>
                             </div>
+                            <?php } ?>
                             </div> 
                         </div> 
                     </div> 
                 </div>
             </div>
 <div id="footer"></div>
-<?php } ?>
 </body>
 </html>
