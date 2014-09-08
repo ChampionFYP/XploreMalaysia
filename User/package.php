@@ -24,7 +24,7 @@ if (isset($_POST['view_btn']))
    $package_id=$_POST['view_btn'];
    $_SESSION['user_package1_id']=$package_id;
    // var_dump($_SESSION['user_package_id']);
-   header('Location: '. dirname(__folder__) .'/view_package.php');
+   header('Location: '. dirname(__folder__) .'/ViewPackage.php');
 } 
 ?>
 
