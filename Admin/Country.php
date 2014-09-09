@@ -1,4 +1,10 @@
 <?php
+session_start();
+
+if(empty($_SESSION['admin_id']))
+{
+    header('Location: '. dirname(__folder__) .'/index.php');
+}
 $dbhost = 'localhost';
 $dbuser = 'xplorema';
 $dbpass = 'FYPchamp1!';
