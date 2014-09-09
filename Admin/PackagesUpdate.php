@@ -173,9 +173,7 @@ mysql_close($conn);
 			       <tr>
                 <td>Description:</td>
                 <td>
-                  <textarea name="desc" id="desc" cols="40" rows="20">
-                    <?php echo $row['package_description']; ?>
-                  </textarea>
+                  <textarea name="desc" id="desc" cols="40" rows="20"><?php echo $row['package_description']; ?></textarea>
                 </td>
 -              </tr>
             </tr>

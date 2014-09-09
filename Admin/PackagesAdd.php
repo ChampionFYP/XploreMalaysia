@@ -174,8 +174,7 @@ if (!$select_db){
 			        <tr>
                 <td>Description:</td>
                 <td>
-                  <textarea name="desc" id="desc" cols="40" rows="20">
-                  </textarea>
+                  <textarea name="desc" id="desc" cols="40" rows="20"></textarea>
                 </td>
               </tr>
             </tr>
