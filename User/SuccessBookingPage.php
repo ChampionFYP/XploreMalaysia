@@ -41,7 +41,7 @@ $message = "Hello!
 
 Here is your order number:".$_SESSION['user_booking_id']."
 
-Please Email to kfc1346@gmail.com with screenshot/photo when you using online banking/ATM
+Please Email to xplorema@xploremalaysia.asia with screenshot/photo when you using online banking/ATM
 
 
 We will sent you a receipt once we confirm your payment.

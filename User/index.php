@@ -43,7 +43,7 @@
             <strong>
               <img src="img/cars.png">
             </strong>
-              <span>cars</span>
+              <span>Transportation</span>
           </a>
         </li>
     
