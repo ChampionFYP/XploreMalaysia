@@ -16,6 +16,18 @@ mysql_select_db('xplorema_FYP');
 $payment = "SELECT * FROM payment INNER JOIN booking ON payment.booking_id=booking.booking_id INNER JOIN package ON payment.package_id=package.package_id INNER JOIN status ON payment.status=status.status_id WHERE payment.customer_id='$customer_id' AND payment.status='5' OR payment.status='3'";
 $payment_data = mysql_query( $payment, $conn );
 
+
+if (isset($_POST['details_btn']))
+{ 
+   $package_id=$_POST['details_btn'];
+   $_SESSION['user_package_id']=$package_id;
+   // var_dump($package_id);
+   header('Location: '. dirname(__folder__) .'/ViewPackage.php');
+}
+
+
+
+
 if (isset($_POST['cancel_btn']))
 { 
    $booking_id=$_POST['cancel_btn'];
@@ -26,6 +38,8 @@ if (isset($_POST['cancel_btn']))
    $booking_sql = mysql_query( $update_booking, $conn );
    header('Location: '. dirname(__folder__) .'/SuccessfulBooking.php');
 } 
+
+
 
 
 
@@ -98,10 +112,10 @@ mysql_close($conn);
           </p>
           <!--Booking Details-->
           <table class="booking_bigtable">
-            <thead>
-            <?php 
+          <?php 
               while($row1 = mysql_fetch_array($payment_data, MYSQL_ASSOC))
-              { ?> 
+              { ?>
+            <thead> 
               <tr>
                 <th colspan="3">
                   <span class="fl booking-num">Booking number : <?php  echo $row1['booking_id']; ?></span>
@@ -128,7 +142,6 @@ mysql_close($conn);
                           <td>
                             <span><?php echo $row1['status_name']; ?></span>
                           </td>
-                          <?php } ?>
                         </div>
                       </td>
                     </tr>
@@ -136,12 +149,13 @@ mysql_close($conn);
                 </table>
               </td>
               <td class="details">
-                <button class="btn btn-default btn-sm" type="button" name="details_btn" value="<?php  echo $row1['package_id']; ?>">Booking Details</button>
-                <button class="btn btn-default btn-sm" type="submit" name="cancel_btn" value="<?php  echo $row1['booking_id']; ?>">Cancel</button>
+                <button class="btn btn-default btn-sm" name="details_btn" value="<?php  echo $row1['package_id']; ?>">Booking Details</button>
+                <button class="btn btn-default btn-sm" name="cancel_btn" value="<?php  echo $row1['booking_id']; ?>">Cancel</button>
               </td>
               </td>
              </tr>
             </tbody>
+            <?php } ?>
           </table>
         </div>
       </div>

@@ -16,6 +16,15 @@ mysql_select_db('xplorema_FYP');
 $payment = "SELECT * FROM payment INNER JOIN booking ON payment.booking_id=booking.booking_id INNER JOIN package ON payment.package_id=package.package_id INNER JOIN status ON payment.status=status.status_id WHERE payment.customer_id='$customer_id' AND payment.status='4'";
 $payment_data = mysql_query( $payment, $conn );
 
+if (isset($_POST['details_btn']))
+{ 
+   $package_id=$_POST['details_btn'];
+   $_SESSION['user_package_id']=$package_id;
+   // var_dump($package_id);
+   header('Location: '. dirname(__folder__) .'/ViewPackage.php');
+}
+
+
 mysql_close($conn);
 
 
@@ -54,7 +63,7 @@ mysql_close($conn);
         });
     </script>
   </head>
-
+<form method="post">
   <body>
     <div id="header"></div>
     <div class="container">
@@ -121,7 +130,6 @@ mysql_close($conn);
                           <td>
                             <span><?php echo $row1['status_name']; ?></span>
                           </td>
-                          <?php } ?>
                         </div>
                       </td>
                     </tr>
@@ -129,12 +137,12 @@ mysql_close($conn);
                 </table>
               </td>
               <td class="details">
-                <button class="btn btn-default btn-sm" type="button" name="details_btn" value="<?php  echo $row1['package_id']; ?>">Booking Details</button>
-                <button class="btn btn-default btn-sm" type="submit" name="cancel_btn" value="<?php  echo $row1['booking_id']; ?>">Cancel</button>
+                <button class="btn btn-default btn-sm" name="details_btn" value="<?php  echo $row1['package_id']; ?>">Booking Details</button>
               </td>
               </td>
              </tr>
             </tbody>
+            <?php } ?>
           </table>
         </div>
       </div>
@@ -142,4 +150,5 @@ mysql_close($conn);
 
     <div id="footer"></div>
   </body>
+  </form>
 </html>
