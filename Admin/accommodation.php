@@ -108,9 +108,7 @@ if (isset($_POST['update_btn'])&&isset($_POST['acco_id']))
       				  </tbody>
       				  </table>
       				</form>
-      					<div class="pagination" style="float:right;">
-      						<div class="results">Showing 0 to 0 of 0 (0 Pages)</div>
-      					</div>
+      					
       				</div>
 				</div>
 		</div> <!--row-->

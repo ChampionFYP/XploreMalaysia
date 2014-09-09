@@ -93,7 +93,7 @@ if (isset($_POST['view_btn']))
     <h2>Accomodation</h2>
     <hr class="hr2">
 </br></br></br>
-<div class="container">
+<div class="container" style="margin-bottom:45%;">
   <div class="row">
     
   <div class="owlbox">
