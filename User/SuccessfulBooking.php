@@ -43,24 +43,16 @@ mysql_close($conn);
 // } 
 ?>
 
-
-
-
-
-
-
-
-
 <!DOCTYPE HTML>
 <html>
 	<head>
 		<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link href="css/style.css" rel="stylesheet">
+    <link href="css/booking_panel.css" rel="stylesheet">
     <link href="css/UserPanel.css" rel="stylesheet">
-    <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
 
     <script type="text/javascript">
         $(document).ready(function(){
@@ -113,19 +105,9 @@ mysql_close($conn);
               <tr>
                 <th colspan="3">
                   <span class="fl booking-num">Booking number : <?php  echo $row1['booking_id']; ?></span>
-                <td><span class="fr datetime">Depature Date： <?php  echo $row1['booking_date']; ?></span>
-                </td>
-                <td><span class="fr datetime">Package_name： <?php  echo $row1['package_name']; ?></span>
-                </td>
-                <td><span class="fr datetime">Price： <?php  echo $row1['price']; ?></span>
-                </td>
-                <td><span class="fr datetime">Status： <?php  echo $row1['status_name']; ?></span>
-                </td>
-                <td><button class="btn btn-default" type="submit" name="cancel_btn" value="<?php  echo $row1['booking_id']; ?>">Cancel</button></span>
-                </td>
+                  <span class="fr datetime">Order placed on: <?php  echo $row1['booking_date']; ?></span>
                 </th>
               </tr>
-              <?php } ?>
             </thead>
             <tbody>
              <tr>
@@ -135,14 +117,28 @@ mysql_close($conn);
                     <tr>
                       <td class="std1">                     
                         <div class="divorder">
+                            <span class="mimg"><img src="http://admin.xploremalaysia.asia/photo/package/<?php echo $row1['package_image_id'];?>" height="60px" width="60px"></span>
+                            <span><?php echo $row1['package_name']; ?></span>
+                          <td>
+                            <span><?php echo $row1['booking_date']; ?></span>
+                          </td>
+                          <td>
+                            <span>RM<?php echo $row1['price']; ?></span>
+                          </td>
+                          <td>
+                            <span><?php echo $row1['status_name']; ?></span>
+                          </td>
+                          <?php } ?>
                         </div>
                       </td>
-                      <td class="std3"></td>
                     </tr>
                   </tbody>
                 </table>
               </td>
               <td class="details">
+                <button class="btn btn-default btn-sm" type="button" name="details_btn" value="<?php  echo $row1['package_id']; ?>">Booking Details</button>
+                <button class="btn btn-default btn-sm" type="submit" name="cancel_btn" value="<?php  echo $row1['booking_id']; ?>">Cancel</button>
+              </td>
               </td>
              </tr>
             </tbody>
