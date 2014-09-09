@@ -111,7 +111,7 @@ $customer_id=$_SESSION['customer_id'];
 			<div class="box col-sm-12 col-md-10 pull-right" style="padding-left:0px;">
 				<div class="heading">
 					<h1>Customer</h1>
-				<form method="post" action="customer_update.php">	
+				<form method="post" action="customer_update.php" enctype="multipart/form-data">	
           <?php 
           while($row = mysql_fetch_array($data, MYSQL_ASSOC))
           { ?>

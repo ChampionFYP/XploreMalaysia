@@ -105,7 +105,7 @@ if (!$select_db){
       <div class="box col-sm-12 col-md-10 pull-right" style="padding-left:0px;">
         <div class="heading">
           <h1>Transportation</h1>
-          <form method="post" action="PackagesAdd.php">
+          <form method="post" action="transport_add.php" enctype="multipart/form-data">
           <div><a href="transport.php" class="btn btn-default">Cancel</a></div>
           <div>                                
             <button class="btn btn-default" type="submit">Save & Close</button>

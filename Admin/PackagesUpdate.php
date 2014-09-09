@@ -144,7 +144,7 @@ mysql_close($conn);
       <div class="box col-sm-12 col-md-10 pull-right" style="padding-left:0px;">
         <div class="heading">
           <h1>Update Package</h1>
-        <form method="post" action="PackagesUpdate.php"> 
+        <form method="post" action="PackagesUpdate.php" enctype="multipart/form-data"> 
           <div><a href="Packages.php" class="btn btn-default">Cancel</a></div>
           <div>                                
             <input name="update" type="submit" class="btn btn-default" id="update" value="Update">
