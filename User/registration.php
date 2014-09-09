@@ -185,26 +185,26 @@ if (!$select_db){
    
     <fieldset>
         <?php if(!empty($msg1)) {?>
-         <div class="alert alert-danger col-md-10" id="username" role="alert">
+         <div class="alert alert-danger col-md-10" role="alert">
             <strong>Sorry,</strong>the username has been used!
         </div>
          <?php } ?>
 
          <?php if(!empty($msg2)) {?>
-        <div class="alert alert-danger col-md-10" id="email" role="alert">
+        <div class="alert alert-danger col-md-10" role="alert">
             <strong>Sorry,</strong>the email has been used!
         </div>
          <?php } ?>
 
          <?php if(!empty($msg3)) {?>
-        <div class="alert alert-danger col-md-10" id="ic" role="alert">
+        <div class="alert alert-danger col-md-10" role="alert">
             <strong>Sorry,</strong>the IC has been used!
         </div>
          <?php } ?>
 
          <?php if(!empty($msg_success)) {?>
-        <div class="alert alert-success col-md-10" id="success" role="alert">
-            <strong>Congratulation!</stong> You had successfully registered.
+        <div class="alert alert-success col-md-10" role="alert">
+            <strong>Congratulation!</strong> You had successfully registered.
         </div>
          <?php } ?>
 

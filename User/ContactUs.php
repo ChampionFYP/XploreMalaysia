@@ -66,21 +66,16 @@ function show_error($myError)
 ?>
     <html>
     <body>
-
-    <b>Please correct the following error:</b><br />
-    <?php echo $myError; ?>
-
+        <div class="alert alert-danger col-md-10" id="email" role="alert">
+            <strong>Please correct the following error:</strong><?php echo $myError; ?>
+        </div>
+    <br/>
     </body>
     </html>
 <?php
 exit();
 }
 ?>
-
-
-
-
-
 
 <!DOCTYPE HTML>
 <html>
@@ -120,16 +115,13 @@ exit();
         }
         .formstyle{
             text-align: left;
-            margin-left: 20%;
-            
             font-size: 16px;
             font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
             background:#ffffff;
-            margin:0 auto; 
             padding-left:250px; 
             padding-top:20px;
             text-align: left;
-
+            position:relative;
         }
          legend{
           border: #509FA6;
@@ -198,17 +190,17 @@ exit();
     }
         
     </style>
-
-
-    </style>
-  <title>Xplore Malaysia</title>
     </head>
 
   <body>
   <div id="header"></div>
-
 <h1 class="title">Contact Us</h1>
 <hr class="hr4">
+        <?php if(!empty($msg_success)) {?>
+            <div class="alert alert-success" style="position:relative;" role="alert">
+                <strong>Thank you for submiting</strong>, we will get back to you soon!
+            </div>
+         <?php } ?>
 
 <div  class="formstyle">
 <form name = "registerfrm" method="post" action="ContactUs.php">
