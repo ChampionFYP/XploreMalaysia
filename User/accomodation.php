@@ -107,7 +107,7 @@ if (isset($_POST['view_btn']))
                             <div class="item">
                                <a class="box1">
                                     <div class="title2"><?php  echo $row1['accomodation_name']; ?> <em><?php  echo $row1['accomodation_name']; ?></em></div>
-                                    <figure><img src="http://admin.xploremalaysia.asia/photo/package/<?php echo $row1['accomodation_image_id'];?>" height="167px" width="250px" alt=""></figure>
+                                    <figure><img src="http://admin.xploremalaysia.asia/photo/accomodation/<?php echo $row1['accomodation_image_id'];?>" height="167px" width="250px" alt=""></figure>
                                     <button name="view_btn"  value="<?php  echo $row1['accomodation_id']; ?>" class="title5">View now!<em>Click Here To View!</em></button>
                                </a>
                            </div>
