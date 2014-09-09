@@ -87,7 +87,7 @@ mysql_close($conn);
 
         <div class="col-sm-12 col-md-8">
           <p class="info">
-            <span class="left">Successful Booking</span>
+            <span class="left">Canceled Booking</span>
           </p>
           <!--Booking Details-->
           <table class="booking_bigtable">
@@ -102,6 +102,8 @@ mysql_close($conn);
                 </td>
                 <td><span class="fr datetime">Package_name： <?php  echo $row1['package_name']; ?></span>
                 </td>
+                <td><span class="fr datetime">Price： <?php  echo $row1['price']; ?></span>
+                </td>
                 <td><span class="fr datetime">Status： <?php  echo $row1['status_name']; ?></span>
                 </td>
                 </th>
@@ -115,24 +117,12 @@ mysql_close($conn);
                   <tbody>
                     <tr>
                       <td class="std1">                     
-                        <div class="divorder">
-                          <a class="mimg" target="_blank" href="#">
-                            <img src="#" title="Package Picture">
-                          </a>
-                        </div>
-                      </td>
-                      <td class="booking_status">
-                          <span>Booked</span>
                       </td>
                       <td class="std3"></td>
                     </tr>
                   </tbody>
                 </table>
               </td>
-              <td class="price">
-                  <span>RM xxx.00</span>
-                  <p></p>
-                  </td>
               <td class="details">
               </td>
              </tr>

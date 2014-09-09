@@ -13,7 +13,7 @@ if(! $conn )
 $customer_id=$_SESSION['customer_id'];
 mysql_select_db('xplorema_FYP');
 
-$payment = "SELECT * FROM payment INNER JOIN booking ON payment.booking_id=booking.booking_id INNER JOIN package ON payment.package_id=package.package_id INNER JOIN status ON payment.status=status.status_id WHERE payment.customer_id='$customer_id' AND payment.status='5'";
+$payment = "SELECT * FROM payment INNER JOIN booking ON payment.booking_id=booking.booking_id INNER JOIN package ON payment.package_id=package.package_id INNER JOIN status ON payment.status=status.status_id WHERE payment.customer_id='$customer_id' AND payment.status='5' OR payment.status='3'";
 $payment_data = mysql_query( $payment, $conn );
 
 if (isset($_POST['cancel_btn']))
@@ -117,6 +117,8 @@ mysql_close($conn);
                 </td>
                 <td><span class="fr datetime">Package_name： <?php  echo $row1['package_name']; ?></span>
                 </td>
+                <td><span class="fr datetime">Price： <?php  echo $row1['price']; ?></span>
+                </td>
                 <td><span class="fr datetime">Status： <?php  echo $row1['status_name']; ?></span>
                 </td>
                 <td><button class="btn btn-default" type="submit" name="cancel_btn" value="<?php  echo $row1['booking_id']; ?>">Cancel</button></span>
@@ -133,23 +135,13 @@ mysql_close($conn);
                     <tr>
                       <td class="std1">                     
                         <div class="divorder">
-                          <a class="mimg" target="_blank" href="#">
-                            <img src="#" title="Package Picture">
-                          </a>
                         </div>
-                      </td>
-                      <td class="booking_status">
-                          <span>Booked</span>
                       </td>
                       <td class="std3"></td>
                     </tr>
                   </tbody>
                 </table>
               </td>
-              <td class="price">
-                  <span>RM xxx.00</span>
-                  <p></p>
-                  </td>
               <td class="details">
               </td>
              </tr>
