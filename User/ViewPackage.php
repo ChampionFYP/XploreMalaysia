@@ -58,9 +58,8 @@ if (isset($_POST['review_btn']))
     <link href="css/style.css" rel="stylesheet">
     <link href="css/Homelayout.css" rel="stylesheet">
     <link href="css/ViewPackage.css" rel="stylesheet">
-    <script type="text/javascript" src="js/bootstrap.js"></script>
     <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
     <script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
 
     <script type="text/javascript">

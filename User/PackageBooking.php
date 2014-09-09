@@ -93,10 +93,9 @@ if (!$select_db){
 		<link href="css/style.css" rel="stylesheet">
         <link href="css/Homelayout.css" rel="stylesheet">
         <link href="css/pkg_booking.css" rel="stylesheet">
-    <script type="text/javascript" src="js/bootstrap.js"></script>
-    <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/bootstrap.js"></script>
+        <script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
 
     <script type="text/javascript">
         $(document).ready(function(){
@@ -163,11 +162,6 @@ if (!$select_db){
                                             <td width="60%">
                                                 <span class="frame_heading">Online Package Booking !<br></span>
                                             </td>
-                                            <td width="40%" align="right" class="price_boldcolor">
-                                            <div>
-                                                    <span>Gross Amount : MYR </span>
-                                            </div>
-                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -209,27 +203,8 @@ if (!$select_db){
                                                                     <td>
                                                                         Departure date :<span class="red">*</span>
                                                                     </td>
-                                                                    <td>
-                                                                        <table cellpadding="0" cellspacing="0">
-                                                                            <tbody>
-                                                                                <tr>
-                                                                                    <td>
-                                                                                        <input type="date" class="txt_ctl" style="width:178px;" name = "date" required="">
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        &nbsp;
-                                                                                    </td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td colspan="3" height="5px">
-                                                                                    </td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td colspan="3">
-                                                                                    </td>
-                                                                                </tr>
-                                                                            </tbody>
-                                                                        </table>
+                                                                    <td>  
+                                                                        <input type="date" class="txt_ctl" style="width:178px;height:20px;" name = "date" required="">
                                                                     </td>
                                                                 </tr>
                                                                 <tr>

@@ -47,9 +47,8 @@ $package_id = $_SESSION['user_package_id'];
     <link href="css/Homelayout.css" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="css/loginstyle.css" />
     <link type="text/css" rel="stylesheet" href="css/review.css" />
-    <script type="text/javascript" src="js/bootstrap.js"></script>
     <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
     <script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
 
     <script type="text/javascript">
