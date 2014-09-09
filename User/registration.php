@@ -170,6 +170,7 @@ if (!$select_db){
             background: #ffffff;
             color: #ED6347;
       } 
+        }
     </style>
   </head>
 
@@ -184,16 +185,32 @@ if (!$select_db){
    
     <fieldset>
         <?php if(!empty($msg1)) {?>
-         <label style="color:red;">Error: <?php echo $msg1; ?></label>
+         <div class="alert alert-danger col-md-10" id="username" role="alert">
+            <strong>Sorry,</strong>the username has been used!
+        </div>
          <?php } ?>
-         <?php if(!empty($msg2)) {?>
-         <label style="color:red;">Error: <?php echo $msg2; ?></label>
-         <?php } ?>
-         <?php if(!empty($msg3)) {?>
-         <label style="color:red;">Error: <?php echo $msg3; ?></label>
-         <?php } ?>
-    <div class="form-group">
 
+         <?php if(!empty($msg2)) {?>
+        <div class="alert alert-danger col-md-10" id="email" role="alert">
+            <strong>Sorry,</strong>the email has been used!
+        </div>
+         <?php } ?>
+
+         <?php if(!empty($msg3)) {?>
+        <div class="alert alert-danger col-md-10" id="ic" role="alert">
+            <strong>Sorry,</strong>the IC has been used!
+        </div>
+         <?php } ?>
+
+         <?php if(!empty($msg_success)) {?>
+        <div class="alert alert-success col-md-10" id="success" role="alert">
+            <strong>Congratulation!</stong> You had successfully registered.
+        </div>
+         <?php } ?>
+
+    
+
+    <div class="form-group">
         <div class="col-md-3 control-label">
             <label>Username :</label> 
         </div>
@@ -305,7 +322,7 @@ if (!$select_db){
     </fieldset>
       
         <button class="button" data-dismiss="modal" type="submit">Signup</button>
-        <input class="buttoncancel" type="button" value="Cancel" name="cancelbtn">
+        <input class="buttoncancel" type="button" value="Reset" name="cancelbtn" onClick="window.location.reload()">
       
 </form>
 </div>

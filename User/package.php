@@ -28,13 +28,6 @@ if (isset($_POST['view_btn']))
 } 
 ?>
 
-
-
-
-
-
-
-
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -80,46 +73,42 @@ if (isset($_POST['view_btn']))
             height: 455px !important;
         }
     </style>
-
-        <title>Xplore Malaysia</title>
     </head>
 
   <body>
   <div id="header"></div>
-<form method="POST">
-
-<div>
-    <h2>Package</h2>
-    <hr class="hr2">
-</br></br></br>
-
-    <div class="container">
+<div class="container" style="margin-bottom:45%;">
   <div class="row">
-    
-  <div class="owlbox">
-    <div id="owl-demo" class="owl-carousel owl-theme" style="opacity:1; display:block; "> 
-      <div class="owl-wrapper-outer">
-        <div class="owl-wrapper" style="width: 100%; margin-left: 0px; display:block; ">
-             <?php 
-              while($row1 = mysql_fetch_array($data_package1, MYSQL_ASSOC))
-              { ?>             
-                          <div class="owl-item">
-                            <div class="item">
-                               <a class="box1">
-                                    <div class="title2"><?php  echo $row1['package_name']; ?> <em><?php  echo $row1['package_name']; ?></em></div>
-                                    <figure><img src="http://admin.xploremalaysia.asia/photo/package/<?php echo $row1['package_image_id'];?>" height="167px" width="250px" alt=""></figure>
-                                    <button name="view_btn"  value="<?php  echo $row1['package_id']; ?>" class="title5">View now!<em>Click Here To View!</em></button>
-                               </a>
-                           </div>
-                         </div>
-            <?php } ?>
+        <form method="POST">
+          <h2>Package</h2>
+          <hr class="hr2">
+          </br></br></br>
+          
+          <div class="owlbox">
+            <div id="owl-demo" class="owl-carousel owl-theme" style="opacity:1; display:block; "> 
+              <div class="owl-wrapper-outer">
+                <?php 
+                      while($row1 = mysql_fetch_array($data_package1, MYSQL_ASSOC))
+                      { ?> 
+                <div class="owl-wrapper" style="width: 100%; margin-left: 0px; display:block; ">            
+                    <div class="owl-item">
+                      <div class="item">
+                         <a class="box1">
+                              <div class="title2"><?php  echo $row1['package_name']; ?> <em><?php  echo $row1['package_name']; ?></em></div>
+                              <figure><img src="http://admin.xploremalaysia.asia/photo/package/<?php echo $row1['package_image_id'];?>" height="167px" width="250px" alt=""></figure>
+                              <button name="view_btn"  value="<?php  echo $row1['package_id']; ?>" class="title5">View now!<em>Click Here To View!</em></button>
+                         </a>
+                     </div>
+                   </div>
+                </div>
+                  <?php } ?>
+              </div>
+            </div>
           </div>
-        </div>
-        </div>
-      </div>
-    </div>
+        </form>
+  </div>
 </div>
-</form>
-<div id="footer"></div>
+
+<div id="footer" class="row"></div>
 </body>
 </html>
