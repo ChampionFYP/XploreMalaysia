@@ -26,7 +26,7 @@ $data_customer = mysql_query($customer);
 
 /* Set e-mail recipient */
 $myemail  = $customer_email;
-var_dump($myemail);
+/*var_dump($myemail);
 /* If e-mail is not valid show error message */
 if(!empty($email))
 if (!preg_match("/([\w\-]+\@[\w\-]+\.[\w\-]+)/", $email))
@@ -75,10 +75,10 @@ function show_error($myError)
 ?>
     <html>
     <body>
-
-    <b>Please correct the following error:</b><br />
-    <?php echo $myError; ?>
-
+        <div class="alert alert-danger" role="alert">
+            <b>Please correct the following error:</b><br />
+            <?php echo $myError; ?>
+        </div>
     </body>
     </html>
 <?php
@@ -88,7 +88,22 @@ exit();
 
 <!DOCTYPE HTML>
 <html>
+    <head>
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="4;url=http://xploremalaysia.asia/package.php">
+        <link href="css/style.css" rel="stylesheet">
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/bootstrap.js"></script>
+    </head>
+
     <body>
-    Please Check Your Email;
+        <div class="container-fluid">
+            <div class="alert alert-success alert-dismissible" role="alert" style="text-align:center;">
+                <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <strong>Thank You!</strong> Your booking has been successfully placed!
+                <br>You will be redirected back in shortly
+            </div>
+        </div>
     </body>
 </html>
