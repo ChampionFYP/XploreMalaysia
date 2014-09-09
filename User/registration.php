@@ -74,9 +74,12 @@ if (!$select_db){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/Homelayout.css" rel="stylesheet">
+    <link href="css/Validator.min.css" rel="stylesheet">
+
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
     <script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
+    <script type="text/javascript" src="js/Validator.min.js"></script>
 
     <script type="text/javascript">
         $(document).ready(function(){
@@ -101,11 +104,6 @@ if (!$select_db){
            text-align: left;
            margin-left: 12%;
         }
-        .red {  
-              font-size:10pt; 
-              font-style:italic; 
-              color:red ; 
-        }
 
         .hr4 {
               margin-left: 10%;
@@ -125,7 +123,6 @@ if (!$select_db){
             padding-left:250px; 
             padding-top:20px;
             text-align: left;
-
         }
          legend{
           border: #509FA6;
@@ -171,31 +168,8 @@ if (!$select_db){
            
             background: #ffffff;
             color: #ED6347;
-      }
-        label{
-            display: inline-block;
-            float: left;
-            clear: left;
-            width: 250px;
-            text-align: right;
-            margin-bottom: 10px;
-        }
-      
-        .inputbox {
-        float: left;
-        display: inline-block;
-        margin-bottom:10px;
-        margin-left: 10px;
-        }
-
-        
-    
+      } 
     </style>
-
-
-
-
-    <title>Xplore Malaysia</title>
   </head>
 
   <body>
@@ -205,10 +179,9 @@ if (!$select_db){
 <hr class="hr4">
 
 <div  class="formstyle">
-<form style="margin-bottom: 0px !important;" class="form-horizontal" method="post" action="registration.php">
+<form id="registrationForm" style="margin-bottom: 0px !important;" class="form-horizontal" method="post" action="registration.php">
    
     <fieldset>
-        
         <?php if(!empty($msg1)) {?>
          <label style="color:red;">Error: <?php echo $msg1; ?></label>
          <?php } ?>
@@ -218,46 +191,192 @@ if (!$select_db){
          <?php if(!empty($msg3)) {?>
          <label style="color:red;">Error: <?php echo $msg3; ?></label>
          <?php } ?>
+    <div class="form-group">
 
-        <label>Username :</label> 
-            <input class="inputbox" id="username" type="text" name="username" size="30" required="">
+        <div class="col-md-3 control-label">
+            <label>Username :</label> 
+        </div>
+        <div class="col-md-5">
+            <input class="form-control" id="username" type="text" name="username" size="30" required="" autofocus>
+        </div>
+    </div>
 
-        <label>IC : </label> 
-            <input class="inputbox" id="ic" type="text" name="ic" size="30">
-         
-        <label>Gender :</label> 
-            <p class="inputbox">
+    <div class="form-group">
+        <div class="col-md-3 control-label">
+            <label>IC : </label>
+        </div> 
+        <div class="col-md-5">    
+            <input class="form-control" id="ic" type="text" name="ic" size="30">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-3 control-label">
+            <label>Gender :</label>
+        </div>
+        <div class="col-md-5"> 
+            <label  class="radio-inline">
               <input type="radio" name="gender" value="Male">Male
+            </label>
+            <label  class="radio-inline">
               <input type="radio" name="gender" value="Female">Female
-            </p>
+            </label>
+        </div>
+    </div>
 
-        <label>Password :</label> 
-            <input class="inputbox" type="password" name="password" id="password" size="30" required="">
-            
-         <label>E-mail :</label>     
-            <input class="inputbox" type="email" name="email" id="email" size="40" align="right" required="">
-        
-        <label>Mobile :</label>    
-            <input class="inputbox" type="text" name="phone" id="phone" align="right"  required="">
+    <div class="form-group">
+        <div class="col-md-3 control-label">
+            <label>Password :</label>
+        </div>
+        <div class="col-md-5">
+            <input class="form-control" type="password" name="password" id="password" size="30" required="">
+        </div>
+    </div>
 
-        <label>Address:</label> 
-            <input  class="inputbox" type="text" size="62" name="address" id="address" required="">
-        
-        <label>City:</label> 
-            <input class="inputbox" type="text" size="30" name="city" id="city" required="">
-        
-        <label>State:</label>
-            <input  class="inputbox" type="text" size="30" name="state" id="state" required="">
-        
-        <label>Zipcode:</label> 
-            <input class="inputbox" ype="text" size="30" name="code" id="code" required="">
+    <div class="form-group">
+        <div class="col-md-3 control-label">
+            <label>E-mail :</label>
+        </div>
+        <div class="col-md-5">
+            <input class="form-control" type="email" name="email" id="email" size="40" align="right" required="">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-3 control-label">
+            <label>Mobile :</label>
+        </div>
+        <div class="col-md-5">  
+            <input class="form-control" type="text" name="phone" id="phone" align="right"  required="">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-3 control-label">
+            <label>Address:</label>
+        </div>
+        <div class="col-md-5">
+            <input  class="form-control" type="text" size="62" name="address" id="address" required="">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-3 control-label">
+            <label>State:</label>
+        </div>
+        <div class="col-md-5">
+            <select class="form-control" name="state" id="state">
+                <option value="Kuala Lumpur">Kuala Lumpur</option>
+                <option value="Perlis">Perlis</option>
+                <option value="Kelantan">Kelantan</option>
+                <option value="Terengganu">Terengganu</option>
+                <option value="Kedah">Kedah</option>
+                <option value="Penang">Penang</option>
+                <option value="Pahang">Pahang</option>
+                <option value="Selangor">Selangor</option>
+                <option value="Perak">Perak</option>
+                <option value="Malacca">Malacca</option>
+                <option value="Negeri Sembilan">Negeri Sembilan</option>
+                <option value="Johor">Johor</option>
+                <option value="Sabah">Sabah</option>
+                <option value="Sarawak">Sarawak</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-3 control-label">        
+            <label>City:</label>
+        </div>
+        <div class="col-md-5">
+            <input class="form-control" type="text" size="30" name="city" id="city" required="">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-3 control-label">        
+            <label>Zipcode:</label>
+        </div>
+        <div class="col-md-5">
+            <input class="form-control" ype="text" size="30" name="code" id="code" required="">
+        </div>
+    </div>
     </fieldset>
       
         <button class="button" data-dismiss="modal" type="submit">Signup</button>
- <input class="buttoncancel" type="button" value="Cancel" name="cancelbtn">
+        <input class="buttoncancel" type="button" value="Cancel" name="cancelbtn">
       
 </form>
 </div>
+<script>
+$(document).ready(function() {
+    $('#registrationForm').bootstrapValidator({
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            username: {
+                message: 'The username is not valid',
+                validators: {
+                    notEmpty: {
+                        message: 'The username is required and cannot be empty'
+                    },
+                    stringLength: {
+                        min: 6,
+                        max: 30,
+                        message: 'The username must be more than 6 and less than 30 characters long'
+                    },
+                    regexp: {
+                        regexp: /^[a-zA-Z0-9]+$/,
+                        message: 'The username can only consist of alphabetical and number'
+                    },
+                    different: {
+                        field: 'password',
+                        message: 'The username and password cannot be the same as each other'
+                    }
+                }
+            },ic: {
+                validators: {
+                    notEmpty: {
+                        message: 'The IC is required and cannot be empty'
+                    },
+                    stringLength: {
+                        min: 12,
+                        message: 'The IC must be at least 12 characters'
+                    }
+                }
+            },
+            password: {
+                validators: {
+                    notEmpty: {
+                        message: 'The password is required and cannot be empty'
+                    },
+                    different: {
+                        field: 'username',
+                        message: 'The password cannot be the same as username'
+                    },
+                    stringLength: {
+                        min: 8,
+                        message: 'The password must have at least 8 characters'
+                    }
+                }
+            },
+            email: {
+                validators: {
+                    notEmpty: {
+                        message: 'The email address is required and cannot be empty'
+                    },
+                    emailAddress: {
+                        message: 'The email address is not a valid'
+                    }
+                }
+            }
+        }
+    });
+});
+</script>
 <div id="footer"></div>
 </body>
 </html>

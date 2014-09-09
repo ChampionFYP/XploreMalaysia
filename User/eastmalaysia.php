@@ -144,7 +144,7 @@ if (isset($_POST['view_btn']))
                         { ?>   
                           <div class="owl-item">
                             <div class="item">
-                               <a href="#" class="box1">
+                               <a class="box1">
                                     <div class="title2"><?php  echo $row2['package_name']; ?><em><?php  echo $row2['package_name']; ?></em></div>
                                     <figure><img src="http://admin.xploremalaysia.asia/photo/package/<?php echo $row2['package_image_id'];?>" height="167px" width="250px" alt=""></figure>
                                     <button name="view_btn" value="<?php  echo $row2['package_id']; ?>" class="title5">View now!<em>Click Here To View!</em></button>
@@ -179,7 +179,7 @@ if (isset($_POST['view_btn']))
                             { ?>
                           <div class="owl-item">
                             <div class="item">
-                               <a href="#" class="box1">
+                               <a  class="box1">
                                     <div class="title2"><?php  echo $row5['package_name']; ?><em><?php  echo $row5['package_name']; ?></em></div>
                                     <figure><img src="http://admin.xploremalaysia.asia/photo/package/<?php echo $row5['package_image_id'];?>" height="167px" width="250px" alt=""></figure>
                                     <button name="view_btn"  value="<?php  echo $row5['package_id']; ?>" class="title5">View now!<em>Click Here To View!</em></button>

@@ -105,7 +105,7 @@ if (isset($_POST['view_btn']))
               { ?>             
                           <div class="owl-item">
                             <div class="item">
-                               <a href="#" class="box1">
+                               <a class="box1">
                                     <div class="title2"><?php  echo $row1['accomodation_name']; ?> <em><?php  echo $row1['accomodation_name']; ?></em></div>
                                     <figure><img src="http://admin.xploremalaysia.asia/photo/package/<?php echo $row1['accomodation_image_id'];?>" height="167px" width="250px" alt=""></figure>
                                     <button name="view_btn"  value="<?php  echo $row1['accomodation_id']; ?>" class="title5">View now!<em>Click Here To View!</em></button>

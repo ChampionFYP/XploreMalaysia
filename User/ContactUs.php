@@ -212,7 +212,7 @@ exit();
 <form name = "registerfrm" method="post" action="ContactUs.php">
     <fieldset>
         <label> Name* :</label>
-            <input class="inputbox" type="text" name="name" id="name" size="30" required="" tabindex="1">
+            <input class="inputbox" type="text" name="name" id="name" size="30" required="" autofocus>
         
         <label>E-mail* :</label>
             <input class="inputbox" type="email" name="email" id="email" size="40" align="right" required="">

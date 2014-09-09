@@ -83,7 +83,7 @@
 
 <div class="about_us">
 
-<img class="about_us_img " src="img/kl.jpg" alt="about us pic">
+<img class="about_us_img " src="img/aboutus.jpg" alt="about us pic">
 
 <p class="abt_us_p"><span>Your Journey to Malaysia Begins Here</span><br>
 
