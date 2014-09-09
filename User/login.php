@@ -141,7 +141,7 @@ else
                       <div class="action_btns">            
                       <div style="float:right;"><button class="btn btn-info" data-dismiss="modal" type="submit">Login</button></div>
                       </div>    
-                      <a href="#" class="forgot_password">Forgot password?</a>
+                      <a href="forgot_password.php" class="forgot_password">Forgot password?</a>
                           </div>
                     </form>
                       </section>

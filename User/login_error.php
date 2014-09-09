@@ -150,7 +150,7 @@ else
                         <span class="login_error">Login Failed!<br>Please try again.</span>
                       <?php } ?>
             
-                      <a href="#" class="forgot_password">Forgot password?</a>
+                      <a href="forgot_password.php" class="forgot_password">Forgot password?</a>
                           </div>
                     </form>
                       </section>
