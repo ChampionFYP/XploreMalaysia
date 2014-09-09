@@ -48,6 +48,7 @@ if (!$select_db){
 
             $query = "INSERT INTO `customer` (customer_username, customer_password, gender, customer_name, customer_ic, customer_email, customer_phone, customer_address, status) VALUES ('$username', '$password', '$gender', '$username', '$ic', '$email', '$phone', '$address, $city, $state, $code','1')";
             mysql_query($query);
+            $msg_success=" Register Success";
         }
         if(!empty($values))
         {

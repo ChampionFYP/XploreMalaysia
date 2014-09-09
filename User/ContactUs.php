@@ -41,6 +41,8 @@ End of message
 
 /* Send the message using mail() function */
 mail($myemail, $type, $message);
+
+$msg_success=" Register Success";
 }
 /* Redirect visitor to the thank you page */
 // header('Location: thanks.htm');
