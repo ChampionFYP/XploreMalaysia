@@ -26,7 +26,7 @@ if(! $data )
 
 mysql_close($conn);
 
-if (isset($_POST['update_btn'])||isset($_POST['trans_id'])) 
+if (isset($_POST['update_btn'])&&isset($_POST['trans_id'])) 
 { 
    $transport_id=$_POST['trans_id'];
    $_SESSION['transport_id']=$transport_id;

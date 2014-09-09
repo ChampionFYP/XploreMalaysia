@@ -13,7 +13,7 @@ if(! $conn )
 
 mysql_select_db('xplorema_FYP');
 
-$package1 = "SELECT * FROM package";
+$package1 = "SELECT * FROM package where status='1'";
 $data_package1 = mysql_query( $package1, $conn );
 
 mysql_close($conn);

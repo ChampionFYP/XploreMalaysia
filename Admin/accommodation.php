@@ -25,7 +25,7 @@ if(! $data )
 
 mysql_close($conn);
 
-if (isset($_POST['update_btn'])||isset($_POST['acco_id'])) 
+if (isset($_POST['update_btn'])&&isset($_POST['acco_id'])) 
 { 
    $acco_id=$_POST['acco_id'];
    $_SESSION['accomodation_id']=$acco_id;

@@ -24,7 +24,7 @@ if(! $data )
 
 mysql_close($conn);
 
-if (isset($_POST['update_btn'])||isset($_POST['cus_id'])) 
+if (isset($_POST['update_btn'])&&isset($_POST['cus_id'])) 
 { 
    $customer_id=$_POST['cus_id'];
    $_SESSION['customer_id']=$customer_id;

@@ -25,7 +25,7 @@ if(! $data )
 
 mysql_close($conn);
 
-if (isset($_POST['update_btn'])||isset($_POST['pack_id'])) 
+if (isset($_POST['update_btn'])&&isset($_POST['pack_id'])) 
 { 
    $package_id=$_POST['pack_id'];
    $_SESSION['package_id']=$package_id;

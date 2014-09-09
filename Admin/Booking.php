@@ -29,7 +29,7 @@ if(! $data )
 
 // var_dump($data);
 
-if (isset($_POST['approve_btn'])||isset($_POST['book_id'])) 
+if (isset($_POST['approve_btn'])&&isset($_POST['book_id'])) 
 { 
    $booking_id=$_POST['book_id'];
    $update_payment = "UPDATE booking SET status='1',admin_id='$admin_id' WHERE booking_id='$booking_id'" ;
@@ -37,7 +37,7 @@ if (isset($_POST['approve_btn'])||isset($_POST['book_id']))
    header('Location: '. dirname(__folder__) .'/Booking.php');
 } 
 
-if (isset($_POST['delete_btn'])||isset($_POST['book_id'])) 
+if (isset($_POST['delete_btn'])&&isset($_POST['book_id'])) 
 { 
    $booking_id=$_POST['book_id'];
    $update_payment = "UPDATE booking SET status='2',admin_id='$admin_id' WHERE booking_id='$booking_id'" ;

@@ -17,6 +17,7 @@ mysql_select_db('xplorema_FYP');
 $sql = 'SELECT * FROM payment INNER JOIN admin ON payment.admin_id=admin.admin_id INNER JOIN customer ON payment.customer_id=customer.customer_id INNER JOIN status ON payment.status=status.status_id';
 $status = 'SELECT * FROM status';
 $admin_id=$_SESSION['admin_id'];
+$total='';
 
 
 $data = mysql_query( $sql, $conn );
@@ -29,7 +30,7 @@ if(! $data )
 
 
 
-if (isset($_POST['approve_btn'])||isset($_POST['pay_id'])) 
+if (isset($_POST['approve_btn'])&&isset($_POST['pay_id'])) 
 { 
    $payment_id=$_POST['pay_id'];
    $update_payment = "UPDATE payment SET status='5',admin_id='$admin_id' WHERE payment_id='$payment_id'" ;
@@ -80,7 +81,7 @@ if (isset($_POST['approve_btn'])||isset($_POST['pay_id']))
    header('Location: '. dirname(__folder__) .'/Payment.php');
 } 
 
-if (isset($_POST['delete_btn'])||isset($_POST['pay_id'])) 
+if (isset($_POST['delete_btn'])&&isset($_POST['pay_id'])) 
 { 
    $payment_id=$_POST['pay_id'];
    $update_payment = "UPDATE payment SET status='4',admin_id='$admin_id' WHERE payment_id='$payment_id'" ;
@@ -100,6 +101,27 @@ if (isset($_POST['search_btn']))
    $data = mysql_query($search_data, $conn );
    // header('Location: '. dirname(__folder__) .'/Payment.php');
 } 
+
+if (isset($_POST['report_btn'])) 
+{
+$contents="Payment_report\n Payment id , Type, Price, customer_id, date \n";
+$user_query = mysql_query("select * from payment INNER JOIN status ON payment.status=status.status_id WHERE payment.status='5'");
+while($row_payment = mysql_fetch_array($user_query))
+{
+$contents.=$row_payment['payment_id'].",";
+$contents.=$row_payment['payment_type'].",";
+$contents.=$row_payment['price'].",";
+$contents.=$row_payment['customer_id'].",";
+$contents.=$row_payment['created']."\n";
+$total += $row_payment['price']; // escape internalt commas
+// $contents.=$answer."\n";
+}
+$contents = strip_tags($contents); // remove html and php tags etc.
+Header("Content-Disposition: attachment; filename=payment_report.xls");
+print $contents;
+print "Total : ,". $total;
+exit;
+}
 mysql_close($conn);
 ?>
 
@@ -137,6 +159,7 @@ mysql_close($conn);
 					<h1>Payment</h1>
 					<input type="submit" name="approve_btn"  value="Approve" class="btn btn-default"></input>
 					<input type="submit" name="delete_btn"  value="Cancel" class="btn btn-default"></input>
+					<input type="submit" name="report_btn"  value="Report" class="btn btn-default"></input>
 				</div>
 				<div>
       				
