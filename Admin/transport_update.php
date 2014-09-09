@@ -78,21 +78,17 @@ if (!$select_db){
         <link rel="stylesheet" type="text/css" href="css/layout.css">
         <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
         <link rel="stylesheet" type="text/css" href="css/stylesheet2.css">
-        <link rel="stylesheet" type="text/css" href="css/summernote.css">
         <!--JS-->
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/bootstrap.js"></script>
-        <script type="text/javascript" src="js/summernote.js"></script>
     
     <script type="text/javascript">
         $(document).ready(function(){
           $('#navbar').load('layout/navbar.php');
           $('#sidebar').load('layout/sidebar.php');
-          $('#summernote').summernote();
         });
     </script>
-
-    <title>Transport</title>
+  <title>Update Transportation</title>
   </head>
   <body>
   <div class="fluid-container">
@@ -101,10 +97,9 @@ if (!$select_db){
       <div class="col-sm-12 col-md-2" style="padding-right:0px;"> 
         <div id="sidebar"></div>
       </div>
-      <div id="content" style="margin-left:16%;">
       <div class="box col-sm-12 col-md-10 pull-right" style="padding-left:0px;">
-    <div class="heading">
-          <h1>transport</h1>
+        <div class="heading">
+          <h1>Transportation</h1>
         <form method="post" action="transport_update.php"> 
           <div><a href="transport.php" class="btn btn-default">Cancel</a></div>
           <div>                                
@@ -118,7 +113,7 @@ if (!$select_db){
 	while($row = mysql_fetch_array($data, MYSQL_ASSOC))
 	{ ?>
 <tr>
-                <td><span class="required">*</span> Transport Name:</td>
+                <td><span class="required">*</span> Transportation Name:</td>
                 <td><input type="text" id="name" name="name" size="100" value="<?php  echo $row['transport_name']; ?>"/>
                 </td>
               </tr>
@@ -133,7 +128,11 @@ if (!$select_db){
             </tr>
 			     <tr>
                 <td>Description:</td>
-                <td><textarea name="desc" id="desc"><?php  echo $row['transport_description']; ?></textarea></td>
+              <td>
+                <textarea name="desc" id="desc" cols="40" rows="20">
+                  <?php  echo $row['transport_description']; ?>
+                </textarea>
+              </td>
             </tr>
             <tr>
               <td>Image:</td>

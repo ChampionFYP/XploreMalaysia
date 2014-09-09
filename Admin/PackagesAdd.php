@@ -60,18 +60,6 @@ if (!$select_db){
           }
         } 
         
-
-
-
-
-
-
-
-
-
-
-
-
   
         $query = "INSERT INTO `package` (package_name, package_price, package_description, status, country_id, transport_id, accomodation_id,admin_id,package_image_id,number_person) VALUES ('$name', '$price', '$desc', '$status', '$country', '$transport', '$accomodation','$admin','$picture','$no_people')";
         mysql_query($query);
@@ -87,15 +75,6 @@ if (!$select_db){
 ?>
 
 
-
-
-
-
-
-
-
-
-
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -107,65 +86,41 @@ if (!$select_db){
         <link rel="stylesheet" type="text/css" href="css/layout.css">
         <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
         <link rel="stylesheet" type="text/css" href="css/stylesheet2.css">
-        <link rel="stylesheet" type="text/css" href="css/summernote.css">
         <!--JS-->
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/bootstrap.js"></script>
-        <script type="text/javascript" src="js/summernote.js"></script>
     
     <script type="text/javascript">
         $(document).ready(function(){
           $('#navbar').load('layout/navbar.php');
           $('#sidebar').load('layout/sidebar.php');
-          $('#summernote').summernote();
         });
     </script>
-
-    <title>Packages</title>
+    <title>Add Packages</title>
   </head>
 	<body>
 	<div class="fluid-container">
-		<div id="navbar"></div>
-		<div class="row">
-			<div class="col-sm-12 col-md-2" style="padding-right:0px;"> 
-				<div id="sidebar"></div>
-			</div>
-			<div id="content" style="margin-left:16%;">
+    <div id="navbar"></div>
+    <div class="row">
+      <div class="col-sm-12 col-md-2" style="padding-right:0px;"> 
+        <div id="sidebar"></div>
+      </div>
       <div class="box col-sm-12 col-md-10 pull-right" style="padding-left:0px;">
-    <div class="heading">
-          <h1>Packages</h1>
-        <form method="post" action="PackagesAdd.php"> 
+        <div class="heading">
+          <h1>Package</h1>
+          <form method="post" action="PackagesAdd.php">
           <div><a href="Packages.php" class="btn btn-default">Cancel</a></div>
           <div>                                
-    <button class="btn btn-default" type="submit">Add</button>
-    </div>
-        </div>
-
-
-    <div class="content" style="margin-left:20%; margin-top:5%;">
-
-      
-        <div id="tab-general">
-          <div id="languages" class="htabs">
-                        <a href="#language1"><img src="./Files/flags/gb.png" title="English" /> English</a>
-                      </div>
-                    <div id="language1">
-            <table class="form">
-
-					 
-
-						
-              <tr>
+            <button class="btn btn-default" type="submit">Save & Close</button>
+          </div>
+      </div>
+      <table width="400" border="0" cellspacing="1" cellpadding="2">
+            <tr>
                 <td><span class="required">*</span> Package Name:</td>
                 <td><input type="text" id="name" name="name" size="100"/>
                   </td>
-              </tr>
-              
-            </table>
-          </div>
-                  </div>
-        <div id="tab-data">
-          <table class="form">
+            </tr>
+
             <tr>
               <td>Country:</td>
               <td><select style="width: 90px;" id="country" name="country">
@@ -213,7 +168,10 @@ if (!$select_db){
 
 			        <tr>
                 <td>Description:</td>
-                <td><textarea name="desc" id="desc"></textarea></td>
+                <td>
+                  <textarea name="desc" id="desc" cols="40" rows="20">
+                  </textarea>
+                </td>
               </tr>
             </tr>
             <tr>

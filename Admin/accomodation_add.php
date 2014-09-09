@@ -67,8 +67,8 @@ if (!$select_db){
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
         <link rel="stylesheet" type="text/css" href="css/layout.css">
-        <link rel="stylesheet" type="text/css" href="./css/stylesheet.css">
-    <link rel="stylesheet" type="text/css" href="./css/stylesheet2.css">
+        <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+        <link rel="stylesheet" type="text/css" href="css/stylesheet2.css">
         <!--JS-->
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/bootstrap.js"></script>
@@ -79,7 +79,7 @@ if (!$select_db){
           $('#sidebar').load('layout/sidebar.php');
         });
     </script>
-    <title>Packages</title>
+    <title>Add Accomodation</title>
   </head>
   <body>
   <div class="fluid-container">
@@ -88,38 +88,21 @@ if (!$select_db){
       <div class="col-sm-12 col-md-2" style="padding-right:0px;"> 
         <div id="sidebar"></div>
       </div>
-      <div id="content" style="margin-left:16%;">
       <div class="box col-sm-12 col-md-10 pull-right" style="padding-left:0px;">
-    <div class="heading">
-    <form method="post" action="accomodation_add.php" enctype="multipart/form-data">
-      <h1>Packages</h1>
-      <div class="buttons">                               
-    <button class="button" type="submit">Save & Close</button><a href="accommodation.php" class="button">Cancel</a></div>
-    </div>
-    <div class="content" style="margin-left:20%; margin-top:5%;">
-
-      
-        <div id="tab-general">
-          <div id="languages" class="htabs">
-                        <a href="#language1"><img src="./Files/flags/gb.png" title="English" /> English</a>
-                      </div>
-                    <div id="language1">
-            <table class="form">
-
-           
-
-            
-              <tr>
-                <td><span class="required">*</span> Accomodation Name:</td>
+        <div class="heading">
+          <h1>Accomodation</h1>
+          <form method="post" action="accomodation_add.php">
+          <div><a href="accommodation.php" class="btn btn-default">Cancel</a></div>
+          <div>                                
+            <button class="btn btn-default" type="submit">Save & Close</button>
+          </div>
+      </div>
+      <table width="400" border="0" cellspacing="1" cellpadding="2">
+            <tr>
+                <td><span class="required">*</span> Accommodation Name:</td>
                 <td><input type="text" id="name" name="name" size="100"/>
                   </td>
-              </tr>
-              
-            </table>
-          </div>
-          </div>
-        <div id="tab-data">
-          <table class="form">
+            </tr>
            <tr>
               <td>Category:</td>
               <td><input type="text" name="category" id ="category"/></td>
@@ -134,7 +117,7 @@ if (!$select_db){
             </tr>            
               <tr>
                 <td>Description:</td>
-                <td><textarea name="desc" id="desc"></textarea></td>
+                <td><textarea name="desc" id="desc" cols="40" rows="20"></textarea></td>
               </tr>
             <tr>
               <td>Image:</td>

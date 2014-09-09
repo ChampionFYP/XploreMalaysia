@@ -279,11 +279,7 @@ a, a:visited {
 	padding-left: 7px;
 	padding-right: 7px;
 	border: 0px solid #eee;
-	background:#34478C repeat-x; 
-	-webkit-border-radius: 5px 5px 5px 5px;
-	-moz-border-radius: 5px 5px 5px 5px;
-	-khtml-border-radius: 5px 5px 5px 5px;
-	border-radius: 5px 5px 5px 5px;
+	background:#34478C repeat-x;
 }
 
 .box > .heading h1 {

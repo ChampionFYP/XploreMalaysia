@@ -101,7 +101,7 @@ $testing2=mysql_query($old_data);
 $testing3=mysql_query($old_data);
 $testing4=mysql_query($old_data);
 
-var_dump($desc);
+//var_dump($desc);
 
 mysql_close($conn);
 ?>
@@ -117,21 +117,17 @@ mysql_close($conn);
         <link rel="stylesheet" type="text/css" href="css/layout.css">
         <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
         <link rel="stylesheet" type="text/css" href="css/stylesheet2.css">
-        <link rel="stylesheet" type="text/css" href="css/summernote.css">
         <!--JS-->
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/bootstrap.js"></script>
-        <script type="text/javascript" src="js/summernote.js"></script>
     
     <script type="text/javascript">
         $(document).ready(function(){
           $('#navbar').load('layout/navbar.php');
           $('#sidebar').load('layout/sidebar.php');
-          $('#summernote').summernote();
         });
     </script>
-
-    <title>Packages</title>
+  <title>Packages</title>
   </head>
   <body>
   <div class="fluid-container">
@@ -140,10 +136,9 @@ mysql_close($conn);
       <div class="col-sm-12 col-md-2" style="padding-right:0px;"> 
         <div id="sidebar"></div>
       </div>
-      <div id="content" style="margin-left:16%;">
       <div class="box col-sm-12 col-md-10 pull-right" style="padding-left:0px;">
-    <div class="heading">
-          <h1>Packages</h1>
+        <div class="heading">
+          <h1>Update Package</h1>
         <form method="post" action="PackagesUpdate.php"> 
           <div><a href="Packages.php" class="btn btn-default">Cancel</a></div>
           <div>                                
@@ -151,12 +146,12 @@ mysql_close($conn);
           </div>
         </div>
 
-<form method="post" action="<?php $_PHP_SELF ?>" enctype="multipart/form-data">
+<form method="post" action="<?php $_PHP_SELF ?>" enctype="multipart/form-data" onsubmit="return postForm()">
 <table width="400" border="0" cellspacing="1" cellpadding="2">
 <?php 
 	while($row = mysql_fetch_array($data, MYSQL_ASSOC))
 	{ ?>
-<tr>
+              <tr>
                 <td><span class="required">*</span> Package Name:</td>
                 <td><input type="text" id="name" name="name" size="100" value="<?php  echo $row['package_name']; ?>"/>
                 </td>
@@ -172,7 +167,11 @@ mysql_close($conn);
             </tr>
 			       <tr>
                 <td>Description:</td>
-                <td><textarea name="desc" id="desc"><?php  echo $row['package_description']; ?></textarea></td>
+                <td>
+                  <textarea name="desc" id="desc" cols="40" rows="20">
+                    <?php echo $row['package_description']; ?>
+                  </textarea>
+                </td>
 -              </tr>
             </tr>
             <tr>

@@ -94,7 +94,7 @@ $customer_id=$_SESSION['customer_id'];
 					$('#sidebar').load('layout/sidebar.php');
 				});
 		</script>
-		<title>Country</title>
+		<title>Update Customer</title>
 	</head>
 	<body>
 	<div class="fluid-container">

@@ -69,8 +69,8 @@ if (!$select_db){
 
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!--CSS-->
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
@@ -78,72 +78,55 @@ if (!$select_db){
         <link rel="stylesheet" type="text/css" href="css/layout.css">
         <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
         <link rel="stylesheet" type="text/css" href="css/stylesheet2.css">
-        <link rel="stylesheet" type="text/css" href="css/summernote.css">
         <!--JS-->
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/bootstrap.js"></script>
-        <script type="text/javascript" src="js/summernote.js"></script>
     
     <script type="text/javascript">
         $(document).ready(function(){
           $('#navbar').load('layout/navbar.php');
           $('#sidebar').load('layout/sidebar.php');
-          $('#summernote').summernote();
         });
     </script>
-		<title>Transport</title>
-	</head>
-	<body>
-	<div class="fluid-container">
-		<div id="navbar"></div>
-		<div class="row">
-			<div class="col-sm-12 col-md-2" style="padding-right:0px;"> 
-				<div id="sidebar"></div>
-			</div>
-			<div id="content" style="margin-left:16%;">
+    <title>Add Transportation</title>
+  </head>
+  <body>
+  <div class="fluid-container">
+    <div id="navbar"></div>
+    <div class="row">
+      <div class="col-sm-12 col-md-2" style="padding-right:0px;"> 
+        <div id="sidebar"></div>
+      </div>
       <div class="box col-sm-12 col-md-10 pull-right" style="padding-left:0px;">
-    <div class="heading">
-    <form method="post" action="transport_add.php" enctype="multipart/form-data">
-      <h1>Transport</h1>
-      <div class="buttons">																
-	  <button class="button" type="submit">Save & Close</button><a href="transport.php" class="button">Cancel</a></div>
-    </div>
-    <div class="content" style="margin-left:20%; margin-top:5%;">
-
-      
-        <div id="tab-general">
-          <div id="languages" class="htabs">
-                        <a href="#language1"><img src="./Files/flags/gb.png" title="English" /> English</a>
-                      </div>
-                    <div id="language1">
-            <table class="form">
-
-					 
-
-						
-              <tr>
-                <td><span class="required">*</span> transport Name:</td>
+        <div class="heading">
+          <h1>Transportation</h1>
+          <form method="post" action="PackagesAdd.php">
+          <div><a href="transport.php" class="btn btn-default">Cancel</a></div>
+          <div>                                
+            <button class="btn btn-default" type="submit">Save & Close</button>
+          </div>
+      </div>
+      <table width="400" border="0" cellspacing="1" cellpadding="2">
+            <tr>
+                <td><span class="required">*</span> Transportation Name:</td>
                 <td><input type="text" id="name" name="name" size="100"/>
                   </td>
-              </tr>
-              
-            </table>
-          </div>
-          </div>
-        <div id="tab-data">
-          <table class="form">
+            </tr>
             <tr>
-              <td>type</td>
+              <td>Type:</td>
               <td><input type="text" name="type" id ="address"/></td>
             </tr>
             <tr>
-              <td>Phone</td>
+              <td>Phone:</td>
               <td><input type="text" name="phone" id ="phone"/></td>
             </tr>            
 			        <tr>
                 <td>Description:</td>
-                <td><textarea name="desc" id="desc"></textarea></td>
-            </tr>
+                <td>
+                  <textarea name="desc" id="desc" cols="40" rows="20">
+                  </textarea>
+                </td>
+              </tr>
             <tr>
               <td>Image:</td>
               <td>
@@ -152,7 +135,7 @@ if (!$select_db){
             </tr>
 
             <tr>
-              <td>status:</td>
+              <td>Status:</td>
               <td><select style="width: 90px;" id="status" name="status">
 
               <?php while($row = mysql_fetch_array($data_status, MYSQL_ASSOC))

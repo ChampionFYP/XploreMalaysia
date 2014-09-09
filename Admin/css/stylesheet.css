@@ -241,10 +241,6 @@ body > #container {
 	padding-right: 7px;
 	border: 1px solid #DBDBDB;
 	background: url('../image/box.png') repeat-x;
-	-webkit-border-radius: 7px 7px 0px 0px;
-	-moz-border-radius: 7px 7px 0px 0px;
-	-khtml-border-radius: 7px 7px 0px 0px;
-	border-radius: 7px 7px 0px 0px;
 }
 .box > .heading h1 {
 	margin: 0px;

@@ -99,7 +99,7 @@ if (!$select_db){
 					$('#sidebar').load('layout/sidebar.php');
 				});
 		</script>
-		<title>Country</title>
+		<title>Add Customer</title>
 	</head>
 	<body>
 	<div class="fluid-container">
