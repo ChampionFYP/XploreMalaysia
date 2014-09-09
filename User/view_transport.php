@@ -68,7 +68,7 @@ mysql_close($conn);
           </div>
         </td>
         <td style="border-left:0;">
-          <img src="http://admin.xploremalaysia.asia/photo/transport/<?php echo $row1['transport_image_id'];?>"  style="float:right; margin-left:10px;" height="300px" width="450px" >
+          <img src="http://admin.xploremalaysia.asia/photo/transport/<?php echo $row['transport_image_id'];?>"  style="float:right; margin-left:10px;" height="300px" width="450px" >
         </td>
         <tr>
           <td colspan="2">
