@@ -104,7 +104,7 @@ if (isset($_POST['update_btn'])&&isset($_POST['trans_id']))
 							    	</td>
 							    	<td class="center" width=250 >  <?php  echo $row['type']; ?></td>
 							    	<td class="center" width=250 >  <?php  echo $row['phone']; ?></td>
-							    	<td class="center">  <?php  echo $row['description']; ?></td>
+							    	<td class="center">  <?php  echo $row['transport_description']; ?></td>
 							    	<td class="center">  <?php  echo $row['admin_username']; ?></td>
 							    	<td class="center">  <?php  echo $row['admin_id']; ?></td>
 							    	<td class="center">  <?php  echo $row['status_name']; ?></td>

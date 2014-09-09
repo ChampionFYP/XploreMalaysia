@@ -14,8 +14,6 @@ if(! $conn )
 mysql_select_db('xplorema_FYP');
 
 $sql = "SELECT * FROM package INNER JOIN country ON package.country_id=country.country_id INNER JOIN accomodation ON package.accomodation_id=accomodation.accomodation_id INNER JOIN transport ON package.transport_id=transport.transport_id INNER JOIN status ON package.status=status.status_id ";
-
-
 $data = mysql_query( $sql, $conn );
 
 if(! $data )
@@ -105,7 +103,7 @@ if (isset($_POST['update_btn'])&&isset($_POST['pack_id']))
 							    	<td class="center">  <?php  echo $row['accomodation_name']; ?></td>
 							    	<td class="center">  <?php  echo $row['admin_id']; ?></td>
 							    	<td class="center">  <?php  echo $row['package_price']; ?></td>
-							    	<td class="center">  <?php  echo $row['description']; ?></td>
+							    	<td class="center">  <?php  echo $row['package_description']; ?></td>
 							    	<td class="center">  <?php  echo $row['status_name']; ?></td>
 							    <tr>
 						<?php } ?>

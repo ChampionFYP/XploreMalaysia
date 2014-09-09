@@ -51,7 +51,7 @@ if (!$select_db){
           }
         } 
        
-        $query = "INSERT INTO accomodation SET accomodation_name='$name', description='$desc', status='$status', accomodation_admin_id='$admin', image_id='$picture', category='$category', accomodation_address='$address', accomodation_phone='$phone'";
+        $query = "INSERT INTO accomodation SET accomodation_name='$name', accomodation_description='$desc', status='$status', accomodation_admin_id='$admin', image_id='$picture', category='$category', accomodation_address='$address', accomodation_phone='$phone'";
         mysql_query($query);
         header('Location: '. dirname(__folder__) .'/accommodation.php');
 
@@ -77,22 +77,19 @@ if (!$select_db){
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
         <link rel="stylesheet" type="text/css" href="css/layout.css">
-        <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
-        <link rel="stylesheet" type="text/css" href="css/stylesheet2.css">
-        <link rel="stylesheet" type="text/css" href="css/summernote.css">
+        <link rel="stylesheet" type="text/css" href="./css/stylesheet.css">
+		<link rel="stylesheet" type="text/css" href="./css/stylesheet2.css">
         <!--JS-->
-        <script type="text/javascript" src="js/jquery.js"></script>
-        <script type="text/javascript" src="js/bootstrap.js"></script>
-        <script type="text/javascript" src="js/summernote.js"></script>
-    
-    <script type="text/javascript">
-        $(document).ready(function(){
-          $('#navbar').load('layout/navbar.php');
-          $('#sidebar').load('layout/sidebar.php');
-          $('#summernote').summernote();
-        });
-    </script>
-		<title>Accomodation</title>
+      	<script type="text/javascript" src="js/jquery.js"></script>
+      	<script type="text/javascript" src="js/bootstrap.js"></script>
+		
+		<script type="text/javascript">
+				$(document).ready(function(){
+					$('#navbar').load('layout/navbar.php');
+					$('#sidebar').load('layout/sidebar.php');
+				});
+		</script>
+		<title>Packages</title>
 	</head>
 	<body>
 	<div class="fluid-container">
@@ -147,12 +144,8 @@ if (!$select_db){
             </tr>            
 			        <tr>
                 <td>Description:</td>
-                <td>
-                  <textarea name="summernote" id="summernote" cols="30" rows="10">
-                    <?php  echo $row['description']; ?>
-                  </textarea>
-                </td>
-            </tr>
+                <td><textarea name="desc" id="desc"></textarea></td>
+              </tr>
             <tr>
               <td>Image:</td>
               <td>
