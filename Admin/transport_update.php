@@ -68,12 +68,50 @@ if (!$select_db){
 ?>
 
 <!DOCTYPE HTML>
-
 <html>
-<head>
-<title>Update a Record in MySQL Database</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--CSS-->
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+        <link rel="stylesheet" type="text/css" href="css/layout.css">
+        <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+        <link rel="stylesheet" type="text/css" href="css/stylesheet2.css">
+        <link rel="stylesheet" type="text/css" href="css/summernote.css">
+        <!--JS-->
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/bootstrap.js"></script>
+        <script type="text/javascript" src="js/summernote.js"></script>
+    
+    <script type="text/javascript">
+        $(document).ready(function(){
+          $('#navbar').load('layout/navbar.php');
+          $('#sidebar').load('layout/sidebar.php');
+          $('#summernote').summernote();
+        });
+    </script>
+
+    <title>Packages</title>
+  </head>
+  <body>
+  <div class="fluid-container">
+    <div id="navbar"></div>
+    <div class="row">
+      <div class="col-sm-12 col-md-2"> 
+        <div id="sidebar"></div>
+      </div>
+      <div id="content" style="margin-left:16%;">
+      <div class="box">
+    <div class="heading">
+          <h1>Packages</h1>
+        <form method="post" action="PackagesAdd.php"> 
+          <div><a href="Packages.php" class="btn btn-default">Cancel</a></div>
+          <div>                                
+            <input name="update" type="submit" class="btn btn-default" id="update" value="Update">
+          </div>
+        </div>
+        
 <form method="post" action="<?php $_PHP_SELF ?>" enctype="multipart/form-data">
 <table width="400" border="0" cellspacing="1" cellpadding="2">
 <?php 
@@ -95,7 +133,11 @@ if (!$select_db){
             </tr>
 			     <tr>
                 <td>Description:</td>
-                <td><textarea name="desc" id="desc"><?php  echo $row['description']; ?></textarea></td>
+                <td>
+                  <textarea name="summernote" id="summernote" cols="30" rows="10">
+                    <?php  echo $row['description']; ?>
+                  </textarea>
+                </td>
             </tr>
             <tr>
               <td>Image:</td>

@@ -132,8 +132,7 @@ mysql_close($conn);
                 </tr>
                 <tr>
                   <td></td>
-                  <td><a class="btn btn-warning" href="UserEdit.php">Edit</a></td>
-                  <td><a class="btn btn-danger" href="">Deactivate</a></td>
+                  <td colspan="2"><a class="btn btn-warning" href="UserEdit.php">Edit</a></td>
                 </tr>
                  <?php } ?>
                </tbody>

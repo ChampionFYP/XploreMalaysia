@@ -73,7 +73,7 @@ if (isset($_POST['update_btn'])&&isset($_POST['cus_id']))
 			<div class="box col-sm-12 col-md-10 pull-right">
 				<div class="heading">
 					<h1>Customer</h1>
-					<div ><a href="CustomerAdd.html" class="btn btn-default">Add</a></div>
+					<div ><a href="CustomerAdd.php" class="btn btn-default">Add</a></div>
           <input type="submit" name="update_btn"  value="Update" class="btn btn-default"></input>
 				</div>
 				<div>

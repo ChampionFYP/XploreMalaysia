@@ -103,29 +103,54 @@ $testing4=mysql_query($old_data);
 
 // $testing1=mysql_fetch_array($testing, MYSQL_ASSOC);
 
-
-
-
-
-
-
-
 mysql_close($conn);
 ?>
 
-
-
-
-
-
-
 <!DOCTYPE HTML>
-
 <html>
-<head>
-<title>Update a Record in MySQL Database</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--CSS-->
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+        <link rel="stylesheet" type="text/css" href="css/layout.css">
+        <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+        <link rel="stylesheet" type="text/css" href="css/stylesheet2.css">
+        <link rel="stylesheet" type="text/css" href="css/summernote.css">
+        <!--JS-->
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/bootstrap.js"></script>
+        <script type="text/javascript" src="js/summernote.js"></script>
+    
+    <script type="text/javascript">
+        $(document).ready(function(){
+          $('#navbar').load('layout/navbar.php');
+          $('#sidebar').load('layout/sidebar.php');
+          $('#summernote').summernote();
+        });
+    </script>
+
+    <title>Packages</title>
+  </head>
+  <body>
+  <div class="fluid-container">
+    <div id="navbar"></div>
+    <div class="row">
+      <div class="col-sm-12 col-md-2"> 
+        <div id="sidebar"></div>
+      </div>
+      <div id="content" style="margin-left:16%;">
+      <div class="box">
+    <div class="heading">
+          <h1>Packages</h1>
+        <form method="post" action="PackagesAdd.php"> 
+          <div><a href="Packages.php" class="btn btn-default">Cancel</a></div>
+          <div>                                
+            <input name="update" type="submit" class="btn btn-default" id="update" value="Update">
+          </div>
+        </div>
+
 <form method="post" action="<?php $_PHP_SELF ?>" enctype="multipart/form-data">
 <table width="400" border="0" cellspacing="1" cellpadding="2">
 <?php 
@@ -145,9 +170,13 @@ mysql_close($conn);
               <td>Number of People:</td>
               <td><input type="text" name="no_people" id ="no_people" value="<?php  echo $row['number_person']; ?>"/></td>
             </tr>
-			<tr>
+			       <tr>
                 <td>Description:</td>
-                <td><textarea name="desc" id="desc"><?php  echo $row['description']; ?></textarea></td>
+                <td>
+                  <textarea name="summernote" id="summernote" cols="30" rows="10">
+                    <?php  echo $row['description']; ?>
+                  </textarea>
+                </td>
             </tr>
             <tr>
               <td>Image:</td>
@@ -155,8 +184,6 @@ mysql_close($conn);
               <input type="file" name="file" id="file" value="<?php  echo $row['image_id']; ?>"><br>
               </td>
             </tr>
-          
-        
             <tr>
               <td>Country:</td>
               <td><select style="width: 90px;" id="country" name="country" value="<?php  echo $row['country_id']; ?>">
@@ -215,18 +242,12 @@ mysql_close($conn);
               <option value="<?php  echo $row['status_id']; ?>"><?php echo $row['status_name']; ?></option>
               <?php } ?>                  
               </select></td>
-            </tr>
-
-              
-
-            
+            </tr>     
 <td>
-<input name="update" type="submit" id="update" value="Update">
 </td>
 </tr>
 <?php } ?>
 </table>
 </form>
-
 </body>
 </html>
