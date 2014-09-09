@@ -50,7 +50,7 @@ if (!$select_db){
           }
         } 
        
-        $query = "INSERT INTO transport SET transport_name='$name', description='$desc', status='$status', admin_id='$admin', transport_image_id='$picture', type='$type', phone='$phone'";
+        $query = "INSERT INTO transport SET transport_name='$name', transport_description='$desc', status='$status', admin_id='$admin', transport_image_id='$picture', type='$type', phone='$phone'";
         mysql_query($query);
         header('Location: '. dirname(__folder__) .'/transport.php');
 
@@ -142,11 +142,7 @@ if (!$select_db){
             </tr>            
 			        <tr>
                 <td>Description:</td>
-                <td>
-                  <textarea name="summernote" id="summernote" cols="30" rows="10">
-                    <?php  echo $row['description']; ?>
-                  </textarea>
-                </td>
+                <td><textarea name="desc" id="desc"></textarea></td>
             </tr>
             <tr>
               <td>Image:</td>

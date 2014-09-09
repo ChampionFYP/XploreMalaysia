@@ -73,7 +73,7 @@ if (!$select_db){
 
 
   
-        $query = "INSERT INTO `package` (package_name, package_price, description, status, country_id, transport_id, accomodation_id,admin_id,package_image_id,number_person) VALUES ('$name', '$price', '$desc', '$status', '$country', '$transport', '$accomodation','$admin','$picture','$no_people')";
+        $query = "INSERT INTO `package` (package_name, package_price, package_description, status, country_id, transport_id, accomodation_id,admin_id,package_image_id,number_person) VALUES ('$name', '$price', '$desc', '$status', '$country', '$transport', '$accomodation','$admin','$picture','$no_people')";
         mysql_query($query);
 
 
@@ -213,11 +213,8 @@ if (!$select_db){
 
 			        <tr>
                 <td>Description:</td>
-                <td>
-                  <textarea name="summernote" id="summernote" cols="30" rows="10">
-                    <?php  echo $row['description']; ?>
-                  </textarea>
-                </td>
+                <td><textarea name="desc" id="desc"></textarea></td>
+              </tr>
             </tr>
             <tr>
               <td>Image:</td>

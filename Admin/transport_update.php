@@ -58,7 +58,7 @@ if (!$select_db){
           }
         } 
        
-        $query = "UPDATE transport SET transport_name='$name', description='$desc', status='$status', admin_id='$admin', transport_image_id='$picture', type='$type', phone='$phone' WHERE transport_id='$transport_id'";
+        $query = "UPDATE transport SET transport_name='$name', transport_description='$desc', status='$status', admin_id='$admin', transport_image_id='$picture', type='$type', phone='$phone' WHERE transport_id='$transport_id'";
         mysql_query($query);
         header('Location: '. dirname(__folder__) .'/transport.php');
     }
@@ -92,7 +92,7 @@ if (!$select_db){
         });
     </script>
 
-    <title>Packages</title>
+    <title>Transport</title>
   </head>
   <body>
   <div class="fluid-container">
@@ -104,9 +104,9 @@ if (!$select_db){
       <div id="content" style="margin-left:16%;">
       <div class="box">
     <div class="heading">
-          <h1>Packages</h1>
-        <form method="post" action="PackagesAdd.php"> 
-          <div><a href="Packages.php" class="btn btn-default">Cancel</a></div>
+          <h1>transport</h1>
+        <form method="post" action="transport_update.php"> 
+          <div><a href="transport.php" class="btn btn-default">Cancel</a></div>
           <div>                                
             <input name="update" type="submit" class="btn btn-default" id="update" value="Update">
           </div>
@@ -133,11 +133,7 @@ if (!$select_db){
             </tr>
 			     <tr>
                 <td>Description:</td>
-                <td>
-                  <textarea name="summernote" id="summernote" cols="30" rows="10">
-                    <?php  echo $row['description']; ?>
-                  </textarea>
-                </td>
+                <td><textarea name="desc" id="desc"><?php  echo $row['transport_description']; ?></textarea></td>
             </tr>
             <tr>
               <td>Image:</td>

@@ -58,53 +58,43 @@ if (!$select_db){
     }
 ?>
 
-
-
-
-
-
-
-
-
-
-
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!--CSS-->
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
         <link rel="stylesheet" type="text/css" href="css/layout.css">
         <link rel="stylesheet" type="text/css" href="./css/stylesheet.css">
-		<link rel="stylesheet" type="text/css" href="./css/stylesheet2.css">
+    <link rel="stylesheet" type="text/css" href="./css/stylesheet2.css">
         <!--JS-->
-      	<script type="text/javascript" src="js/jquery.js"></script>
-      	<script type="text/javascript" src="js/bootstrap.js"></script>
-		
-		<script type="text/javascript">
-				$(document).ready(function(){
-					$('#navbar').load('layout/navbar.php');
-					$('#sidebar').load('layout/sidebar.php');
-				});
-		</script>
-		<title>Packages</title>
-	</head>
-	<body>
-	<div class="fluid-container">
-		<div id="navbar"></div>
-		<div class="row">
-			<div class="col-sm-12 col-md-2"> 
-				<div id="sidebar"></div>
-			</div>
-			<div id="content" style="margin-left:16%;">
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/bootstrap.js"></script>
+    
+    <script type="text/javascript">
+        $(document).ready(function(){
+          $('#navbar').load('layout/navbar.php');
+          $('#sidebar').load('layout/sidebar.php');
+        });
+    </script>
+    <title>Packages</title>
+  </head>
+  <body>
+  <div class="fluid-container">
+    <div id="navbar"></div>
+    <div class="row">
+      <div class="col-sm-12 col-md-2"> 
+        <div id="sidebar"></div>
+      </div>
+      <div id="content" style="margin-left:16%;">
       <div class="box">
     <div class="heading">
     <form method="post" action="accomodation_add.php" enctype="multipart/form-data">
       <h1>Packages</h1>
-      <div class="buttons">																
-	  <button class="button" type="submit">Save & Close</button><a href="accommodation.php" class="button">Cancel</a></div>
+      <div class="buttons">                               
+    <button class="button" type="submit">Save & Close</button><a href="accommodation.php" class="button">Cancel</a></div>
     </div>
     <div class="content" style="margin-left:20%; margin-top:5%;">
 
@@ -116,9 +106,9 @@ if (!$select_db){
                     <div id="language1">
             <table class="form">
 
-					 
+           
 
-						
+            
               <tr>
                 <td><span class="required">*</span> Accomodation Name:</td>
                 <td><input type="text" id="name" name="name" size="100"/>
@@ -142,7 +132,7 @@ if (!$select_db){
               <td>Phone</td>
               <td><input type="text" name="phone" id ="phone"/></td>
             </tr>            
-			        <tr>
+              <tr>
                 <td>Description:</td>
                 <td><textarea name="desc" id="desc"></textarea></td>
               </tr>
@@ -168,8 +158,8 @@ if (!$select_db){
       </form>
     </div>
   </div>
-</div>	
-		</div> <!--row-->
-		</div> <!--fluid-container-->
-	</body>
+</div>  
+    </div> <!--row-->
+    </div> <!--fluid-container-->
+  </body>
 </html>

@@ -64,7 +64,7 @@ mysql_close($conn);
         </tr>
         <td style="border-right:0;">
           <div>
-                <p style="font-size:14px;text-align:justify;margin:0px 80px;font-family:verdana;"><?php echo $row['description']; ?></p>
+                <p style="font-size:14px;text-align:justify;margin:0px 80px;font-family:verdana;"><?php echo $row['transport_description']; ?></p>
           </div>
         </td>
         <td style="border-left:0;">

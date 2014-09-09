@@ -62,7 +62,7 @@ $allowedExts = array("gif", "jpeg", "jpg", "png");
           }
         } 
         
-$sql = "UPDATE accomodation SET accomodation_name='$name', description='$desc', status='$status', admin_id='$admin', accomodation_image_id='$picture', category='$category', accomodation_address='$address', accomodation_phone='$phone' WHERE accomodation_id='$accomodation_id'" ;
+$sql = "UPDATE accomodation SET accomodation_name='$name', accomodation_description='$desc', status='$status', admin_id='$admin', accomodation_image_id='$picture', category='$category', accomodation_address='$address', accomodation_phone='$phone' WHERE accomodation_id='$accomodation_id'" ;
 $retval = mysql_query( $sql, $conn );
 if(! $retval )
 {
@@ -125,7 +125,7 @@ mysql_close($conn);
             </tr>
 			     <tr>
                 <td>Description:</td>
-                <td><textarea name="desc" id="desc"><?php  echo $row['description']; ?></textarea></td>
+                <td><textarea name="desc" id="desc"><?php  echo $row['accomodation_description']; ?></textarea></td>
             </tr>
             <tr>
               <td>Image:</td>

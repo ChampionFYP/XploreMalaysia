@@ -83,7 +83,7 @@ if (isset($_POST['review_btn']))
         </tr>
          <td style="border-right:0;">
           <div>
-                <p style="font-size:14px;text-align:justify;margin:0px 80px;font-family:verdana;"><?php echo $row['description']; ?></p>
+                <p style="font-size:14px;text-align:justify;margin:0px 80px;font-family:verdana;"><?php echo $row['package_description']; ?></p>
                 <br><br>
                 <h3>Price: RM <?php echo $row['package_price']; ?></h3>
           </div>

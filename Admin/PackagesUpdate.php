@@ -69,7 +69,7 @@ $picture=$image_id;
               move_uploaded_file($_FILES["file"]["tmp_name"], $_SERVER['DOCUMENT_ROOT'] . "/photo/package/" . $picture);
           }
         } 
-$sql = "UPDATE package SET package_name='$name', package_price='$price', description='$desc', status='$status', country_id='$country', transport_id='$transport', accomodation_id='$accomodation', admin_id='$admin', package_image_id='$picture',number_person='$no_people' WHERE package_id='$package_id'" ;
+$sql = "UPDATE package SET package_name='$name', package_price='$price', package_description='$desc', status='$status', country_id='$country', transport_id='$transport', accomodation_id='$accomodation', admin_id='$admin', package_image_id='$picture',number_person='$no_people' WHERE package_id='$package_id'" ;
 $retval = mysql_query( $sql, $conn );
 if(! $retval )
 {
@@ -101,7 +101,7 @@ $testing2=mysql_query($old_data);
 $testing3=mysql_query($old_data);
 $testing4=mysql_query($old_data);
 
-// $testing1=mysql_fetch_array($testing, MYSQL_ASSOC);
+var_dump($desc);
 
 mysql_close($conn);
 ?>
@@ -144,7 +144,7 @@ mysql_close($conn);
       <div class="box">
     <div class="heading">
           <h1>Packages</h1>
-        <form method="post" action="PackagesAdd.php"> 
+        <form method="post" action="PackagesUpdate.php"> 
           <div><a href="Packages.php" class="btn btn-default">Cancel</a></div>
           <div>                                
             <input name="update" type="submit" class="btn btn-default" id="update" value="Update">
@@ -172,11 +172,8 @@ mysql_close($conn);
             </tr>
 			       <tr>
                 <td>Description:</td>
-                <td>
-                  <textarea name="summernote" id="summernote" cols="30" rows="10">
-                    <?php  echo $row['description']; ?>
-                  </textarea>
-                </td>
+                <td><textarea name="desc" id="desc"><?php  echo $row['package_description']; ?></textarea></td>
+-              </tr>
             </tr>
             <tr>
               <td>Image:</td>
