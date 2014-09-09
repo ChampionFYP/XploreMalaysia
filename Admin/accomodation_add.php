@@ -85,11 +85,11 @@ if (!$select_db){
   <div class="fluid-container">
     <div id="navbar"></div>
     <div class="row">
-      <div class="col-sm-12 col-md-2"> 
+      <div class="col-sm-12 col-md-2" style="padding-right:0px;"> 
         <div id="sidebar"></div>
       </div>
       <div id="content" style="margin-left:16%;">
-      <div class="box">
+      <div class="box col-sm-12 col-md-10 pull-right" style="padding-left:0px;">
     <div class="heading">
     <form method="post" action="accomodation_add.php" enctype="multipart/form-data">
       <h1>Packages</h1>

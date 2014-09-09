@@ -61,10 +61,10 @@ if (isset($_POST['update_btn'])&&isset($_POST['acco_id']))
 	<div class="fluid-container">
 		<div id="navbar"></div>
 		<div class="row">
-			<div class="col-sm-12 col-md-2"> 
+			<div class="col-sm-12 col-md-2" style="padding-right:0px;"> 
 				<div id="sidebar"></div>
 			</div>
-			<div class="box col-sm-12 col-md-10 pull-right">
+			<div class="box col-sm-12 col-md-10 pull-right" style="padding-left:0px;">
 				<div class="heading">
 					<h1>Accommodation</h1>
 					<a href="accomodation_add.php" class="btn btn-default">Add</a>

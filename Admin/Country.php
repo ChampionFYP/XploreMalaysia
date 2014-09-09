@@ -54,10 +54,10 @@ mysql_close($conn);
 	<div class="fluid-container">
 		<div id="navbar"></div>
 		<div class="row">
-			<div class="col-sm-12 col-md-2"> 
+			<div class="col-sm-12 col-md-2" style="padding-right:0px;"> 
 				<div id="sidebar"></div>
 			</div>
-			<div class="box col-sm-12 col-md-10 pull-right">
+			<div class="box col-sm-12 col-md-10 pull-right" style="padding-left:0px;">
 				<div class="heading">
 					<h1>Country</h1>
 					<div class="btn btn-default">Add</div>

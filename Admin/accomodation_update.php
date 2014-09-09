@@ -106,7 +106,7 @@ mysql_close($conn);
 	while($row = mysql_fetch_array($data, MYSQL_ASSOC))
 	{ ?>
 <tr>
-                <td><span class="required">*</span> accomodation Name:</td>
+                <td><span class="required">*</span>Accomodation Name:</td>
                 <td><input type="text" id="name" name="name" size="100" value="<?php  echo $row['accomodation_name']; ?>"/>
                 </td>
               </tr>
