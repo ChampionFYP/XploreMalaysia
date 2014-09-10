@@ -66,21 +66,21 @@ $data_package1 = mysql_query( $package1);
     <div class="container">
     <form method="POST">
            <div class="reviewHeader Left">
-            <div class="pkg_info">
+            <div class="pkg_info" style="margin-right:-40%;">
+              <?php 
+                  while($row = mysql_fetch_array($data_package1, MYSQL_ASSOC))
+                  { ?> 
                 <div class="thumbnail">
                     <div class="sizedThumb" style="height: 60px; width: 60px">
                         <img src="http://admin.xploremalaysia.asia/photo/package/<?php echo $row['package_image_id'];?>"  class="photo_image" style="height: 60px; width: 60px;" width="60" height="60">
                     </div>
                 </div>
-                <?php 
-                  while($row = mysql_fetch_array($data_package1, MYSQL_ASSOC))
-                  { ?> 
 
 
                 <h2 style="color:#66a9bd;text-align:left; margin-left:80px; font-size:40px;">
                   <?php  echo $row['package_name']; ?>
                 </h2>
-                <?php } ?>s
+                <?php } ?>
             </div>
            </div>
            <div class="questionBlock">
