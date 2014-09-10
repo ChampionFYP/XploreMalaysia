@@ -21,6 +21,9 @@ if(empty($_SESSION['customer_id']))
 
 $package_id = $_SESSION['user_package_id'];
 
+$package1 = "SELECT * FROM package where package_id='$package_id'";
+$data_package1 = mysql_query( $package1);
+
 // If the values are posted, insert them into the database.
     if (isset($_POST['desc'])){
         $desc=$_POST['desc'];
@@ -69,9 +72,15 @@ $package_id = $_SESSION['user_package_id'];
                         <img src="http://admin.xploremalaysia.asia/photo/package/<?php echo $row['package_image_id'];?>"  class="photo_image" style="height: 60px; width: 60px;" width="60" height="60">
                     </div>
                 </div>
+                <?php 
+                  while($row = mysql_fetch_array($data_package1, MYSQL_ASSOC))
+                  { ?> 
+
+
                 <h2 style="color:#66a9bd;text-align:left; margin-left:80px; font-size:40px;">
-                  Package Name
+                  <?php  echo $row['package_name']; ?>
                 </h2>
+                <?php } ?>s
             </div>
            </div>
            <div class="questionBlock">
