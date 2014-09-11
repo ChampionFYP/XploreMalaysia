@@ -1,7 +1,7 @@
 <?php
 session_start();
 $dbhost = 'localhost';
-$dbuser = 'xplorema';
+$dbuser = 'xplorema_user';
 $dbpass = 'FYPchamp1!';
 
 $conn = mysql_connect($dbhost, $dbuser, $dbpass);

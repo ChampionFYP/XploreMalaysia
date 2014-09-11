@@ -7,7 +7,7 @@ if(empty($_SESSION['admin_id']))
 }
 
 $dbhost = 'localhost';
-$dbuser = 'xplorema';
+$dbuser = 'xplorema_user';
 $dbpass = 'FYPchamp1!';
 
 

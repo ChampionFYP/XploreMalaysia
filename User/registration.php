@@ -1,5 +1,5 @@
 <?php
-$connection = mysql_connect('localhost', 'xplorema', 'FYPchamp1!');
+$connection = mysql_connect('localhost', 'xplorema_user', 'FYPchamp1!');
 
 if (!$connection){
 

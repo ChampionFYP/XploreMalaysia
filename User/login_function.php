@@ -37,7 +37,7 @@ else
     /*** mysql hostname ***/
 
     $mysql_hostname = 'localhost';
-    $mysql_username = 'xplorema';
+    $mysql_username = 'xplorema_user';
     $mysql_password = 'FYPchamp1!';
     $mysql_dbname = 'xplorema_FYP';
    

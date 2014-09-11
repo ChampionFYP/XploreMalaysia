@@ -1,7 +1,7 @@
 <?php
 session_start();
 $dbhost = 'localhost';
-$dbuser = 'xplorema';
+$dbuser = 'xplorema_user';
 $dbpass = 'FYPchamp1!';
 
 $conn = mysql_connect($dbhost, $dbuser, $dbpass);
@@ -87,6 +87,7 @@ mysql_close($conn);
                   <div class="bd">
                       <ul class="uc-list">
                       <li><a href="SuccessfulBooking.php">Successful Bookings</a></li>
+                      <li><a href="PendingBooking.php">Pending Bookings</a></li>
                       <li class="current"><a href="CanceledBooking.php">Canceled Bookings</a></li>
                       </ul>
                   </div>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-$connection = mysql_connect('localhost', 'xplorema', 'FYPchamp1!');
+$connection = mysql_connect('localhost', 'xplorema_user', 'FYPchamp1!');
 
 if (!$connection){
 
@@ -26,7 +26,8 @@ $data_package1 = mysql_query( $package1);
 
 // If the values are posted, insert them into the database.
     if (isset($_POST['desc'])){
-        $desc=$_POST['desc'];
+        $desc=strip_tags($_POST['desc']);
+
         $customer_id=$_SESSION['customer_id'];     
         $query = "INSERT INTO review SET review = '$desc',customer_id = '$customer_id',package_id = '$package_id'";
         mysql_query($query);

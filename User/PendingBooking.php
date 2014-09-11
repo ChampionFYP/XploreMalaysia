@@ -13,7 +13,7 @@ if(! $conn )
 $customer_id=$_SESSION['customer_id'];
 mysql_select_db('xplorema_FYP');
 
-$payment = "SELECT * FROM payment INNER JOIN booking ON payment.booking_id=booking.booking_id INNER JOIN package ON payment.package_id=package.package_id INNER JOIN status ON payment.status=status.status_id WHERE payment.customer_id='$customer_id' AND payment.status='5'";
+$payment = "SELECT * FROM payment INNER JOIN booking ON payment.booking_id=booking.booking_id INNER JOIN package ON payment.package_id=package.package_id INNER JOIN status ON payment.status=status.status_id WHERE payment.customer_id='$customer_id' AND payment.status='3'";
 $payment_data = mysql_query( $payment, $conn );
 
 

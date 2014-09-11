@@ -9,7 +9,7 @@ if(empty($_SESSION['customer_id']))
 }
 
 $dbhost = 'localhost';
-$dbuser = 'xplorema';
+$dbuser = 'xplorema_user';
 $dbpass = 'FYPchamp1!';
 $message="";
 $customer_id=$_SESSION['customer_id'];
@@ -84,6 +84,7 @@ mysql_close($conn);
                   <div class="bd">
                       <ul class="uc-list">
                       <li><a href="SuccessfulBooking.php">Successful Bookings</a></li>
+                      <li><a href="PendingBooking.php">Pending Bookings</a></li>
                       <li><a href="CanceledBooking.php">Canceled Bookings</a></li>
                       </ul>
                   </div>

@@ -2,7 +2,7 @@
 session_start();
 
 $dbhost = 'localhost';
-$dbuser = 'xplorema';
+$dbuser = 'xplorema_user';
 $dbpass = 'FYPchamp1!';
 $message="";
 $customer_id=$_SESSION['customer_id'];

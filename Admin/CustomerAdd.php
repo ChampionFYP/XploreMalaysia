@@ -8,7 +8,7 @@ if(empty($_SESSION['admin_id']))
     header('Location: '. dirname(__folder__) .'/index.php');
 }
 
-$connection = mysql_connect('localhost', 'xplorema', 'FYPchamp1!');
+$connection = mysql_connect('localhost', 'xplorema_user', 'FYPchamp1!');
 
 if (!$connection){
 
