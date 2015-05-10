@@ -1,0 +1,678 @@
+/* Inner View Details */
+
+.details_leftPenn{
+width:230px;
+height: auto;
+margin-bottom:5px;
+float:left;
+border:1px solid #c9c9c9;
+}
+
+.details_leftPenn_bdr{
+margin-top:3px;
+margin-left:auto;
+margin-right: auto;
+background-color:#3d3e40;
+width:220px;
+height:30px;
+}
+
+.details_leftPenn_list{
+margin-left:auto;
+margin-right: auto;
+background-color:#e2f4ff;
+width:220px;
+height: auto;
+margin-bottom:4px;
+border-bottom:1px solid #FFFFFF;
+}
+
+.summary_left{
+margin-left:auto;
+margin-right: auto;
+width:200px;
+height: auto;
+font-family:Arial, Helvetica, sans-serif;
+font-weight: normal;
+font-size:12px;
+color: #000000;
+padding:6px 0 0 2px;
+text-align:left;
+}
+
+.bold{
+font-weight: bold;
+}
+
+
+.tab_bdr{
+width:710px;
+border:1px solid #c9c9c9;
+height: auto;
+float:left;
+border-top-left-radius:1em;
+border-bottom-right-radius:1em;
+}
+
+.tab_inside{
+margin:5px;
+width:705px;
+height: auto;
+float:left;
+}
+
+.frame_welcome{
+padding:5px 0 5px 0px;
+font-weight: bold;
+color: #718e0b;
+font: bold 20px "Lucida Grande", "Trebuchet MS", Verdana, Helvetica, sans-serif;
+}
+
+.box2_line{
+border-top:1px dotted #666262;
+height:1px;
+margin:8px 0 8px 0px;
+}
+
+.inner_txt{
+font-family:Arial, Helvetica, sans-serif;
+font-size:12px;
+font-weight: normal;
+color: #666262;
+text-align: justify;
+}
+
+.inner_txt2{
+padding:10px;
+font-family:Arial, Helvetica, sans-serif;
+font-size:12px;
+font-weight: normal;
+color: #666262;
+text-align: justify;
+float:left;
+}
+
+.inner_txt3{
+font-family:Arial, Helvetica, sans-serif;
+font-size:12px;
+font-weight: normal;
+color: #666262;
+text-align: justify;
+float:left;
+}
+
+.frame_heading {
+color: #0671c1;
+font-size:15px;
+font-weight:bold;
+text-decoration: none;
+}
+
+.leftPennl_txt{
+font-family:Arial, Helvetica, sans-serif;
+font-weight: bold;
+font-size:12px;
+color: #FFFFFF;
+padding:6px 0 0 12px;
+float: left;
+}
+
+/* form*/
+
+.form_box{
+width:295px;
+height: auto;
+float:left;
+}
+
+.form_bg{
+background-image:url(../images/b2c/form_topDesign.jpg);
+width:295px;
+height:37px;
+
+}
+
+.form_bdr1{
+border-left:1px solid #C9C9C9;
+border-bottom:1px solid #C9C9C9;
+border-right:1px solid #C9C9C9;
+width:293px;
+height:auto;
+}
+
+
+.txt_name{
+font-family:Arial, Helvetica, sans-serif;
+font-size:12px;
+font-weight:bold;
+color:#060606;
+padding:0px 0px 5px 5px;
+}
+.txt_ctl{
+font-family:Arial, Helvetica, sans-serif;
+font-size:11px;
+font-weight:normal;
+color:#060606;
+}
+
+.txt_box{
+border:#7f9db9 1px solid;
+background-color: #FFFFFF;
+width:180px;
+height:18px;
+font-family:Arial, Helvetica, sans-serif;
+font-size:11px;
+font-weight:normal;
+color:#082746;
+margin:0 5px 5px 0px;
+}
+
+.drop_box{
+border:#7f9db9 1px solid;
+background-color: #FFFFFF;
+width:181px;
+height:20px;
+font-family:Arial, Helvetica, sans-serif;
+font-size:11px;
+font-weight:normal;
+color:#082746;
+margin:0 5px 5px 0px;
+}
+
+
+.no_box{
+border:#7f9db9 1px solid;
+background-color: #FFFFFF;
+width:48px;
+height:20px;
+font-family:Arial, Helvetica, sans-serif;
+font-size:11px;
+font-weight:normal;
+color:#082746;
+margin:0 5px 5px 0px;
+}
+
+
+.check_box{
+border:#7f9db9 1px solid;
+background-color: #FFFFFF;
+width:150px;
+height:18px;
+font-family:Arial, Helvetica, sans-serif;
+font-size:11px;
+font-weight:normal;
+color:#082746;
+margin:0 5px 5px 0px;
+}
+
+
+.submit {
+border:none;
+margin: 0 0 0 0px;
+background-image:url(../images/b2c/search_btn.jpg);
+width:114px;
+height:28px;
+font-family:Arial, Helvetica, sans-serif;
+font-size:12px;
+color:#FFFFFF;
+font-weight: normal;
+text-align:center;
+}
+
+
+.red {
+color:#FF0000;
+}
+
+
+.process{
+font: bold 20px "Lucida Grande", "Trebuchet MS", Verdana, Helvetica, sans-serif;
+color:#3053c4;
+padding:7px 0 10px 10px;
+}
+
+.req{
+font: normal 14px "Lucida Grande", "Trebuchet MS", Verdana, Helvetica, sans-serif;
+color:#363636;
+}
+
+/* inner Form*/
+.leftinner_form{
+margin-left:auto;
+margin-right: auto;
+margin-bottom:3px;
+background-color:#e2f4ff;
+width:220px;
+height: auto;
+border-bottom:1px solid #FFFFFF;
+}
+
+.innerdrop_box{
+border:#7f9db9 1px solid;
+background-color: #FFFFFF;
+width:160px;
+height:20px;
+font-family:Arial, Helvetica, sans-serif;
+font-size:11px;
+font-weight:normal;
+color:#082746;
+margin:0 5px 5px 0px;
+}
+
+.inner_submit{
+border: none;
+background: #E3536C;
+width:149px;
+height:27px;
+margin:0 5px 5px 0px;
+border-radius:15px;
+font-family:Arial, Helvetica, sans-serif;
+color:#FFFFFF;
+font-size:12px;
+font-weight:bold;
+text-align: center;
+padding:0px 0 0 0px;
+}
+
+.inner_submitg {
+    background: url("../images/b2c/loginbg.jpg") repeat scroll 0 0 transparent;
+    border: medium none;
+    border-radius: 15px 15px 15px 15px;
+    color: #FFFFFF;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    height: 24px;
+    margin: 0 5px 8px 0;
+    padding: 0;
+    text-align: center;
+    width: 85px;
+}
+
+
+
+
+/* home_page */
+
+.white{
+background-color:#FFFFFF;
+height: auto;
+-moz-box-shadow: 1px 2px 6px #000000;
+-webkit-box-shadow: 1px 2px 6px #000000;
+box-shadow: 1px 2px 6px #000000;
+}
+
+.top_linkbox{
+width:510px;
+height:28px;
+float: right;
+margin-right:19px;
+}
+
+.top_link{
+padding:4px 0px 0 0px;
+font-family:Arial, Helvetica, sans-serif;
+font-weight: bold;
+font-size:12px;
+color: #000000;
+text-align: right;
+text-decoration: none;
+}
+
+.top_link a:hover {
+color:#d0802d;
+text-decoration: none;
+}
+
+.green_box {
+    background-color: #AFE201;
+    float: left;
+    height: 25px;
+    margin: 3px 0;
+    width: 296px;
+}
+
+
+
+.green_txt{
+color: #000000;
+    float: left;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 3px 0 0 5px;
+    text-decoration: none;
+}
+
+.green_txt a:hover {
+color: #3d3e40;
+text-decoration: none;
+}
+
+
+
+.body_leftPennl{
+width:230px;
+height: auto;
+margin-bottom:5px;
+float:left;
+border:1px solid #c9c9c9;
+}
+
+.leftPennl_bdr{
+margin-top:3px;
+margin-left:auto;
+margin-right: auto;
+background-color:#3d3e40;
+width:220px;
+height:27px;
+}
+
+.leftPennl_bdrhome{
+margin-top:3px;
+margin-left:auto;
+margin-right: auto;
+background-color:#3d3e40;
+width:286px;
+height:27px;
+}
+
+.body_leftPennlhome{
+width:293px;
+height: auto;
+margin-bottom:5px;
+float:left;
+border:1px solid #c9c9c9;
+}
+
+.leftPennl_bdr_main{
+margin-top:3px;
+margin-left:auto;
+margin-right: auto;
+background-color:#3d3e40;
+width:286px;
+height:30px;
+}
+
+
+.leftPennl_txt{
+font-family:Arial, Helvetica, sans-serif;
+font-weight: bold;
+font-size:12px;
+color: #FFFFFF;
+padding:6px 0 0 12px;
+float: left;
+}
+
+
+
+.leftPennl_country{
+margin-left:auto;
+margin-right: auto;
+background-color:#e2f4ff;
+width:286px;
+height:35px;
+border-bottom:1px solid #FFFFFF;
+}
+
+.country_img{
+width:54px;
+height:25px;
+margin:3px;
+float: left;
+}
+
+.holidays_txt{
+width:86px;
+font-family:Arial, Helvetica, sans-serif;
+font-weight: normal;
+font-size:12px;
+color: #000000;
+padding:2px 0 0 2px;
+float: left;
+text-decoration: underline;
+}
+
+.holidays_txt a:hover {
+color:#648003;
+text-decoration: none;
+}
+
+
+
+
+.special_Pennlbox{
+width:301px;
+height: auto;
+margin:0 1px 5px 0px;
+float:left;
+}
+
+.special_Pennl{
+margin-top:3px;
+margin-left:auto;
+margin-right: auto;
+background-color:#b0e200;
+width:301px;
+height:25px;
+float:left;
+}
+
+.special_heading{
+font-family:Arial, Helvetica, sans-serif;
+font-weight: bold;
+font-size:12px;
+color: #000000;
+padding:6px 0 0 5px;
+float: left;
+text-decoration:none;
+}
+
+.img_box1{
+margin:0 0 5px 0px;
+width:301px;
+height: auto;
+float: left;
+text-decoration:none;
+}
+
+
+.special_img{
+width:93px;
+height:56px;
+margin:6px 10px 0 0px;
+float: left;
+}
+
+
+
+
+
+.special_txt{
+width:185px;
+height:auto;
+font-family:Arial, Helvetica, sans-serif;
+font-weight: normal;
+font-size:12px;
+color: #000000;
+padding:6px 10px 0 2px;
+text-decoration:none;
+float:left;
+}
+
+.special_bold {
+color: #000000;
+font-weight:bold;
+text-decoration: underline;
+}
+
+.special_bold a:hover {
+color:#648003;
+text-decoration: underline;
+}
+
+
+
+
+
+.hotel_Pennlbox{
+width:173px;
+height: auto;
+margin:0 1px 5px 0px;
+float:left;
+}
+
+.hotel_Pennl{
+margin-top:3px;
+margin-left:auto;
+margin-right: auto;
+background-color:#b0e200;
+width:173px;
+height:25px;
+float:left;
+}
+
+.hotel_heading{
+font-family:Arial, Helvetica, sans-serif;
+font-weight: bold;
+font-size:12px;
+color: #000000;
+padding:6px 0 0 5px;
+float: left;
+text-decoration:none;
+}
+
+.hotel_box1{
+margin:0 0 5px 0px;
+width:173px;
+height: auto;
+float: left;
+text-decoration:none;
+}
+
+
+
+.hotel_img {
+    float: left;
+    height: 62px;
+    margin: 2px 7px 3px 5px;
+    width: 90px;
+}
+
+
+.hotel_txt {
+    color: #000000;
+    float: left;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    height: auto;
+    padding: 3px 3px 0 1px;
+    text-decoration: none;
+    width: 40px;
+}
+
+.hotel_bold {
+color: #2d84b9;
+font-weight:bold;
+text-decoration: none;
+}
+
+.hotel_bold a:hover {
+color:#648003;
+text-decoration: underline;
+}
+
+.hotel_bold2 {
+color: #E3536C;
+font-weight:bold;
+text-decoration: none;
+}
+
+.hotel_txt2{
+color: #3a772f;
+}
+
+
+.holiday_Pennlbox{
+width:176px;
+height: auto;
+margin:0 1px 5px 0px;
+float:left;
+}
+
+
+.holiday_Pennl{
+margin-top:3px;
+margin-left:auto;
+margin-right: auto;
+background-color:#b0e200;
+width:176px;
+height:25px;
+float:left;
+}
+
+.holiday_Pennl_bg{
+background-color:#e2f4ff;
+width:176px;
+height:20px;
+border-bottom:1px solid #FFFFFF;
+float:left;
+}
+
+
+.country_txt{
+font-family:Arial, Helvetica, sans-serif;
+font-weight: bold;
+font-size:12px;
+color: #000000;
+padding:6px 0 0 2px;
+float: left;
+text-decoration: none;
+}
+
+.country_txt a:hover {
+color:#648003;
+text-decoration: none;
+}
+
+
+.gray_bdr{
+background-color:#3d3e40;
+height:25px;
+margin:0 0 10px 0px;
+}
+
+
+
+.why{
+width:319px;
+height: auto;
+margin:0 7px 3px 0px;
+float:left;
+}
+
+
+.why_Pennlbox{
+background-color:#b0e200;
+width:319px;
+height:25px;
+margin:0 1px 7px 0px;
+border-top-left-radius:1em;
+border-top-right-radius:1em;
+float:left;
+}
+
+.why_bdr{
+margin:0 1px 3px 0px;
+width:300px;
+border:1px solid #e0e0e0;
+height:162px;
+float:left;
+font-family:Arial, Helvetica, sans-serif;
+font-weight: normal;
+font-size:12px;
+color: #6c6c6c;
+padding:6px 7px 0 10px;
+text-decoration: none;
+}

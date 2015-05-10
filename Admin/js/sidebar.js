@@ -124,7 +124,7 @@ var App = function () {
       
       /*Bind plugins on hidden elements*/
       if(config.hiddenElements){
-        /*Dropdown shown event*/
+      	/*Dropdown shown event*/
         $('.dropdown').on('shown.bs.dropdown', function () {
           $(".nscroller").nanoScroller();
         });

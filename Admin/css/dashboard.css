@@ -1,0 +1,32 @@
+.dash-heading {	
+	background: #137fde;
+	color: #fff;
+	border-bottom: 0px solid #8EAEC3;
+	padding: 10px;
+	padding-left:15px;
+	font-size: 14px;
+	font-weight: normal;
+	border-radius: 5px 5px 0px 0px;
+	margin: 0px 8px;
+}
+.dash-content {
+	background: #FCFCFC;
+	border: 1px solid #137fde;
+	padding: 10px;
+	min-height: 180px;
+	margin: 0px 8px;
+}
+
+#dash_notification>.dash-content>div{
+	text-align: left!important;
+	padding: 7px 0px 8px 60px!important;
+	background-color: #ffffcc!important;
+	border: 1px solid #F2DD8C!important;
+	margin-bottom:5px!important;
+	color:#555!important;
+	-webkit-border-radius: 5px 5px 5px 5px!important;
+	-moz-border-radius: 5px 5px 5px 5px!important;
+	-khtml-border-radius: 5px 5px 5px 5px!important;
+	border-radius: 5px 5px 5px 5px!important;
+	cursor:pointer!important;
+}

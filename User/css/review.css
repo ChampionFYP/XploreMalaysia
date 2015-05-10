@@ -1,0 +1,84 @@
+.reviewHeader{
+	display:inline-block;
+	height:100%;
+}
+.reviewHeader.Left{
+	width:70%;
+	float:left;
+}
+
+.pkg_info {
+float: left;
+}
+
+.thumbnail {
+	float: left;
+	height: 60px;
+	margin-right: 14px;
+	width: 60px;
+}
+
+.sizedThumb {
+	overflow: hidden;
+}
+
+.pkg_name {
+margin: 8px 0 0 14px;
+}
+
+.questionBlock {
+border-top: 1px solid #E6E6E6;
+clear: both;
+height: 100%;
+overflow: hidden;
+padding-top: 20px;
+}
+
+.question {
+clear: both;
+height: 100%;
+margin-bottom: 17px;
+overflow: hidden;
+}
+
+.labelAndInput{
+	padding-left:10%;
+}
+
+.labelAndInput label {
+color: #4A4A4A;
+display: block;
+font-size: 1.25em;
+font-weight: bold;
+margin-bottom: 7px;
+float: left;
+}
+
+.labelAndInput #CHAR_MIN {
+color: #656565;
+float: right;
+font-size: .8em;
+font-weight: normal;
+margin-right: 2px;
+}
+
+#ReviewText {
+font-family: Arial,Tahoma,"Bitstream Vera Sans",sans-serif;
+height: 140px;
+resize: none;
+width: 618px;
+}
+
+input.text {
+margin-right: 2px;
+padding: 2px;
+border: 1px solid #c8c8c8;
+background-color: #fff;
+}
+
+textarea {
+color: #2C2C2C;
+font-size: 1.167em;
+border: 1px solid #C8C8C8;
+padding: 2px;
+}

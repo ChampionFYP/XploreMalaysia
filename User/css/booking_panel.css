@@ -1,0 +1,69 @@
+.booking_bigtable{
+	width:100%;
+	border:1px solid #e1e1e1;
+	margin-bottom:20px;
+	color:#333;
+}
+.booking_bigtable thead th{
+	height:50px;
+	line-height:50px;
+	padding:0 20px;
+	background-color:#EDF7F8;
+	color:#777;
+	text-align:left;
+}
+.booking_bigtable tbody a{
+	display:block;
+}
+.booking_bigtable .booking-num{
+	margin-right:10px;
+	font-size:16px;
+	font-weight:bold;
+}
+.booking_bigtable .booking-num a{
+	color:#777;
+}
+.booking_bigtable .datetime{
+	font-weight:normal;
+}
+.booking_bigtable .btd1,.booking_bigtable .price,.booking_bigtable .details{
+	border:1px solid #e1e1e1;
+}
+.booking_bigtable .btd1{
+	width:487px;
+}
+.booking_bigtable .price,.booking_bigtable .details{
+	width:100px;
+	padding:20px 10px;
+	text-align:center;
+	vertical-align:top;
+}
+.booking_smtable{
+	width:100%;
+	margin-left:-1px;
+}
+.booking_smtable td{
+	padding:20px 10px;
+	border-left:1px solid #e1e1e1;
+}
+.booking_smtable .std1{
+	width:300px
+}
+.booking_smtable .booking_status,.booking_smtable .std3{
+	width:90px;
+	padding:20px 10px;
+	text-align:center;
+	vertical-align:top;
+}
+.booking_smtable .divorder{
+	min-height:60px;
+}
+.booking_smtable .mimg{
+	float:left;
+	margin-left:10px;
+}
+.booking_smtable .mimg img{
+	width:60px;
+	height:60px;
+}
+
